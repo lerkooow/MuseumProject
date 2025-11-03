@@ -1,0 +1,29 @@
+:root {
+  /* Светлые */
+  --color-warm-white: #fefaf6;
+  --color-warm-beige: #e4ddcb;
+
+  /* Бежевые оттенки */
+  --color-beige-100: #e2dad2;
+  --color-beige-200: #cfc3b7;
+  --color-beige-300: #9b8c87;
+  --color-beige-300-50: #9b8c8780; /* 50% прозрачности */
+
+  /* Коричневые оттенки */
+  --color-brown-100: #5e524e;
+  --color-brown-200: #3b322f;
+  --color-brown-300: #2d2421;
+  --color-warm-brown: #513e38;
+
+  /* Акценты */
+  --color-orange: #f58732;
+}
+
+/* Шрифты */
+@font-face {
+  font-family: "Gotham Pro";
+  src: url("../assets/fonts/GothamPro/gothampro.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
