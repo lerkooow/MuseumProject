@@ -1,5 +1,5 @@
 function loadButton(targetId, classes = []) {
-    fetch("button.html")
+    fetch("../components/button.html")
         .then((response) => response.text())
         .then((data) => {
             const container = document.getElementById(targetId);

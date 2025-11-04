@@ -1,4 +1,4 @@
-fetch("dropdown.html")
+fetch("../components/dropdown.html")
     .then((response) => response.text())
     .then((data) => {
 
