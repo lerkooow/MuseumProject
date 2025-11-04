@@ -1,0 +1,73 @@
+function createCard(data) {
+    return `
+        <a class="card ${data.theme}" href="${data.url || '#'}">
+            <div class="card__container">
+                <div class="card__header">
+                    <img src="../assets/icons/lines_long.svg" alt="lines" />
+                    <h2 class="card__title">${data.title}</h2>
+                    <p class="card__subtitle">${data.subtitle}</p>
+                </div>
+                <div class="card__image">
+                    <img src="${data.image}" alt="${data.title}">
+                </div>
+                <div class="card__footer">
+                    <p class="${data.title === "Событие" ? "card__description--event" : "card__description"}">${data.description}</p>
+                    ${data.date ? `<p class="card__date">${data.date}</p>` : ''}
+                </div>
+            </div>
+        </a>
+    `;
+}
+
+function loadCards(cardsData) {
+    const container = document.getElementById("cardsContainer");
+    if (!container || !cardsData || cardsData.length === 0) return;
+
+    container.innerHTML = cardsData.map(createCard).join("");
+    initSlider();
+}
+
+function initSlider() {
+    const slider = document.getElementById("cardsSlider");
+    if (!slider) return;
+
+    let startX = 0;
+    let isDragging = false;
+    let scrollStart = 0;
+
+    slider.addEventListener('touchstart', e => {
+        startX = e.touches[0].clientX;
+    }, { passive: true });
+
+    slider.addEventListener('touchmove', e => {
+        if (!startX) return;
+        const diff = startX - e.touches[0].clientX;
+        slider.scrollLeft += diff * 0.8;
+        startX = e.touches[0].clientX;
+    }, { passive: true });
+
+    slider.addEventListener('touchend', () => startX = 0);
+
+    slider.addEventListener('mousedown', e => {
+        isDragging = true;
+        scrollStart = slider.scrollLeft;
+        startX = e.pageX;
+        e.preventDefault();
+    });
+
+    slider.addEventListener('mousemove', e => {
+        if (!isDragging) return;
+        const walk = (e.pageX - startX) * 2;
+        slider.scrollLeft = scrollStart - walk;
+    });
+
+    slider.addEventListener('mouseup', () => {
+        isDragging = false;
+    });
+
+    slider.addEventListener('mouseleave', () => {
+        isDragging = false;
+    });
+
+    slider.style.userSelect = 'none';
+}

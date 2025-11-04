@@ -7,16 +7,75 @@
     <link rel="stylesheet" href="../styles/style.css" />
   </head>
   <body>
-    <div id="menu-container"></div>
-    <!-- <div id="button-container"></div>
-    <div id="dropdown-container"></div> -->
+    <main class="main">
+      <div id="menu-container"></div>
+      <div class="main__welcome">
+        <h1 class="main__title">
+          Музей истории<br />
+          объединённых<br />
+          бумажных<br />
+          фабрик
+        </h1>
+        <div class="main__note">
+          <div class="main__quote">
+            <img src="/src/assets/icons/quote_top.svg" alt="quote" class="main__quote--top" />
+            <p>
+              Наш музей — не про стены<br />
+              Он про людей, которые делали<br />
+              невозможное каждый день
+            </p>
+            <img src="/src/assets/icons/quote_down.svg" alt="quote" class="main__quote--down" />
+          </div>
+          <p class="main__author">
+            — Н. И. Савельев,<br />
+            первый директор<br />
+            Сухонского КБК
+          </p>
+        </div>
+      </div>
+      <div class="cards__wrapper">
+        <div class="cards__slider" id="cardsSlider">
+          <div class="cards__slider_container" id="cardsContainer"></div>
+        </div>
+      </div>
+    </main>
 
     <script src="../scripts/loadMenu.js"></script>
-    <!-- <script src="../scripts/loadDropdown.js"></script>
-    <script src="../scripts/loadButton.js"></script> -->
+    <script src="../scripts/loadCards.js"></script>
+    <script>
+      const cardsData = [
+        {
+          title: "Фабрики",
+          subtitle: "10 предприятий",
+          image: "../assets/images/factories.jpg",
+          description: "Столетия труда, технологический прогресс и награды",
+          theme: "theme-beige",
+          date: "",
+          url: "#factories",
+        },
+        {
+          title: "Люди",
+          subtitle: "Верившие в историю",
+          image: "../assets/images/people.jpg",
+          description: "Становление, вклад в развитие и семейные традиции",
+          theme: "theme-warm-white",
+          date: "",
+          url: "#people",
+        },
+        {
+          title: "Событие",
+          subtitle: "В этот день в истории",
+          image: "../assets/images/event.jpg",
+          description: "Пуск новой линии\n на Сухонском картонно-\nбумажном комбинате",
+          theme: "theme-warm-beige",
+          date: "2 июля 1974 года ",
+          url: "#event",
+        },
+      ];
 
-    <!-- <script>
-      loadButton("button-container", ["right", "brown"]);
-    </script> -->
+      document.addEventListener("DOMContentLoaded", function () {
+        loadCards(cardsData);
+      });
+    </script>
   </body>
 </html>

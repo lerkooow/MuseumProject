@@ -1,0 +1,162 @@
+.menu {
+  background-color: var(--color-brown-300);
+  border-radius: 8px;
+  max-width: fit-content;
+  height: calc(100vh - 32px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 20px;
+  justify-content: space-between;
+  color: var(--color-beige-100);
+  font-size: 1.6rem;
+  text-transform: uppercase;
+
+  &__logo {
+    max-width: 100%;
+    height: auto;
+
+    &--mobile {
+      display: none;
+    }
+  }
+
+  &__toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  &__burger--mobile,
+  &__cross--mobile {
+    display: none;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+
+    &--mobile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      color: var(--color-beige-100);
+      text-transform: uppercase;
+
+      a {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  &__nav--mobile {
+    display: none;
+    position: fixed;
+    top: -100%;
+    width: 100%;
+    background-color: var(--color-brown-300);
+    padding: 24px 16px;
+    transition: top 0.5s ease;
+    z-index: 3;
+
+    &.active {
+      top: 48px;
+    }
+  }
+
+  &__search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 30px;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    p {
+      cursor: pointer;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: var(--color-beige-300);
+      }
+    }
+  }
+}
+
+.nav__link {
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: var(--color-beige-300);
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    max-width: 100%;
+    max-height: 48px;
+    border-radius: 0;
+    padding: 8px 16px;
+    z-index: 2;
+
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__logo {
+      display: none;
+
+      &--mobile {
+        display: block;
+      }
+    }
+
+    &__toggle {
+      display: block;
+    }
+
+    &__burger--mobile,
+    &__cross--mobile {
+      display: block;
+    }
+
+    &__nav {
+      display: none;
+    }
+
+    &__nav--mobile {
+      display: block;
+    }
+
+    &__footer {
+      display: none;
+    }
+
+    &__search {
+      margin: 6px 0 0 0;
+
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+}

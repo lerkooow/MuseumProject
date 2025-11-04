@@ -1,0 +1,92 @@
+.dropdown {
+  width: 100%;
+  max-width: 230px;
+
+  &__button {
+    width: 100%;
+    padding: 15px 20px;
+    background: var(--color-brown-300);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+
+  &__button-text {
+    color: var(--color-beige-100);
+    font-size: 1.6rem;
+  }
+
+  &__icon {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+
+    img {
+      width: 100%;
+      height: 100%;
+      rotate: 90deg;
+    }
+  }
+
+  &__content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    background: var(--color-brown-300);
+    border-radius: 8px;
+  }
+
+  &__divider {
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 24px;
+  }
+
+  &__list {
+    max-height: 120px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 16px 20px;
+
+    // Стили для скроллбара
+    &::-webkit-scrollbar {
+      width: 4px;
+      min-height: 4px;
+      margin-right: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: var(--color-brown-100);
+      border-radius: 2px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--color-brown-200);
+      border-radius: 2px;
+    }
+  }
+
+  &__item {
+    color: var(--color-beige-100);
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  // Состояние открытого dropdown
+  &_opened {
+    .dropdown__icon {
+      transform: rotate(180deg);
+    }
+
+    .dropdown__content {
+      max-height: 152px;
+    }
+  }
+}
