@@ -1,6 +1,7 @@
 .dropdown {
   width: 100%;
-  max-width: 230px;
+  min-width: 220px;
+  position: relative;
 
   &__button {
     width: 100%;
@@ -13,11 +14,29 @@
     justify-content: space-between;
     align-items: center;
     transition: all 0.3s ease;
+    gap: 12px;
+
+    span {
+      color: var(--color-beige-100);
+      font-size: 1.6rem;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 
   &__button-text {
     color: var(--color-beige-100);
     font-size: 1.6rem;
+  }
+
+  &__arrow {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+    transform: rotate(90deg);
   }
 
   &__icon {
@@ -33,11 +52,15 @@
   }
 
   &__content {
+    position: absolute;
+    left: 0;
+    right: 0;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease;
-    background: var(--color-brown-300);
-    border-radius: 8px;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    border-radius: 0 0 8px 8px;
+    opacity: 0;
+    z-index: 100;
   }
 
   &__divider {
@@ -54,7 +77,6 @@
     gap: 16px;
     margin: 16px 20px;
 
-    // Стили для скроллбара
     &::-webkit-scrollbar {
       width: 4px;
       min-height: 4px;
@@ -77,16 +99,81 @@
     font-size: 1.6rem;
     cursor: pointer;
     transition: all 0.2s ease;
+    padding: 8px 12px;
+    border-radius: 4px;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--color-beige-300);
+    }
   }
 
-  // Состояние открытого dropdown
+  &--active {
+    .dropdown__arrow {
+      transform: rotate(-90deg);
+    }
+
+    .dropdown__menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+
   &_opened {
+    .dropdown__button {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
     .dropdown__icon {
       transform: rotate(180deg);
     }
 
     .dropdown__content {
-      max-height: 152px;
+      max-height: 200px;
+      opacity: 1;
+    }
+  }
+
+  &--beige {
+    .dropdown__button {
+      background: var(--color-beige-200);
+
+      span {
+        color: var(--color-brown-300);
+      }
+    }
+
+    .dropdown__content {
+      background: var(--color-beige-200);
+    }
+
+    .dropdown__item {
+      color: var(--color-brown-300);
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.05);
+        color: var(--color-brown-200);
+      }
+    }
+
+    .dropdown__divider {
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    .dropdown__icon img {
+      filter: brightness(0.5);
+    }
+  }
+
+  &--brown {
+    .dropdown__button {
+      background: var(--color-brown-300);
+    }
+
+    .dropdown__content {
+      background: var(--color-brown-300);
     }
   }
 }

@@ -106,10 +106,18 @@
 
 .nav__link {
   transition: color 0.3s ease;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 
   &:hover {
     color: var(--color-beige-300);
   }
+}
+
+.nav__item--active .nav__link-active {
+  display: block;
 }
 
 .hidden {

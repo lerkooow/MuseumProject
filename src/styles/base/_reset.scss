@@ -16,6 +16,7 @@ html {
   line-height: 1.2;
   margin: 0;
   padding: 0;
+  padding: 16px;
 }
 
 body {
@@ -28,6 +29,7 @@ body {
   margin: 0;
   padding: 0;
   position: relative;
+  background-color: var(--color-brown-200);
 
   &::before {
     content: "";
