@@ -1,0 +1,200 @@
+.history {
+  width: 100%;
+  flex-direction: column;
+  display: flex;
+  align-items: flex-end;
+  margin-top: 220px;
+  padding-left: 10.9375vw;
+
+  &__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+  }
+
+  &__title {
+    font-size: 3.6rem;
+    color: var(--color-beige-100);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+
+  &__controls {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__arrow {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    transition: transform 0.3s ease;
+
+    img {
+      width: 32px;
+      height: 32px;
+      display: block;
+    }
+
+    &--prev {
+      img {
+        transform: rotate(180deg);
+      }
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__slider {
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+  }
+
+  &__slider-container {
+    display: flex;
+    gap: 16px;
+    transition: transform 0.5s ease;
+    width: calc(100% - 16px);
+  }
+}
+
+.history-card {
+  flex: 0 0 50%;
+  border-radius: clamp(4px, 0.42vw, 8px);
+  padding: clamp(2px, 0.21vw, 4px);
+  display: flex;
+  gap: clamp(12px, 1.25vw, 24px);
+  justify-content: space-between;
+  position: relative;
+  align-items: flex-end;
+  min-height: clamp(307px, 31.98vw, 614px);
+
+  &.theme-beige {
+    background-image: url("../assets/icons/folder_beige.svg");
+  }
+
+  &.theme-warm-white {
+    background-image: url("../assets/icons/folder_warm.svg");
+  }
+
+  &__logo {
+    width: clamp(20px, 2.08vw, 40px);
+    height: clamp(20px, 2.08vw, 40px);
+    position: absolute;
+    top: clamp(12px, 1.25vw, 24px);
+    left: clamp(12px, 1.25vw, 24px);
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(8px, 0.83vw, 16px);
+  }
+
+  &__title-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: clamp(8px, 0.83vw, 16px);
+
+    img {
+      width: clamp(14px, 0.94vw, 18px);
+      height: clamp(14px, 0.94vw, 18px);
+    }
+  }
+
+  &__title {
+    font-size: clamp(1.6rem, 1.35vw, 2.6rem);
+    line-height: 1.1;
+    color: var(--color-brown-300);
+    font-weight: 600;
+    padding-left: clamp(10px, 1.04vw, 20px);
+  }
+
+  &__arrow {
+    width: clamp(16px, 1.25vw, 24px);
+    height: clamp(16px, 1.25vw, 24px);
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+    margin: 0 0 clamp(32px, 3.33vw, 64px) clamp(10px, 1.04vw, 20px);
+  }
+
+  &:hover &__arrow {
+    transform: translateX(4px);
+  }
+
+  &__content {
+    display: flex;
+    gap: clamp(10px, 1.04vw, 20px);
+    min-height: clamp(156px, 16.25vw, 312px);
+    border-radius: clamp(3px, 0.31vw, 6px);
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: clamp(4px, 0.42vw, 8px);
+      border: clamp(1px, 0.1vw, 2px) solid var(--color-brown-100);
+      pointer-events: none;
+      z-index: 1;
+      border-radius: clamp(2px, 0.21vw, 4px);
+    }
+  }
+
+  &__year-block {
+    background-color: var(--color-brown-300);
+    border-radius: clamp(2px, 0.21vw, 4px);
+    padding: clamp(10px, 1.04vw, 20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-width: clamp(94px, 9.79vw, 188px);
+  }
+
+  &__year-label {
+    font-size: clamp(1.2rem, 0.83vw, 1.6rem);
+    color: var(--color-beige-100);
+    margin-bottom: clamp(8px, 0.83vw, 16px);
+    line-height: 1.2;
+  }
+
+  &__year {
+    font-size: clamp(3rem, 2.6vw, 5rem);
+    color: var(--color-beige-100);
+    line-height: 1;
+  }
+
+  &__image {
+    height: 100%;
+    max-height: clamp(290px, 30.21vw, 580px);
+    align-items: center;
+    display: flex;
+    position: absolute;
+    border-radius: clamp(2px, 0.21vw, 4px);
+    margin-right: clamp(10px, 1.04vw, 20px);
+    right: 0;
+    bottom: -4px;
+
+    img {
+      width: 100%;
+      max-width: clamp(172px, 17.97vw, 345px);
+      height: 100%;
+      max-height: clamp(263px, 27.4vw, 526px);
+      object-fit: cover;
+      display: block;
+    }
+  }
+}

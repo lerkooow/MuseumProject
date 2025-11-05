@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Фабрики - Музей истории объединённых бумажных фабрик</title>
+    <link rel="stylesheet" href="../styles/style.css" />
+  </head>
+  <body>
+    <main class="main">
+      <div id="menu-container"></div>
+
+      <div class="factories-search">
+        <div class="factories-search__header">
+          <div class="factories-search__search-wrapper">
+            <img src="../assets/icons/prime_search.svg" alt="search" />
+            <input type="text" placeholder="ПОИСК ФАБРИКИ" class="factories-search__input" id="factorySearch" />
+          </div>
+        </div>
+
+        <div class="factories-search__list" id="factoriesList"></div>
+      </div>
+
+      <div class="factories-map">
+        <div class="factories-map__header">
+          <h1 class="factories-map__title">ФАБРИКИ</h1>
+          <div class="factories-map__filters">
+            <div id="dropdown-container"></div>
+            <div id="dropdown-container-2"></div>
+            <div id="dropdown-container-3"></div>
+          </div>
+        </div>
+
+        <div class="factories-map__content">
+          <div class="factories-map__map-wrapper">
+            <!-- Mock data -->
+            <img src="../assets/icons/map.svg" alt="Карта России" class="factories-map__map" />
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <section class="history">
+      <div class="history__container">
+        <div class="history__header">
+          <h2 class="history__title">ВЕКОВАЯ ИСТОРИЯ</h2>
+          <div class="history__controls">
+            <div id="button-container__left"></div>
+            <div id="button-container__right"></div>
+          </div>
+        </div>
+
+        <div class="history__slider">
+          <div class="history__slider-container">
+            <div class="history-card theme-beige">
+              <img src="../assets/icons/history_logo1.svg" alt="icon" class="history-card__logo" />
+              <div class="history-card__header">
+                <div class="history-card__title-wrapper">
+                  <h3 class="history-card__title">
+                    Полотняно-<br />Заводская бумажная<br />
+                    мануфактура
+                  </h3>
+                  <img src="../assets/icons/arrow_brown_300.svg" alt="arrow" class="history-card__arrow" />
+                  <div class="history-card__content">
+                    <div class="history-card__year-block">
+                      <p class="history-card__year-label">
+                        Год<br />
+                        основания
+                      </p>
+                      <p class="history-card__year">1720</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="history-card__image">
+                <img src="../assets/images/factories_history1.jpg" alt="Полотняно-Заводская фабрика" />
+              </div>
+            </div>
+
+            <div class="history-card theme-warm-white">
+              <img src="../assets/icons/history_logo2.svg" alt="icon" class="history-card__logo" />
+              <div class="history-card__header">
+                <div class="history-card__title-wrapper">
+                  <h3 class="history-card__title">
+                    Сухонский<br />
+                    картонно-бумажный<br />
+                    комбинат
+                  </h3>
+                  <img src="../assets/icons/arrow_brown_300.svg" alt="arrow" class="history-card__arrow" />
+                  <div class="history-card__content">
+                    <div class="history-card__year-block">
+                      <p class="history-card__year-label">
+                        Год<br />
+                        основания
+                      </p>
+                      <p class="history-card__year">1911</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="history-card__image">
+                <img src="../assets/images/factories_history2.jpg" alt="Сухонский комбинат" />
+              </div>
+            </div>
+            <div class="history-card theme-warm-white">
+              <img src="../assets/icons/history_logo2.svg" alt="icon" class="history-card__logo" />
+              <div class="history-card__header">
+                <div class="history-card__title-wrapper">
+                  <h3 class="history-card__title">
+                    Сухонский<br />
+                    картонно-бумажный<br />
+                    комбинат
+                  </h3>
+                  <img src="../assets/icons/arrow_brown_300.svg" alt="arrow" class="history-card__arrow" />
+                  <div class="history-card__content">
+                    <div class="history-card__year-block">
+                      <p class="history-card__year-label">
+                        Год<br />
+                        основания
+                      </p>
+                      <p class="history-card__year">1911</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="history-card__image">
+                <img src="../assets/images/factories_history2.jpg" alt="Сухонский комбинат" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="../scripts/loadMenu.js"></script>
+    <script src="../scripts/loadFactories.js"></script>
+    <script src="../scripts/loadDropdown.js"></script>
+    <script src="../scripts/loadButton.js"></script>
+    <script src="../scripts/loadHistory.js"></script>
+    <script>
+      loadButton("button-container__left", ["left", "brown"], "../assets/icons/arrow_beige_100.svg");
+      loadButton("button-container__right", ["right", "brown"], "../assets/icons/arrow_beige_100.svg");
+    </script>
+  </body>
+</html>
