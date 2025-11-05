@@ -1,12 +1,11 @@
 .card {
-  padding: 20px 0;
+  padding: 20px;
   border-radius: 8px;
   display: flex;
-  min-width: 400px;
-  flex: 1;
-  align-items: center;
+  min-width: clamp(182px, 20.83vw, 400px);
+  width: 100%;
+  margin: 0 auto;
   height: calc(100vh - 32px);
-  justify-content: center;
 
   &:last-child {
     margin-right: 16px;
@@ -16,12 +15,18 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     height: 100%;
+    width: 100%;
     cursor: pointer;
   }
 
   &__header {
     text-align: center;
+
+    img {
+      width: 100%;
+    }
   }
 
   &__title {
@@ -40,10 +45,9 @@
   }
 
   &__image {
-    display: flex;
-    justify-content: center;
-
     img {
+      width: clamp(120px, 16vw, 240px);
+      height: clamp(200px, 28vw, 400px);
       object-fit: cover;
     }
   }
@@ -62,10 +66,10 @@
   }
 
   &__footer {
-    height: 160px;
+    height: clamp(80px, 8.33vw, 160px);
     display: flex;
     flex-direction: column;
-    gap: 74px;
+    gap: clamp(20px, 3.85vw, 74px);
     justify-content: flex-end;
   }
 
@@ -112,6 +116,50 @@
     &_container {
       display: flex;
       gap: 16px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    height: auto;
+    min-height: 444px;
+    border-radius: 4px;
+    padding: 12px;
+
+    &__header {
+      img {
+        max-width: 120px;
+        width: 100%;
+      }
+    }
+
+    &__title {
+      font-size: 1.6rem;
+    }
+
+    &__subtitle {
+      font-size: 1.2rem;
+    }
+
+    &__description {
+      font-size: 1.2rem;
+
+      &--event {
+        font-size: 1.2rem;
+      }
+    }
+
+    &__date {
+      font-size: 0.8rem;
+    }
+  }
+
+  .cards {
+    &__slider {
+      &_container {
+        margin: 0 0 16px 16px;
+      }
     }
   }
 }

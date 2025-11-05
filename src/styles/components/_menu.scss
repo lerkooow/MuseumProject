@@ -48,24 +48,37 @@
       text-transform: uppercase;
 
       a {
-        font-size: 1rem;
+        font-size: 1.4rem;
       }
     }
   }
 
   &__nav--mobile {
-    display: none;
     position: fixed;
-    top: -100%;
-    width: 100%;
+    top: 64px;
+    left: 16px;
+    right: 16px;
+    width: calc(100% - 32px);
     background-color: var(--color-brown-300);
-    padding: 24px 16px;
-    transition: top 0.5s ease;
-    z-index: 3;
+    padding: 0 16px 24px 16px;
+    z-index: 999;
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
 
     &.active {
-      top: 48px;
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
     }
+  }
+
+  &__divider {
+    display: block;
+    width: 100%;
+    margin-bottom: 16px;
   }
 
   &__search {
@@ -106,20 +119,22 @@
 @media (max-width: 768px) {
   .menu {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 16px;
+    left: 16px;
+    right: 16px;
     height: auto;
     max-width: 100%;
     max-height: 48px;
     border-radius: 0;
     padding: 8px 16px;
-    z-index: 2;
+    z-index: 1000;
+    border-radius: 4px;
 
     &__header {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      width: 100%;
     }
 
     &__logo {
@@ -155,7 +170,7 @@
       margin: 6px 0 0 0;
 
       p {
-        font-size: 1rem;
+        font-size: 1.4rem;
       }
     }
   }
