@@ -1,3 +1,33 @@
+const cardsData = [
+    {
+        title: "Фабрики",
+        subtitle: "10 предприятий",
+        image: "../assets/images/factories.jpg",
+        description: "Столетия труда, технологический прогресс и награды",
+        theme: "theme-beige",
+        date: "",
+        url: "factories.html",
+    },
+    {
+        title: "Люди",
+        subtitle: "Верившие в историю",
+        image: "../assets/images/people.jpg",
+        description: "Становление, вклад в развитие и семейные традиции",
+        theme: "theme-warm-white",
+        date: "",
+        url: "#people",
+    },
+    {
+        title: "Событие",
+        subtitle: "В этот день в истории",
+        image: "../assets/images/event.jpg",
+        description: "Пуск новой линии\n на Сухонском картонно-\nбумажном комбинате",
+        theme: "theme-warm-beige",
+        date: "2 июля 1974 года",
+        url: "#event",
+    },
+];
+
 function createCard(data) {
     return `
         <a class="card ${data.theme}" href="${data.url || '#'}">
@@ -19,7 +49,7 @@ function createCard(data) {
     `;
 }
 
-function loadCards(cardsData) {
+function loadCards() {
     const container = document.getElementById("cardsContainer");
     if (!container || !cardsData || cardsData.length === 0) return;
 
@@ -71,3 +101,7 @@ function initSlider() {
 
     slider.style.userSelect = 'none';
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    loadCards();
+});
