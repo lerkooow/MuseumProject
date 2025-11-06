@@ -1,33 +1,33 @@
 const factoriesHistoryData = [
-    {
-        name: "Полотняно-<br />Заводская бумажная<br />мануфактура",
-        url: "#",
-        icon: "../assets/icons/history_logo1.svg",
-        img: "../assets/images/factories_history1.jpg",
-        year: "1720",
-        theme: "theme-beige"
-    },
-    {
-        name: "Сухонский<br />картонно-бумажный<br />комбинат",
-        url: "#",
-        icon: "../assets/icons/history_logo2.svg",
-        img: "../assets/images/factories_history2.jpg",
-        year: "1911",
-        theme: "theme-warm-white"
-    },
-    {
-        name: "Сухонский<br />картонно-бумажный<br />комбинат",
-        url: "#",
-        icon: "../assets/icons/history_logo2.svg",
-        img: "../assets/images/factories_history2.jpg",
-        year: "1911",
-        theme: "theme-warm-white"
-    }
+  {
+    name: "Полотняно-<br />Заводская бумажная<br />мануфактура",
+    url: "#",
+    icon: "../assets/icons/history_logo1.svg",
+    img: "../assets/images/factories_history1.jpg",
+    year: "1720",
+    theme: "theme-beige"
+  },
+  {
+    name: "Сухонский<br />картонно-бумажный<br />комбинат",
+    url: "#",
+    icon: "../assets/icons/history_logo2.svg",
+    img: "../assets/images/factories_history2.jpg",
+    year: "1911",
+    theme: "theme-warm-white"
+  },
+  {
+    name: "Сухонский<br />картонно-бумажный<br />комбинат",
+    url: "#",
+    icon: "../assets/icons/history_logo2.svg",
+    img: "../assets/images/factories_history2.jpg",
+    year: "1911",
+    theme: "theme-warm-white"
+  }
 ];
 
 
 function createFactoriesHistoryItem(factory) {
-    return `
+  return `
     <div class="history-card ${factory.theme || 'theme-beige'}">
       <img src="${factory.icon}" alt="icon" class="history-card__logo" />
       <div class="history-card__header">
@@ -54,50 +54,48 @@ function createFactoriesHistoryItem(factory) {
 
 
 function loadFactoriesHistory() {
-    const listContainer = document.querySelector(".history__slider-container");
-    if (!listContainer) return;
+  const listContainer = document.querySelector(".history__slider-container");
+  if (!listContainer) return;
 
-    const factoriesHTML = factoriesHistoryData.map(createFactoriesHistoryItem).join("");
-    listContainer.innerHTML = factoriesHTML;
-
-    initSlider();
+  const factoriesHTML = factoriesHistoryData.map(createFactoriesHistoryItem).join("");
+  listContainer.innerHTML = factoriesHTML;
 }
 
-function initSlider() {
-    const sliderContainer = document.querySelector(".history__slider-container");
-    const leftButton = document.querySelector("#button-container__left");
-    const rightButton = document.querySelector("#button-container__right");
+window.initHistorySlider = function () {
+  const sliderContainer = document.querySelector(".history__slider-container");
+  const leftButton = document.querySelector("#history-button-left");
+  const rightButton = document.querySelector("#history-button-right");
 
-    if (!sliderContainer || !leftButton || !rightButton) return;
+  if (!sliderContainer || !leftButton || !rightButton) return;
 
-    let currentIndex = 0;
-    const cards = document.querySelectorAll(".history-card");
-    const totalCards = cards.length;
+  let currentIndex = 0;
+  const cards = document.querySelectorAll(".history-card");
+  const totalCards = cards.length;
 
-    if (totalCards === 0) return;
+  if (totalCards === 0) return;
 
-    function updateSlider() {
-        const cardWidth = cards[0].offsetWidth;
-        const gap = 16;
-        const offset = -(currentIndex * (cardWidth + gap));
-        sliderContainer.style.transform = `translateX(${offset}px)`;
+  function updateSlider() {
+    const cardWidth = cards[0].offsetWidth;
+    const gap = 16;
+    const offset = -(currentIndex * (cardWidth + gap));
+    sliderContainer.style.transform = `translateX(${offset}px)`;
+  }
+
+  leftButton.addEventListener("click", () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateSlider();
     }
+  });
 
-    leftButton.addEventListener("click", () => {
-        if (currentIndex > 0) {
-            currentIndex--;
-            updateSlider();
-        }
-    });
+  rightButton.addEventListener("click", () => {
+    if (currentIndex < totalCards - 2) {
+      currentIndex++;
+      updateSlider();
+    }
+  });
 
-    rightButton.addEventListener("click", () => {
-        if (currentIndex < totalCards - 2) {
-            currentIndex++;
-            updateSlider();
-        }
-    });
-
-    window.addEventListener("resize", updateSlider);
+  window.addEventListener("resize", updateSlider);
 }
 
 document.addEventListener("DOMContentLoaded", loadFactoriesHistory);

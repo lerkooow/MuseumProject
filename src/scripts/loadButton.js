@@ -1,5 +1,5 @@
 function loadButton(targetId, classes = [], iconSrc = "../assets/icons/arrow_beige_100.svg") {
-    fetch("../components/button.html")
+    return fetch("../components/button.html")
         .then((response) => response.text())
         .then((data) => {
             const container = document.getElementById(targetId);
@@ -19,8 +19,25 @@ function loadButton(targetId, classes = [], iconSrc = "../assets/icons/arrow_bei
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    if (document.getElementById("button-container__left") && document.getElementById("button-container__right")) {
-        loadButton("button-container__left", ["left", "brown"], "../assets/icons/arrow_beige_100.svg");
-        loadButton("button-container__right", ["right", "brown"], "../assets/icons/arrow_beige_100.svg");
+    if (document.getElementById("history-button-left") && document.getElementById("history-button-right")) {
+        Promise.all([
+            loadButton("history-button-left", ["left", "brown"], "../assets/icons/arrow_beige_100.svg"),
+            loadButton("history-button-right", ["right", "brown"], "../assets/icons/arrow_beige_100.svg")
+        ]).then(() => {
+            if (window.initHistorySlider) {
+                window.initHistorySlider();
+            }
+        });
+    }
+
+    if (document.getElementById("anniversary-button-left") && document.getElementById("anniversary-button-right")) {
+        Promise.all([
+            loadButton("anniversary-button-left", ["left", "brown"], "../assets/icons/arrow_beige_100.svg"),
+            loadButton("anniversary-button-right", ["right", "brown"], "../assets/icons/arrow_beige_100.svg")
+        ]).then(() => {
+            if (window.initAnniversarySlider) {
+                window.initAnniversarySlider();
+            }
+        });
     }
 });

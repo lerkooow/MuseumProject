@@ -80,6 +80,8 @@
   position: relative;
   align-items: flex-end;
   min-height: clamp(307px, 31.98vw, 614px);
+  background-repeat: no-repeat;
+  background-size: cover;
 
   &.theme-beige {
     background-image: url("../assets/icons/folder_beige.svg");
