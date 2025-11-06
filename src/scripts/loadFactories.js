@@ -46,42 +46,62 @@ function createFactoryItem(factory) {
 }
 
 function loadFactories() {
-    const listContainer = document.getElementById("factoriesList");
-    if (!listContainer) return;
-
     const factoriesHTML = factoriesData.map(createFactoryItem).join("");
-    listContainer.innerHTML = factoriesHTML;
+
+    // Загружаем в десктопную версию
+    const listContainer = document.getElementById("factoriesList");
+    if (listContainer) {
+        listContainer.innerHTML = factoriesHTML;
+    }
+
+    // Загружаем в мобильную версию
+    const listContainerMobile = document.getElementById("factoriesListMobile");
+    if (listContainerMobile) {
+        listContainerMobile.innerHTML = factoriesHTML;
+    }
 
     initFactorySearch();
 }
 
 function initFactorySearch() {
-    const searchInput = document.getElementById("factorySearch");
-    const factoryWrappers = document.querySelectorAll(".factories-search__item-wrapper");
+    // Функция для инициализации поиска
+    function initSearch(inputId) {
+        const searchInput = document.getElementById(inputId);
+        if (!searchInput) return;
 
-    if (!searchInput) return;
+        const container = searchInput.closest('.factories-search, .factories-search__mobile');
+        if (!container) return;
 
-    searchInput.addEventListener("input", function (e) {
-        const searchTerm = e.target.value.toLowerCase().trim();
+        const factoryWrappers = container.querySelectorAll(".factories-search__item-wrapper");
 
-        factoryWrappers.forEach((wrapper) => {
-            const factoryName = wrapper.querySelector(".factories-search__item span").textContent.toLowerCase();
+        searchInput.addEventListener("input", function (e) {
+            const searchTerm = e.target.value.toLowerCase().trim();
 
-            if (factoryName.includes(searchTerm)) {
-                wrapper.classList.remove("hidden");
-            } else {
-                wrapper.classList.add("hidden");
+            factoryWrappers.forEach((wrapper) => {
+                const factoryName = wrapper.querySelector(".factories-search__item span").textContent.toLowerCase();
+
+                if (factoryName.includes(searchTerm)) {
+                    wrapper.classList.remove("hidden");
+                } else {
+                    wrapper.classList.add("hidden");
+                }
+            });
+        });
+
+        searchInput.addEventListener("focus", function () {
+            if (this.value === "") {
+                factoryWrappers.forEach((wrapper) => {
+                    wrapper.classList.remove("hidden");
+                });
             }
         });
-    });
+    }
 
-    searchInput.addEventListener("focus", function () {
-        if (this.value === "") {
-            factoryWrappers.forEach((wrapper) => {
-                wrapper.classList.remove("hidden");
-            });
-        }
-    });
+    // Инициализация десктопной версии
+    initSearch("factorySearch");
+
+    // Инициализация мобильной версии
+    initSearch("factorySearchMobile");
 }
 
 document.addEventListener("DOMContentLoaded", loadFactories);

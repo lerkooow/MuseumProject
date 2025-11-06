@@ -3,20 +3,16 @@
   border-radius: 8px;
   width: 100%;
   max-width: 432px;
-  height: calc(100vh - 32px);
   padding: 24px;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 
   &__header {
     padding-bottom: 24px;
-    position: relative;
   }
 
   &__search-wrapper {
     display: flex;
-    align-items: center;
     gap: 12px;
     background: var(--color-brown-200);
     border-radius: 6px;
@@ -25,21 +21,16 @@
     img {
       width: 20px;
       height: 20px;
-      flex-shrink: 0;
     }
   }
 
   &__input {
     background: none;
     border: none;
-    outline: none;
-    width: 100%;
-    color: var(--color-beige-300);
     font-size: 1.4rem;
     letter-spacing: -0.03em;
     line-height: 1.2;
     text-transform: uppercase;
-    font-family: inherit;
 
     &::placeholder {
       color: var(--color-beige-300);
@@ -50,32 +41,11 @@
   &__list {
     display: flex;
     flex-direction: column;
-    gap: 0;
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-beige-300) transparent;
-
-    &::-webkit-scrollbar {
-      width: 4px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: var(--color-beige-300);
-      border-radius: 2px;
-    }
   }
 
   &__item-wrapper {
     display: flex;
     flex-direction: column;
-
-    &.hidden {
-      display: none;
-    }
   }
 
   &__item {
@@ -90,10 +60,6 @@
     letter-spacing: -0.02em;
     transition: color 0.3s ease;
     cursor: pointer;
-
-    span {
-      flex: 1;
-    }
 
     &:hover {
       color: var(--color-beige-300);
@@ -110,5 +76,31 @@
     width: 100%;
     height: auto;
     margin: 8px 0;
+  }
+
+  &__mobile {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .factories-search {
+    display: none;
+
+    &__mobile {
+      display: flex;
+      flex-direction: column;
+      background-color: var(--color-brown-300);
+      border-radius: 8px;
+      padding: 24px 16px;
+      margin-top: 60px;
+      margin-right: 16px;
+    }
+
+    &__item {
+      span {
+        font-size: 1.4rem;
+      }
+    }
   }
 }

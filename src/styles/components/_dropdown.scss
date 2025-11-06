@@ -1,6 +1,5 @@
 .dropdown {
-  width: 100%;
-  min-width: 220px;
+  width: clamp(164px, 13vw, 220px);
   position: relative;
 
   &__button {
@@ -60,7 +59,7 @@
     transition: max-height 0.4s ease, opacity 0.3s ease;
     border-radius: 0 0 8px 8px;
     opacity: 0;
-    z-index: 100;
+    z-index: 2;
   }
 
   &__divider {
@@ -161,10 +160,6 @@
     .dropdown__divider {
       background: rgba(0, 0, 0, 0.1);
     }
-
-    .dropdown__icon img {
-      filter: brightness(0.5);
-    }
   }
 
   &--brown {
@@ -174,6 +169,21 @@
 
     .dropdown__content {
       background: var(--color-brown-300);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .dropdown {
+    &__button {
+      span {
+        font-size: 1.2rem;
+      }
+    }
+
+    &__item {
+      font-size: 1.2rem;
+      padding: 0;
     }
   }
 }

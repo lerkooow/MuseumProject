@@ -8,33 +8,46 @@
   </head>
   <body>
     <main class="main">
-      <div id="menu-container"></div>
+      <div class="factories">
+        <div id="menu-container"></div>
 
-      <div class="factories-search">
-        <div class="factories-search__header">
-          <div class="factories-search__search-wrapper">
-            <img src="../assets/icons/prime_search.svg" alt="search" />
-            <input type="text" placeholder="ПОИСК ФАБРИКИ" class="factories-search__input" id="factorySearch" />
+        <div class="factories-search">
+          <div class="factories-search__header">
+            <div class="factories-search__search-wrapper">
+              <img src="../assets/icons/prime_search.svg" alt="search" />
+              <input type="text" placeholder="Поиск фабрики" class="factories-search__input" id="factorySearch" />
+            </div>
           </div>
+
+          <div class="factories-search__list" id="factoriesList"></div>
         </div>
 
-        <div class="factories-search__list" id="factoriesList"></div>
-      </div>
-
-      <div class="factories-map">
-        <div class="factories-map__header">
-          <h1 class="factories-map__title">ФАБРИКИ</h1>
-          <div class="factories-map__filters">
-            <div id="dropdown-container"></div>
-            <div id="dropdown-container-2"></div>
-            <div id="dropdown-container-3"></div>
+        <div class="factories-map">
+          <div class="factories-map__header">
+            <h1 class="factories-map__title">ФАБРИКИ</h1>
+            <div class="factories-map__filters">
+              <div id="dropdown-container"></div>
+              <div id="dropdown-container-2"></div>
+              <div id="dropdown-container-3"></div>
+            </div>
           </div>
-        </div>
 
-        <div class="factories-map__content">
-          <div class="factories-map__map-wrapper">
-            <!-- Mock data -->
-            <img src="../assets/icons/map.svg" alt="Карта России" class="factories-map__map" />
+          <div class="factories-map__content">
+            <div class="factories-map__map-wrapper">
+              <!-- Mock data -->
+              <img src="../assets/icons/map.svg" alt="Карта России" class="factories-map__map" />
+            </div>
+          </div>
+
+          <div class="factories-search__mobile">
+            <div class="factories-search__header">
+              <div class="factories-search__search-wrapper">
+                <img src="../assets/icons/prime_search.svg" alt="search" />
+                <input type="text" placeholder="ПОИСК ФАБРИКИ" class="factories-search__input" id="factorySearchMobile" />
+              </div>
+            </div>
+
+            <div class="factories-search__list" id="factoriesListMobile"></div>
           </div>
         </div>
       </div>

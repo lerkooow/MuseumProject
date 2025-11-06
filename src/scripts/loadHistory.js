@@ -74,9 +74,19 @@ window.initHistorySlider = function () {
 
   if (totalCards === 0) return;
 
+  function getVisibleCards() {
+    if (window.innerWidth <= 768) {
+      const containerWidth = sliderContainer.parentElement.offsetWidth;
+      const cardWidth = 320;
+      const gap = 12;
+      return Math.floor((containerWidth + gap) / (cardWidth + gap));
+    }
+    return 2;
+  }
+
   function updateSlider() {
     const cardWidth = cards[0].offsetWidth;
-    const gap = 16;
+    const gap = window.innerWidth <= 768 ? 12 : 16;
     const offset = -(currentIndex * (cardWidth + gap));
     sliderContainer.style.transform = `translateX(${offset}px)`;
   }
@@ -89,13 +99,20 @@ window.initHistorySlider = function () {
   });
 
   rightButton.addEventListener("click", () => {
-    if (currentIndex < totalCards - 2) {
+    const visibleCards = getVisibleCards();
+    if (currentIndex < totalCards - visibleCards) {
       currentIndex++;
       updateSlider();
     }
   });
 
-  window.addEventListener("resize", updateSlider);
+  window.addEventListener("resize", () => {
+    const visibleCards = getVisibleCards();
+    if (currentIndex > totalCards - visibleCards) {
+      currentIndex = Math.max(0, totalCards - visibleCards);
+    }
+    updateSlider();
+  });
 }
 
 document.addEventListener("DOMContentLoaded", loadFactoriesHistory);

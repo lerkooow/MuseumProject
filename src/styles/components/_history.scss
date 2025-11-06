@@ -3,14 +3,15 @@
   flex-direction: column;
   display: flex;
   align-items: flex-end;
-  margin-top: 220px;
+  margin-top: 12%;
   padding-left: 10.9375vw;
 
   &__container {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: clamp(20px, 3.5vw, 50px);
+    padding-right: 16px;
   }
 
   &__header {
@@ -198,5 +199,98 @@
       object-fit: cover;
       display: block;
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .history {
+    padding: 0;
+    margin-top: 48px;
+
+    &__container {
+      gap: 24px;
+    }
+
+    &__title {
+      font-size: 2.2rem;
+    }
+
+    &__header {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 16px;
+      margin: 0;
+      padding: 0 16px;
+    }
+
+    &__slider {
+      overflow: hidden;
+    }
+
+    &__slider-container {
+      gap: 12px;
+      width: auto;
+      padding-left: 16px;
+    }
+  }
+
+  .history-card {
+    flex: 0 0 320px;
+    min-height: 238px;
+    max-height: 238px;
+    height: 238px;
+    width: 320px;
+    min-width: 320px;
+    background-size: contain;
+
+    &__logo {
+      width: 24px;
+      height: 24px;
+      top: 8px;
+      left: 8px;
+    }
+
+    &__content {
+      min-height: 100px;
+      gap: 8px;
+    }
+
+    &__image {
+      max-height: 238px;
+      margin-right: 8px;
+
+      img {
+        max-width: 140px;
+        max-height: 180px;
+      }
+    }
+
+    &__title {
+      font-size: 1.4rem;
+      padding-left: 8px;
+    }
+
+    &__arrow {
+      margin: 0 0 0 8px;
+    }
+
+    &__year-block {
+      min-width: 70px;
+      padding: 8px;
+    }
+
+    &__year-label {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    &__year {
+      font-size: 2.4rem;
+    }
+  }
+
+  .button__arrow {
+    width: 32px;
+    height: 32px;
   }
 }
