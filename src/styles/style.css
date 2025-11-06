@@ -271,10 +271,6 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   color: var(--color-beige-300);
 }
 
-.nav__item--active .nav__link-active {
-  display: block;
-}
-
 .hidden {
   display: none !important;
 }
@@ -1041,6 +1037,8 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   position: relative;
   align-items: flex-end;
   min-height: clamp(307px, 31.98vw, 614px);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .history-card.theme-beige {
   background-image: url("../assets/icons/folder_beige.svg");
@@ -1142,6 +1140,134 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   max-height: clamp(263px, 27.4vw, 526px);
   object-fit: cover;
   display: block;
+}
+
+.anniversary {
+  width: 100%;
+  flex-direction: column;
+  display: flex;
+  align-items: flex-end;
+  margin-top: clamp(80px, 15vw, 220px);
+  padding-left: 10.9375vw;
+}
+.anniversary__container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 3.5vw, 50px);
+}
+.anniversary__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: clamp(16px, 2.2vw, 32px);
+}
+.anniversary__title {
+  font-size: clamp(2rem, 2.5vw, 3.6rem);
+  color: var(--color-beige-100);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+.anniversary__controls {
+  display: flex;
+  gap: clamp(8px, 1.1vw, 16px);
+}
+.anniversary__arrow {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: clamp(4px, 0.5vw, 8px);
+  transition: transform 0.3s ease;
+}
+.anniversary__arrow img {
+  width: clamp(20px, 2.2vw, 32px);
+  height: clamp(20px, 2.2vw, 32px);
+  display: block;
+}
+.anniversary__arrow--prev img {
+  transform: rotate(180deg);
+}
+.anniversary__arrow:hover {
+  transform: scale(1.1);
+}
+.anniversary__slider {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+}
+.anniversary__slider-container {
+  display: flex;
+  gap: clamp(8px, 1.1vw, 16px);
+  transition: transform 0.5s ease;
+  width: calc(100% - clamp(8px, 1.1vw, 16px));
+}
+
+.anniversary-card {
+  position: relative;
+  flex: 0 0 calc((100% - 16px) / 3);
+  width: clamp(280px, 28vw, 554px);
+  background-position: center;
+  border: clamp(1px, 0.15vw, 2px) solid var(--color-beige-100);
+  border-radius: clamp(4px, 0.55vw, 8px);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.anniversary-card img {
+  object-fit: cover;
+  width: 100%;
+}
+.anniversary-card__wrapper {
+  max-width: clamp(220px, 24vw, 380px);
+  width: 100%;
+  max-height: clamp(240px, 27vw, 387px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-image: url("../assets/icons/note_background.svg");
+  position: absolute;
+  bottom: 11%;
+}
+.anniversary-card__header {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 1.5vw, 22px);
+  position: relative;
+  top: clamp(-16px, -1.8vw, -26px);
+}
+.anniversary-card__header img {
+  width: clamp(32px, 4vw, 56px);
+  height: clamp(54px, 6vw, 94px);
+}
+.anniversary-card__year, .anniversary-card__text {
+  font-size: clamp(1rem, 1vw, 1.4rem);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--color-beige-300);
+  margin-top: clamp(12px, 1.7vw, 24px);
+}
+.anniversary-card__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(16px, 2vw, 28px);
+  position: relative;
+  bottom: -11%;
+}
+.anniversary-card__title p {
+  font-size: clamp(1.6rem, 1.8vw, 1.7rem);
+  font-weight: 600;
+  color: var(--color-brown-300);
+  text-align: center;
+  line-height: 1.1;
+  padding: 0 clamp(8px, 1vw, 16px);
+}
+.anniversary-card__title img {
+  width: clamp(106px, 12vw, 185px);
 }
 
 .main {

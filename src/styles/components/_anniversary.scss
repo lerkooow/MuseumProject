@@ -1,0 +1,148 @@
+.anniversary {
+  width: 100%;
+  flex-direction: column;
+  display: flex;
+  align-items: flex-end;
+  margin-top: clamp(80px, 15vw, 220px);
+  padding-left: 10.9375vw;
+
+  &__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(20px, 3.5vw, 50px);
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: clamp(16px, 2.2vw, 32px);
+  }
+
+  &__title {
+    font-size: clamp(2rem, 2.5vw, 3.6rem);
+    color: var(--color-beige-100);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+
+  &__controls {
+    display: flex;
+    gap: clamp(8px, 1.1vw, 16px);
+  }
+
+  &__arrow {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: clamp(4px, 0.5vw, 8px);
+    transition: transform 0.3s ease;
+
+    img {
+      width: clamp(20px, 2.2vw, 32px);
+      height: clamp(20px, 2.2vw, 32px);
+      display: block;
+    }
+
+    &--prev {
+      img {
+        transform: rotate(180deg);
+      }
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__slider {
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+  }
+
+  &__slider-container {
+    display: flex;
+    gap: clamp(8px, 1.1vw, 16px);
+    transition: transform 0.5s ease;
+    width: calc(100% - clamp(8px, 1.1vw, 16px));
+  }
+}
+
+.anniversary-card {
+  position: relative;
+  flex: 0 0 calc((100% - 16px) / 3);
+  width: clamp(280px, 28vw, 554px);
+  background-position: center;
+  border: clamp(1px, 0.15vw, 2px) solid var(--color-beige-100);
+  border-radius: clamp(4px, 0.55vw, 8px);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    object-fit: cover;
+    width: 100%;
+  }
+
+  &__wrapper {
+    max-width: clamp(220px, 24vw, 380px);
+    width: 100%;
+    max-height: clamp(240px, 27vw, 387px);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    background-image: url("../assets/icons/note_background.svg");
+    position: absolute;
+    bottom: 11%;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: clamp(12px, 1.5vw, 22px);
+    position: relative;
+    top: clamp(-16px, -1.8vw, -26px);
+
+    img {
+      width: clamp(32px, 4vw, 56px);
+      height: clamp(54px, 6vw, 94px);
+    }
+  }
+
+  &__year,
+  &__text {
+    font-size: clamp(1rem, 1vw, 1.4rem);
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: var(--color-beige-300);
+    margin-top: clamp(12px, 1.7vw, 24px);
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(16px, 2vw, 28px);
+    position: relative;
+    bottom: -11%;
+
+    p {
+      font-size: clamp(1.6rem, 1.8vw, 1.7rem);
+      font-weight: 600;
+      color: var(--color-brown-300);
+      text-align: center;
+      line-height: 1.1;
+      padding: 0 clamp(8px, 1vw, 16px);
+    }
+
+    img {
+      width: clamp(106px, 12vw, 185px);
+    }
+  }
+}
