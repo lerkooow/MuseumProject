@@ -1,11 +1,13 @@
 @use "base/variables" as *;
 @use "base/reset";
 
+@use "pages/factories";
+@use "pages/people";
+
 @use "components/menu";
 @use "components/button";
 @use "components/dropdown";
 @use "components/cards";
-@use "components/factories";
 @use "components/factories-search";
 @use "components/factories-map";
 @use "components/history";

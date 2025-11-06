@@ -15,7 +15,7 @@ const cardsData = [
         description: "Становление, вклад в развитие и семейные традиции",
         theme: "theme-warm-white",
         date: "",
-        url: "#people",
+        url: "people.html",
     },
     {
         title: "Событие",
@@ -24,7 +24,7 @@ const cardsData = [
         description: "Пуск новой линии\n на Сухонском картонно-\nбумажном комбинате",
         theme: "theme-warm-beige",
         date: "2 июля 1974 года",
-        url: "#event",
+        url: "event.html",
     },
 ];
 
