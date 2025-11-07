@@ -3,14 +3,86 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Фабрики - Музей истории объединённых бумажных фабрик</title>
     <link rel="stylesheet" href="../styles/style.css" />
   </head>
   <body>
-    <main class="main">
-      <div class="factories">
-        <div id="menu-container"></div>
+      <main class="factories">
+        <!-- Menu  -->
+        <div class="menu">
+          <div class="menu__header">
+            <a href="main.html" class="menu__logo">
+              <img src="../assets/icons/logo_full.svg" alt="logo full" />
+            </a>
+            <a href="main.html" class="menu__logo--mobile">
+              <img src="../assets/icons/logo.svg" alt="logo" />
+            </a>
+            <button class="menu__toggle" aria-label="Toggle menu">
+              <img src="../assets/icons/menu.svg" alt="burger menu" class="menu__burger--mobile" />
+              <img src="../assets/icons/cross.svg" alt="cross" class="menu__cross--mobile hidden" />
+            </button>
+          </div>
 
+          <nav class="menu__nav">
+            <ul class="menu__list">
+              <li class="nav__item">
+                <a href="factories.html" class="nav__link">
+                  <p>Фабрики</p>
+                </a>
+              </li>
+              <li class="nav__item">
+                <a href="people.html" class="nav__link">
+                  <p>Люди</p>
+                </a>
+              </li>
+              <li class="nav__item">
+                <a href="leaders.html" class="nav__link">
+                  <p>Руководители</p>
+                </a>
+              </li>
+              <li class="nav__item">
+                <a href="multimedia.html" class="nav__link">
+                  <p>Мультимедиа</p>
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="menu__footer">
+            <div class="menu__search">
+              <img src="../assets/icons/prime_search.svg" alt="search" />
+              <p>Поиск</p>
+            </div>
+            <img src="../assets/icons/lines.svg" alt="lines" />
+          </div>
+
+          <!-- Menu Mobile  -->
+          <nav class="menu__nav--mobile">
+            <img src="../assets/icons/line_menu.svg" alt="divider" class="menu__divider" />
+            <ul class="menu__list--mobile">
+              <li class="nav__item">
+                <a href="factories.html" class="nav__link"><p>Фабрики</p></a>
+              </li>
+              <li class="nav__item">
+                <a href="people.html" class="nav__link"><p>Люди</p></a>
+              </li>
+              <li class="nav__item">
+                <a href="leaders.html" class="nav__link"><p>Руководители</p></a>
+              </li>
+              <li class="nav__item">
+                <a href="multimedia.html" class="nav__link"><p>Мультимедиа</p></a>
+              </li>
+
+              <div class="menu__footer--mobile">
+                <div class="menu__search">
+                  <img src="../assets/icons/prime_search.svg" alt="search" />
+                  <p>Поиск</p>
+                </div>
+              </div>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Input Search -->
         <div class="factories-search">
           <div class="factories-search__header">
             <div class="factories-search__search-wrapper">
@@ -19,16 +91,130 @@
             </div>
           </div>
 
-          <div class="factories-search__list" id="factoriesList"></div>
+          <!-- Factories List -->
+          <div class="factories-search__list" id="factoriesList">
+            <div class="factories-search__item-wrapper">
+              <a href="#" class="factories-search__item">
+                <span>Балахнинская картонная фабрика</span>
+                <img src="../assets/icons/arrow_small.svg" alt="arrow" class="factories-search__arrow" />
+              </a>
+              <img src="../assets/icons/line_factories.svg" alt="divider" class="factories-search__divider" />
+            </div>
+            <div class="factories-search__item-wrapper">
+              <a href="#" class="factories-search__item">
+                <span>Ветлужский картонный комбинат</span>
+                <img src="../assets/icons/arrow_small.svg" alt="arrow" class="factories-search__arrow" />
+              </a>
+              <img src="../assets/icons/line_factories.svg" alt="divider" class="factories-search__divider" />
+            </div>
+            <div class="factories-search__item-wrapper">
+              <a href="#" class="factories-search__item">
+                <span>Ижорский целлюлозно-бумажный завод</span>
+                <img src="../assets/icons/arrow_small.svg" alt="arrow" class="factories-search__arrow" />
+              </a>
+              <img src="../assets/icons/line_factories.svg" alt="divider" class="factories-search__divider" />
+            </div>
+            <div class="factories-search__item-wrapper">
+              <a href="#" class="factories-search__item">
+                <span>Невинномысская фабрика спецбумаг</span>
+                <img src="../assets/icons/arrow_small.svg" alt="arrow" class="factories-search__arrow" />
+              </a>
+              <img src="../assets/icons/line_factories.svg" alt="divider" class="factories-search__divider" />
+            </div>
+            <div class="factories-search__item-wrapper">
+              <a href="#" class="factories-search__item">
+                <span>Озёрская бумажная фабрика</span>
+                <img src="../assets/icons/arrow_small.svg" alt="arrow" class="factories-search__arrow" />
+              </a>
+              <img src="../assets/icons/line_factories.svg" alt="divider" class="factories-search__divider" />
+            </div>
+            <div class="factories-search__item-wrapper">
+              <a href="#" class="factories-search__item">
+                <span>Полотняно-Заводской бумажная мануфактура</span>
+                <img src="../assets/icons/arrow_small.svg" alt="arrow" class="factories-search__arrow" />
+              </a>
+              <img src="../assets/icons/line_factories.svg" alt="divider" class="factories-search__divider" />
+            </div>
+            <div class="factories-search__item-wrapper">
+              <a href="#" class="factories-search__item">
+                <span>Сухонский картонно-бумажный комбинат</span>
+                <img src="../assets/icons/arrow_small.svg" alt="arrow" class="factories-search__arrow" />
+              </a>
+              <img src="../assets/icons/line_factories.svg" alt="divider" class="factories-search__divider" />
+            </div>
+            <div class="factories-search__item-wrapper">
+              <a href="#" class="factories-search__item">
+                <span>Троицкая бумажная фабрика</span>
+                <img src="../assets/icons/arrow_small.svg" alt="arrow" class="factories-search__arrow" />
+              </a>
+              <img src="../assets/icons/line_factories.svg" alt="divider" class="factories-search__divider" />
+            </div>
+          </div>
         </div>
 
         <div class="factories-map">
           <div class="factories-map__header">
-            <h1 class="factories-map__title">ФАБРИКИ</h1>
+            <p class="factories-map__title">Фабрики</p>
             <div class="factories-map__filters">
-              <div id="dropdown-container"></div>
-              <div id="dropdown-container-2"></div>
-              <div id="dropdown-container-3"></div>
+              <div id="dropdown-container">
+                <div class="dropdown dropdown--beige" id="dropdown">
+                  <button class="dropdown__button" id="dropdownButton">
+                    <span class="dropdown__button-text">Год основания</span>
+                    <span class="dropdown__icon">
+                      <img src="../assets/icons/arrow_small.svg" alt="arrow" />
+                    </span>
+                  </button>
+                  <div class="dropdown__content">
+                    <div class="dropdown__divider"></div>
+                    <ul class="dropdown__list" id="dropdownList">
+                      <li class="dropdown__item" data-value="1911">1911</li>
+                      <li class="dropdown__item" data-value="1916">1916</li>
+                      <li class="dropdown__item" data-value="1921">1921</li>
+                      <li class="dropdown__item" data-value="1921-2">1921</li>
+                      <li class="dropdown__item" data-value="1925">1925</li>
+                      <li class="dropdown__item" data-value="1930">1930</li>
+                      <li class="dropdown__item" data-value="1935">1935</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div id="dropdown-container-2">
+                <div class="dropdown dropdown--beige" id="dropdown">
+                  <button class="dropdown__button" id="dropdownButton">
+                    <span class="dropdown__button-text">Тип продукции</span>
+                    <span class="dropdown__icon">
+                      <img src="../assets/icons/arrow_small.svg" alt="arrow" />
+                    </span>
+                  </button>
+                  <div class="dropdown__content">
+                    <div class="dropdown__divider"></div>
+                    <ul class="dropdown__list" id="dropdownList">
+                      <li class="dropdown__item" data-value="cardboard">Картон</li>
+                      <li class="dropdown__item" data-value="paper">Бумага</li>
+                      <li class="dropdown__item" data-value="cellulose">Целлюлоза</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div id="dropdown-container-3">
+                <div class="dropdown dropdown--beige" id="dropdown">
+                  <button class="dropdown__button" id="dropdownButton">
+                    <span class="dropdown__button-text">Регион</span>
+                    <span class="dropdown__icon">
+                      <img src="../assets/icons/arrow_small.svg" alt="arrow" />
+                    </span>
+                  </button>
+                  <div class="dropdown__content">
+                    <div class="dropdown__divider"></div>
+                    <ul class="dropdown__list" id="dropdownList">
+                      <li class="dropdown__item" data-value="vologda">Вологодская область</li>
+                      <li class="dropdown__item" data-value="moscow">Московская область</li>
+                      <li class="dropdown__item" data-value="leningrad">Ленинградская область</li>
+                      <li class="dropdown__item" data-value="nizhny">Нижегородская область</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -47,49 +233,243 @@
               </div>
             </div>
 
-            <div class="factories-search__list" id="factoriesListMobile"></div>
+            <div class="factories-search__list" id="factoriesListMobile">
+              <div class="factories-search__item-wrapper">
+                <a href="#" class="factories-search__item">
+                  <span>Балахнинская картонная фабрика</span>
+                  <img src="../assets/icons/arrow_small.svg" alt="arrow" class="factories-search__arrow" />
+                </a>
+                <img src="../assets/icons/line_factories.svg" alt="divider" class="factories-search__divider" />
+              </div>
+              <div class="factories-search__item-wrapper">
+                <a href="#" class="factories-search__item">
+                  <span>Ветлужский картонный комбинат</span>
+                  <img src="../assets/icons/arrow_small.svg" alt="arrow" class="factories-search__arrow" />
+                </a>
+                <img src="../assets/icons/line_factories.svg" alt="divider" class="factories-search__divider" />
+              </div>
+              <div class="factories-search__item-wrapper">
+                <a href="#" class="factories-search__item">
+                  <span>Ижорский целлюлозно-бумажный завод</span>
+                  <img src="../assets/icons/arrow_small.svg" alt="arrow" class="factories-search__arrow" />
+                </a>
+                <img src="../assets/icons/line_factories.svg" alt="divider" class="factories-search__divider" />
+              </div>
+              <div class="factories-search__item-wrapper">
+                <a href="#" class="factories-search__item">
+                  <span>Невинномысская фабрика спецбумаг</span>
+                  <img src="../assets/icons/arrow_small.svg" alt="arrow" class="factories-search__arrow" />
+                </a>
+                <img src="../assets/icons/line_factories.svg" alt="divider" class="factories-search__divider" />
+              </div>
+              <div class="factories-search__item-wrapper">
+                <a href="#" class="factories-search__item">
+                  <span>Озёрская бумажная фабрика</span>
+                  <img src="../assets/icons/arrow_small.svg" alt="arrow" class="factories-search__arrow" />
+                </a>
+                <img src="../assets/icons/line_factories.svg" alt="divider" class="factories-search__divider" />
+              </div>
+              <div class="factories-search__item-wrapper">
+                <a href="#" class="factories-search__item">
+                  <span>Полотняно-Заводской бумажная мануфактура</span>
+                  <img src="../assets/icons/arrow_small.svg" alt="arrow" class="factories-search__arrow" />
+                </a>
+                <img src="../assets/icons/line_factories.svg" alt="divider" class="factories-search__divider" />
+              </div>
+              <div class="factories-search__item-wrapper">
+                <a href="#" class="factories-search__item">
+                  <span>Сухонский картонно-бумажный комбинат</span>
+                  <img src="../assets/icons/arrow_small.svg" alt="arrow" class="factories-search__arrow" />
+                </a>
+                <img src="../assets/icons/line_factories.svg" alt="divider" class="factories-search__divider" />
+              </div>
+              <div class="factories-search__item-wrapper">
+                <a href="#" class="factories-search__item">
+                  <span>Троицкая бумажная фабрика</span>
+                  <img src="../assets/icons/arrow_small.svg" alt="arrow" class="factories-search__arrow" />
+                </a>
+                <img src="../assets/icons/line_factories.svg" alt="divider" class="factories-search__divider" />
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </main>
     </main>
 
+    <!-- History Section  -->
     <section class="history">
       <div class="history__container">
         <div class="history__header">
-          <h2 class="history__title">Вековая история</h2>
+          <p class="history__title">Вековая история</p>
           <div class="history__controls">
-            <div id="history-button-left"></div>
-            <div id="history-button-right"></div>
+            <div id="history-button-left">
+              <button class="button__arrow left brown">
+                <img src="../assets/icons/arrow_beige_100.svg" alt="arrow" />
+              </button>
+            </div>
+            <div id="history-button-right">
+              <button class="button__arrow right brown">
+                <img src="../assets/icons/arrow_beige_100.svg" alt="arrow" />
+              </button>
+            </div>
           </div>
         </div>
 
         <div class="history__slider">
-          <div class="history__slider-container"></div>
+          <div class="history__slider-container">
+            <div class="history-card theme-beige">
+              <img src="../assets/icons/history_logo1.svg" alt="icon" class="history-card__logo" />
+              <div class="history-card__header">
+                <div class="history-card__title-wrapper">
+                  <h3 class="history-card__title">Полотняно-<br />Заводская бумажная<br />мануфактура</h3>
+                  <img src="../assets/icons/arrow_brown_300.svg" alt="arrow" class="history-card__arrow" />
+                  <div class="history-card__content">
+                    <div class="history-card__year-block">
+                      <p class="history-card__year-label">
+                        Год<br />
+                        основания
+                      </p>
+                      <p class="history-card__year">1720</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="history-card__image">
+                <img src="../assets/images/factories_history1.jpg" alt="Полотняно-Заводская бумажная мануфактура" />
+              </div>
+            </div>
+            <div class="history-card theme-warm-white">
+              <img src="../assets/icons/history_logo2.svg" alt="icon" class="history-card__logo" />
+              <div class="history-card__header">
+                <div class="history-card__title-wrapper">
+                  <h3 class="history-card__title">Сухонский<br />картонно-бумажный<br />комбинат</h3>
+                  <img src="../assets/icons/arrow_brown_300.svg" alt="arrow" class="history-card__arrow" />
+                  <div class="history-card__content">
+                    <div class="history-card__year-block">
+                      <p class="history-card__year-label">
+                        Год<br />
+                        основания
+                      </p>
+                      <p class="history-card__year">1911</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="history-card__image">
+                <img src="../assets/images/factories_history2.jpg" alt="Сухонский картонно-бумажный комбинат" />
+              </div>
+            </div>
+            <div class="history-card theme-warm-white">
+              <img src="../assets/icons/history_logo2.svg" alt="icon" class="history-card__logo" />
+              <div class="history-card__header">
+                <div class="history-card__title-wrapper">
+                  <h3 class="history-card__title">Сухонский<br />картонно-бумажный<br />комбинат</h3>
+                  <img src="../assets/icons/arrow_brown_300.svg" alt="arrow" class="history-card__arrow" />
+                  <div class="history-card__content">
+                    <div class="history-card__year-block">
+                      <p class="history-card__year-label">
+                        Год<br />
+                        основания
+                      </p>
+                      <p class="history-card__year">1911</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="history-card__image">
+                <img src="../assets/images/factories_history2.jpg" alt="Сухонский картонно-бумажный комбинат" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- Anniversary Section  -->
     <section class="anniversary">
       <div class="anniversary__container">
         <div class="anniversary__header">
-          <h2 class="anniversary__title">Юбилей в этом году</h2>
+          <p class="anniversary__title">Юбилей в этом году</p>
           <div class="anniversary__controls">
-            <div id="anniversary-button-left"></div>
-            <div id="anniversary-button-right"></div>
+            <div id="anniversary-button-left">
+              <button class="button__arrow left brown">
+                <img src="../assets/icons/arrow_beige_100.svg" alt="arrow" />
+              </button>
+            </div>
+            <div id="anniversary-button-right">
+              <button class="button__arrow right brown">
+                <img src="../assets/icons/arrow_beige_100.svg" alt="arrow" />
+              </button>
+            </div>
           </div>
         </div>
 
         <div class="anniversary__slider">
-          <div class="anniversary__slider-container"></div>
+          <div class="anniversary__slider-container">
+            <div class="anniversary-card">
+              <img src="../assets/images/factories_100.jpg" alt="factories" />
+              <div class="anniversary-card__wrapper">
+                <div class="anniversary-card__header">
+                  <p class="anniversary-card__year">1925</p>
+                  <img src="../assets/icons/factories_logo1.svg" alt="factories_logo" />
+                  <p class="anniversary-card__text">ГОД</p>
+                </div>
+                <div class="anniversary-card__title">
+                  <p>Троицкая<br /> бумажная фабрика</p>
+                  <img src="../assets/icons/anniversary_100.svg" alt="anniversary" />
+                </div>
+              </div>
+            </div>
+            <div class="anniversary-card">
+              <img src="../assets/images/factories_75.jpg" alt="factories" />
+              <div class="anniversary-card__wrapper">
+                <div class="anniversary-card__header">
+                  <p class="anniversary-card__year">1950</p>
+                  <img src="../assets/icons/factories_logo2.svg" alt="factories_logo" />
+                  <p class="anniversary-card__text">ГОД</p>
+                </div>
+                <div class="anniversary-card__title">
+                  <p>Балахнинская<br /> картонная фабрика</p>
+                  <img src="../assets/icons/anniversary_75.svg" alt="anniversary" />
+                </div>
+              </div>
+            </div>
+            <div class="anniversary-card">
+              <img src="../assets/images/factories_50.jpg" alt="factories" />
+              <div class="anniversary-card__wrapper">
+                <div class="anniversary-card__header">
+                  <p class="anniversary-card__year">1975</p>
+                  <img src="../assets/icons/factories_logo3.svg" alt="factories_logo" />
+                  <p class="anniversary-card__text">ГОД</p>
+                </div>
+                <div class="anniversary-card__title">
+                  <p>Сухонский картонно-бумажный комбинат</p>
+                  <img src="../assets/icons/anniversary_50.svg" alt="anniversary" />
+                </div>
+              </div>
+            </div>
+            <div class="anniversary-card">
+              <img src="../assets/images/factories_50.jpg" alt="factories" />
+              <div class="anniversary-card__wrapper">
+                <div class="anniversary-card__header">
+                  <p class="anniversary-card__year">1975</p>
+                  <img src="../assets/icons/factories_logo3.svg" alt="factories_logo" />
+                  <p class="anniversary-card__text">ГОД</p>
+                </div>
+                <div class="anniversary-card__title">
+                  <p>Сухонский картонно-бумажный комбинат</p>
+                  <img src="../assets/icons/anniversary_50.svg" alt="anniversary" />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <script src="../scripts/loadMenu.js"></script>
-    <script src="../scripts/loadFactories.js"></script>
-    <script src="../scripts/loadDropdown.js"></script>
-    <script src="../scripts/loadButton.js"></script>
-    <script src="../scripts/loadHistory.js"></script>
-    <script src="../scripts/loadAnniversary.js"></script>
+    <script src="../scripts/toggleMenu.js"></script>
+    <script src="../scripts/factorySearch.js"></script>
+    <script src="../scripts/handleDropdown.js"></script>
+    <script src="../scripts/factorySliders.js"></script>
   </body>
 </html>

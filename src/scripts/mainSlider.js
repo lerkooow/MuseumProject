@@ -1,4 +1,4 @@
-function initSlider() {
+function initMainSlider() {
     const slider = document.getElementById("cardsSlider");
     if (!slider) return;
 
@@ -33,4 +33,4 @@ function initSlider() {
     slider.addEventListener("mouseup", () => isDragging = false);
 }
 
-document.addEventListener("DOMContentLoaded", initSlider);
+document.addEventListener("DOMContentLoaded", initMainSlider);

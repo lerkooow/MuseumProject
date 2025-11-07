@@ -30,11 +30,12 @@
     font-size: 1.4rem;
     letter-spacing: -0.03em;
     line-height: 1.2;
-    text-transform: uppercase;
+    color: var(--color-beige-300);
 
     &::placeholder {
       color: var(--color-beige-300);
       padding-top: 6px;
+      text-transform: uppercase;
     }
   }
 

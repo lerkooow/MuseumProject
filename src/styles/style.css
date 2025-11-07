@@ -169,7 +169,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   }
 }
 .factories {
-  padding: 0 16px;
+  padding: 16px;
   display: flex;
   gap: 16px;
   width: 100%;
@@ -662,6 +662,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   flex-direction: column;
   gap: 16px;
   margin: 16px 20px;
+  padding-right: 16px;
 }
 .dropdown__list::-webkit-scrollbar {
   width: 4px;
@@ -901,11 +902,12 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   font-size: 1.4rem;
   letter-spacing: -0.03em;
   line-height: 1.2;
-  text-transform: uppercase;
+  color: var(--color-beige-300);
 }
 .factories-search__input::placeholder {
   color: var(--color-beige-300);
   padding-top: 6px;
+  text-transform: uppercase;
 }
 .factories-search__list {
   display: flex;
@@ -998,6 +1000,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     padding: 16px 0 16px 16px;
     height: auto;
     width: 100%;
+    margin-top: 64px;
   }
   .factories-map__map {
     padding-right: 16px;
@@ -1208,6 +1211,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   }
   .history__container {
     gap: 24px;
+    padding-right: 0;
   }
   .history__title {
     font-size: 2.2rem;
@@ -1414,6 +1418,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   }
   .anniversary__container {
     gap: 24px;
+    padding-right: 16px;
   }
   .anniversary__title {
     font-size: 2.2rem;

@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+function initFactorySearch() {
     function initSearch(inputId) {
         const searchInput = document.getElementById(inputId);
         if (!searchInput) return;
@@ -31,7 +31,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    initSearch("factorySearch", "#factoriesList");
+    initSearch("factorySearch");
+    initSearch("factorySearchMobile");
+}
 
-    initSearch("factorySearchMobile", "#factoriesListMobile");
-});
+document.addEventListener("DOMContentLoaded", initFactorySearch);
