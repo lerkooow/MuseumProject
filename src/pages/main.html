@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/style.css" />
+  </head>
+  <body>
+    <main class="main">
+      <!-- Menu  -->
+      <div class="menu">
+        <div class="menu__header">
+          <a href="main.html" class="menu__logo">
+            <img src="../assets/icons/logo_full.svg" alt="logo full" />
+          </a>
+          <a href="main.html" class="menu__logo--mobile">
+            <img src="../assets/icons/logo.svg" alt="logo" />
+          </a>
+          <button class="menu__toggle" aria-label="Toggle menu">
+            <img src="../assets/icons/menu.svg" alt="burger menu" class="menu__burger--mobile" />
+            <img src="../assets/icons/cross.svg" alt="cross" class="menu__cross--mobile hidden" />
+          </button>
+        </div>
+
+        <nav class="menu__nav">
+          <ul class="menu__list">
+            <li class="nav__item">
+              <a href="factories.html" class="nav__link">
+                <p>Фабрики</p>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="people.html" class="nav__link">
+                <p>Люди</p>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="leaders.html" class="nav__link">
+                <p>Руководители</p>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="multimedia.html" class="nav__link">
+                <p>Мультимедиа</p>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="menu__footer">
+          <div class="menu__search">
+            <img src="../assets/icons/prime_search.svg" alt="search" />
+            <p>Поиск</p>
+          </div>
+          <img src="../assets/icons/lines.svg" alt="lines" />
+        </div>
+
+        <!-- Menu Mobile  -->
+        <nav class="menu__nav--mobile">
+          <img src="../assets/icons/line_menu.svg" alt="divider" class="menu__divider" />
+          <ul class="menu__list--mobile">
+            <li class="nav__item">
+              <a href="factories.html" class="nav__link"><p>Фабрики</p></a>
+            </li>
+            <li class="nav__item">
+              <a href="people.html" class="nav__link"><p>Люди</p></a>
+            </li>
+            <li class="nav__item">
+              <a href="leaders.html" class="nav__link"><p>Руководители</p></a>
+            </li>
+            <li class="nav__item">
+              <a href="multimedia.html" class="nav__link"><p>Мультимедиа</p></a>
+            </li>
+
+            <div class="menu__footer--mobile">
+              <div class="menu__search">
+                <img src="../assets/icons/prime_search.svg" alt="search" />
+                <p>Поиск</p>
+              </div>
+            </div>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Welcome section -->
+      <section class="main__welcome">
+        <p class="main__title">
+          Музей истории<br />
+          объединённых<br />
+          бумажных<br />
+          фабрик
+        </p>
+        <div class="main__note">
+          <div class="main__quote">
+            <img src="../assets/icons/quote_top.svg" alt="quote" class="main__quote--top" />
+            <p>
+              Наш музей — не про стены<br />
+              Он про людей, которые делали<br />
+              невозможное каждый день
+            </p>
+            <img src="../assets/icons/quote_down.svg" alt="quote" class="main__quote--down" />
+          </div>
+          <p class="main__author">
+            — Н. И. Савельев,<br />
+            первый директор<br />
+            Сухонского КБК
+          </p>
+        </div>
+      </section>
+
+      <!-- Card section -->
+      <section class="cards__wrapper">
+        <div class="cards__slider" id="cardsSlider">
+          <div class="cards__slider_container" id="cardsContainer">
+            <a class="card theme-beige" href="factories.html">
+              <div class="card__container">
+                <div class="card__header">
+                  <img src="../assets/icons/lines_long.svg" alt="lines" />
+                  <p class="card__title">Фабрики</p>
+                  <p class="card__subtitle">10 предприятий</p>
+                </div>
+                <div class="card__image">
+                  <img src="../assets/images/factories.jpg" alt="Фабрики" />
+                </div>
+                <div class="card__footer">
+                  <p class="card__description">Столетия труда, технологический прогресс и награды</p>
+                </div>
+              </div>
+            </a>
+            <a class="card theme-warm-white" href="people.html">
+              <div class="card__container">
+                <div class="card__header">
+                  <img src="../assets/icons/lines_long.svg" alt="lines" />
+                  <p class="card__title">Люди</p>
+                  <p class="card__subtitle">Верившие в историю</p>
+                </div>
+                <div class="card__image">
+                  <img src="../assets/images/people.jpg" alt="Люди" />
+                </div>
+                <div class="card__footer">
+                  <p class="card__description">Становление, вклад в развитие и семейные традиции</p>
+                </div>
+              </div>
+            </a>
+            <a class="card theme-warm-beige" href="event.html">
+              <div class="card__container">
+                <div class="card__header">
+                  <img src="../assets/icons/lines_long.svg" alt="lines" />
+                  <p class="card__title">Событие</p>
+                  <p class="card__subtitle">В этот день в истории</p>
+                </div>
+                <div class="card__image">
+                  <img src="../assets/images/event.jpg" alt="Событие" />
+                </div>
+                <div class="card__footer">
+                  <p class="card__description--event">Пуск новой линии на Сухонском картонно- бумажном комбинате</p>
+                  <p class="card__date">2 июля 1974 года</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="../scripts/loadMenu.js"></script>
+    <script src="../scripts/loadCards.js"></script>
+  </body>
+</html>

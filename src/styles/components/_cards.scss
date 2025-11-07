@@ -96,17 +96,14 @@
 .cards {
   &__wrapper {
     width: 100%;
+    flex-grow: 1;
+    min-width: 0;
   }
 
   &__slider {
     overflow-x: auto;
-    overflow-y: hidden;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
     scroll-behavior: smooth;
-    touch-action: pan-x;
     display: flex;
-    align-items: stretch;
     gap: 16px;
 
     &::-webkit-scrollbar {
@@ -122,10 +119,9 @@
 
 @media (max-width: 768px) {
   .card {
-    height: auto;
-    min-height: 444px;
     border-radius: 4px;
     padding: 12px;
+    max-height: 444px;
 
     &__header {
       img {
