@@ -40,4 +40,15 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+
+    if (document.getElementById("people-button-left") && document.getElementById("people-button-right")) {
+        Promise.all([
+            loadButton("people-button-left", ["left", "brown"], "../assets/icons/arrow_beige_100.svg"),
+            loadButton("people-button-right", ["right", "brown"], "../assets/icons/arrow_beige_100.svg")
+        ]).then(() => {
+            // if (window.initAnniversarySlider) {
+            //     window.initAnniversarySlider();
+            // }
+        });
+    }
 });

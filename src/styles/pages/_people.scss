@@ -111,4 +111,10 @@
       max-height: clamp(400px, 45vw, 772px);
     }
   }
+
+  &__controls {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+  }
 }

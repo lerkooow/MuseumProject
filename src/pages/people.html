@@ -32,6 +32,69 @@
       </div>
     </main>
 
+    <section class="people-list">
+      <div id="menu-container"></div>
+
+      <div class="people-list__content">
+        <div class="people-list__header">
+          <h1 class="people-list__title">ВСЕ ЛЮДИ</h1>
+          <span id="peopleCount">0</span>
+        </div>
+
+        <div class="people-list__alphabet">
+          <button class="people-list__alphabet-btn" data-letter="А">А</button>
+          <button class="people-list__alphabet-btn" data-letter="Б">Б</button>
+          <button class="people-list__alphabet-btn" data-letter="В">В</button>
+          <button class="people-list__alphabet-btn" data-letter="Г">Г</button>
+          <button class="people-list__alphabet-btn" data-letter="Д">Д</button>
+          <button class="people-list__alphabet-btn" data-letter="Е">Е</button>
+          <button class="people-list__alphabet-btn" data-letter="Ж">Ж</button>
+          <button class="people-list__alphabet-btn" data-letter="З">З</button>
+          <button class="people-list__alphabet-btn" data-letter="И">И</button>
+          <button class="people-list__alphabet-btn" data-letter="К">К</button>
+          <button class="people-list__alphabet-btn" data-letter="Л">Л</button>
+          <button class="people-list__alphabet-btn" data-letter="М">М</button>
+          <button class="people-list__alphabet-btn" data-letter="Н">Н</button>
+          <button class="people-list__alphabet-btn" data-letter="О">О</button>
+          <button class="people-list__alphabet-btn" data-letter="П">П</button>
+          <button class="people-list__alphabet-btn" data-letter="Р">Р</button>
+          <button class="people-list__alphabet-btn" data-letter="С">С</button>
+          <button class="people-list__alphabet-btn" data-letter="Т">Т</button>
+          <button class="people-list__alphabet-btn" data-letter="У">У</button>
+          <button class="people-list__alphabet-btn" data-letter="Ф">Ф</button>
+          <button class="people-list__alphabet-btn" data-letter="Х">Х</button>
+          <button class="people-list__alphabet-btn" data-letter="Ц">Ц</button>
+          <button class="people-list__alphabet-btn" data-letter="Ч">Ч</button>
+          <button class="people-list__alphabet-btn" data-letter="Ш">Ш</button>
+          <button class="people-list__alphabet-btn" data-letter="Щ">Щ</button>
+          <button class="people-list__alphabet-btn" data-letter="Э">Э</button>
+          <button class="people-list__alphabet-btn" data-letter="Ю">Ю</button>
+          <button class="people-list__alphabet-btn" data-letter="Я">Я</button>
+        </div>
+
+        <div class="people-list__filters">
+          <div class="people-list__dropdowns">
+            <div id="dropdown-years"></div>
+            <div id="dropdown-factories"></div>
+          </div>
+
+          <div class="people-list__search">
+            <input type="text" class="people-list__search-input" placeholder="Поиск..." id="peopleSearch" />
+          </div>
+        </div>
+
+        <!-- <div class="people-list__grid" id="peopleGrid"></div> -->
+
+        <div class="people-list__pagination" id="pagination"></div>
+        <div class="people__controls">
+          <div id="people-button-left"></div>
+          <div id="people-button-right"></div>
+        </div>
+      </div>
+    </section>
+
     <script src="../scripts/loadMenu.js"></script>
+    <script type="module" src="../scripts/peopleFilter.js"></script>
+    <script type="module" src="../scripts/loadButton.js"></script>
   </body>
 </html>
