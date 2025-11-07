@@ -3,31 +3,101 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Фабрики - Музей истории объединённых бумажных фабрик</title>
     <link rel="stylesheet" href="../styles/style.css" />
   </head>
   <body>
-    <main class="main">
-      <div class="people">
-        <div id="menu-container"></div>
+    <main class="people">
+      <!-- Menu  -->
+      <div class="menu">
+        <div class="menu__header">
+          <a href="main.html" class="menu__logo">
+            <img src="../assets/icons/logo_full.svg" alt="logo full" />
+          </a>
+          <a href="main.html" class="menu__logo--mobile">
+            <img src="../assets/icons/logo.svg" alt="logo" />
+          </a>
+          <button class="menu__toggle" aria-label="Toggle menu">
+            <img src="../assets/icons/menu.svg" alt="burger menu" class="menu__burger--mobile" />
+            <img src="../assets/icons/cross.svg" alt="cross" class="menu__cross--mobile hidden" />
+          </button>
+        </div>
 
-        <div class="people__content">
-          <div class="people__wrapper">
-            <div class="people__header">
-              <h2 class="people__subtitle">ЛЮДИ ОБЪЕДИНЁННЫХ<br />БУМАЖНЫХ ФАБРИК</h2>
-              <h1 class="people__title">ИХ РУКАМИ<br />ТВОРИЛАСЬ ИСТОРИЯ</h1>
-            </div>
+        <nav class="menu__nav">
+          <ul class="menu__list">
+            <li class="nav__item">
+              <a href="factories.html" class="nav__link">
+                <p>Фабрики</p>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="people.html" class="nav__link">
+                <p>Люди</p>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="leaders.html" class="nav__link">
+                <p>Руководители</p>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="multimedia.html" class="nav__link">
+                <p>Мультимедиа</p>
+              </a>
+            </li>
+          </ul>
+        </nav>
 
-            <div class="people__description">
-              <p>Узнайте истории сотрудников,<br />их вклад в развитие производства<br />и успех фабрик, продолжающийся<br />от смены к смене</p>
-            </div>
-            <div class="people__photo people__photo--small">
-              <img src="../assets/icons/people_page1.svg" alt="Сотрудники фабрики" />
-            </div>
+        <div class="menu__footer">
+          <div class="menu__search">
+            <img src="../assets/icons/prime_search.svg" alt="search" />
+            <p>Поиск</p>
           </div>
-          <div class="people__photo people__photo--large">
-            <img src="../assets/icons/people_page2.svg" alt="Сотрудники фабрики" />
+          <img src="../assets/icons/lines.svg" alt="lines" />
+        </div>
+
+        <!-- Menu Mobile  -->
+        <nav class="menu__nav--mobile">
+          <img src="../assets/icons/line_menu.svg" alt="divider" class="menu__divider" />
+          <ul class="menu__list--mobile">
+            <li class="nav__item">
+              <a href="factories.html" class="nav__link"><p>Фабрики</p></a>
+            </li>
+            <li class="nav__item">
+              <a href="people.html" class="nav__link"><p>Люди</p></a>
+            </li>
+            <li class="nav__item">
+              <a href="leaders.html" class="nav__link"><p>Руководители</p></a>
+            </li>
+            <li class="nav__item">
+              <a href="multimedia.html" class="nav__link"><p>Мультимедиа</p></a>
+            </li>
+
+            <div class="menu__footer--mobile">
+              <div class="menu__search">
+                <img src="../assets/icons/prime_search.svg" alt="search" />
+                <p>Поиск</p>
+              </div>
+            </div>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="people__content">
+        <div class="people__wrapper">
+          <div class="people__header">
+            <h2 class="people__subtitle">ЛЮДИ ОБЪЕДИНЁННЫХ<br />БУМАЖНЫХ ФАБРИК</h2>
+            <h1 class="people__title">ИХ РУКАМИ<br />ТВОРИЛАСЬ ИСТОРИЯ</h1>
           </div>
+
+          <div class="people__description">
+            <p>Узнайте истории сотрудников,<br />их вклад в развитие производства<br />и успех фабрик, продолжающийся<br />от смены к смене</p>
+          </div>
+          <div class="people__photo people__photo--small">
+            <img src="../assets/icons/people_page1.svg" alt="Сотрудники фабрики" />
+          </div>
+        </div>
+        <div class="people__photo people__photo--large">
+          <img src="../assets/icons/people_page2.svg" alt="Сотрудники фабрики" />
         </div>
       </div>
     </main>
@@ -38,7 +108,7 @@
       <div class="people-list__content">
         <div class="people-list__header">
           <h1 class="people-list__title">ВСЕ ЛЮДИ</h1>
-          <span id="peopleCount">0</span>
+          <span id="peopleCount">6</span>
         </div>
 
         <div class="people-list__alphabet">
@@ -74,27 +144,280 @@
 
         <div class="people-list__filters">
           <div class="people-list__dropdowns">
-            <div id="dropdown-years"></div>
-            <div id="dropdown-factories"></div>
+            <!-- Dropdown -->
+            <div id="dropdown-container">
+              <div class="dropdown dropdown--beige" id="dropdown">
+                <button class="dropdown__button" id="dropdownButton">
+                  <span class="dropdown__button-text">Годы работы</span>
+                  <span class="dropdown__icon">
+                    <img src="../assets/icons/arrow_small.svg" alt="arrow" />
+                  </span>
+                </button>
+                <div class="dropdown__content">
+                  <div class="dropdown__divider"></div>
+                  <ul class="dropdown__list" id="dropdownList">
+                    <li class="dropdown__item" data-value="all">Все годы</li>
+                    <li class="dropdown__item" data-value="1911-1945">1911-1945</li>
+                    <li class="dropdown__item" data-value="1927-1964">1927-1964</li>
+                    <li class="dropdown__item" data-value="1972-2021">1972-2021</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- Dropdown -->
+            <div id="dropdown-container">
+              <div class="dropdown dropdown--beige" id="dropdown">
+                <button class="dropdown__button" id="dropdownButton">
+                  <span class="dropdown__button-text">Фабрика</span>
+                  <span class="dropdown__icon">
+                    <img src="../assets/icons/arrow_small.svg" alt="arrow" />
+                  </span>
+                </button>
+                <div class="dropdown__content">
+                  <div class="dropdown__divider"></div>
+                  <ul class="dropdown__list" id="dropdownList">
+                    <li class="dropdown__item" data-value="all">Все фабрики</li>
+                    <li class="dropdown__item" data-value="suhonsky">Сухонский картонно-бумажный комбинат</li>
+                    <li class="dropdown__item" data-value="suhonsky">Ижорский целлюлозно-бумажный завод</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="people-list__search">
             <input type="text" class="people-list__search-input" placeholder="Поиск..." id="peopleSearch" />
           </div>
         </div>
+        <!-- Card  -->
+        <div class="people-list__empty" id="emptyMessage" style="display: none">
+          <p class="people-list__empty-text">По вашему запросу ничего не найдено</p>
+          <p class="people-list__empty-hint">Попробуйте изменить фильтры или поисковый запрос</p>
+        </div>
+        <div class="people-list__grid">
+          <div class="people-list__card">
+            <div class="people-list__left">
+              <div class="people-list__wrapper">
+                <p class="people-list__name">
+                  Василий<br />
+                  Иванович<br />
+                  Орлов
+                </p>
+                <p class="people-list__post">Мастер бумажного производства</p>
+              </div>
+              <div class="people-list__factory">
+                <p>
+                  Сухонский<br />
+                  картонно-бумажный<br />
+                  комбинат
+                </p>
+                <img src="../assets/icons/arrow_brown_300.svg" alt="arrow right" class="people-list__arrow" />
+              </div>
+            </div>
+            <div class="people-list__right">
+              <img src="../assets/images/person1.jpg" alt="Василий Иванович Орлов" />
+            </div>
+            <img src="../assets/icons/stamp1972-2021.svg" alt="1972-2021" class="people-list__stamp" />
+          </div>
 
-        <!-- <div class="people-list__grid" id="peopleGrid"></div> -->
+          <!-- Card  -->
+          <div class="people-list__card">
+            <div class="people-list__left">
+              <div class="people-list__wrapper">
+                <p class="people-list__name">
+                  Елена<br />
+                  Александровна<br />
+                  Ермолова (Андреева)
+                </p>
+                <p class="people-list__post">Мастер бумажного производства</p>
+              </div>
+              <div class="people-list__factory">
+                <p>
+                  Сухонский<br />
+                  картонно-бумажный<br />
+                  комбинат
+                </p>
+                <img src="../assets/icons/arrow_brown_300.svg" alt="arrow right" class="people-list__arrow" />
+              </div>
+            </div>
+            <div class="people-list__right">
+              <img src="../assets/images/person4.jpg" alt="Елена Александровна Ермолова (Андреева)" />
+            </div>
+            <img src="../assets/icons/stamp1927-1964.svg" alt="1927-1964" class="people-list__stamp" />
+          </div>
 
-        <div class="people-list__pagination" id="pagination"></div>
+          <!-- Card  -->
+          <div class="people-list__card">
+            <div class="people-list__left">
+              <div class="people-list__wrapper">
+                <p class="people-list__name">
+                  Константин<br />
+                  Петрович<br />
+                  Печаткин
+                </p>
+                <p class="people-list__post">Основатель завода, инженер БДМ</p>
+              </div>
+              <div class="people-list__factory">
+                <p>
+                  Сухонский<br />
+                  картонно-бумажный<br />
+                  комбинат
+                </p>
+                <img src="../assets/icons/arrow_brown_300.svg" alt="arrow right" class="people-list__arrow" />
+              </div>
+            </div>
+            <div class="people-list__right">
+              <img src="../assets/images/person2.jpg" alt="Константин Петрович Печаткин" />
+            </div>
+            <img src="../assets/icons/stamp1927-1964.svg" alt="1927-1964" class="people-list__stamp" />
+          </div>
+
+          <!-- Card  -->
+          <div class="people-list__card">
+            <div class="people-list__left">
+              <div class="people-list__wrapper">
+                <p class="people-list__name">
+                  Петр<br />
+                  Алексеевич<br />
+                  Печаткин
+                </p>
+                <p class="people-list__post">Основатель завода, инженер БДМ</p>
+              </div>
+              <div class="people-list__factory">
+                <p>
+                  Сухонский<br />
+                  картонно-бумажный<br />
+                  комбинат
+                </p>
+                <img src="../assets/icons/arrow_brown_300.svg" alt="arrow right" class="people-list__arrow" />
+              </div>
+            </div>
+            <div class="people-list__right">
+              <img src="../assets/images/person5.jpg" alt="Петр Алексеевич Печаткин" />
+            </div>
+            <img src="../assets/icons/stamp1911-1945.svg" alt="1911-1945" class="people-list__stamp" />
+          </div>
+
+          <!-- Card  -->
+          <div class="people-list__card">
+            <div class="people-list__left">
+              <div class="people-list__wrapper">
+                <p class="people-list__name">
+                  Николай<br />
+                  Вячеславович<br />
+                  Печаткин
+                </p>
+                <p class="people-list__post">Основатель завода, инженер БДМ</p>
+              </div>
+              <div class="people-list__factory">
+                <p>
+                  Сухонский<br />
+                  картонно-бумажный<br />
+                  комбинат
+                </p>
+                <img src="../assets/icons/arrow_brown_300.svg" alt="arrow right" class="people-list__arrow" />
+              </div>
+            </div>
+            <div class="people-list__right">
+              <img src="../assets/images/person3.jpg" alt="Николай Вячеславович Печаткин" />
+            </div>
+            <img src="../assets/icons/stamp1911-1945.svg" alt="1911-1945" class="people-list__stamp" />
+          </div>
+
+          <!-- Card  -->
+          <div class="people-list__card">
+            <div class="people-list__left">
+              <div class="people-list__wrapper">
+                <p class="people-list__name">
+                  Клавдия<br />
+                  Константиновна<br />
+                  Печаткина
+                </p>
+                <p class="people-list__post">Основатель завода, инженер БДМ</p>
+              </div>
+              <div class="people-list__factory">
+                <p>
+                  Сухонский<br />
+                  картонно-бумажный<br />
+                  комбинат
+                </p>
+                <img src="../assets/icons/arrow_brown_300.svg" alt="arrow right" class="people-list__arrow" />
+              </div>
+            </div>
+            <div class="people-list__right">
+              <img src="../assets/images/person6.jpg" alt="Клавдия Константиновна Печаткина" />
+            </div>
+            <img src="../assets/icons/stamp1927-1964.svg" alt="1927-1964" class="people-list__stamp" />
+          </div>
+          <!-- Card  -->
+          <div class="people-list__card">
+            <div class="people-list__left">
+              <div class="people-list__wrapper">
+                <p class="people-list__name">
+                  Клавдия<br />
+                  Константиновна<br />
+                  Печаткина
+                </p>
+                <p class="people-list__post">Основатель завода, инженер БДМ</p>
+              </div>
+              <div class="people-list__factory">
+                <p>
+                  Сухонский<br />
+                  картонно-бумажный<br />
+                  комбинат
+                </p>
+                <img src="../assets/icons/arrow_brown_300.svg" alt="arrow right" class="people-list__arrow" />
+              </div>
+            </div>
+            <div class="people-list__right">
+              <img src="../assets/images/person6.jpg" alt="Клавдия Константиновна Печаткина" />
+            </div>
+            <img src="../assets/icons/stamp1927-1964.svg" alt="1927-1964" class="people-list__stamp" />
+          </div>
+          <!-- Card  -->
+          <div class="people-list__card">
+            <div class="people-list__left">
+              <div class="people-list__wrapper">
+                <p class="people-list__name">
+                  Клавдия<br />
+                  Константиновна<br />
+                  Печаткина
+                </p>
+                <p class="people-list__post">Основатель завода, инженер БДМ</p>
+              </div>
+              <div class="people-list__factory">
+                <p>
+                  Сухонский<br />
+                  картонно-бумажный<br />
+                  комбинат
+                </p>
+                <img src="../assets/icons/arrow_brown_300.svg" alt="arrow right" class="people-list__arrow" />
+              </div>
+            </div>
+            <div class="people-list__right">
+              <img src="../assets/images/person6.jpg" alt="Клавдия Константиновна Печаткина" />
+            </div>
+            <img src="../assets/icons/stamp1927-1964.svg" alt="1927-1964" class="people-list__stamp" />
+          </div>
+        </div>
+
         <div class="people__controls">
-          <div id="people-button-left"></div>
-          <div id="people-button-right"></div>
+          <div id="people-button-left">
+            <button class="button__arrow left brown">
+              <img src="../assets/icons/arrow_beige_100.svg" alt="arrow" />
+            </button>
+          </div>
+          <div id="people-button-right">
+            <button class="button__arrow right brown">
+              <img src="../assets/icons/arrow_beige_100.svg" alt="arrow" />
+            </button>
+          </div>
         </div>
       </div>
     </section>
 
     <script src="../scripts/toggleMenu.js"></script>
-    <script type="module" src="../scripts/peopleFilter.js"></script>
-    <script type="module" src="../scripts/loadButton.js"></script>
+    <script type="module" src="../scripts/peopleLogic.js"></script>
+    <script type="module" src="../scripts/handleDropdown.js"></script>
   </body>
 </html>
