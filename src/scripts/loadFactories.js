@@ -48,13 +48,11 @@ function createFactoryItem(factory) {
 function loadFactories() {
     const factoriesHTML = factoriesData.map(createFactoryItem).join("");
 
-    // Загружаем в десктопную версию
     const listContainer = document.getElementById("factoriesList");
     if (listContainer) {
         listContainer.innerHTML = factoriesHTML;
     }
 
-    // Загружаем в мобильную версию
     const listContainerMobile = document.getElementById("factoriesListMobile");
     if (listContainerMobile) {
         listContainerMobile.innerHTML = factoriesHTML;
@@ -64,7 +62,6 @@ function loadFactories() {
 }
 
 function initFactorySearch() {
-    // Функция для инициализации поиска
     function initSearch(inputId) {
         const searchInput = document.getElementById(inputId);
         if (!searchInput) return;
@@ -97,10 +94,8 @@ function initFactorySearch() {
         });
     }
 
-    // Инициализация десктопной версии
     initSearch("factorySearch");
 
-    // Инициализация мобильной версии
     initSearch("factorySearchMobile");
 }
 

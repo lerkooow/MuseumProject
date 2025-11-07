@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Функция для инициализации поиска
-    function initSearch(inputId, listSelector) {
+    function initSearch(inputId) {
         const searchInput = document.getElementById(inputId);
         if (!searchInput) return;
 
@@ -32,9 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Инициализация десктопной версии
     initSearch("factorySearch", "#factoriesList");
 
-    // Инициализация мобильной версии
     initSearch("factorySearchMobile", "#factoriesListMobile");
 });
