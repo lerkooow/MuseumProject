@@ -1,0 +1,317 @@
+.leaders {
+  padding: 16px;
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  max-height: 100vh;
+
+  &__content {
+    background-color: var(--color-warm-beige);
+    border-radius: 8px;
+    padding: 40px;
+    display: flex;
+    position: relative;
+    width: 100%;
+    flex-direction: column;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("../assets/textures/texture_people.png");
+      background-repeat: repeat;
+      background-size: auto;
+      z-index: 0;
+      pointer-events: none;
+      mix-blend-mode: screen;
+      opacity: 0.3;
+    }
+  }
+
+  &__title {
+    font-size: clamp(32px, 4vw, 50px);
+    line-height: 1;
+    color: var(--color-brown-300);
+    z-index: 1;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  &__wrapper {
+    display: flex;
+    height: 100%;
+    justify-content: space-around;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  &__photo {
+    max-width: 446px;
+    position: relative;
+  }
+
+  &__img {
+    max-width: clamp(220px, 24vw, 446px);
+    width: 100%;
+    height: clamp(267px, 29vw, 542px);
+  }
+
+  &__stamp {
+    position: absolute;
+
+    z-index: 2;
+
+    img {
+      max-width: clamp(80px, 7vw, 121px);
+    }
+  }
+
+  &__envelope {
+    position: absolute;
+    width: 100%;
+    max-width: clamp(185px, 20vw, 324px);
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    min-height: clamp(188px, 20vw, 330px);
+  }
+
+  &__card--left &__envelope {
+    right: -65%;
+    top: 0%;
+  }
+
+  &__card--left &__stamp {
+    right: -15%;
+    bottom: 5%;
+  }
+
+  &__card--right &__envelope {
+    left: -60%;
+    bottom: -10%;
+    transform: rotate(-15deg);
+  }
+
+  &__card--right &__stamp {
+    right: 10%;
+    top: -13%;
+  }
+
+  &__envelope-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  &__quote {
+    position: absolute;
+    z-index: 1;
+    font-size: clamp(8px, 0.9vw, 16px);
+    line-height: 1.2;
+    color: var(--color-brown-300);
+    text-align: center;
+    font-style: italic;
+    width: 100%;
+  }
+
+  &__card--left &__quote {
+    top: 30%;
+    transform: rotate(2deg);
+  }
+
+  &__card--right &__quote {
+    top: 30%;
+    transform: rotate(2deg);
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    text-align: center;
+  }
+
+  &__name {
+    font-size: clamp(18px, 1.5vw, 26px);
+    font-weight: 600;
+    color: var(--color-brown-300);
+    line-height: 1.1;
+    z-index: 2;
+  }
+
+  &__position {
+    font-size: clamp(12px, 1.2vw, 16px);
+    color: var(--color-beige-300);
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    z-index: 2;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+  }
+
+  &__subtitle {
+    font-size: clamp(14px, 1.8vw, 18px);
+    line-height: 1;
+    color: var(--color-beige-300);
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 2000px) {
+    &__wrapper {
+      justify-content: space-between;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    &__card--left &__stamp {
+      right: -15%;
+      bottom: -20%;
+    }
+
+    &__card--left &__envelope {
+      right: 30%;
+      top: 50%;
+      transform: rotate(-15deg);
+    }
+
+    &__card--right &__envelope {
+      left: 30%;
+      top: 50%;
+      transform: rotate(10deg);
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 0;
+
+    &__content {
+      flex-direction: column;
+      padding: 20px 16px 16px 16px;
+      margin: 80px 16px 16px 16px;
+      min-height: calc(100vh - 96px);
+      max-height: calc(100vh - 96px);
+      border-radius: 4px;
+      justify-content: flex-start;
+      overflow-y: auto;
+      gap: 16px;
+    }
+
+    &__title {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    &__wrapper {
+      flex-direction: column;
+      height: auto;
+      gap: 32px;
+      flex: 1;
+    }
+
+    &__card {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(95px, 20vw, 150px);
+      position: relative;
+      width: 100%;
+      align-items: flex-start;
+    }
+
+    &__card--right {
+      align-items: flex-end;
+    }
+
+    &__stamp {
+      img {
+        max-width: clamp(80px, 15vw, 121px);
+      }
+    }
+
+    &__img {
+      max-width: clamp(220px, 58vw, 445px);
+      width: 100%;
+      height: clamp(267px, 69vw, 495px);
+    }
+
+    &__envelope {
+      max-width: clamp(185px, 39vw, 324px);
+      min-height: clamp(188px, 39vw, 330px);
+      width: 100%;
+    }
+
+    &__card--left &__stamp {
+      right: -17%;
+      top: 10%;
+    }
+
+    &__card--right &__stamp {
+      left: -17%;
+      top: 10%;
+    }
+
+    &__card--left &__envelope {
+      right: -23%;
+      top: 60%;
+      transform: rotate(5deg);
+    }
+
+    &__card--right &__envelope {
+      left: -23%;
+      top: 60%;
+      transform: rotate(-10deg);
+    }
+
+    &__envelope-bg {
+      width: 100%;
+      height: 100%;
+    }
+
+    &__quote {
+      max-width: 100%;
+      line-height: 1.2;
+      padding: 4px;
+      text-align: center;
+      font-size: clamp(8px, 1.8vw, 16px);
+    }
+
+    &__info {
+      gap: 12px;
+      text-align: center;
+      margin-top: 8px;
+      width: 100%;
+    }
+
+    &__footer {
+      margin-top: auto;
+      padding: 16px 0 8px 0;
+      flex-shrink: 0;
+    }
+  }
+
+  @media (max-width: 425px) {
+    &__card--left &__stamp {
+      right: -22%;
+    }
+
+    &__card--right &__stamp {
+      left: -22%;
+    }
+  }
+}

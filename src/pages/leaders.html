@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/style.css" />
+  </head>
+
+  <body>
+    <main class="leaders">
+      <!-- Menu -->
+      <div class="menu">
+        <div class="menu__header">
+          <a href="main.html" class="menu__logo">
+            <img src="../assets/icons/logo_full.svg" alt="logo full" />
+          </a>
+          <a href="main.html" class="menu__logo--mobile">
+            <img src="../assets/icons/logo.svg" alt="logo" />
+          </a>
+          <button class="menu__toggle" aria-label="Toggle menu">
+            <img src="../assets/icons/menu.svg" alt="burger menu" class="menu__burger--mobile" />
+            <img src="../assets/icons/cross.svg" alt="cross" class="menu__cross--mobile hidden" />
+          </button>
+        </div>
+
+        <nav class="menu__nav">
+          <ul class="menu__list">
+            <li class="nav__item">
+              <a href="factories.html" class="nav__link">
+                <p>Фабрики</p>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="people.html" class="nav__link">
+                <p>Люди</p>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="leaders.html" class="nav__link">
+                <p>Руководители</p>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="multimedia.html" class="nav__link">
+                <p>Мультимедиа</p>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="menu__footer">
+          <div class="menu__search">
+            <img src="../assets/icons/prime_search.svg" alt="search" />
+            <p>Поиск</p>
+          </div>
+          <img src="../assets/icons/lines.svg" alt="lines" />
+        </div>
+
+        <!-- Menu Mobile -->
+        <nav class="menu__nav--mobile">
+          <img src="../assets/icons/line_menu.svg" alt="divider" class="menu__divider" />
+          <ul class="menu__list--mobile">
+            <li class="nav__item">
+              <a href="factories.html" class="nav__link">
+                <p>Фабрики</p>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="people.html" class="nav__link">
+                <p>Люди</p>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="leaders.html" class="nav__link">
+                <p>Руководители</p>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="multimedia.html" class="nav__link">
+                <p>Мультимедиа</p>
+              </a>
+            </li>
+          </ul>
+
+          <div class="menu__footer--mobile">
+            <div class="menu__search">
+              <img src="../assets/icons/prime_search.svg" alt="search" />
+              <p>Поиск</p>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Leaders Section -->
+      <section class="leaders__content">
+        <p class="leaders__title">Руководители</p>
+
+        <div class="leaders__wrapper">
+          <div class="leaders__card leaders__card--left">
+            <div class="leaders__photo">
+              <img src="../assets/icons/leaders1.svg" alt="Юрий Александрович Блинушов" class="leaders__img" />
+              <div class="leaders__stamp">
+                <img src="../assets/icons/stamp2018.svg" alt="2018 - наст. время" />
+              </div>
+              <div class="leaders__envelope">
+                <img src="../assets/icons/envelope.svg" alt="конверт" class="leaders__envelope-bg" />
+                <p class="leaders__quote">
+                  “Сила фабрики — в людях,<br />
+                  которые верят в общее<br />
+                  дело и делают его<br />
+                  с душой“
+                </p>
+              </div>
+            </div>
+
+            <div class="leaders__info">
+              <p class="leaders__name">
+                Юрий Александрович<br />
+                Блинушов
+              </p>
+              <p class="leaders__position">
+                Директор Сухонского<br />
+                картонно-бумажного комбината
+              </p>
+            </div>
+          </div>
+
+          <div class="leaders__card leaders__card--right">
+            <div class="leaders__photo">
+              <img src="../assets/icons/leaders2.svg" alt="Алексей Николаевич Андреев" class="leaders__img" />
+              <div class="leaders__stamp">
+                <img src="../assets/icons/stamp2017.svg" alt="2017 - наст. время" />
+              </div>
+              <div class="leaders__envelope">
+                <img src="../assets/icons/envelope.svg" alt="конверт" class="leaders__envelope-bg" />
+                <p class="leaders__quote">
+                  “Трудные времена<br />
+                  учат держаться вместе —<br />
+                  это и есть настоящее<br />
+                  единство“
+                </p>
+              </div>
+            </div>
+            <div class="leaders__info">
+              <p class="leaders__name">
+                Алексей Николаевич<br />
+                Андреев
+              </p>
+              <p class="leaders__position">
+                Директор торгово-закупочной<br />
+                компании «Формат»
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leaders__footer">
+          <p class="leaders__subtitle">
+            Люди, которые определяли<br />
+            путь развития
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script src="../scripts/toggleMenu.js"></script>
+  </body>
+</html>
