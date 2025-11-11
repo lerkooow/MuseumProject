@@ -214,10 +214,11 @@
 
     &__content {
       flex-direction: column;
-      padding: 20px 16px;
+      padding: 16px;
       margin: 80px 16px 0 16px;
       gap: 24px;
       border-radius: 4px;
+      min-height: 585px;
     }
 
     &__left {
@@ -241,6 +242,7 @@
 
     &__title {
       font-size: 24px;
+      margin-bottom: 32px;
     }
 
     &__subtitle {
@@ -253,8 +255,6 @@
     }
 
     &__note {
-      font-size: 14px;
-
       br {
         display: none;
       }
@@ -290,38 +290,12 @@
       }
     }
 
-    &__load-more {
-      background-color: var(--color-brown-300);
-      color: var(--color-warm-beige);
-      border: none;
-      border-radius: 4px;
-      padding: 16px 32px;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      margin-top: 16px;
-      transition: background-color 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: -0.02em;
-
-      &:hover {
-        background-color: var(--color-beige-300);
-      }
-
-      &:active {
-        transform: scale(0.98);
-      }
-    }
-
     &__info {
       gap: 0;
       padding: 24px;
     }
 
     &__img {
-      height: 240px;
-      flex-shrink: 0;
-
       p {
         padding: 24px;
       }
