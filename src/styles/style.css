@@ -462,7 +462,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   display: flex;
   gap: 16px;
   width: 100%;
-  max-height: 100vh;
+  min-height: 100vh;
 }
 .leaders__content {
   background-color: var(--color-warm-beige);
@@ -476,7 +476,10 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 .leaders__content::before {
   content: "";
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 50%;
+  bottom: 0;
   background-image: url("../assets/textures/texture_people.png");
   background-repeat: repeat;
   background-size: auto;
@@ -484,9 +487,10 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   pointer-events: none;
   mix-blend-mode: screen;
   opacity: 0.3;
+  width: 100%;
 }
 .leaders__title {
-  font-size: clamp(32px, 4vw, 50px);
+  font-size: clamp(22px, 4vw, 50px);
   line-height: 1;
   color: var(--color-brown-300);
   z-index: 1;
@@ -637,16 +641,8 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     flex-direction: column;
     padding: 20px 16px 16px 16px;
     margin: 80px 16px 16px 16px;
-    min-height: calc(100vh - 96px);
-    max-height: calc(100vh - 96px);
     border-radius: 4px;
-    justify-content: flex-start;
-    overflow-y: auto;
     gap: 16px;
-  }
-  .leaders__title {
-    font-size: 20px;
-    margin-bottom: 8px;
   }
   .leaders__wrapper {
     flex-direction: column;
