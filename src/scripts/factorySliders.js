@@ -21,11 +21,32 @@ function initFactorySlider({ containerSelector, leftBtnSelector, rightBtnSelecto
     return desktopVisible;
   }
 
+  function updateButtonStates() {
+    const visibleCards = getVisibleCards();
+
+    if (currentIndex === 0) {
+      leftButton.style.opacity = "0.5";
+      leftButton.style.cursor = "not-allowed";
+    } else {
+      leftButton.style.opacity = "1";
+      leftButton.style.cursor = "pointer";
+    }
+
+    if (currentIndex >= totalCards - visibleCards) {
+      rightButton.style.opacity = "0.5";
+      rightButton.style.cursor = "not-allowed";
+    } else {
+      rightButton.style.opacity = "1";
+      rightButton.style.cursor = "pointer";
+    }
+  }
+
   function updateSlider() {
     const cardWidth = cards[0].offsetWidth;
     const gap = window.innerWidth <= 768 ? 12 : 16;
     const offset = -(currentIndex * (cardWidth + gap));
     sliderContainer.style.transform = `translateX(${offset}px)`;
+    updateButtonStates();
   }
 
   leftButton.addEventListener("click", () => {
@@ -50,6 +71,8 @@ function initFactorySlider({ containerSelector, leftBtnSelector, rightBtnSelecto
     }
     updateSlider();
   });
+
+  updateButtonStates();
 }
 
 document.addEventListener("DOMContentLoaded", function () {

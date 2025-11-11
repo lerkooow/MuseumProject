@@ -7,6 +7,7 @@
 @use "pages/leaders";
 @use "pages/multimedia";
 @use "pages/awards";
+@use "pages/leader";
 
 @use "components/menu";
 @use "components/button";
@@ -17,3 +18,6 @@
 @use "components/history";
 @use "components/anniversary";
 @use "components/people-list";
+@use "components/contribution";
+@use "components/wishes";
+@use "components/archive";

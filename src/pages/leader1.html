@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/style.css" />
+  </head>
+
+  <body>
+    <main class="leader">
+      <!-- Menu -->
+      <div class="menu">
+        <div class="menu__header">
+          <a href="main.html" class="menu__logo">
+            <img src="../assets/icons/logo_full.svg" alt="logo full" />
+          </a>
+          <a href="main.html" class="menu__logo--mobile">
+            <img src="../assets/icons/logo.svg" alt="logo" />
+          </a>
+          <button class="menu__toggle" aria-label="Toggle menu">
+            <img src="../assets/icons/menu.svg" alt="burger menu" class="menu__burger--mobile" />
+            <img src="../assets/icons/cross.svg" alt="cross" class="menu__cross--mobile hidden" />
+          </button>
+        </div>
+
+        <nav class="menu__nav">
+          <ul class="menu__list">
+            <li class="nav__item">
+              <a href="factories.html" class="nav__link"><p>Фабрики</p></a>
+            </li>
+            <li class="nav__item">
+              <a href="people.html" class="nav__link"><p>Люди</p></a>
+            </li>
+            <li class="nav__item">
+              <a href="leaders.html" class="nav__link"><p>Руководители</p></a>
+            </li>
+            <li class="nav__item">
+              <a href="multimedia.html" class="nav__link"><p>Мультимедиа</p></a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="menu__footer">
+          <div class="menu__search">
+            <img src="../assets/icons/prime_search.svg" alt="search" />
+            <p>Поиск</p>
+          </div>
+          <img src="../assets/icons/lines.svg" alt="lines" />
+        </div>
+
+        <!-- Menu Mobile -->
+        <nav class="menu__nav--mobile">
+          <img src="../assets/icons/line_menu.svg" alt="divider" class="menu__divider" />
+          <ul class="menu__list--mobile">
+            <li class="nav__item">
+              <a href="factories.html" class="nav__link"><p>Фабрики</p></a>
+            </li>
+            <li class="nav__item">
+              <a href="people.html" class="nav__link"><p>Люди</p></a>
+            </li>
+            <li class="nav__item">
+              <a href="leaders.html" class="nav__link"><p>Руководители</p></a>
+            </li>
+            <li class="nav__item">
+              <a href="leader.html" class="nav__link"><p>Мультимедиа</p></a>
+            </li>
+          </ul>
+
+          <div class="menu__footer--mobile">
+            <div class="menu__search">
+              <img src="../assets/icons/prime_search.svg" alt="search" />
+              <p>Поиск</p>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Leader Section -->
+      <section class="leader__content">
+        <div class="leader__left">
+          <div class="leader__logo">
+            <p>Директор Сухонского картонно-<br />бумажного комбината</p>
+          </div>
+
+          <div class="leader__title">
+            <p class="leader__name">
+              Юрий<br />
+              Александрович<br />
+              Блинушов
+            </p>
+            <p class="leader__period">2018-н.в. годы работы</p>
+          </div>
+
+          <div class="leader__img--mobile">
+            <img src="../assets/images/leader1.jpg" alt="Фото" loading="lazy" />
+          </div>
+
+          <div class="leader__subtitle">
+            <span>Биография</span>
+            <p>
+              Родился в 1958 году в Архангельской области. Окончил Ленинградский технологический институт целлюлозно-бумажной промышленности. Работал инженером, затем начальником цеха, а с 2005 года
+              возглавил фабрику. Под его руководством предприятие прошло модернизацию и вошло в число крупнейших производителей бумаги в регионе.
+            </p>
+          </div>
+
+          <div class="leader__empty"></div>
+        </div>
+
+        <div class="leader__right">
+          <img src="../assets/images/leader1.jpg" alt="Юрий Александрович Блинушов" loading="lazy" />
+          <div class="leader__quote">
+            <img src="../assets/icons/quote_top-beige.svg" alt="Quote top" class="leader__quote--top" />
+            <p>Сила фабрики — в людях, которые верят в общее дело и делают его с душой</p>
+            <img src="../assets/icons/quote_down-beige.svg" alt="Quote down" class="leader__quote--down" />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Contribution to OBF Cards Section -->
+    <section class="contribution">
+      <div class="contribution__container">
+        <div class="contribution__header">
+          <p class="contribution__title">Вклад в ОБФ</p>
+          <div class="contribution__controls">
+            <div id="contribution-button-left">
+              <button class="button__arrow left brown">
+                <img src="../assets/icons/arrow_beige_100.svg" alt="arrow" />
+              </button>
+            </div>
+            <div id="contribution-button-right">
+              <button class="button__arrow right brown">
+                <img src="../assets/icons/arrow_beige_100.svg" alt="arrow" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="contribution__slider">
+          <div class="contribution__slider-container">
+            <div class="contribution-card">
+              <img src="../assets/icons/clip.svg" alt="Скрепка" class="contribution-card__clip" />
+              <div class="contribution-card__number">
+                <p>01</p>
+              </div>
+              <div class="contribution-card__description">
+                <p>Запустил новую производственную линию</p>
+              </div>
+              <div class="contribution-card__stamp">
+                <img src="../assets/icons/stamp2021-2022.svg" alt="Вехи труда 2021-2022" />
+              </div>
+            </div>
+
+            <div class="contribution-card">
+              <img src="../assets/icons/clip.svg" alt="Скрепка" class="contribution-card__clip" />
+              <div class="contribution-card__number">
+                <p>02</p>
+              </div>
+              <div class="contribution-card__description">
+                <p>Внедрил экологические стандарты и систему очистки стоков</p>
+              </div>
+              <div class="contribution-card__stamp">
+                <img src="../assets/icons/stamp2019-2020.svg" alt="Вехи труда 2019-2020" />
+              </div>
+            </div>
+
+            <div class="contribution-card">
+              <img src="../assets/icons/clip.svg" alt="Скрепка" class="contribution-card__clip" />
+              <div class="contribution-card__number">
+                <p>03</p>
+              </div>
+              <div class="contribution-card__description">
+                <p>Организовал обучение молодых специалистов и ввёл систему наставничества</p>
+              </div>
+              <div class="contribution-card__stamp">
+                <img src="../assets/icons/stamp2023.svg" alt="Вехи труда 2023" />
+              </div>
+            </div>
+
+            <div class="contribution-card">
+              <img src="../assets/icons/clip.svg" alt="Скрепка" class="contribution-card__clip" />
+              <div class="contribution-card__number">
+                <p>04</p>
+              </div>
+              <div class="contribution-card__description">
+                <p>Инициировал модернизацию производства, благодаря чему фабрика смогла увеличить объёмы выпуска и выйти на новые рынки</p>
+              </div>
+              <div class="contribution-card__stamp">
+                <img src="../assets/icons/stamp2023-2024.svg" alt="Вехи труда 2023-2024" />
+              </div>
+            </div>
+            <div class="contribution-card">
+              <img src="../assets/icons/clip.svg" alt="Скрепка" class="contribution-card__clip" />
+              <div class="contribution-card__number">
+                <p>05</p>
+              </div>
+              <div class="contribution-card__description">
+                <p>Инициировал модернизацию производства, благодаря чему фабрика смогла увеличить объёмы выпуска и выйти на новые рынки</p>
+              </div>
+              <div class="contribution-card__stamp">
+                <img src="../assets/icons/stamp2023-2024.svg" alt="Вехи труда 2023-2024" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wishes Section -->
+    <section class="wishes">
+      <div class="wishes__container">
+        <div class="wishes__left">
+          <div class="wishes__title">
+            <p>Пожелания<br />будущим<br />поколениям</p>
+          </div>
+          <div class="wishes__quote">
+            <img src="../assets/icons/quote_top.svg" alt="Quote top" class="wishes__quote--top" />
+            <p>
+              Берегите традиции,<br />
+              но смело внедряйте новое.<br />
+              Только так фабрика будет жить<br />
+              и развиваться
+            </p>
+            <img src="../assets/icons/quote_down.svg" alt="Quote down" class="wishes__quote--down" />
+          </div>
+        </div>
+
+        <div class="wishes__right">
+          <div class="wishes__photo">
+            <img src="../assets/images/leader1.jpg" alt="Юрий Александрович Блинушов" loading="lazy" />
+          </div>
+          <div class="wishes__subtitle">
+            <p>Наследие в словах</p>
+          </div>
+          <div class="wishes__quote_right">
+            <img src="../assets/icons/quote_top-beige.svg" alt="Quote top" class="wishes__quote_right--top" />
+            <div class="wishes__quote_text">
+              <p>Баждый рулон бумаги хранит труд сотен людей</p>
+              <p>Фабрика — это не стены и машины, это команда единомышленников</p>
+              <p>Главное богатство предприятия — это люди, их знания и стремление к делу</p>
+            </div>
+            <img src="../assets/icons/quote_down-beige.svg" alt="Quote down" class="wishes__quote_right--down" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Archive Cards Section -->
+    <section class="archive">
+      <div class="archive__container">
+        <div class="archive__header">
+          <p class="archive__title">Архив</p>
+          <div class="archive__controls">
+            <div id="archive-button-left">
+              <button class="button__arrow left brown">
+                <img src="../assets/icons/arrow_beige_100.svg" alt="arrow" />
+              </button>
+            </div>
+            <div id="archive-button-right">
+              <button class="button__arrow right brown">
+                <img src="../assets/icons/arrow_beige_100.svg" alt="arrow" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="archive__slider">
+          <div class="archive__slider-container">
+            <div class="archive-card" data-tags="all,heart,bird">
+              <img src="../assets/images/archive2019.jpg" alt="Архив 2019" />
+              <p class="archive-card__year">2019 г.</p>
+              <p class="archive-card__description">Блишунов на совещании с инженерами</p>
+            </div>
+
+            <div class="archive-card" data-tags="all,medal,heart">
+              <img src="../assets/images/archive2020_1.jpg" alt="Архив 2020" />
+              <p class="archive-card__year">2020 г.</p>
+              <p class="archive-card__description">Вручение награды за внедрение инноваций</p>
+            </div>
+
+            <div class="archive-card" data-tags="all,bird,heart">
+              <img src="../assets/images/archive2020_2.jpg" alt="Архив 2020" />
+              <p class="archive-card__year">2020 г.</p>
+              <p class="archive-card__description">Совместное фото с рабочими цеха</p>
+            </div>
+
+            <div class="archive-card" data-tags="all,heart">
+              <img src="../assets/images/archive2024.jpg" alt="Архив 2024" />
+              <p class="archive-card__year">2024 г.</p>
+              <p class="archive-card__description">На семинаре работающей молодежи</p>
+            </div>
+
+            <div class="archive-card" data-tags="all,medal">
+              <img src="../assets/images/archive2019.jpg" alt="Архив 2019" />
+              <p class="archive-card__year">2019 г.</p>
+              <p class="archive-card__description">Церемония награждения лучших работников</p>
+            </div>
+
+            <div class="archive-card" data-tags="all,bird">
+              <img src="../assets/images/archive2020_1.jpg" alt="Архив 2020" />
+              <p class="archive-card__year">2020 г.</p>
+              <p class="archive-card__description">Встреча с ветеранами производства</p>
+            </div>
+
+            <div class="archive-card" data-tags="all,heart,medal">
+              <img src="../assets/images/archive2020_2.jpg" alt="Архив 2020" />
+              <p class="archive-card__year">2020 г.</p>
+              <p class="archive-card__description">Открытие нового корпуса</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="archive__filters">
+        <div class="archive__filter heart">
+          <img src="../assets/icons/heart.svg" alt="Сердце" />
+          <p>Трогает <span>56</span></p>
+        </div>
+        <div class="archive__filter bird">
+          <img src="../assets/icons/bird.svg" alt="Птица" />
+          <p>Мы помним <span>23</span></p>
+        </div>
+        <div class="archive__filter medal">
+          <img src="../assets/icons/medal.svg" alt="Медаль" />
+          <p>Гордость <span>6</span></p>
+        </div>
+      </div>
+    </section>
+
+    <script src="../scripts/toggleMenu.js"></script>
+    <script src="../scripts/contributionSlider.js"></script>
+    <script src="../scripts/archiveSlider.js"></script>
+  </body>
+</html>
