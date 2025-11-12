@@ -34,30 +34,6 @@
     gap: clamp(8px, 1.1vw, 16px);
   }
 
-  &__arrow {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: clamp(4px, 0.5vw, 8px);
-    transition: transform 0.3s ease;
-
-    img {
-      width: clamp(20px, 2.2vw, 32px);
-      height: clamp(20px, 2.2vw, 32px);
-      display: block;
-    }
-
-    &--prev {
-      img {
-        transform: rotate(180deg);
-      }
-    }
-
-    &:hover {
-      transform: scale(1.1);
-    }
-  }
-
   &__slider {
     overflow: hidden;
     width: 100%;
@@ -84,7 +60,6 @@
     align-items: center;
     max-width: fit-content;
     width: 100%;
-    height: 72px;
     border-radius: 8px;
     font-size: clamp(12px, 2vw, 18px);
     line-height: 1.2;
@@ -93,7 +68,6 @@
     gap: 24px;
     cursor: pointer;
     transition: all 0.3s ease;
-    border: 2px solid transparent;
 
     p {
       color: var(--color-brown-300);
@@ -117,34 +91,28 @@
     }
 
     &:hover {
-      transform: scale(1.05);
+      transform: scale(1.03);
     }
 
     &.active {
-      border-color: var(--color-brown-300);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      background-color: var(--color-beige-200);
     }
   }
 }
 
 .archive-card {
-  position: relative;
-  flex: 0 0 calc((100% - 48px) / 4);
-  min-width: calc((100% - 48px) / 4);
-  height: clamp(387px, 27vw, 512px);
+  flex: 0 0 100%;
+  max-width: calc((84vw) / 4);
   background-color: var(--color-warm-white);
   display: flex;
   flex-direction: column;
-  padding: clamp(24px, 3vw, 32px) clamp(18px, 3vw, 24px);
+  padding: clamp(16px, 3vw, 24px);
   justify-content: space-between;
-  border-radius: 8px;
-  gap: 16px;
+  gap: 8px;
 
   img {
     width: 100%;
     height: auto;
-    max-height: 70%;
-    object-fit: cover;
     border-radius: 4px;
   }
 
@@ -153,7 +121,6 @@
     color: var(--color-brown-300);
     line-height: 1.2;
     font-size: clamp(14px, 1.5vw, 16px);
-    font-weight: 600;
   }
 
   &__description {
@@ -161,14 +128,14 @@
     color: var(--color-beige-300);
     font-size: clamp(14px, 1.5vw, 16px);
     line-height: 1.2;
+    flex: 1;
   }
 }
 
-/* Responsive styles for archive cards */
 @media (max-width: 1024px) {
   .archive-card {
-    flex: 0 0 calc((100% - 16px) / 2);
-    min-width: calc((100% - 16px) / 2);
+    flex: 0 0 100%;
+    max-width: calc(85vw / 2);
   }
 }
 
@@ -176,24 +143,42 @@
   .archive {
     padding-left: 16px;
 
+    &__filters {
+      gap: 4px;
+      padding-right: 16px;
+    }
+
+    &__filter {
+      padding: 6px;
+      gap: 4px;
+      border-radius: 4px;
+
+      img {
+        width: 14px;
+        height: 12px;
+      }
+    }
+
     &__slider-container {
       gap: 12px;
     }
 
-    &__filters {
+    &__header {
+      align-items: flex-start;
       flex-direction: column;
       gap: 16px;
+      margin: 0;
     }
 
-    &__filter {
-      height: 60px;
-      padding: 16px;
-      gap: 16px;
+    &__container {
+      padding-right: 0;
     }
   }
+}
 
+@media (max-width: 425px) {
   .archive-card {
     flex: 0 0 100%;
-    min-width: 100%;
+    max-width: 80vw;
   }
 }

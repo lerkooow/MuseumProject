@@ -12,7 +12,7 @@ function initContributionSlider() {
     if (totalCards === 0) return;
 
     function getVisibleCards() {
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 425) {
             return 1;
         } else if (window.innerWidth <= 1024) {
             return 2;
@@ -21,6 +21,8 @@ function initContributionSlider() {
     }
 
     function updateSlider() {
+        if (cards.length === 0) return;
+
         const cardWidth = cards[0].offsetWidth;
         const gap = window.innerWidth <= 768 ? 12 : 16;
         const offset = -(currentIndex * (cardWidth + gap));

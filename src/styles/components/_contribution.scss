@@ -3,16 +3,14 @@
   flex-direction: column;
   display: flex;
   align-items: flex-end;
-  margin-top: clamp(80px, 15vw, 220px);
+  margin-top: 12%;
   padding-left: 11.35vw;
-  margin-bottom: 9%;
 
   &__container {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: clamp(20px, 3.5vw, 50px);
-    padding-right: 16px;
+    gap: clamp(32px, 5vw, 40px);
   }
 
   &__header {
@@ -20,6 +18,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: clamp(16px, 2.2vw, 32px);
+    padding-right: 16px;
   }
 
   &__title {
@@ -34,35 +33,12 @@
     gap: clamp(8px, 1.1vw, 16px);
   }
 
-  &__arrow {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: clamp(4px, 0.5vw, 8px);
-    transition: transform 0.3s ease;
-
-    img {
-      width: clamp(20px, 2.2vw, 32px);
-      height: clamp(20px, 2.2vw, 32px);
-      display: block;
-    }
-
-    &--prev {
-      img {
-        transform: rotate(180deg);
-      }
-    }
-
-    &:hover {
-      transform: scale(1.1);
-    }
-  }
-
   &__slider {
     overflow: hidden;
     width: 100%;
     display: flex;
     flex-direction: row;
+    padding-right: 16px;
   }
 
   &__slider-container {
@@ -71,14 +47,13 @@
     gap: 16px;
     transition: transform 0.5s ease;
     width: auto;
-    flex-wrap: nowrap;
   }
 }
 
 .contribution-card {
   position: relative;
-  flex: 0 0 calc((100% - 48px) / 4);
-  min-width: calc((100% - 48px) / 4);
+  flex: 0 0 100%;
+  max-width: calc((84vw) / 4);
   height: clamp(334px, 27vw, 456px);
   background-color: var(--color-beige-100);
   border-radius: 4px;
@@ -107,12 +82,10 @@
     right: 50%;
     transform: translateX(-50%);
     height: auto;
-    transform: scaleX(-1);
   }
 
   &__number {
     position: relative;
-    z-index: 1;
 
     p {
       font-size: 18px;
@@ -125,7 +98,6 @@
 
   &__description {
     position: relative;
-    z-index: 1;
     flex: 1;
     display: flex;
     align-items: center;
@@ -139,12 +111,42 @@
 
   &__stamp {
     position: relative;
-    z-index: 2;
     align-self: flex-end;
 
     img {
       width: clamp(80px, 9vw, 129px);
       height: auto;
     }
+  }
+}
+
+@media (max-width: 1024px) {
+  .contribution-card {
+    flex: 0 0 100%;
+    max-width: calc(85vw / 2);
+  }
+}
+
+@media (max-width: 768px) {
+  .contribution {
+    padding-left: 16px;
+
+    &__slider-container {
+      gap: 12px;
+    }
+
+    &__header {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 16px;
+      margin: 0;
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .contribution-card {
+    flex: 0 0 100%;
+    max-width: 80vw;
   }
 }
