@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/style.css" />
+  </head>
+
+  <body>
+    <main class="documents">
+      <!-- Menu -->
+      <div class="menu">
+        <div class="menu__header">
+          <a href="main.html" class="menu__logo">
+            <img src="../assets/icons/logo_full.svg" alt="logo full" />
+          </a>
+          <a href="main.html" class="menu__logo--mobile">
+            <img src="../assets/icons/logo.svg" alt="logo" />
+          </a>
+          <button class="menu__toggle" aria-label="Toggle menu">
+            <img src="../assets/icons/menu.svg" alt="burger menu" class="menu__burger--mobile" />
+            <img src="../assets/icons/cross.svg" alt="cross" class="menu__cross--mobile hidden" />
+          </button>
+        </div>
+
+        <nav class="menu__nav">
+          <ul class="menu__list">
+            <li class="nav__item">
+              <a href="factories.html" class="nav__link"><p>Фабрики</p></a>
+            </li>
+            <li class="nav__item">
+              <a href="people.html" class="nav__link"><p>Люди</p></a>
+            </li>
+            <li class="nav__item">
+              <a href="leaders.html" class="nav__link"><p>Руководители</p></a>
+            </li>
+            <li class="nav__item">
+              <a href="multimedia.html" class="nav__link"><p>Мультимедиа</p></a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="menu__footer">
+          <div class="menu__search">
+            <img src="../assets/icons/prime_search.svg" alt="search" />
+            <p>Поиск</p>
+          </div>
+          <img src="../assets/icons/lines.svg" alt="lines" />
+        </div>
+
+        <!-- Menu Mobile -->
+        <nav class="menu__nav--mobile">
+          <img src="../assets/icons/line_menu.svg" alt="divider" class="menu__divider" />
+          <ul class="menu__list--mobile">
+            <li class="nav__item">
+              <a href="factories.html" class="nav__link"><p>Фабрики</p></a>
+            </li>
+            <li class="nav__item">
+              <a href="people.html" class="nav__link"><p>Люди</p></a>
+            </li>
+            <li class="nav__item">
+              <a href="leaders.html" class="nav__link"><p>Руководители</p></a>
+            </li>
+            <li class="nav__item">
+              <a href="leader.html" class="nav__link"><p>Мультимедиа</p></a>
+            </li>
+          </ul>
+
+          <div class="menu__footer--mobile">
+            <div class="menu__search">
+              <img src="../assets/icons/prime_search.svg" alt="search" />
+              <p>Поиск</p>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <section class="documents__content">
+        <div class="documents__left">
+          <div class="documents__logo">
+            <img src="../assets/icons/documents_logo.svg" alt="Сухонский картонно-бумажный комбинат логотип" />
+            <p>
+              Сухонский<br />
+              картонно-бумажный комбинат
+            </p>
+          </div>
+          <div class="documents__info">
+            <p class="documents__title">Документы</p>
+            <p class="documents__description">
+              Здесь собраны уникальные материалы: генеральные планы и схемы, годовые отчёты, внутренние газеты, экономические справки и приказы о награждениях. Многие документы — с подписями, правками
+              от руки, чернилами сорока-пятидесятилетней давности. Это не просто бумаги — это следы решений, усилий и достижений.
+            </p>
+          </div>
+          <div class="documents__city">
+            <p>
+              <span>г. Сокол<br /></span>Вологодская область
+            </p>
+          </div>
+        </div>
+        <div class="documents__right">
+          <img src="../assets/icons/documents_main.svg" alt="Документы" />
+        </div>
+      </section>
+    </main>
+
+    <section class="documents-cards">
+      <div class="documents-card">
+        <img src="../assets/icons/document1_1.svg" alt="Документ" />
+        <img src="../assets/icons/document1_2.svg" alt="Документ" />
+        <div class="documents-card__info brown-dark">
+          <p>План размещения производственных корпусов</p>
+          <p>июль 1963</p>
+          <div>
+            <p>
+              <span>Объекты:<br /></span>сушильный цех, склад рулонов, столовая
+            </p>
+            <p>
+              <span>Отдел:<br /> </span>проектно-конструкторский при Минбумаге
+            </p>
+            <p>
+              <span>Примечание:<br /> </span>старый план, до расширения в 1967
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="../scripts/toggleMenu.js"></script>
+  </body>
+</html>
