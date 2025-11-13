@@ -12,7 +12,7 @@ function initContributionSlider() {
     if (totalCards === 0) return;
 
     function getVisibleCards() {
-        if (window.innerWidth <= 425) {
+        if (window.innerWidth <= 430) {
             return 1;
         } else if (window.innerWidth <= 1024) {
             return 2;

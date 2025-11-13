@@ -10,7 +10,7 @@ function initArchiveSlider() {
     }
 
     function getVisibleCards() {
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 430) {
             return 1;
         } else if (window.innerWidth <= 1024) {
             return 2;
