@@ -14,7 +14,34 @@ document.addEventListener("DOMContentLoaded", () => {
     let selectedFactory = "all";
     let searchQuery = "";
     let currentPage = 0;
-    const cardsPerPage = 6;
+
+    function getCardsPerPage() {
+        return window.innerWidth <= 768 ? 3 : 6;
+    }
+
+    let cardsPerPage = getCardsPerPage();
+
+    function updateButtonStates() {
+        const filteredCards = getFilteredCards();
+        const totalCards = filteredCards.length;
+        const maxPage = Math.ceil(totalCards / cardsPerPage) - 1;
+
+        if (currentPage === 0) {
+            leftButton.style.opacity = "0.5";
+            leftButton.style.cursor = "not-allowed";
+        } else {
+            leftButton.style.opacity = "1";
+            leftButton.style.cursor = "pointer";
+        }
+
+        if (currentPage >= maxPage || totalCards <= cardsPerPage) {
+            rightButton.style.opacity = "0.5";
+            rightButton.style.cursor = "not-allowed";
+        } else {
+            rightButton.style.opacity = "1";
+            rightButton.style.cursor = "pointer";
+        }
+    }
 
     function getFilteredCards() {
         return Array.from(cards).filter((card) => {
@@ -37,6 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function updateDisplay() {
+        cardsPerPage = getCardsPerPage();
         const filteredCards = getFilteredCards();
         const totalFiltered = filteredCards.length;
         const maxPage = Math.ceil(totalFiltered / cardsPerPage) - 1;
@@ -64,6 +92,8 @@ document.addEventListener("DOMContentLoaded", () => {
             emptyMessage.style.display = "none";
             gridContainer.style.display = "grid";
         }
+
+        updateButtonStates();
     }
 
     function filterCards() {
@@ -119,5 +149,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     updateDisplay();
+
+    window.addEventListener("resize", () => {
+        currentPage = 0;
+        updateDisplay();
+    });
+
+    cards.forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+            card.classList.add("hovered");
+        });
+    });
 
 });

@@ -183,7 +183,8 @@
     }
 
     &__controls {
-      display: none;
+      display: flex;
+      margin-top: 16px;
     }
 
     &__description--mobile {
