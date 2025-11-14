@@ -102,18 +102,23 @@
 
 .archive-card {
   flex: 0 0 100%;
-  max-width: calc((84vw) / 4);
+  max-width: calc((85vw) / 4);
   background-color: var(--color-warm-white);
   display: flex;
   flex-direction: column;
   padding: clamp(16px, 3vw, 24px);
   justify-content: space-between;
-  gap: 8px;
+  gap: 20px;
 
   img {
     width: 100%;
-    height: auto;
-    border-radius: 4px;
+    object-fit: cover;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
 
   &__year {
@@ -129,6 +134,7 @@
     font-size: clamp(14px, 1.5vw, 16px);
     line-height: 1.2;
     flex: 1;
+    min-height: 2.4em;
   }
 }
 
