@@ -248,6 +248,7 @@
     opacity: 0;
     transition: opacity 1.2s ease;
     transition-delay: 0s;
+    z-index: 3;
   }
 
   &__card.hovered {
