@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const modal = document.getElementById('documentsModal');
+    const modal = document.getElementById('interactiveModal');
     const modalImage = document.getElementById('modalImage');
     const closeModal = document.getElementById('closeModal');
-    const closeModalMobile = document.querySelector('.documents-modal__close--mobile');
+    const closeModalMobile = document.querySelector('.interactive-modal__close--mobile');
     const prevButton = document.getElementById('prevImage');
     const nextButton = document.getElementById('nextImage');
 
@@ -10,12 +10,11 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentIndex = 0;
 
     const documentImages = document.querySelectorAll('.document-image');
-
     documentImages.forEach((img) => {
         img.addEventListener('click', function (e) {
             e.stopPropagation();
 
-            const card = this.closest('.documents-card');
+            const card = this.closest('.interactive-card');
             const images = card.querySelectorAll('.document-image');
 
             currentImages = Array.from(images).map(img => img.src);

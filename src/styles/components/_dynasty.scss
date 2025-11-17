@@ -1,0 +1,254 @@
+.dynasty {
+  padding: clamp(80px, 15vw, 220px) 0;
+
+  &__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(20px, 3.5vw, 50px);
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    justify-content: center;
+  }
+
+  &__title {
+    font-size: clamp(22px, 4vw, 50px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--color-beige-100);
+    text-transform: uppercase;
+  }
+
+  &__controls {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__slider {
+    overflow: hidden;
+    width: 100%;
+    padding-left: 11.35vw;
+  }
+
+  &__slider-container {
+    display: flex;
+    gap: clamp(8px, 2vw, 32px);
+    transition: transform 0.3s ease;
+    justify-content: flex-start;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    padding-right: 16px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .dynasty__slider-container::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.dynasty-card {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  flex: 0 0 calc((100% - 64px) / 3);
+  border-radius: 8px;
+  padding: clamp(32px, 3vw, 48px) clamp(24px, 3vw, 48px);
+  display: flex;
+  flex-direction: column;
+  min-height: clamp(432px, 38vw, 900px);
+  justify-content: space-between;
+  cursor: pointer;
+
+  &:hover {
+    .dynasty-card__arrow {
+      transform: translateX(4px);
+    }
+  }
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: clamp(432px, 38vw, 900px);
+    object-fit: cover;
+    pointer-events: none;
+    z-index: 0;
+  }
+  &__clip {
+    position: absolute;
+    top: -8px;
+    right: 20%;
+    height: auto;
+    z-index: 3;
+  }
+
+  &__stamp {
+    position: absolute;
+    top: clamp(80px, 8vw, 100px);
+    right: clamp(15px, 2vw, 25px);
+    width: clamp(90px, 9vw, 158px);
+    height: clamp(90px, 9vw, 157px);
+    z-index: 2;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 1;
+  }
+
+  &__label {
+    font-size: clamp(14px, 1vw, 16px);
+    line-height: 1.2;
+    color: var(--color-brown-300);
+    font-style: italic;
+  }
+
+  &__name {
+    font-size: clamp(16px, 1.3vw, 20px);
+    line-height: 1.1;
+    color: var(--color-brown-300);
+    font-weight: 600;
+  }
+
+  &__position-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(12px, 3vw, 32px);
+  }
+
+  &__photo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    min-width: 0;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: clamp(147px, 17vw, 400px);
+      height: clamp(166px, 19vw, 445px);
+      background-image: url("../assets/images/dynasty_backgroundImage.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      pointer-events: none;
+      z-index: 0;
+    }
+  }
+
+  &__photo {
+    width: 100%;
+    max-width: clamp(131px, 15vw, 368px);
+    max-height: clamp(192px, 17vw, 435px);
+    height: auto;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__position {
+    font-size: clamp(11px, 0.8vw, 13px);
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    color: var(--color-beige-300);
+    z-index: 1;
+    text-align: center;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    z-index: 1;
+    gap: 8px;
+  }
+
+  &__factory {
+    font-size: clamp(11px, 0.85vw, 14px);
+    line-height: 1.2;
+    color: var(--color-beige-300);
+    flex: 1;
+  }
+
+  &__arrow {
+    width: clamp(14px, 1.2vw, 18px);
+    height: clamp(14px, 1.2vw, 18px);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .dynasty {
+    &__slider {
+      padding-left: 0;
+    }
+
+    &__container {
+      padding: 0 0 0 16px;
+    }
+
+    &__header {
+      justify-content: flex-start;
+    }
+  }
+
+  .dynasty-card {
+    flex: 0 0 calc((100% - 32px) / 2.2);
+
+    &__clip {
+      right: 20%;
+      width: 24px;
+      height: 24px;
+      top: -4px;
+    }
+
+    &__header {
+      gap: 4px;
+      margin-top: 4px;
+    }
+
+    &__footer {
+      padding-top: 8px;
+      gap: 4px;
+    }
+
+    &__photo-wrapper {
+      &::before {
+        width: 184px;
+        height: 208px;
+      }
+    }
+
+    &__photo {
+      max-width: 168px;
+      max-height: 192px;
+    }
+  }
+}
+
+@media (max-width: 660px) {
+  .dynasty-card {
+    flex: 0 0 60vw;
+  }
+}
+
+@media (max-width: 500px) {
+  .dynasty-card {
+    flex: 0 0 80vw;
+  }
+}

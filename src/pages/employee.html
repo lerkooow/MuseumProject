@@ -74,6 +74,8 @@
           </div>
         </nav>
       </div>
+
+      <!-- About employee section  -->
       <section class="employee__content">
         <p class="employee__factory">Сухонский картонно-бумажный комбинат</p>
         <div class="employee__info">
@@ -84,35 +86,48 @@
           </p>
           <p class="employee__position">Основатель завода, директор-распорядитель</p>
         </div>
-        <div class="employee__greeting">
-          <div class="employee__wrapper">
-            <div class="employee__details">
-              <img src="../assets/icons/clip.svg" alt="Скрепка" class="employee__clip" />
-              <p class="employee__details--subtitle">Работография</p>
-              <p class="employee__details--description">
-                Постройка Сухонского завода началась в 1914–1915 гг. по инициативе и под общим руководством Николая Вячеславовича Печаткина. 26 февраля 1916 г. Сухонское писчебумажное предприятие было
-                включено в разряд предприятий, работающих на оборону, что дало значительные льготы. К августу-сентябрю 1917 г. строительство Сухонского целлюлозно-бумажного предприятия в г. Соколе
-                было завершено, датой начала работы считается 11 августа 1917 г. В январе-феврале 1916 г. им был заключен договор с Главным артиллерийским управлением о строительстве Снарядного завода
-                и выделении государственных субсидий.
-              </p>
-              <p class="employee__details--subtitle">Вклад и достижения</p>
-              <p class="employee__details--awards"><span>01</span><br />Основатель Сухонского завода 1914-1915 гг.</p>
-              <p class="employee__details--awards">
-                <span>02</span><br />В январе-феврале 1916 г. им был заключен договор с Главным артиллерийским управлением о строительстве Снарядного завода и выделении государственных субсидий.
-              </p>
-              <p class="employee__details--awards">
-                <span>03</span><br />В январе-феврале 1916 г. им был заключен договор с Главным артиллерийским управлением о строительстве Снарядного завода и выделении государственных субсидий.
-              </p>
-              <p class="employee__details--awards"><span>04</span><br />Основатель Сухонского завода 1914-1915 гг.</p>
+
+        <div class="employee__wrapper">
+          <div class="employee__details">
+            <img src="../assets/icons/clip_big.svg" alt="Скрепка" class="employee__clip" />
+            <div class="employee__photo--mobile">
+              <img src="../assets/icons/employee_main.svg" alt="Печаткин Николай Вячеславович" />
             </div>
-            <div class="employee__photo">
-              <img src="../assets/images/employee_main.jpg" alt="Печаткин Николай Вячеславович" />
+            <p class="employee__details--subtitle">Работография</p>
+            <p class="employee__details--description">
+              Постройка Сухонского завода началась в 1914–1915 гг. по инициативе и под общим руководством Николая Вячеславовича Печаткина. 26 февраля 1916 г. Сухонское писчебумажное предприятие было
+              включено в разряд предприятий, работающих на оборону, что дало значительные льготы. К августу-сентябрю 1917 г. строительство Сухонского целлюлозно-бумажного предприятия в г. Соколе было
+              завершено, датой начала работы считается 11 августа 1917 г. В январе-феврале 1916 г. им был заключен договор с Главным артиллерийским управлением о строительстве Снарядного завода и
+              выделении государственных субсидий.
+            </p>
+            <p class="employee__details--subtitle">Вклад и достижения</p>
+            <div class="employee__details--wrapper">
+              <div class="employee__details--awards">
+                <span>01</span>
+                <p>Основатель Сухонского завода 1914-1915 гг.</p>
+              </div>
+              <div class="employee__details--awards">
+                <span>02</span>
+                <p>В январе-феврале 1916 г. им был заключен договор с Главным артиллерийским управлением о строительстве Снарядного завода и выделении государственных субсидий.</p>
+              </div>
+              <div class="employee__details--awards">
+                <span>03</span>
+                <p>В январе-феврале 1916 г. им был заключен договор с Главным артиллерийским управлением о строительстве Снарядного завода и выделении государственных субсидий.</p>
+              </div>
+              <div class="employee__details--awards">
+                <span>04</span>
+                <p>Основатель Сухонского завода 1914-1915 гг.</p>
+              </div>
             </div>
+          </div>
+          <div class="employee__photo">
+            <img src="../assets/icons/employee_main.svg" alt="Печаткин Николай Вячеславович" />
           </div>
         </div>
       </section>
     </main>
 
+    <!-- Dynasty section  -->
     <section class="dynasty">
       <div class="dynasty__container">
         <div class="dynasty__slider">
@@ -203,73 +218,76 @@
       </div>
     </section>
 
-    <section class="related-cards">
+    <!-- Related cards section  -->
+    <div class="related">
       <div class="related__header">
-        <p class="related__title">Связанные события</p>
+        <p class="related__title">Cвязанные события</p>
       </div>
-      <div class="related-cards__row">
-        <div class="related-card">
-          <img src="../assets/images/related1_1.jpg" alt="Документ" class="related-card__image--back" data-index="1" />
-          <img src="../assets/images/related1_2.jpg" alt="Документ" class="related-card__image--main" data-index="0" />
-          <div class="related-card__info brown-dark">
-            <p class="related-card__date">июль 1963</p>
-            <div class="related-card__description">
+      <section class="interactive-cards">
+        <div class="interactive-card">
+          <img src="../assets/images/related1_1.jpg" alt="Документ" data-index="0" class="document-image interactive-card__image--back" />
+          <img src="../assets/images/related1_2.jpg" alt="Документ" data-index="1" class="document-image interactive-card__image--main" />
+          <div class="interactive-card__info brown-dark">
+            <p class="interactive-card__date">июль 1963</p>
+            <div class="interactive-card__description">
               <p>26 февраля 1916 г. Сухонское писчебумажное предприятие было включено в разряд предприятий, работающих на оборону</p>
             </div>
-            <div class="related-card__factory">
+            <div class="interactive-card__factory">
               <p>
                 Сухонский<br />
                 картонно-бумажный комбинат
               </p>
-              <img src="../assets/icons/arrow_beige_300.svg" alt="Стрелка" class="related-card__arrow" />
+              <img src="../assets/icons/arrow_beige_300.svg" alt="Стрелка" class="interactive-card__arrow" />
             </div>
           </div>
         </div>
-        <div class="related-card">
-          <img src="../assets/images/related2_1.jpg" alt="Документ" class="related-card__image--main" data-index="0" />
-          <img src="../assets/images/related2_2.jpg" alt="Документ" class="related-card__image--back" data-index="1" />
-          <div class="related-card__info brown-light">
-            <p class="related-card__date">сентябрь 1917</p>
-            <div class="related-card__description">
+
+        <div class="interactive-card">
+          <img src="../assets/images/related2_2.jpg" alt="Документ" class="document-image interactive-card__image--back" data-index="0" />
+          <img src="../assets/images/related2_1.jpg" alt="Документ" class="document-image interactive-card__image--main" data-index="1" />
+          <div class="interactive-card__info brown-light">
+            <p class="interactive-card__date">сентябрь 1917</p>
+            <div class="interactive-card__description">
               <p>К августу-сентябрю 1917 г. строительство Сухонского целлюлозно-бумажного предприятия в г. Соколе было завершено, датой начала работы считается 11 августа 1917 г.</p>
             </div>
-            <div class="related-card__factory">
+            <div class="interactive-card__factory">
               <p>
                 Сухонский<br />
                 картонно-бумажный комбинат
               </p>
-              <img src="../assets/icons/arrow_beige_300.svg" alt="Стрелка" class="related-card__arrow" />
+              <img src="../assets/icons/arrow_beige_300.svg" alt="Стрелка" class="interactive-card__arrow" />
             </div>
           </div>
         </div>
-        <div class="related-card">
-          <img src="../assets/images/related3_1.jpg" alt="Документ" class="related-card__image--main" data-index="0" />
-          <img src="../assets/images/related3_2.jpg" alt="Документ" class="related-card__image--back" data-index="1" />
-          <div class="related-card__info warm-brown">
-            <p class="related-card__date">февраль 1916</p>
-            <div class="related-card__description">
-              <p>В январе-феврале 1916 г. им был заключен договор с Главным артиллерийским управлением о строительстве Снарядного завода и выделении государственных субсидий</p>
-            </div>
-            <div class="related-card__factory">
-              <p>
-                Сухонский<br />
-                картонно-бумажный комбинат
-              </p>
-              <img src="../assets/icons/arrow_beige_300.svg" alt="Стрелка" class="related-card__arrow" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Секция связанные фабрики -->
+        <div class="interactive-card">
+          <img src="../assets/images/related3_2.jpg" alt="Документ" class="document-image interactive-card__image--back" data-index="0" />
+          <img src="../assets/images/related3_1.jpg" alt="Документ" class="document-image interactive-card__image--main" data-index="1" />
+          <div class="interactive-card__info warm-brown">
+            <p class="interactive-card__date">февраль 1916</p>
+            <div class="interactive-card__description">
+              <p>В январе-феврале 1916 г. им был заключен договор с Главным артиллерийским управлением о строительстве Снарядного завода и выделении государственных субсидий.</p>
+            </div>
+            <div class="interactive-card__factory">
+              <p>
+                Сухонский<br />
+                картонно-бумажный комбинат
+              </p>
+              <img src="../assets/icons/arrow_beige_300.svg" alt="Стрелка" class="interactive-card__arrow" />
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Factories related cards section  -->
     <section class="factories-related">
-      <p class="factories-related__title">Связанные фабрики</щ>
+      <p class="factories-related__title">Связанные фабрики</p>
       <div class="factories-related__cards">
         <div class="factories-related__card brown-dark">
           <div class="factories-related__card-content">
             <div class="factories-related__card-title">Полотночно-Заводская бумажная мануфактура</div>
-            <div class="factories-related__card-image-wrapper">
+            <div class="factories-related__card-image-wrapper brown-dark">
               <img src="../assets/icons/factories-related1.svg" alt="Полотночно-Заводская бумажная мануфактура" class="factories-related__card-image" />
             </div>
             <div class="factories-related__card-caption">Начинал карьеру учеником механика</div>
@@ -278,7 +296,7 @@
         <div class="factories-related__card brown-light">
           <div class="factories-related__card-content">
             <div class="factories-related__card-title">Сухонский картонно-бумажный комбинат</div>
-            <div class="factories-related__card-image-wrapper">
+            <div class="factories-related__card-image-wrapper brown-light">
               <img src="../assets/icons/factories-related2.svg" alt="Сухонский картонно-бумажный комбинат" class="factories-related__card-image" />
             </div>
             <div class="factories-related__card-caption">Работал мастером цеха с 1960 по 1965</div>
@@ -288,118 +306,123 @@
     </section>
 
     <!-- Archive Cards Section -->
-      <section class="archive">
-        <div class="archive__container">
-          <div class="archive__header">
-            <p class="archive__title">Архив</p>
-            <div class="archive__controls">
-              <div id="archive-button-left">
-                <button class="button__arrow left brown">
-                  <img src="../assets/icons/arrow_beige_100.svg" alt="arrow" />
-                </button>
-              </div>
-              <div id="archive-button-right">
-                <button class="button__arrow right brown">
-                  <img src="../assets/icons/arrow_beige_100.svg" alt="arrow" />
-                </button>
-              </div>
+    <section class="archive">
+      <div class="archive__container">
+        <div class="archive__header">
+          <p class="archive__title">Архив</p>
+          <div class="archive__controls">
+            <div id="archive-button-left">
+              <button class="button__arrow left brown">
+                <img src="../assets/icons/arrow_beige_100.svg" alt="arrow" />
+              </button>
             </div>
-          </div>
-
-          <div class="archive__slider">
-            <div class="archive__slider-container">
-              <div class="archive-card" data-tags="all,heart,bird">
-                <img src="../assets/images/archive1954.jpg" alt="Архив 1954" />
-                <div class="archive-card__info"><p class="archive-card__year">1954 г.</p>
-                <p class="archive-card__description">У бумагоделательной машины</p></div>
-              </div>
-
-              <div class="archive-card" data-tags="all,medal,heart">
-                <img src="../assets/images/archive1962.jpg" alt="Архив 1962" />
-                <div  class="archive-card__info">
-                  <p class="archive-card__year">1962 г.</p>
-                <p class="archive-card__description">В составе смены</p>
-                </div>
-              </div>
-
-              <div class="archive-card" data-tags="all,bird,heart">
-                <img src="../assets/images/archive1932.jpg" alt="Архив 1932" />
-                <div class="archive-card__info">
-                  <p class="archive-card__year">1932 г.</p>
-                <p class="archive-card__description">Выдержка из статья “Сухонского ударника”</p>
-                </div>
-              </div>
-
-              <div class="archive-card" data-tags="all,heart">
-                <img src="../assets/images/archive1947.jpg" alt="Архив 1947" />
-               <div class="archive-card__info">
-                 <p class="archive-card__year">1947 г.</p>
-                <p class="archive-card__description">Награждение за трудовые успехи</p>
-               </div>
-              </div>
-
-              <div class="archive-card" data-tags="all,heart,bird">
-                <img src="../assets/images/archive1954.jpg" alt="Архив 1954" />
-                <div class="archive-card__info"><p class="archive-card__year">1954 г.</p>
-                <p class="archive-card__description">У бумагоделательной машины</p></div>
-              </div>
-
-              <div class="archive-card" data-tags="all,medal,heart">
-                <img src="../assets/images/archive1962.jpg" alt="Архив 1962" />
-                <div  class="archive-card__info">
-                  <p class="archive-card__year">1962 г.</p>
-                <p class="archive-card__description">В составе смены</p>
-                </div>
-              </div>
-
-              <div class="archive-card" data-tags="all,bird,heart">
-                <img src="../assets/images/archive1932.jpg" alt="Архив 1932" />
-                <div class="archive-card__info">
-                  <p class="archive-card__year">1932 г.</p>
-                <p class="archive-card__description">Выдержка из статья “Сухонского ударника”</p>
-                </div>
-              </div>
-
-              <div class="archive-card" data-tags="all,heart">
-                <img src="../assets/images/archive1947.jpg" alt="Архив 1947" />
-               <div class="archive-card__info">
-                 <p class="archive-card__year">1947 г.</p>
-                <p class="archive-card__description">Награждение за трудовые успехи</p>
-               </div>
-              </div>
+            <div id="archive-button-right">
+              <button class="button__arrow right brown">
+                <img src="../assets/icons/arrow_beige_100.svg" alt="arrow" />
+              </button>
             </div>
           </div>
         </div>
 
-        <div class="archive__filters">
-          <div class="archive__filter heart">
-            <img src="../assets/icons/heart.svg" alt="Сердце" />
-            <p>Трогает <span>0</span></p>
-          </div>
-          <div class="archive__filter bird">
-            <img src="../assets/icons/bird.svg" alt="Птица" />
-            <p>Мы помним <span>0</span></p>
-          </div>
-          <div class="archive__filter medal">
-            <img src="../assets/icons/medal.svg" alt="Медаль" />
-            <p>Гордость <span>0</span></p>
+        <div class="archive__slider">
+          <div class="archive__slider-container">
+            <div class="archive-card" data-tags="all,heart,bird">
+              <img src="../assets/images/archive1954.jpg" alt="Архив 1954" />
+              <div class="archive-card__info">
+                <p class="archive-card__year">1954 г.</p>
+                <p class="archive-card__description">У бумагоделательной машины</p>
+              </div>
+            </div>
+
+            <div class="archive-card" data-tags="all,medal,heart">
+              <img src="../assets/images/archive1962.jpg" alt="Архив 1962" />
+              <div class="archive-card__info">
+                <p class="archive-card__year">1962 г.</p>
+                <p class="archive-card__description">В составе смены</p>
+              </div>
+            </div>
+
+            <div class="archive-card" data-tags="all,bird,heart">
+              <img src="../assets/images/archive1932.jpg" alt="Архив 1932" />
+              <div class="archive-card__info">
+                <p class="archive-card__year">1932 г.</p>
+                <p class="archive-card__description">Выдержка из статья “Сухонского ударника”</p>
+              </div>
+            </div>
+
+            <div class="archive-card" data-tags="all,heart">
+              <img src="../assets/images/archive1947.jpg" alt="Архив 1947" />
+              <div class="archive-card__info">
+                <p class="archive-card__year">1947 г.</p>
+                <p class="archive-card__description">Награждение за трудовые успехи</p>
+              </div>
+            </div>
+
+            <div class="archive-card" data-tags="all,heart,bird">
+              <img src="../assets/images/archive1954.jpg" alt="Архив 1954" />
+              <div class="archive-card__info">
+                <p class="archive-card__year">1954 г.</p>
+                <p class="archive-card__description">У бумагоделательной машины</p>
+              </div>
+            </div>
+
+            <div class="archive-card" data-tags="all,medal,heart">
+              <img src="../assets/images/archive1962.jpg" alt="Архив 1962" />
+              <div class="archive-card__info">
+                <p class="archive-card__year">1962 г.</p>
+                <p class="archive-card__description">В составе смены</p>
+              </div>
+            </div>
+
+            <div class="archive-card" data-tags="all,bird,heart">
+              <img src="../assets/images/archive1932.jpg" alt="Архив 1932" />
+              <div class="archive-card__info">
+                <p class="archive-card__year">1932 г.</p>
+                <p class="archive-card__description">Выдержка из статья “Сухонского ударника”</p>
+              </div>
+            </div>
+
+            <div class="archive-card" data-tags="all,heart">
+              <img src="../assets/images/archive1947.jpg" alt="Архив 1947" />
+              <div class="archive-card__info">
+                <p class="archive-card__year">1947 г.</p>
+                <p class="archive-card__description">Награждение за трудовые успехи</p>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
 
-    <div class="related-modal" id="relatedModal">
-      <button class="related-modal__close" id="closeRelatedModal" aria-label="Закрыть">
+      <div class="archive__filters">
+        <div class="archive__filter heart">
+          <img src="../assets/icons/heart.svg" alt="Сердце" />
+          <p>Трогает <span>0</span></p>
+        </div>
+        <div class="archive__filter bird">
+          <img src="../assets/icons/bird.svg" alt="Птица" />
+          <p>Мы помним <span>0</span></p>
+        </div>
+        <div class="archive__filter medal">
+          <img src="../assets/icons/medal.svg" alt="Медаль" />
+          <p>Гордость <span>0</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive modal -->
+    <div class="interactive-modal" id="interactiveModal">
+      <button class="interactive-modal__close" id="closeModal" aria-label="Закрыть">
         <img src="../assets/icons/cross_usual.svg" alt="Закрыть" />
       </button>
-      <div class="related-modal__content">
-        <button class="related-modal__close--mobile" aria-label="Закрыть">
+      <div class="interactive-modal__content">
+        <button class="interactive-modal__close--mobile" id="closeModal" aria-label="Закрыть">
           <img src="../assets/icons/cross_usual.svg" alt="Закрыть" />
         </button>
-        <button class="related-modal__nav related-modal__nav--prev" id="prevRelatedImage" aria-label="Предыдущее изображение">
+        <button class="interactive-modal__nav interactive-modal__nav--prev" id="prevImage" aria-label="Предыдущее изображение">
           <img src="../assets/icons/arrow_beige_100.svg" alt="Назад" />
         </button>
-        <img src="" alt="Документ" class="related-modal__image" id="relatedModalImage" />
-        <button class="related-modal__nav related-modal__nav--next" id="nextRelatedImage" aria-label="Следующее изображение">
+        <img src="" alt="Документ" class="interactive-modal__image" id="modalImage" />
+        <button class="interactive-modal__nav interactive-modal__nav--next" id="nextImage" aria-label="Следующее изображение">
           <img src="../assets/icons/arrow_beige_100.svg" alt="Вперед" />
         </button>
       </div>
@@ -407,7 +430,7 @@
 
     <script src="../scripts/toggleMenu.js"></script>
     <script src="../scripts/dynastySlider.js"></script>
-    <script src="../scripts/relatedModal.js"></script>
+    <script src="../scripts/interactiveModal.js"></script>
     <script src="../scripts/archiveFilter.js"></script>
     <script src="../scripts/archiveSlider.js"></script>
   </body>

@@ -1,0 +1,175 @@
+.factories-related {
+  width: 100%;
+  margin-top: clamp(80px, 15vw, 220px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 11.35vw;
+
+  &__title {
+    color: var(--color-beige-100);
+    font-size: clamp(22px, 4vw, 50px);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    margin-bottom: clamp(24px, 3vw, 48px);
+    text-transform: uppercase;
+  }
+
+  &__cards {
+    display: flex;
+    gap: 48px;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  &__card {
+    border-radius: 8px;
+    min-width: 340px;
+    max-width: clamp(343px, 60vw, 530px);
+    width: 100%;
+    min-height: 708px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
+    position: relative;
+    padding: 0;
+    cursor: pointer;
+
+    &.brown-dark {
+      background-color: var(--color-brown-300);
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 8px;
+        box-shadow: inset 1px 2px 3px #1a1412, inset -1px 1px 2px #ffffff29;
+        pointer-events: none;
+        z-index: 1;
+      }
+    }
+
+    &.brown-light {
+      background-color: var(--color-brown-100);
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 8px;
+        box-shadow: inset 1px 2px 3px #3a312e, inset -1px 1px 2px #ffffff36;
+        pointer-events: none;
+        z-index: 1;
+      }
+    }
+  }
+
+  &__card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 48px 0;
+    position: relative;
+    z-index: 2;
+    flex: 1 1 auto;
+    height: 100%;
+    justify-content: space-between;
+    gap: clamp(24px, 3vw, 38px);
+  }
+
+  &__card-title {
+    color: var(--color-beige-100);
+    font-size: clamp(16px, 2vw, 26px);
+    text-align: center;
+    line-height: 1.1;
+    max-width: 282px;
+    width: 100%;
+  }
+
+  &__card-image-wrapper {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &.brown-dark {
+      &::before,
+      &::after {
+        background: var(--color-brown-200);
+      }
+    }
+
+    &.brown-light {
+      &::before,
+      &::after {
+        background: var(--color-beige-300);
+      }
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+      margin: 0 0 24px 0;
+      max-width: clamp(152px, 19vw, 246px);
+    }
+
+    &::before {
+      margin-bottom: 24px;
+    }
+    &::after {
+      margin-top: 24px;
+    }
+  }
+
+  &__card-image {
+    max-width: clamp(152px, 19vw, 246px);
+    width: 100%;
+    max-height: clamp(184px, 23vw, 296px);
+  }
+
+  &__card-caption {
+    color: var(--color-beige-300);
+    font-size: clamp(12px, 1vw, 16px);
+    text-align: center;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    max-width: 184px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .factories-related {
+    padding-left: 0;
+    &__cards {
+      flex-direction: column;
+      padding: 0 16px;
+      gap: 16px;
+      align-items: center;
+    }
+
+    &__cards {
+      padding: 0 16px;
+      gap: 16px;
+    }
+
+    &__card {
+      max-height: 438px;
+      min-height: auto;
+      border-radius: 4px;
+    }
+
+    &__card-title {
+      max-width: 178px;
+    }
+
+    &__card-content {
+      padding: 24px 0;
+    }
+  }
+}
