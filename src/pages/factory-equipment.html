@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/style.css" />
+  </head>
+  <body>
+    <main class="factory-equipment">
+      <!-- Menu  -->
+      <div class="menu">
+        <div class="menu__header">
+          <a href="main.html" class="menu__logo">
+            <img src="../assets/icons/logo_full.svg" alt="logo full" />
+          </a>
+          <a href="main.html" class="menu__logo--mobile">
+            <img src="../assets/icons/logo.svg" alt="logo" />
+          </a>
+          <button class="menu__toggle" aria-label="Toggle menu">
+            <img src="../assets/icons/menu.svg" alt="burger menu" class="menu__burger--mobile" />
+            <img src="../assets/icons/cross.svg" alt="cross" class="menu__cross--mobile hidden" />
+          </button>
+        </div>
+
+        <nav class="menu__nav">
+          <ul class="menu__list">
+            <li class="nav__item">
+              <a href="factories.html" class="nav__link">
+                <p>Фабрики</p>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="people.html" class="nav__link">
+                <p>Люди</p>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="leaders.html" class="nav__link">
+                <p>Руководители</p>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="multimedia.html" class="nav__link">
+                <p>Мультимедиа</p>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="menu__footer">
+          <div class="menu__search">
+            <img src="../assets/icons/prime_search.svg" alt="search" />
+            <p>Поиск</p>
+          </div>
+          <img src="../assets/icons/lines.svg" alt="lines" />
+        </div>
+
+        <!-- Menu Mobile  -->
+        <nav class="menu__nav--mobile">
+          <img src="../assets/icons/line_menu.svg" alt="divider" class="menu__divider" />
+          <ul class="menu__list--mobile">
+            <li class="nav__item">
+              <a href="factories.html" class="nav__link"><p>Фабрики</p></a>
+            </li>
+            <li class="nav__item">
+              <a href="people.html" class="nav__link"><p>Люди</p></a>
+            </li>
+            <li class="nav__item">
+              <a href="leaders.html" class="nav__link"><p>Руководители</p></a>
+            </li>
+            <li class="nav__item">
+              <a href="multimedia.html" class="nav__link"><p>Мультимедиа</p></a>
+            </li>
+
+            <div class="menu__footer--mobile">
+              <div class="menu__search">
+                <img src="../assets/icons/prime_search.svg" alt="search" />
+                <p>Поиск</p>
+              </div>
+            </div>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="factory-equipment__content">
+        <div class="factory-equipment__column factory-equipment__column--left">
+          <div class="factory-equipment__block">
+            <p class="factory-equipment__title">История оборудования, на котором создавалась бумага</p>
+            <div class="factory-equipment__photo-frame factory-equipment__photo-frame--left">
+              <img src="../assets/images/equipment1.jpg" alt="Оборудование фабрики" class="factory-equipment__image" />
+            </div>
+          </div>
+          <div class="factory-equipment__block factory-equipment__block--center">
+            <div class="factory-equipment__photo-frame factory-equipment__photo-frame--center">
+              <img src="../assets/icons/tape_left.svg" alt="скотч" class="factory-equipment__tape--left" />
+              <img src="../assets/images/equipment2.jpg" alt="Оборудование фабрики" class="factory-equipment__image" />
+              <img src="../assets/icons/tape_right.svg" alt="скотч" class="factory-equipment__tape--right" />
+            </div>
+            <p class="factory-equipment__text">
+              Каждая машина, каждая линия — это часть большой истории фабрики. От первых тяжёлых конструкций, где всё зависело от рук рабочих, до современных автоматизированных комплексов, которые
+              работают с ювелирной точностью. На старых фотографиях оживают шум цехов, ритм станков и упорство людей, создававших бумагу. Сегодняшнее оборудование — это итог многолетнего пути,
+              соединяющего прошлое и настоящее производства.
+            </p>
+          </div>
+          <div class="factory-equipment__block factory-equipment__block--stamp">
+            <div class="factory-equipment__photo-frame factory-equipment__photo-frame--right">
+              <img src="../assets/icons/tape_left.svg" alt="скотч" class="factory-equipment__tape-other--left" />
+              <img src="../assets/images/equipment3.jpg" alt="Оборудование фабрики" class="factory-equipment__image" />
+              <img src="../assets/icons/tape_right.svg" alt="скотч" class="factory-equipment__tape-other--right" />
+            </div>
+          </div>
+        </div>
+        <div class="factory-equipment__column factory-equipment__column--right">
+          <div class="factory-equipment__factory">
+            <img src="../assets/icons/awards_logo.svg" alt="Логотип фабрики" class="factory-equipment__factory-logo" />
+            <p class="factory-equipment__factory-name">
+              Сухонский<br />
+              картонно-бумажный комбинат
+            </p>
+          </div>
+          <p class="factory-equipment__subtitle">
+            От первых машин<br />
+            до современных линий
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <!-- History factory equipment section -->
+    <section class="history-equipment">
+      <!-- Timeline -->
+      <div class="timeline">
+        <div class="timeline__line"></div>
+        <div class="timeline__item active">
+          <img src="../assets/icons/circle_active.svg" alt="" />
+          <div class="timeline__year active">1922</div>
+        </div>
+        <div class="timeline__item">
+          <img src="../assets/icons/circle.svg" alt="" />
+
+          <div class="timeline__year">1924</div>
+        </div>
+        <div class="timeline__item">
+          <img src="../assets/icons/circle.svg" alt="" />
+          <div class="timeline__year">1930</div>
+        </div>
+        <div class="timeline__item">
+          <img src="../assets/icons/circle.svg" alt="" />
+
+          <div class="timeline__year">1938</div>
+        </div>
+        <div class="timeline__item">
+          <img src="../assets/icons/circle.svg" alt="" />
+          <div class="timeline__year">1940</div>
+        </div>
+      </div>
+
+      <!-- Related cards section  -->
+      <div class="interactive-cards">
+        <div class="history-equipment__controls">
+          <div id="history-equipment-button-left">
+            <button class="button__arrow left brown">
+              <img src="../assets/icons/arrow_beige_100.svg" alt="arrow" />
+            </button>
+          </div>
+          <div id="history-equipment-button-right">
+            <button class="button__arrow right brown">
+              <img src="../assets/icons/arrow_beige_100.svg" alt="arrow" />
+            </button>
+          </div>
+        </div>
+        <div class="history-equipment__wrapper">
+          <div class="interactive-card" data-years="1922,1924,1930">
+            <img src="../assets/images/equipment1.jpg" alt="Оборудование" data-index="0" class="document-image interactive-card__image--back" />
+            <img src="../assets/images/equipment2.jpg" alt="Оборудование" data-index="1" class="document-image interactive-card__image--main" />
+            <div class="interactive-card__info brown-dark">
+              <div>
+                <p class="interactive-card__equipment">Бумагоделательная машина "Fourdrinier"</p>
+                <p class="interactive-card__equipment--other">или — Бумагоделка №1"</p>
+              </div>
+              <div class="interactive-card__more">
+                <p>
+                  Одна из первых машин на фабрике, введённая в строй после гражданской войны усилиями рабочих и инженеров. Основана на классическом принципе Фурдринье — формирование бумажного полотна
+                  на сетке, с дальнейшим прессованием и сушкой.
+                </p>
+                <p>
+                  Машина обслуживалась вручную: оператор следил за равномерной подачей массы, регулировал натяжение сетки и контролировал сушильные валы. Производительность была невысокой, но именно
+                  эта машина дала старт восстановлению производства на фабрике в послереволюционные годы.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="history-equipment__image">
+            <img src="../assets/images/equipment1.jpg" alt="Оборудование" />
+          </div>
+        </div>
+      </div>
+      <div class="interactive-cards">
+        <div class="history-equipment__controls">
+          <div id="history-equipment-button-left">
+            <button class="button__arrow left brown">
+              <img src="../assets/icons/arrow_beige_100.svg" alt="arrow" />
+            </button>
+          </div>
+          <div id="history-equipment-button-right">
+            <button class="button__arrow right brown">
+              <img src="../assets/icons/arrow_beige_100.svg" alt="arrow" />
+            </button>
+          </div>
+        </div>
+        <div class="history-equipment__wrapper">
+          <div class="interactive-card" data-years="1922,1938">
+            <img src="../assets/images/equipment1.jpg" alt="Оборудование" data-index="0" class="document-image interactive-card__image--back" />
+            <img src="../assets/images/equipment4.jpg" alt="Оборудование" data-index="1" class="document-image interactive-card__image--main" />
+            <div class="interactive-card__info brown-dark">
+              <div>
+                <p class="interactive-card__equipment">Бумагоделательная машина "Fourdrinier"</p>
+                <p class="interactive-card__equipment--other">или — Бумагоделка №1"</p>
+              </div>
+              <div class="interactive-card__more">
+                <p>
+                  Одна из первых машин на фабрике, введённая в строй после гражданской войны усилиями рабочих и инженеров. Основана на классическом принципе Фурдринье — формирование бумажного полотна
+                  на сетке, с дальнейшим прессованием и сушкой.
+                </p>
+                <p>
+                  Машина обслуживалась вручную: оператор следил за равномерной подачей массы, регулировал натяжение сетки и контролировал сушильные валы. Производительность была невысокой, но именно
+                  эта машина дала старт восстановлению производства на фабрике в послереволюционные годы.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="history-equipment__image">
+            <img src="../assets/images/equipment4.jpg" alt="Оборудование" />
+          </div>
+        </div>
+      </div>
+      <div class="interactive-cards">
+        <div class="history-equipment__controls">
+          <div id="history-equipment-button-left">
+            <button class="button__arrow left brown">
+              <img src="../assets/icons/arrow_beige_100.svg" alt="arrow" />
+            </button>
+          </div>
+          <div id="history-equipment-button-right">
+            <button class="button__arrow right brown">
+              <img src="../assets/icons/arrow_beige_100.svg" alt="arrow" />
+            </button>
+          </div>
+        </div>
+        <div class="history-equipment__wrapper">
+          <div class="interactive-card" data-years="1922,1930,1940">
+            <img src="../assets/images/equipment1.jpg" alt="Оборудование" data-index="0" class="document-image interactive-card__image--back" />
+            <img src="../assets/images/equipment4.jpg" alt="Оборудование" data-index="1" class="document-image interactive-card__image--main" />
+            <div class="interactive-card__info brown-dark">
+              <div>
+                <p class="interactive-card__equipment">Бумагоделательная машина "Fourdrinier"</p>
+                <p class="interactive-card__equipment--other">или — Бумагоделка №1"</p>
+              </div>
+              <div class="interactive-card__more">
+                <p>
+                  Одна из первых машин на фабрике, введённая в строй после гражданской войны усилиями рабочих и инженеров. Основана на классическом принципе Фурдринье — формирование бумажного полотна
+                  на сетке, с дальнейшим прессованием и сушкой.
+                </p>
+                <p>
+                  Машина обслуживалась вручную: оператор следил за равномерной подачей массы, регулировал натяжение сетки и контролировал сушильные валы. Производительность была невысокой, но именно
+                  эта машина дала старт восстановлению производства на фабрике в послереволюционные годы.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="history-equipment__image">
+            <img src="../assets/images/equipment5.jpg" alt="Оборудование" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="../scripts/toggleMenu.js"></script>
+    <script src="../scripts/equipmentTimeline.js"></script>
+  </body>
+</html>

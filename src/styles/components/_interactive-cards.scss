@@ -140,17 +140,41 @@
     gap: 24px;
   }
 
-  &__name {
+  &__name,
+  &__equipment {
     font-size: clamp(16px, 1.5vw, 26px);
     font-weight: 600;
     line-height: 1.1;
     color: var(--color-beige-100);
   }
 
+  &__equipment {
+    margin-bottom: 24px;
+    &--other {
+      font-size: clamp(14px, 1.5vw, 22px);
+      color: var(--color-beige-300);
+      font-style: italic;
+    }
+  }
+
   &__date {
     font-size: clamp(14px, 1vw, 16px);
     line-height: 1.1;
     color: var(--color-beige-300);
+  }
+
+  &__more {
+    p {
+      font-size: clamp(14px, 1vw, 18px);
+      line-height: 1.1;
+      color: var(--color-beige-300);
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
   }
 
   &__description {
