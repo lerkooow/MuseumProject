@@ -2,14 +2,10 @@
   padding: 20px;
   border-radius: 8px;
   display: flex;
-  min-width: clamp(182px, 20.83vw, 400px);
+  min-width: clamp(182px, 21vw, 400px);
   width: 100%;
   margin: 0 auto;
   height: calc(100vh - 32px);
-
-  &:last-child {
-    margin-right: 16px;
-  }
 
   &__container {
     display: flex;
@@ -30,7 +26,7 @@
   }
 
   &__title {
-    font-size: 3.6rem;
+    font-size: clamp(16px, 3vw, 36px);
     letter-spacing: -0.04em;
     color: var(--color-brown-200);
     margin: 32px 0 8px 0;
@@ -38,7 +34,7 @@
   }
 
   &__subtitle {
-    font-size: 1.6rem;
+    font-size: clamp(12px, 1vw, 16px);
     letter-spacing: -0.03em;
     color: var(--color-beige-300);
     text-transform: uppercase;
@@ -46,36 +42,34 @@
 
   &__image {
     img {
-      width: clamp(120px, 16vw, 240px);
+      width: clamp(120px, 16vw, 266px);
       height: clamp(200px, 28vw, 400px);
-      object-fit: cover;
     }
   }
 
   &__description {
     text-align: center;
-    font-size: 1.8rem;
+    font-size: clamp(12px, 1vw, 18px);
     line-height: 1.1;
     color: var(--color-brown-300);
 
     &--event {
-      font-size: 2.2rem;
+      font-size: clamp(12px, 1vw, 22px);
       text-align: center;
-      white-space: pre-line;
     }
   }
 
   &__footer {
-    height: clamp(80px, 8.33vw, 160px);
+    height: clamp(80px, 9vw, 171px);
     display: flex;
     flex-direction: column;
-    gap: clamp(20px, 3.85vw, 74px);
+    gap: clamp(20px, 4vw, 74px);
     justify-content: flex-end;
   }
 
   &__date {
     text-align: center;
-    font-size: 1.8rem;
+    font-size: clamp(8px, 1vw, 18px);
     line-height: 1;
     color: var(--color-brown-200);
   }
@@ -101,14 +95,10 @@
   }
 
   &__slider {
-    overflow-x: auto;
     scroll-behavior: smooth;
-    display: flex;
-    gap: 16px;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
+    scrollbar-width: none;
+    overflow-x: auto;
+    overflow-y: hidden;
 
     &_container {
       display: flex;
@@ -129,32 +119,12 @@
         width: 100%;
       }
     }
-
-    &__title {
-      font-size: 1.6rem;
-    }
-
-    &__subtitle {
-      font-size: 1.2rem;
-    }
-
-    &__description {
-      font-size: 1.2rem;
-
-      &--event {
-        font-size: 1.2rem;
-      }
-    }
-
-    &__date {
-      font-size: 0.8rem;
-    }
   }
 
   .cards {
     &__slider {
       &_container {
-        margin: 0 0 16px 16px;
+        margin: 0 16px 16px 16px;
       }
     }
   }
