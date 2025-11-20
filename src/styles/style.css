@@ -2783,6 +2783,16 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 .card__image img {
   width: clamp(120px, 16vw, 266px);
   height: clamp(200px, 28vw, 400px);
+  object-fit: cover;
+  display: block;
+  mask-image: url("../assets/masks/old-paper-mask.png");
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-image: url("../assets/masks/old-paper-mask.png");
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
 }
 .card__description {
   text-align: center;
@@ -2829,11 +2839,16 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   scroll-behavior: smooth;
   scrollbar-width: none;
   overflow-x: auto;
-  overflow-y: hidden;
 }
 .cards__slider_container {
   display: flex;
   gap: 16px;
+  position: relative;
+}
+.cards__slider_container::after {
+  content: "";
+  display: block;
+  min-width: 1px;
 }
 
 @media (max-width: 768px) {
@@ -2847,7 +2862,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     width: 100%;
   }
   .cards__slider_container {
-    margin: 0 16px 16px 16px;
+    margin: 0 0 16px 16px;
   }
 }
 .factories-search {
