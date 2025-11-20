@@ -185,12 +185,12 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   background-color: var(--color-warm-beige);
   border-radius: 8px;
   padding: 32px;
-  padding-right: 0;
   display: flex;
   position: relative;
   max-height: calc(100vh - 32px);
   gap: 16px;
   width: 100%;
+  justify-content: space-between;
 }
 .people__content::before {
   content: "";
@@ -208,18 +208,11 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   opacity: 0.3;
   width: 100%;
 }
-.people__content img {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-}
 .people__wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  max-height: 100%;
   justify-content: space-between;
-  flex: 1;
+  height: 100%;
 }
 .people__subtitle {
   font-size: clamp(14px, 2vw, 22px);
@@ -253,27 +246,66 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   flex: 1;
   min-height: 0;
   display: flex;
-  align-items: flex-end;
-}
-.people__photo--small img {
-  height: auto;
-  max-height: 100%;
-  object-fit: contain;
-  object-position: bottom;
+  justify-content: center;
+  align-items: center;
+  position: relative;
   max-width: clamp(178px, 45vw, 840px);
+  max-height: clamp(130px, 26vw, 490px);
+}
+.people__photo--small::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../assets/images/people_frame.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  z-index: 0;
+  pointer-events: none;
+}
+.people__photo-wrapper {
+  position: relative;
+  max-width: calc(100% - 48px);
+}
+.people__photo-img {
+  width: 100%;
+  display: block;
+  object-fit: contain;
+  z-index: 1;
+  position: relative;
+}
+.people__tape {
+  position: absolute;
+  top: -45px;
+  z-index: 2;
+  pointer-events: none;
+}
+.people__tape--left {
+  left: -50px;
+}
+.people__tape--right {
+  right: -45px;
 }
 .people__photo--large {
   flex: 1;
-  min-width: 0;
-  height: 100%;
+  min-height: 0;
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  max-width: clamp(160px, 34vw, 638px);
+  max-height: clamp(182px, 41vw, 772px);
 }
-.people__photo--large img {
-  width: auto;
-  max-width: 100%;
-  max-height: clamp(182px, 45vw, 772px);
+.people__photo--large::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../assets/images/people_frame.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  pointer-events: none;
 }
 .people__controls {
   display: flex;
@@ -1304,6 +1336,10 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   display: flex;
   gap: 16px;
   width: 100%;
+  height: 1012px;
+  min-height: 40vh;
+  height: 100%;
+  max-height: 100vh;
 }
 .leader__content {
   background-color: var(--color-warm-beige);
@@ -1318,8 +1354,38 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  max-width: 657px;
+  max-width: clamp(360px, 35vw, 657px);
   width: 100%;
+}
+.leader__photo {
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+}
+.leader__photo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../assets/images/people_frame.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
+  z-index: 0;
+}
+.leader__photo img {
+  display: block;
+  max-width: clamp(311px, 34vw, 652px);
+  max-height: clamp(386px, 39vw, 734px);
+  width: 100%;
+  padding: clamp(8px, 2vw, 27px);
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
 }
 .leader__logo {
   font-size: clamp(12px, 1vw, 18px);
@@ -1359,7 +1425,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   height: 24px;
 }
 .leader__quote p, .leader__quote--mobile p {
-  font-size: clamp(14px, 1.5vw, 26px);
+  font-size: clamp(18px, 1.5vw, 26px);
   font-weight: 600;
   text-align: center;
 }
@@ -1384,7 +1450,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   font-weight: 600;
 }
 .leader__subtitle p {
-  font-size: clamp(12px, 1.5vw, 18px);
+  font-size: clamp(14px, 1.5vw, 18px);
 }
 .leader__right {
   display: flex;
@@ -1441,12 +1507,34 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   .leader__img--mobile {
     display: flex;
     justify-content: center;
+    position: relative;
+    display: inline-block;
+    width: fit-content;
+  }
+  .leader__img--mobile::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("../assets/images/people_frame.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    pointer-events: none;
+    z-index: 0;
   }
   .leader__img--mobile img {
+    display: block;
     max-height: clamp(386px, 66vw, 500px);
     max-width: clamp(311px, 56vw, 430px);
     width: 100%;
-    height: auto;
+    padding: clamp(8px, 2vw, 16px);
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
   }
   .leader__subtitle {
     font-size: 14px;
@@ -1460,9 +1548,6 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   .leader__quote--mobile {
     display: flex;
     max-width: 279px;
-  }
-  .leader__quote--mobile p {
-    font-size: clamp(14px, 1vw, 18px);
   }
   .leader__quote--mobile img {
     width: 16px;
@@ -2406,6 +2491,9 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   color: var(--color-beige-100);
   font-size: 1.6rem;
   text-transform: uppercase;
+  height: 1012px;
+  min-height: 40vh;
+  max-height: 100vh;
 }
 .menu__logo {
   max-width: 100%;
@@ -2506,6 +2594,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     left: 16px;
     right: 16px;
     height: auto;
+    min-height: auto;
     max-width: 100%;
     max-height: 48px;
     padding: 8px 16px;
@@ -3824,7 +3913,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 .contribution-card {
   position: relative;
   flex: 0 0 100%;
-  max-width: 21vw;
+  max-width: 21.375vw;
   height: clamp(334px, 27vw, 456px);
   background-color: var(--color-beige-100);
   border-radius: 4px;
@@ -4000,16 +4089,34 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   border-radius: 4px;
 }
 .wishes__photo {
-  width: 100%;
-  max-width: 392px;
-  max-height: 441px;
-  border-radius: 8px;
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+}
+.wishes__photo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../assets/images/people_frame.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
+  z-index: 0;
 }
 .wishes__photo img {
+  display: block;
+  max-width: clamp(160px, 21vw, 392px);
+  max-height: clamp(181px, 23vw, 441px);
   width: 100%;
+  padding: clamp(8px, 1vw, 18px);
   height: 100%;
   object-fit: cover;
-  display: block;
+  position: relative;
+  z-index: 1;
 }
 .wishes__subtitle p {
   font-size: clamp(14px, 2vw, 26px);
@@ -4080,9 +4187,6 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     padding: 0;
     max-width: 204px;
   }
-  .wishes__quote p {
-    font-size: 14px;
-  }
   .wishes__right {
     gap: 24px;
     padding: 24px 16px 48px 16px;
@@ -4101,9 +4205,6 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     width: 100%;
     height: auto;
     object-fit: cover;
-  }
-  .wishes__subtitle p {
-    font-size: 18px;
   }
   .wishes__quote_right {
     max-width: 232px;
@@ -4232,7 +4333,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 .archive-card__description {
   font-style: italic;
   color: var(--color-beige-300);
-  font-size: clamp(14px, 1.5vw, 16px);
+  font-size: 16px;
   line-height: 1.2;
   flex: 1;
   min-height: 2.4em;
