@@ -2,9 +2,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const loadMoreBtn = document.querySelector('.documents__show-more');
     const cards = document.querySelectorAll('.documents-card');
     let cardsPerPage;
-
-    if (window.innerWidth <= 645) {
-        cardsPerPage = 3;
+    if (window.innerWidth <= 768) {
+        cardsPerPage = 4;
     } else {
         cardsPerPage = 6;
     }

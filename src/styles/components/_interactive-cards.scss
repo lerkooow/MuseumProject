@@ -4,7 +4,7 @@
   gap: 16px;
   padding-left: 11.35vw;
   margin: 12% 0 5% 0;
-  padding-right: 16px;
+  justify-content: center;
 
   &__wrapper {
     display: flex;
@@ -25,6 +25,10 @@
     &.hidden {
       display: none;
     }
+  }
+
+  &:last-child {
+    padding-bottom: 16px;
   }
 }
 
@@ -326,7 +330,8 @@
   }
 
   &__image {
-    max-width: 70vw;
+    width: 70vw;
+    max-width: 900px;
     max-height: 70vh;
   }
 }
@@ -339,8 +344,8 @@
 
 @media (max-width: 768px) {
   .interactive-cards {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding: 0;
+    margin: 40px 0 0 0;
   }
 
   .interactive-modal {
@@ -371,7 +376,7 @@
   }
 }
 
-@media (max-width: 645px) {
+@media (max-width: 425px) {
   .interactive-card {
     width: 100%;
   }
