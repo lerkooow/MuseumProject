@@ -526,14 +526,43 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   align-items: center;
   justify-content: space-evenly;
 }
+.leaders__photo-container {
+  position: relative;
+  display: inline-block;
+}
 .leaders__photo {
   max-width: 446px;
   position: relative;
+  display: inline-block;
+  width: fit-content;
+}
+.leaders__photo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../assets/images/people_frame.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
+  z-index: 0;
 }
 .leaders__img {
+  display: block;
   max-width: clamp(220px, 24vw, 446px);
+  max-height: clamp(267px, 29vw, 542px);
   width: 100%;
-  height: clamp(267px, 29vw, 542px);
+  padding: clamp(8px, 1vw, 16px);
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 0;
+}
+.leaders__img--right {
+  transform: scaleX(-1);
 }
 .leaders__stamp {
   position: absolute;
@@ -555,11 +584,39 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 }
 .leaders__card--left .leaders__envelope {
   right: -65%;
-  top: 0%;
+  top: -5%;
 }
 .leaders__card--left .leaders__stamp {
-  right: -15%;
+  right: -22%;
   bottom: 5%;
+}
+.leaders__tape {
+  position: absolute;
+  z-index: 1;
+  max-height: clamp(40px, 8vw, 64px);
+}
+.leaders__tape--right {
+  right: -16px;
+  top: -21px;
+}
+.leaders__tape--left {
+  left: -20px;
+  top: -15px;
+}
+.leaders__tape-other {
+  position: absolute;
+  z-index: 1;
+}
+.leaders__tape-other--right {
+  right: -20px;
+  top: -20px;
+}
+.leaders__tape-other--left {
+  left: -22px;
+  top: -15px;
+}
+.leaders__card--right, .leaders__card--left {
+  position: relative;
 }
 .leaders__card--right .leaders__envelope {
   left: -60%;
@@ -567,8 +624,8 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   transform: rotate(-15deg);
 }
 .leaders__card--right .leaders__stamp {
-  right: 10%;
-  top: -13%;
+  right: 9%;
+  top: -19%;
 }
 .leaders__envelope-bg {
   position: absolute;
@@ -576,7 +633,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
+  z-index: 1;
 }
 .leaders__quote {
   position: absolute;
@@ -683,9 +740,9 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     max-width: clamp(80px, 15vw, 121px);
   }
   .leaders__img {
-    max-width: clamp(220px, 58vw, 445px);
+    max-width: clamp(220px, 62vw, 475px);
     width: 100%;
-    height: clamp(267px, 69vw, 495px);
+    max-height: clamp(267px, 66vw, 500px);
   }
   .leaders__envelope {
     max-width: clamp(185px, 39vw, 324px);
@@ -693,11 +750,11 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     width: 100%;
   }
   .leaders__card--left .leaders__stamp {
-    right: -17%;
+    right: -22%;
     top: 10%;
   }
   .leaders__card--right .leaders__stamp {
-    left: -17%;
+    left: -25%;
     top: 10%;
   }
   .leaders__card--left .leaders__envelope {
@@ -714,17 +771,20 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     width: 100%;
     height: 100%;
   }
+  .leaders__card--left .leaders__quote {
+    top: 33%;
+  }
   .leaders__quote {
     max-width: 100%;
     line-height: 1.2;
     padding: 4px;
     text-align: center;
-    font-size: clamp(8px, 1.8vw, 16px);
+    font-size: clamp(8px, 1.7vw, 16px);
   }
   .leaders__info {
     gap: 12px;
     text-align: center;
-    margin-top: 8px;
+    margin-top: 12px;
     width: 100%;
   }
   .leaders__footer {
@@ -739,6 +799,22 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   }
   .leaders__card--right .leaders__stamp {
     left: -22%;
+  }
+  .leaders__tape--right {
+    right: -12px;
+    top: -13px;
+  }
+  .leaders__tape--left {
+    left: -16px;
+    top: -14px;
+  }
+  .leaders__tape-other--right {
+    right: -10px;
+    top: -13px;
+  }
+  .leaders__tape-other--left {
+    left: -16px;
+    top: -13px;
   }
 }
 
@@ -1336,10 +1412,6 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   display: flex;
   gap: 16px;
   width: 100%;
-  height: 1012px;
-  min-height: 40vh;
-  height: 100%;
-  max-height: 100vh;
 }
 .leader__content {
   background-color: var(--color-warm-beige);
@@ -2491,9 +2563,6 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   color: var(--color-beige-100);
   font-size: 1.6rem;
   text-transform: uppercase;
-  height: 1012px;
-  min-height: 40vh;
-  max-height: 100vh;
 }
 .menu__logo {
   max-width: 100%;

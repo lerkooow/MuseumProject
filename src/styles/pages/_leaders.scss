@@ -54,15 +54,47 @@
     justify-content: space-evenly;
   }
 
+  &__photo-container {
+    position: relative;
+    display: inline-block;
+  }
+
   &__photo {
     max-width: 446px;
     position: relative;
+    display: inline-block;
+    width: fit-content;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("../assets/images/people_frame.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      pointer-events: none;
+      z-index: 0;
+    }
   }
 
   &__img {
+    display: block;
     max-width: clamp(220px, 24vw, 446px);
+    max-height: clamp(267px, 29vw, 542px);
     width: 100%;
-    height: clamp(267px, 29vw, 542px);
+    padding: clamp(8px, 1vw, 16px);
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 0;
+
+    &--right {
+      transform: scaleX(-1);
+    }
   }
 
   &__stamp {
@@ -88,12 +120,48 @@
 
   &__card--left &__envelope {
     right: -65%;
-    top: 0%;
+    top: -5%;
   }
 
   &__card--left &__stamp {
-    right: -15%;
+    right: -22%;
     bottom: 5%;
+  }
+
+  &__tape {
+    position: absolute;
+    z-index: 1;
+    max-height: clamp(40px, 8vw, 64px);
+
+    &--right {
+      right: -16px;
+      top: -21px;
+    }
+
+    &--left {
+      left: -20px;
+      top: -15px;
+    }
+  }
+
+  &__tape-other {
+    position: absolute;
+    z-index: 1;
+
+    &--right {
+      right: -20px;
+      top: -20px;
+    }
+
+    &--left {
+      left: -22px;
+      top: -15px;
+    }
+  }
+
+  &__card--right,
+  &__card--left {
+    position: relative;
   }
 
   &__card--right &__envelope {
@@ -103,8 +171,8 @@
   }
 
   &__card--right &__stamp {
-    right: 10%;
-    top: -13%;
+    right: 9%;
+    top: -19%;
   }
 
   &__envelope-bg {
@@ -113,7 +181,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0;
+    z-index: 1;
   }
 
   &__quote {
@@ -239,9 +307,9 @@
     }
 
     &__img {
-      max-width: clamp(220px, 58vw, 445px);
+      max-width: clamp(220px, 62vw, 475px);
       width: 100%;
-      height: clamp(267px, 69vw, 495px);
+      max-height: clamp(267px, 66vw, 500px);
     }
 
     &__envelope {
@@ -251,12 +319,12 @@
     }
 
     &__card--left &__stamp {
-      right: -17%;
+      right: -22%;
       top: 10%;
     }
 
     &__card--right &__stamp {
-      left: -17%;
+      left: -25%;
       top: 10%;
     }
 
@@ -277,18 +345,22 @@
       height: 100%;
     }
 
+    &__card--left &__quote {
+      top: 33%;
+    }
+
     &__quote {
       max-width: 100%;
       line-height: 1.2;
       padding: 4px;
       text-align: center;
-      font-size: clamp(8px, 1.8vw, 16px);
+      font-size: clamp(8px, 1.7vw, 16px);
     }
 
     &__info {
       gap: 12px;
       text-align: center;
-      margin-top: 8px;
+      margin-top: 12px;
       width: 100%;
     }
 
@@ -306,6 +378,30 @@
 
     &__card--right &__stamp {
       left: -22%;
+    }
+
+    &__tape {
+      &--right {
+        right: -12px;
+        top: -13px;
+      }
+
+      &--left {
+        left: -16px;
+        top: -14px;
+      }
+    }
+
+    &__tape-other {
+      &--right {
+        right: -10px;
+        top: -13px;
+      }
+
+      &--left {
+        left: -16px;
+        top: -13px;
+      }
     }
   }
 }
