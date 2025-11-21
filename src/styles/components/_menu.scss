@@ -9,8 +9,9 @@
   padding: 24px 20px;
   justify-content: space-between;
   color: var(--color-beige-100);
-  font-size: 1.6rem;
+  font-size: clamp(12px, 1vw, 16px);
   text-transform: uppercase;
+  height: auto;
 
   &__logo {
     max-width: 100%;

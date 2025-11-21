@@ -3,6 +3,9 @@
   display: flex;
   gap: 16px;
   width: 100%;
+  min-height: 40vh;
+  height: 1012px;
+  max-height: 100vh;
 
   &__content {
     background-color: var(--color-warm-beige);
@@ -47,7 +50,7 @@
       max-width: clamp(311px, 34vw, 652px);
       max-height: clamp(386px, 39vw, 734px);
       width: 100%;
-      padding: clamp(8px, 2vw, 27px);
+      padding: clamp(8px, 1vw, 27px);
       height: 100%;
       object-fit: cover;
       position: relative;
