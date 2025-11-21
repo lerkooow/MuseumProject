@@ -1,10 +1,17 @@
 .documents {
-  padding: 16px;
   display: flex;
   gap: 16px;
   width: 100%;
   flex-direction: column;
-  max-height: 100vh;
+
+  &__wrapper {
+    display: flex;
+    gap: 16px;
+    min-height: 40vh;
+    height: 1012px;
+    max-height: 100vh;
+    padding: 16px;
+  }
 
   &__content {
     display: flex;
@@ -184,9 +191,10 @@
   &__photo-composition {
     position: relative;
     width: 100%;
-    height: clamp(401px, 45vw, 852px);
+    max-height: clamp(401px, 45vw, 852px);
     max-width: clamp(325px, 37vw, 710px);
     margin: 0 auto;
+    height: calc(100% - 80px);
   }
 
   &__show-more {
