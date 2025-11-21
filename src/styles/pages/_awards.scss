@@ -441,7 +441,7 @@
     }
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: 430px) {
     &__img {
       p {
         padding: 8px;
@@ -456,6 +456,11 @@
     &__info {
       gap: 0;
       padding: 8px;
+    }
+
+    &__photo-composition {
+      max-width: 311px;
+      margin: 0 auto;
     }
   }
 }
