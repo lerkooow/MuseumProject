@@ -1,4 +1,5 @@
 .employee {
+  --offset: clamp(25px, 5vw, 80px);
   padding: 0 16px;
   display: flex;
 
@@ -57,7 +58,11 @@
     width: 100%;
     align-items: flex-start;
     position: relative;
-    left: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    justify-items: center;
+    padding-left: var(--offset);
   }
 
   &__details {
@@ -121,8 +126,7 @@
     justify-content: center;
     align-items: center;
     top: 17px;
-    left: -80px;
-
+    left: calc(-1 * var(--offset));
     &::before {
       content: "";
       position: absolute;
@@ -205,6 +209,10 @@
     &__wrapper {
       display: block;
       left: auto;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      padding: 0;
     }
 
     &__details {

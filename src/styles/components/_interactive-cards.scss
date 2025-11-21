@@ -4,7 +4,8 @@
   gap: 16px;
   padding-left: 11.35vw;
   margin: 12% 0 5% 0;
-  justify-content: center;
+  // justify-content: center;
+  padding-right: 16px;
 
   &__wrapper {
     display: flex;
@@ -58,6 +59,18 @@
   }
 
   &__image {
+    &--back,
+    &--main {
+      mask-image: url("../assets/masks/old-paper-mask.png");
+      mask-size: 100% 100%;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      -webkit-mask-image: url("../assets/masks/old-paper-mask.png");
+      -webkit-mask-size: 100% 100%;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+    }
+
     &--back {
       position: absolute;
       object-fit: cover;
@@ -150,6 +163,10 @@
     font-weight: 600;
     line-height: 1.1;
     color: var(--color-beige-100);
+  }
+
+  &__name {
+    min-height: 53px;
   }
 
   &__equipment {
@@ -344,7 +361,7 @@
 
 @media (max-width: 768px) {
   .interactive-cards {
-    padding: 0;
+    padding: 0 16px;
     margin: 40px 0 0 0;
   }
 
@@ -374,10 +391,34 @@
       }
     }
   }
+
+  .interactive-card {
+    &__info {
+      max-width: clamp(232px, 21vw, 500px);
+      min-height: clamp(350px, 27vw, 720px);
+    }
+  }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 600px) {
   .interactive-card {
     width: 100%;
+
+    &__info {
+      max-width: clamp(232px, 67vw, 400px);
+      min-height: clamp(350px, 92vw, 550px);
+    }
+
+    &__image {
+      &--main {
+        max-width: clamp(301px, 97vw, 580px);
+        max-height: clamp(242px, 71vw, 420px);
+      }
+
+      &--back {
+        max-width: clamp(300px, 72vw, 426px);
+        max-height: clamp(376px, 84vw, 500px);
+      }
+    }
   }
 }

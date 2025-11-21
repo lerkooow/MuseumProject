@@ -130,6 +130,14 @@
     max-width: clamp(152px, 19vw, 246px);
     width: 100%;
     max-height: clamp(184px, 23vw, 296px);
+    mask-image: url("../assets/masks/old-paper-mask.png");
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-image: url("../assets/masks/old-paper-mask.png");
+    -webkit-mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
   }
 
   &__card-caption {
@@ -148,7 +156,7 @@
     padding-left: 0;
     &__cards {
       flex-direction: column;
-      padding: 0 16px;
+      padding: 0;
       gap: 16px;
       align-items: center;
     }

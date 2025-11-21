@@ -2052,6 +2052,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   }
 }
 .employee {
+  --offset: clamp(25px, 5vw, 80px);
   padding: 0 16px;
   display: flex;
 }
@@ -2104,7 +2105,11 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   width: 100%;
   align-items: flex-start;
   position: relative;
-  left: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  justify-items: center;
+  padding-left: var(--offset);
 }
 .employee__details {
   color: var(--color-brown-300);
@@ -2158,7 +2163,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   justify-content: center;
   align-items: center;
   top: 17px;
-  left: -80px;
+  left: calc(-1 * var(--offset));
 }
 .employee__photo::before {
   content: "";
@@ -2227,6 +2232,10 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   .employee__wrapper {
     display: block;
     left: auto;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 0;
   }
   .employee__details {
     width: 100%;
@@ -4997,6 +5006,14 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   max-width: clamp(152px, 19vw, 246px);
   width: 100%;
   max-height: clamp(184px, 23vw, 296px);
+  mask-image: url("../assets/masks/old-paper-mask.png");
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-image: url("../assets/masks/old-paper-mask.png");
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
 }
 .factories-related__card-caption {
   color: var(--color-beige-300);
@@ -5014,7 +5031,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   }
   .factories-related__cards {
     flex-direction: column;
-    padding: 0 16px;
+    padding: 0;
     gap: 16px;
     align-items: center;
   }
@@ -5040,7 +5057,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   gap: 16px;
   padding-left: 11.35vw;
   margin: 12% 0 5% 0;
-  justify-content: center;
+  padding-right: 16px;
 }
 .interactive-cards__wrapper {
   display: flex;
@@ -5085,6 +5102,16 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   mix-blend-mode: screen;
   opacity: 0.3;
   width: 100%;
+}
+.interactive-card__image--back, .interactive-card__image--main {
+  mask-image: url("../assets/masks/old-paper-mask.png");
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-image: url("../assets/masks/old-paper-mask.png");
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
 }
 .interactive-card__image--back {
   position: absolute;
@@ -5165,6 +5192,9 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   font-weight: 600;
   line-height: 1.1;
   color: var(--color-beige-100);
+}
+.interactive-card__name {
+  min-height: 53px;
 }
 .interactive-card__equipment {
   margin-bottom: 24px;
@@ -5325,7 +5355,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 }
 @media (max-width: 768px) {
   .interactive-cards {
-    padding: 0;
+    padding: 0 16px;
     margin: 40px 0 0 0;
   }
   .interactive-modal__close {
@@ -5348,10 +5378,26 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   .interactive-modal__nav--next {
     right: 0;
   }
+  .interactive-card__info {
+    max-width: clamp(232px, 21vw, 500px);
+    min-height: clamp(350px, 27vw, 720px);
+  }
 }
-@media (max-width: 425px) {
+@media (max-width: 600px) {
   .interactive-card {
     width: 100%;
+  }
+  .interactive-card__info {
+    max-width: clamp(232px, 67vw, 400px);
+    min-height: clamp(350px, 92vw, 550px);
+  }
+  .interactive-card__image--main {
+    max-width: clamp(301px, 97vw, 580px);
+    max-height: clamp(242px, 71vw, 420px);
+  }
+  .interactive-card__image--back {
+    max-width: clamp(300px, 72vw, 426px);
+    max-height: clamp(376px, 84vw, 500px);
   }
 }
 
