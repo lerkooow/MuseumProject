@@ -1,14 +1,20 @@
 .awards {
-  padding: 16px;
   display: flex;
-  gap: 16px;
-  width: 100%;
-  max-height: 100vh;
+  flex-direction: column;
+
+  &__wrapper {
+    display: flex;
+    gap: 16px;
+    min-height: 40vh;
+    height: 1012px;
+    max-height: 100vh;
+    padding: 16px;
+  }
 
   &__content {
     background-color: var(--color-warm-beige);
     border-radius: 8px;
-    padding: 49px;
+    padding: clamp(16px, 2vw, 40px);
     display: flex;
     width: 100%;
     gap: 40px;
@@ -22,6 +28,15 @@
     color: var(--color-beige-300);
     gap: 16px;
     align-items: center;
+
+    img {
+      width: clamp(24px, 4vw, 56px);
+      height: clamp(29px, 4vw, 67px);
+    }
+
+    p {
+      font-size: clamp(12px, 1.5vw, 18px);
+    }
   }
 
   &__left {
@@ -31,20 +46,86 @@
     flex: 0 0 30%;
     max-width: 462px;
     width: 100%;
+    gap: 24px;
   }
 
   &__right {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    // flex: 0 0 68%;
+    width: 68%;
+    position: relative;
 
     img {
       width: 100%;
       height: 100%;
+      object-fit: contain;
     }
   }
 
-  &__img--mobile {
+  &__photo {
+    &--back,
+    &--middle,
+    &--main {
+      display: inline-block;
+      width: fit-content;
+      position: absolute;
+      height: 100%;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("../assets/images/people_frame.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        padding: clamp(8px, 1.5vw, 18px);
+        height: 100%;
+        object-fit: cover;
+        position: relative;
+      }
+    }
+
+    &--back {
+      max-width: clamp(160px, 29vw, 530px);
+      max-height: clamp(200px, 39vw, 644px);
+      z-index: 1;
+    }
+
+    &--main {
+      bottom: 0;
+      width: 100%;
+      max-width: clamp(178px, 38vw, 540px);
+      max-height: clamp(150px, 35vw, 444px);
+      z-index: 3;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &--middle {
+      max-width: clamp(178px, 38vw, 540px);
+      max-height: clamp(150px, 35vw, 444px);
+      right: 0;
+      z-index: 0;
+      top: 50%;
+      transform: translateY(-50%);
+
+      img {
+        padding: clamp(8px, 1vw, 24px);
+      }
+    }
+  }
+
+  &__right--mobile {
     display: none;
   }
 
@@ -88,7 +169,7 @@
 
   &__card {
     background-color: var(--color-beige-100);
-    border-radius: 8px;
+    border-radius: 4px;
     display: flex;
     position: relative;
     flex-direction: column;
@@ -170,6 +251,16 @@
       width: 100%;
       position: relative;
       top: -5%;
+      transform: rotate(2deg);
+      mask-image: url("../assets/masks/old-paper-mask.png");
+      mask-size: 100% 100%;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      -webkit-mask-image: url("../assets/masks/old-paper-mask.png");
+      -webkit-mask-size: 100% 100%;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+      object-fit: cover;
     }
   }
 
@@ -191,15 +282,16 @@
   @media (max-width: 1300px) {
     &__content {
       flex-direction: column;
-      justify-content: space-around;
-    }
-
-    &__right {
-      max-height: 395px;
     }
 
     &__left {
       max-width: 100%;
+    }
+
+    &__right {
+      max-height: clamp(560px, 43vw, 640px);
+      height: 100%;
+      width: 100%;
     }
 
     &__subtitle {
@@ -223,10 +315,15 @@
   @media (max-width: 768px) {
     padding: 0;
 
+    &__wrapper {
+      height: auto;
+      max-height: 100%;
+    }
+
     &__content {
       flex-direction: column;
       padding: 16px;
-      margin: 80px 16px 0 16px;
+      margin: 80px 0 0 0;
       gap: 24px;
       border-radius: 4px;
       min-height: 650px;
@@ -247,14 +344,19 @@
       flex: 1;
     }
 
-    &__img--mobile {
+    &__right--mobile {
       display: block;
-      margin-bottom: 24px;
+      width: 100%;
+      position: relative;
+      margin: 0 auto 24px auto;
+      min-height: 320px;
+      max-width: 480px;
+    }
 
-      img {
-        width: 100%;
-        height: 100%;
-      }
+    &__photo-composition {
+      position: relative;
+      width: 100%;
+      min-height: 380px;
     }
 
     &__right {
@@ -277,7 +379,7 @@
     &__cards {
       grid-template-columns: 1fr;
       padding: 0 16px 16px 16px;
-      margin-top: 40px;
+      margin-top: 22px;
     }
 
     &__card {
