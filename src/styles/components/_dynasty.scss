@@ -1,5 +1,6 @@
 .dynasty {
   padding: clamp(80px, 15vw, 220px) 0;
+  margin-top: clamp(80px, 15vw, 220px);
 
   &__container {
     width: 100%;
@@ -194,6 +195,7 @@
 
 @media (max-width: 768px) {
   .dynasty {
+    margin-top: 0;
     &__slider {
       padding-left: 0;
     }

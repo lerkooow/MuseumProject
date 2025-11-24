@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const cards = document.querySelectorAll(".people-list__card");
+
     const alphabetButtons = document.querySelectorAll(".people-list__alphabet-btn");
     const searchInput = document.getElementById("peopleSearch");
     const dropdowns = document.querySelectorAll(".dropdown");
@@ -73,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (currentPage > maxPage) currentPage = maxPage;
 
         cards.forEach(card => card.style.display = "none");
+        // gridContainer.style.gap = "0px";
 
         const startIndex = currentPage * cardsPerPage;
         const endIndex = startIndex + cardsPerPage;

@@ -96,7 +96,7 @@
 
   &__item {
     color: var(--color-beige-100);
-    font-size: 1.6rem;
+    font-size: clamp(12px, 1vw, 16px);
     cursor: pointer;
     transition: all 0.2s ease;
     padding: 8px 12px;

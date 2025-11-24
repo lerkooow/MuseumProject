@@ -1,19 +1,27 @@
 .people {
+  --indent: clamp(15px, 1vw, 20px);
+  --top: clamp(10px, 1vw, 20px);
+
   padding: 16px;
   display: flex;
-  gap: 16px;
+  // gap: 16px;
+  gap: 24px;
   width: 100%;
+  min-height: 40vh;
+  height: 1012px;
+  max-height: 100vh;
 
   &__content {
     background-color: var(--color-warm-beige);
     border-radius: 8px;
-    padding: 32px;
-    padding-right: 0;
+    padding: clamp(24px, 3vw, 40px) clamp(16px, 3vw, 40px);
     display: flex;
     position: relative;
-    max-height: calc(100vh - 32px);
+    // max-height: calc(100vh - 32px);
     gap: 16px;
     width: 100%;
+    justify-content: space-between;
+    align-items: flex-end;
 
     &::before {
       content: "";
@@ -31,21 +39,13 @@
       opacity: 0.3;
       width: 100%;
     }
-
-    img {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-    }
   }
 
   &__wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    max-height: 100%;
     justify-content: space-between;
-    flex: 1;
+    height: 100%;
   }
 
   &__subtitle {
@@ -84,30 +84,68 @@
     flex: 1;
     min-height: 0;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    position: relative;
+    max-width: clamp(178px, 45vw, 840px);
+    max-height: clamp(130px, 26vw, 490px);
+  }
 
-    img {
-      height: auto;
-      max-height: 100%;
-      object-fit: contain;
-      object-position: bottom;
-      max-width: clamp(178px, 45vw, 840px);
+  &__photo-wrapper {
+    display: inline-block;
+    width: fit-content;
+    position: relative;
+    height: 100%;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("../assets/images/people_frame.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      pointer-events: none;
+      z-index: 0;
+    }
+  }
+
+  &__photo-img {
+    display: block;
+    width: 100%;
+    padding: clamp(8px, 1.5vw, 18px);
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+  }
+
+  &__tape {
+    position: absolute;
+    z-index: 2;
+    top: calc(-1 * var(--top));
+    pointer-events: none;
+    max-width: clamp(32px, 4vw, 61px);
+
+    &--left {
+      left: calc(-1 * var(--indent));
+    }
+
+    &--right {
+      right: calc(-1 * var(--indent));
     }
   }
 
   &__photo--large {
-    flex: 1;
-    min-width: 0;
-    height: 100%;
+    // flex: 1;
+    // min-height: 0;
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-
-    img {
-      width: auto;
-      max-width: 100%;
-      max-height: clamp(182px, 45vw, 772px);
-    }
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    max-width: clamp(160px, 33vw, 638px);
+    max-height: clamp(182px, 41vw, 772px);
   }
 
   &__controls {
@@ -126,15 +164,16 @@
 
   @media (max-width: 768px) {
     padding: 0;
+    height: auto;
+    max-width: none;
 
     &__content {
       flex-direction: column;
-      padding: 24px;
-      padding-bottom: 16px;
-      height: 503px;
+      min-height: 503px;
       margin: 80px 16px 0 16px;
       border-radius: 4px;
       justify-content: space-between;
+      align-items: flex-start;
     }
 
     &__wrapper {
@@ -143,7 +182,6 @@
     }
 
     &__subtitle {
-      font-size: 1.2rem;
       margin-bottom: 12px;
       margin-bottom: 24px;
 
@@ -153,7 +191,6 @@
     }
 
     &__title {
-      font-size: 2.4rem;
       margin: 0;
     }
 
@@ -171,14 +208,61 @@
 
     &__photo--mobile {
       display: block;
-      max-width: clamp(311px, 60vw, 500px);
+      // max-width: clamp(311px, 60vw, 500px);
       height: clamp(211px, 40vw, 360px);
-      display: flex;
+      position: relative;
       width: 100%;
 
-      img {
-        width: 100%;
+      .people__photo-composition {
+        position: relative;
+        // max-width: 311px;
+        max-width: clamp(311px, 61vw, 462px);
         height: 100%;
+        min-height: 180px;
+        margin: 0 auto;
+      }
+
+      .people__photo-wrapper {
+        position: absolute;
+        width: 70%;
+        // max-width: 260px;
+        z-index: 1;
+        top: 0;
+        height: auto;
+      }
+
+      .people__photo-wrapper:first-child {
+        z-index: 2;
+        left: 10px;
+        top: 0;
+        // max-width: clamp(160px, 10vw, 200px);
+        max-width: clamp(160px, 32vw, 232px);
+      }
+
+      .people__photo-wrapper:last-child {
+        z-index: 1;
+        right: 10px;
+        top: auto;
+        bottom: 0;
+        // max-width: clamp(178px, 10vw, 240px);
+        max-width: clamp(178px, 48vw, 311px);
+      }
+
+      .people__photo-img:first-child {
+        max-height: clamp(182px, 37vw, 280px);
+      }
+
+      .people__tape {
+        max-width: 24px;
+        top: -5px;
+
+        &--left {
+          left: -10px;
+        }
+
+        &--right {
+          right: -10px;
+        }
       }
     }
 
@@ -190,7 +274,7 @@
     &__description--mobile {
       display: block;
       width: 100%;
-      font-size: 1.4rem;
+      font-size: 14px;
 
       br {
         display: none;
