@@ -17,22 +17,22 @@
 
   &__cards {
     display: flex;
-    gap: 48px;
+    gap: 40px;
     justify-content: center;
     align-items: flex-start;
     width: 100%;
+    padding-right: 16px;
   }
 
   &__card {
     border-radius: 8px;
-    min-width: 340px;
+    // min-width: 340px;
     max-width: clamp(343px, 60vw, 530px);
     width: 100%;
     min-height: 708px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
     position: relative;
     padding: 0;
     cursor: pointer;
@@ -155,15 +155,9 @@
   .factories-related {
     padding-left: 0;
     &__cards {
-      flex-direction: column;
-      padding: 0;
+      padding: 16px;
       gap: 16px;
       align-items: center;
-    }
-
-    &__cards {
-      padding: 0 16px;
-      gap: 16px;
     }
 
     &__card {
@@ -178,6 +172,14 @@
 
     &__card-content {
       padding: 24px 0;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .factories-related {
+    &__cards {
+      flex-direction: column;
     }
   }
 }

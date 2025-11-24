@@ -1,7 +1,10 @@
 .employee {
   --offset: clamp(25px, 5vw, 80px);
-  padding: 0 16px;
+  padding: 16px;
   display: flex;
+  min-height: 40vh;
+  height: 1012px;
+  max-height: 100vh;
 
   &__content {
     flex: 1;
@@ -197,6 +200,9 @@
 
 @media (max-width: 768px) {
   .employee {
+    max-height: none;
+    height: auto;
+
     &__content {
       padding: 0;
       margin-top: 80px;

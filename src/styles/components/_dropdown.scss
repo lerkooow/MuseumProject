@@ -17,7 +17,7 @@
 
     span {
       color: var(--color-beige-100);
-      font-size: 1.6rem;
+      font-size: clamp(12px, 1vw, 16px);
       letter-spacing: -0.02em;
       white-space: nowrap;
       overflow: hidden;
@@ -27,7 +27,7 @@
 
   &__button-text {
     color: var(--color-beige-100);
-    font-size: 1.6rem;
+    font-size: clamp(12px, 1vw, 16px);
   }
 
   &__arrow {
@@ -177,13 +177,10 @@
 @media (max-width: 768px) {
   .dropdown {
     &__button {
-      span {
-        font-size: 1.2rem;
-      }
+      border-radius: 4px;
     }
 
     &__item {
-      font-size: 1.2rem;
       padding: 0;
     }
   }
