@@ -223,57 +223,66 @@
       <div class="related__header">
         <p class="related__title">Cвязанные события</p>
       </div>
-      <section class="interactive-cards">
-        <div class="interactive-card">
-          <img src="../assets/images/related1_1.jpg" alt="Документ" data-index="0" class="document-image interactive-card__image--back" />
-          <img src="../assets/images/related1_2.jpg" alt="Документ" data-index="1" class="document-image interactive-card__image--main" />
-          <div class="interactive-card__info brown-dark">
-            <p class="interactive-card__date">июль 1963</p>
-            <div class="interactive-card__description">
-              <p>26 февраля 1916 г. Сухонское писчебумажное предприятие было включено в разряд предприятий, работающих на оборону</p>
+      <section class="employee__interactive-cards">
+        <div class="employee__interactive-card">
+          <img src="../assets/images/related1_1.jpg" alt="Документ" class="employee__interactive-card-image employee__interactive-card-image--back" />
+          <img src="../assets/images/related1_2.jpg" alt="Документ" class="employee__interactive-card-image employee__interactive-card-image--main" />
+
+          <div class="employee__interactive-card-info employee__interactive-card-info--brown-dark">
+            <p class="employee__interactive-card-date">июль 1963</p>
+
+            <div class="employee__interactive-card-description">
+              <p>26 февраля 1916 г. Сухонское писчебумажное предприятие было включено в разряд предприятий, работающих на оборону.</p>
             </div>
-            <div class="interactive-card__factory">
+
+            <div class="employee__interactive-card-factory">
               <p>
                 Сухонский<br />
                 картонно-бумажный комбинат
               </p>
-              <img src="../assets/icons/arrow_beige_300.svg" alt="Стрелка" class="interactive-card__arrow" />
+              <img src="../assets/icons/arrow_beige_300.svg" alt="Стрелка" class="employee__interactive-card-arrow" />
             </div>
           </div>
         </div>
 
-        <div class="interactive-card">
-          <img src="../assets/images/related2_2.jpg" alt="Документ" class="document-image interactive-card__image--back" data-index="0" />
-          <img src="../assets/images/related2_1.jpg" alt="Документ" class="document-image interactive-card__image--main" data-index="1" />
-          <div class="interactive-card__info brown-light">
-            <p class="interactive-card__date">сентябрь 1917</p>
-            <div class="interactive-card__description">
+        <div class="employee__interactive-card">
+          <img src="../assets/images/related2_2.jpg" alt="Документ" class="employee__interactive-card-image employee__interactive-card-image--back" />
+          <img src="../assets/images/related2_1.jpg" alt="Документ" class="employee__interactive-card-image employee__interactive-card-image--main" />
+
+          <div class="employee__interactive-card-info employee__interactive-card-info--brown-light">
+            <p class="employee__interactive-card-date">сентябрь 1917</p>
+
+            <div class="employee__interactive-card-description">
               <p>К августу-сентябрю 1917 г. строительство Сухонского целлюлозно-бумажного предприятия в г. Соколе было завершено, датой начала работы считается 11 августа 1917 г.</p>
             </div>
-            <div class="interactive-card__factory">
+
+            <div class="employee__interactive-card-factory">
               <p>
                 Сухонский<br />
                 картонно-бумажный комбинат
               </p>
-              <img src="../assets/icons/arrow_beige_300.svg" alt="Стрелка" class="interactive-card__arrow" />
+              <img src="../assets/icons/arrow_beige_300.svg" alt="Стрелка" class="employee__interactive-card-arrow" />
             </div>
           </div>
         </div>
 
-        <div class="interactive-card">
-          <img src="../assets/images/related3_2.jpg" alt="Документ" class="document-image interactive-card__image--back" data-index="0" />
-          <img src="../assets/images/related3_1.jpg" alt="Документ" class="document-image interactive-card__image--main" data-index="1" />
-          <div class="interactive-card__info warm-brown">
-            <p class="interactive-card__date">февраль 1916</p>
-            <div class="interactive-card__description">
+        <div class="employee__interactive-card">
+          <img src="../assets/images/related3_2.jpg" alt="Документ" class="employee__interactive-card-image employee__interactive-card-image--back" />
+          <img src="../assets/images/related3_1.jpg" alt="Документ" class="employee__interactive-card-image employee__interactive-card-image--main" data-index="1" />
+
+          <div class="employee__interactive-card-info employee__interactive-card-info--warm-brown">
+            <p class="employee__interactive-card-date">февраль 1916</p>
+
+            <div class="employee__interactive-card-description">
               <p>В январе-феврале 1916 г. им был заключен договор с Главным артиллерийским управлением о строительстве Снарядного завода и выделении государственных субсидий.</p>
             </div>
-            <div class="interactive-card__factory">
+
+            <div class="employee__interactive-card-factory">
               <p>
                 Сухонский<br />
                 картонно-бумажный комбинат
               </p>
-              <img src="../assets/icons/arrow_beige_300.svg" alt="Стрелка" class="interactive-card__arrow" />
+              <img src="../assets/icons/arrow_beige_300.svg" alt="Стрелка" class="employee__interactive-card-arrow" />
             </div>
           </div>
         </div>
@@ -409,28 +418,8 @@
       </div>
     </section>
 
-    <!-- Interactive modal -->
-    <div class="interactive-modal" id="interactiveModal">
-      <button class="interactive-modal__close" id="closeModal" aria-label="Закрыть">
-        <img src="../assets/icons/cross_usual.svg" alt="Закрыть" />
-      </button>
-      <div class="interactive-modal__content">
-        <button class="interactive-modal__close--mobile" id="closeModal" aria-label="Закрыть">
-          <img src="../assets/icons/cross_usual.svg" alt="Закрыть" />
-        </button>
-        <button class="interactive-modal__nav interactive-modal__nav--prev" id="prevImage" aria-label="Предыдущее изображение">
-          <img src="../assets/icons/arrow_beige_100.svg" alt="Назад" />
-        </button>
-        <img src="" alt="Документ" class="interactive-modal__image" id="modalImage" />
-        <button class="interactive-modal__nav interactive-modal__nav--next" id="nextImage" aria-label="Следующее изображение">
-          <img src="../assets/icons/arrow_beige_100.svg" alt="Вперед" />
-        </button>
-      </div>
-    </div>
-
     <script src="../scripts/toggleMenu.js"></script>
     <script src="../scripts/dynastySlider.js"></script>
-    <script src="../scripts/interactiveModal.js"></script>
     <script src="../scripts/archiveFilter.js"></script>
     <script src="../scripts/archiveSlider.js"></script>
   </body>

@@ -31,7 +31,6 @@
   }
 
   &__right {
-    // flex: 0 0 68%;
     width: 68%;
     position: relative;
 
@@ -195,13 +194,20 @@
         font-weight: 600;
       }
     }
+    &:hover {
+      .multimedia__clip {
+        top: -19px;
+        transform: rotate(56deg);
+      }
+    }
   }
 
   &__clip {
     position: absolute;
-    top: -2%;
+    top: -7px;
     right: 25%;
     z-index: 2;
+    transition: transform 1s ease-in-out, top 1s ease-in-out;
   }
 
   &__img {
