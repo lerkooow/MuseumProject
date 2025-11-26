@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/style.css" />
+  </head>
+
+  <body>
+    <main class="factory">
+      <!-- Menu -->
+      <div class="factory__wrapper">
+        <div class="menu">
+          <div class="menu__header">
+            <a href="main.html" class="menu__logo">
+              <img src="../assets/icons/logo_full.svg" alt="logo full" />
+            </a>
+            <a href="main.html" class="menu__logo--mobile">
+              <img src="../assets/icons/logo.svg" alt="logo" />
+            </a>
+            <button class="menu__toggle" aria-label="Toggle menu">
+              <img src="../assets/icons/menu.svg" alt="burger menu" class="menu__burger--mobile" />
+              <img src="../assets/icons/cross.svg" alt="cross" class="menu__cross--mobile hidden" />
+            </button>
+          </div>
+
+          <nav class="menu__nav">
+            <ul class="menu__list">
+              <li class="nav__item">
+                <a href="factories.html" class="nav__link">
+                  <p>Фабрики</p>
+                </a>
+              </li>
+              <li class="nav__item">
+                <a href="people.html" class="nav__link">
+                  <p>Люди</p>
+                </a>
+              </li>
+              <li class="nav__item">
+                <a href="leaders.html" class="nav__link">
+                  <p>Руководители</p>
+                </a>
+              </li>
+              <li class="nav__item">
+                <a href="multimedia.html" class="nav__link">
+                  <p>Мультимедиа</p>
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="menu__footer">
+            <div class="menu__search">
+              <img src="../assets/icons/prime_search.svg" alt="search" />
+              <p>Поиск</p>
+            </div>
+            <img src="../assets/icons/lines.svg" alt="lines" />
+          </div>
+
+          <!-- Menu Mobile -->
+          <nav class="menu__nav--mobile">
+            <img src="../assets/icons/line_menu.svg" alt="divider" class="menu__divider" />
+            <ul class="menu__list--mobile">
+              <li class="nav__item">
+                <a href="factories.html" class="nav__link">
+                  <p>Фабрики</p>
+                </a>
+              </li>
+              <li class="nav__item">
+                <a href="people.html" class="nav__link">
+                  <p>Люди</p>
+                </a>
+              </li>
+              <li class="nav__item">
+                <a href="leaders.html" class="nav__link">
+                  <p>Руководители</p>
+                </a>
+              </li>
+              <li class="nav__item">
+                <a href="factory.html" class="nav__link">
+                  <p>Мультимедиа</p>
+                </a>
+              </li>
+            </ul>
+
+            <div class="menu__footer--mobile">
+              <div class="menu__search">
+                <img src="../assets/icons/prime_search.svg" alt="search" />
+                <p>Поиск</p>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <section class="factory__content">
+          <div class="factory__left">
+            <div class="factory__header">
+              <img src="../assets/icons/awards_logo.svg" alt="лого" class="factory__logo" />
+              <p class="factory__title">Сухонский картонно-бумажный комбинат</p>
+            </div>
+            <div class="factory__city">
+              <p>г. Сокол</p>
+              <span>Вологодская область</span>
+            </div>
+            <div class="factory__info">
+              <p>Сухонский картонно-бумажный комбинат занимается производством тарного картона, а также твердых древесно-волокнистых плит и гофропродукции</p>
+            </div>
+            <div class="factory__quote">
+              <img src="../assets/icons/quote_top-beige.svg" alt="Цитата" class="factory__quote--top" />
+              <p>Сила фабрики — в людях, которые верят в общее дело и делают его с душой</p>
+              <img src="../assets/icons/quote_down-beige.svg" alt="Цитата" class="factory__quote--down" />
+            </div>
+            <div class="factory__leader">
+              <img src="../assets/images/leader1.jpg" alt="Ю.А. Блинушов" class="factory__leader--img" />
+              <div class="factory__leader--info">
+                <p>Ю.А. Блинушов</p>
+                <span>Руководитель предприятия</span>
+              </div>
+            </div>
+          </div>
+          <div class="factory__right">
+            <div class="factory__images--wrapper">
+              <img src="../assets/icons/stamp1911.svg" alt="1911 год основания фабрики" class="factory__images--stamp" />
+              <img src="../assets/images/factory.jpg" alt="Сухонский картонно-бумажный комбинат" class="factory__images--factory" />
+            </div>
+            <div class="factory__data">
+              <div class="factory__data--item">
+                <p class="factory__data--number">105<span>+</span></p>
+                <p>лет — и всё только начинается</p>
+              </div>
+              <div class="factory__data--item">
+                <p class="factory__data--number">1200<span>+</span></p>
+                <p>наших людей, создающих бумагу</p>
+              </div>
+              <div class="factory__data--item">
+                <p class="factory__data--number">50<span>+</span> лет</p>
+                <p>стаж работы у 12 сотрудников</p>
+              </div>
+              <div class="factory__data--item">
+                <p class="factory__data--number">300<span>+</span></p>
+                <p>тысяч тонн картона в месяц</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="../scripts/toggleMenu.js"></script>
+    <script src="../scripts/loadMoreCards.js"></script>
+  </body>
+</html>
