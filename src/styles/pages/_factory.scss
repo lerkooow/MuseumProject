@@ -73,6 +73,7 @@
     p {
       font-size: clamp(14px, 1vw, 16px);
       line-height: 1.1;
+      letter-spacing: -0.03em;
     }
   }
 
@@ -139,7 +140,7 @@
   }
 
   &__images {
-    &--wrapper {
+    &_wrapper {
       position: relative;
     }
 
@@ -164,7 +165,7 @@
     grid-template-rows: repeat(2, auto);
     gap: 64px;
 
-    &--item {
+    &_item {
       display: flex;
       flex-direction: column;
 
@@ -192,6 +193,17 @@
         line-height: 1;
         letter-spacing: -0.04em;
       }
+    }
+
+    &_wrapper {
+      display: flex;
+      align-items: baseline;
+    }
+
+    &--years {
+      font-size: clamp(16px, 4vw, 26px);
+      line-height: 1.1;
+      font-weight: 600;
     }
   }
 }

@@ -2777,6 +2777,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 .factory__info p {
   font-size: clamp(14px, 1vw, 16px);
   line-height: 1.1;
+  letter-spacing: -0.03em;
 }
 .factory__quote {
   display: flex;
@@ -2830,7 +2831,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   justify-content: space-between;
   flex-direction: column;
 }
-.factory__images--wrapper {
+.factory__images_wrapper {
   position: relative;
 }
 .factory__images--stamp {
@@ -2851,11 +2852,11 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   grid-template-rows: repeat(2, auto);
   gap: 64px;
 }
-.factory__data--item {
+.factory__data_item {
   display: flex;
   flex-direction: column;
 }
-.factory__data--item p:last-child {
+.factory__data_item p:last-child {
   font-size: clamp(12px, 1vw, 14px);
   color: var(--color-beige-300);
   letter-spacing: -0.03em;
@@ -2876,6 +2877,15 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   right: 5px;
   line-height: 1;
   letter-spacing: -0.04em;
+}
+.factory__data_wrapper {
+  display: flex;
+  align-items: baseline;
+}
+.factory__data--years {
+  font-size: clamp(16px, 4vw, 26px);
+  line-height: 1.1;
+  font-weight: 600;
 }
 
 .menu {
