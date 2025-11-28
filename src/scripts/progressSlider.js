@@ -15,9 +15,12 @@ document.addEventListener('DOMContentLoaded', function () {
     let current = 0;
 
     cardsContainer.style.position = 'relative';
+    track.style.overflow = 'hidden';
     track.style.display = 'flex';
     track.style.transition = 'transform 0.4s cubic-bezier(.4,0,.2,1)';
     track.style.gap = '16px';
+    track.style.alignItems = 'flex-end';
+
 
     function getCardWidth() {
         const card = cards[0];

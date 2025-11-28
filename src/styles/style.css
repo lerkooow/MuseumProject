@@ -2925,9 +2925,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   gap: 16px;
 }
 .factory-history__link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
+  display: flex;
 }
 .factory-history__card {
   display: flex;
@@ -3185,11 +3183,6 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   display: flex;
   gap: 16px;
 }
-.factory-people__link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-}
 .factory-people__card {
   min-width: clamp(320px, 50vw, 554px);
   width: 100%;
@@ -3332,11 +3325,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 .progress__cards {
   display: flex;
   gap: 16px;
-}
-.progress__link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
+  min-height: 521px;
 }
 .progress__card {
   position: relative;
@@ -3517,7 +3506,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 
 .photo-gallery {
   padding-left: 11vw;
-  margin: 12% 0 5% 0;
+  margin: 12% 0 10% 0;
   padding-right: 16px;
   display: flex;
   flex-direction: column;
@@ -3541,7 +3530,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 .photo-gallery__images {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-auto-rows: max-content;
   gap: 24px;
   width: 100%;
   max-height: clamp(410px, 39vw, 809px);
@@ -3549,82 +3538,71 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 }
 .photo-gallery__images_wrapper {
   position: relative;
+  transition: all 0.5s ease-in-out;
 }
 .photo-gallery__images_wrapper p {
   position: absolute;
+}
+.photo-gallery__images_wrapper:hover {
+  transform: rotate(1deg) scale(0.95);
 }
 .photo-gallery__images img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  box-shadow: 0 2px 8px rgba(44, 37, 34, 0.15);
   padding: 24px 24px 100px 24px;
   background-color: var(--color-warm-white);
 }
-.photo-gallery__images img:nth-child(1),
-.photo-gallery__images img:nth-child(4),
-.photo-gallery__images img:nth-child(5),
-.photo-gallery__images img:nth-child(8) {
+.photo-gallery__images_container {
+  display: flex;
+}
+.photo-gallery .first,
+.photo-gallery .third,
+.photo-gallery .sixth,
+.photo-gallery .eighth {
   max-height: 512px;
   min-height: 512px;
 }
-.photo-gallery__images img:nth-child(2),
-.photo-gallery__images img:nth-child(3),
-.photo-gallery__images img:nth-child(6),
-.photo-gallery__images img:nth-child(7) {
+.photo-gallery .second,
+.photo-gallery .fourth,
+.photo-gallery .fifth,
+.photo-gallery .seventh {
   max-height: 281px;
   min-height: 281px;
 }
-.photo-gallery__images img:nth-child(2) {
-  grid-area: 3/1/4/2;
-}
-.photo-gallery__images img:nth-child(3) {
-  grid-area: 1/2/2/3;
-}
-.photo-gallery__images img:nth-child(4) {
-  grid-area: 2/2/4/3;
-}
-.photo-gallery__images img:nth-child(5) {
-  grid-area: 1/3/3/4;
-}
-.photo-gallery__images img:nth-child(6) {
-  grid-area: 3/3/4/4;
-}
-.photo-gallery__images img:nth-child(7) {
-  grid-area: 1/4/2/5;
-}
-.photo-gallery__images img:nth-child(8) {
-  grid-area: 2/4/4/5;
-}
-.photo-gallery .first img,
-.photo-gallery .fourth img,
-.photo-gallery .fifth img,
-.photo-gallery .eighth img {
-  max-height: 512px;
-  min-height: 512px;
-}
-.photo-gallery .second img,
-.photo-gallery .third img,
-.photo-gallery .sixth img,
-.photo-gallery .seventh img {
-  max-height: 281px;
-  min-height: 281px;
-}
-.photo-gallery .first img {
+.photo-gallery .first {
   grid-area: 1/1/3/2;
 }
-.photo-gallery .second img {
+.photo-gallery .second {
+  grid-area: 1/2/2/3;
+}
+.photo-gallery .third {
+  grid-area: 1/3/3/4;
+}
+.photo-gallery .fourth {
+  grid-area: 1/4/2/5;
+}
+.photo-gallery .fifth {
   grid-area: 3/1/4/2;
 }
+.photo-gallery .sixth {
+  grid-area: 2/2/4/3;
+}
+.photo-gallery .seventh {
+  grid-area: 3/3/4/4;
+}
+.photo-gallery .eighth {
+  grid-area: 2/4/4/5;
+}
 .photo-gallery__year {
-  bottom: 60px;
+  bottom: 50px;
   left: 24px;
   font-size: 16px;
   line-height: 1.2;
   font-style: italic;
 }
 .photo-gallery__desc {
-  bottom: 35px;
+  bottom: 25px;
   font-size: 16px;
   left: 24px;
   line-height: 1.2;
