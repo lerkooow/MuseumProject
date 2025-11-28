@@ -21,27 +21,40 @@ document.addEventListener('DOMContentLoaded', function () {
     track.style.gap = '16px';
 
 
-    function getCardWidth() {
+
+    function getGapPx() {
+        if (cards.length < 2) return 0;
+        const first = cards[0];
+        const second = cards[1];
+        const gap = Math.round(second.getBoundingClientRect().left - first.getBoundingClientRect().right);
+        return gap > 0 ? gap : 0;
+    }
+
+    function getCardWidthWithGap() {
         const card = cards[0];
-        const style = window.getComputedStyle(card);
-        const width = card.offsetWidth;
-        const marginRight = parseInt(style.marginRight) || 0;
-        return width + marginRight;
+        if (!card) return 0;
+        const cardWidth = card.offsetWidth;
+        const gap = getGapPx();
+        return cardWidth + gap;
     }
 
     function getVisibleCount() {
         const containerWidth = cardsContainer.offsetWidth;
-        const cardWidth = getCardWidth();
-        return Math.max(1, Math.floor(containerWidth / cardWidth));
+        const cardWidthWithGap = getCardWidthWithGap();
+        return Math.max(1, Math.floor(containerWidth / cardWidthWithGap));
     }
 
     function updateSlider() {
-        const cardWidth = getCardWidth();
-        const offset = -(current * cardWidth);
+        const cardWidthWithGap = getCardWidthWithGap();
+        const visibleCount = getVisibleCount();
+        if (current > cards.length - visibleCount) {
+            current = Math.max(0, cards.length - visibleCount);
+        }
+        const offset = -(current * cardWidthWithGap);
         track.style.transform = `translateX(${offset}px)`;
 
         btnLeft.disabled = current === 0;
-        btnRight.disabled = current >= cards.length - getVisibleCount();
+        btnRight.disabled = current >= cards.length - visibleCount;
         btnLeft.style.opacity = btnLeft.disabled ? '0.5' : '1';
         btnRight.style.opacity = btnRight.disabled ? '0.5' : '1';
     }
@@ -53,7 +66,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     btnRight.addEventListener('click', function () {
-        if (current < cards.length - getVisibleCount()) {
+        const visibleCount = getVisibleCount();
+        if (current < cards.length - visibleCount) {
             current++;
             updateSlider();
         }

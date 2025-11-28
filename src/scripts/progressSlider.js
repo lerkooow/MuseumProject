@@ -14,35 +14,44 @@ document.addEventListener('DOMContentLoaded', function () {
     const btnRight = document.querySelector('#progress__button--right .button__arrow');
     let current = 0;
 
+    cardsContainer.style.overflow = 'hidden';
     cardsContainer.style.position = 'relative';
-    track.style.overflow = 'hidden';
     track.style.display = 'flex';
     track.style.transition = 'transform 0.4s cubic-bezier(.4,0,.2,1)';
     track.style.gap = '16px';
     track.style.alignItems = 'flex-end';
 
 
-    function getCardWidth() {
+
+    function getCardWidthWithGap() {
         const card = cards[0];
-        const style = window.getComputedStyle(card);
-        const width = card.offsetWidth;
-        const marginRight = parseInt(style.marginRight) || 0;
-        return width + marginRight;
+        if (!card) return 0;
+        const cardWidth = card.offsetWidth;
+        const trackStyle = window.getComputedStyle(track);
+        let gap = 0;
+        if (trackStyle.gap && trackStyle.gap !== 'normal') {
+            gap = parseInt(trackStyle.gap) || 0;
+        }
+        return cardWidth + gap;
     }
 
     function getVisibleCount() {
         const containerWidth = cardsContainer.offsetWidth;
-        const cardWidth = getCardWidth();
-        return Math.max(1, Math.floor(containerWidth / cardWidth));
+        const cardWidthWithGap = getCardWidthWithGap();
+        return Math.max(1, Math.floor(containerWidth / cardWidthWithGap));
     }
 
     function updateSlider() {
-        const cardWidth = getCardWidth();
-        const offset = -(current * cardWidth);
+        const cardWidthWithGap = getCardWidthWithGap();
+        const visibleCount = getVisibleCount();
+        if (current > cards.length - visibleCount) {
+            current = Math.max(0, cards.length - visibleCount);
+        }
+        const offset = -(current * cardWidthWithGap);
         track.style.transform = `translateX(${offset}px)`;
 
         btnLeft.disabled = current === 0;
-        btnRight.disabled = current >= cards.length - getVisibleCount();
+        btnRight.disabled = current >= cards.length - visibleCount;
         btnLeft.style.opacity = btnLeft.disabled ? '0.5' : '1';
         btnRight.style.opacity = btnRight.disabled ? '0.5' : '1';
     }
@@ -54,7 +63,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     btnRight.addEventListener('click', function () {
-        if (current < cards.length - getVisibleCount()) {
+        const visibleCount = getVisibleCount();
+        if (current < cards.length - visibleCount) {
             current++;
             updateSlider();
         }
