@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../styles/style.css" />
-    <!-- Wavesurfer.js CDN -->
     <script src="https://unpkg.com/wavesurfer.js"></script>
   </head>
 
@@ -136,7 +135,7 @@
                   <audio id="event-audio" src="../assets/audio/event-audio.mp3"></audio>
                   <div class="audio__wave" id="audioWave"></div>
                   <div class="audio__controls">
-                    <span id="audioCurrent">00:00</span>
+                    <span id="audioCurrent" class="audio__controls--current">00:00</span>
                     <div class="audio__sound">
                       <button id="audioPlayPause" class="audio__btn audio__btn--play" aria-label="Воспроизвести/Пауза">
                         <img src="../assets/icons/pause.svg" alt="Пауза" />
@@ -151,15 +150,53 @@
                 </div>
               </div>
             </div>
-            <!-- <div class="event__last">
+            <div class="event__last">
               <div class="event__image--main">
                 <img src="../assets/images/event1.jpg" alt="Бригада целлюлозного завода" />
                 <p class="event__image--year">1929 г.</p>
                 <p class="event__image--desc">Бригада целлюлозного завода</p>
               </div>
-            </div> -->
+            </div>
           </div>
-          <div>GHBDTN</div>
+          <!-- Timeline -->
+          <div class="event-timeline" data-current-year="1924">
+            <div class="event-timeline__line"></div>
+
+            <div class="event-timeline__item">
+              <img src="../assets/icons/circle.svg" alt="" />
+              <div class="event-timeline__year">1922</div>
+            </div>
+
+            <div class="event-timeline__line"></div>
+
+            <div class="event-timeline__item">
+              <img src="../assets/icons/circle.svg" alt="" />
+              <div class="event-timeline__year">1924</div>
+            </div>
+
+            <div class="event-timeline__line"></div>
+
+            <div class="event-timeline__item">
+              <img src="../assets/icons/circle.svg" alt="" />
+              <div class="event-timeline__year">1930</div>
+            </div>
+
+            <div class="event-timeline__line"></div>
+
+            <div class="event-timeline__item">
+              <img src="../assets/icons/circle.svg" alt="" />
+              <div class="event-timeline__year">1938</div>
+            </div>
+
+            <div class="event-timeline__line"></div>
+
+            <div class="event-timeline__item">
+              <img src="../assets/icons/circle.svg" alt="" />
+              <div class="event-timeline__year">1940</div>
+            </div>
+
+            <div class="event-timeline__line"></div>
+          </div>
         </section>
       </div>
 
@@ -257,42 +294,143 @@
       <section class="event__video">
         <div class="event__video_title">
           <p>Видео</p>
-          <!-- <div class="event__video_controls">
-            <div id="event__video_button--left">
-              <button class="button__arrow left brown">
-                <img src="../assets/icons/arrow_beige_100.svg" alt="arrow" />
-              </button>
-            </div>
-            <div id="event__video_button--right">
-              <button class="button__arrow right brown">
-                <img src="../assets/icons/arrow_beige_100.svg" alt="arrow" />
-              </button>
-            </div>
-          </div> -->
         </div>
         <section class="event__video-section">
           <div class="event__video_frames">
-            <div class="event__video_frame">
+            <div class="event__video_frame" data-tags="all,medal">
               <video class="event__video-thumb" src="../assets/video/factory-blocks.mp4" alt="video preview" controls></video>
               <div class="event__video_play-btn"></div>
             </div>
-            <div class="event__video_frame">
+            <div class="event__video_frame" data-tags="all,heart">
               <video class="event__video-thumb" src="../assets/video/factory-blocks.mp4" alt="video preview" controls></video>
               <div class="event__video_play-btn"></div>
             </div>
           </div>
-          <div class="event__video-reactions">
-            <div class="event__video-reaction event__video-reaction--active">
-              <img src="../assets/icons/heart.svg" alt="Трогает" />
-              ТРОГАЕТ <span style="margin-left: 6px; opacity: 0.7">56</span>
+          <div class="event__filters">
+            <div class="event__filter heart">
+              <img src="../assets/icons/heart.svg" alt="Сердце" />
+              <p>Трогает <span>0</span></p>
             </div>
-            <div class="event__video-reaction">
-              <img src="../assets/icons/bird.svg" alt="Мы помним" />
-              МЫ ПОМНИМ <span style="margin-left: 6px; opacity: 0.7">23</span>
+            <div class="event__filter bird">
+              <img src="../assets/icons/bird.svg" alt="Птица" />
+              <p>Мы помним <span>0</span></p>
             </div>
-            <div class="event__video-reaction">
-              <img src="../assets/icons/medal.svg" alt="Гордость" />
-              ГОРДОСТЬ <span style="margin-left: 6px; opacity: 0.7">6</span>
+            <div class="event__filter medal">
+              <img src="../assets/icons/medal.svg" alt="Медаль" />
+              <p>Гордость <span>0</span></p>
+            </div>
+          </div>
+        </section>
+        <section class="other-events">
+          <div class="other-events__title">
+            <p>Другие события</p>
+            <div class="other-events__controls">
+              <div id="other-events__button--left">
+                <button class="button__arrow left brown">
+                  <img src="../assets/icons/arrow_beige_100.svg" alt="arrow" />
+                </button>
+              </div>
+              <div id="other-events__button--right">
+                <button class="button__arrow right brown">
+                  <img src="../assets/icons/arrow_beige_100.svg" alt="arrow" />
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="other-events__timeline">
+            <div class="other-events__point other-events__point--prev">
+              <img src="../assets/icons/circle_active.svg" alt="круг" />
+              <div class="other-events__timeline_wrapper">
+                <div class="other-events__timeline_info">
+                  <div class="other-events__desc">
+                    <p class="other-events__year">1906</p>
+                    <span>Предыдущее</span>
+                  </div>
+                  <div class="other-events__img">
+                    <div class="other-events__img-block">
+                      <img src="../assets/images/photo-gallery7.jpg" alt="Решение о строительстве завода" />
+                    </div>
+                  </div>
+                </div>
+                <p class="other-events__timeline_name">
+                  Решение<br />
+                  о строительстве завода
+                </p>
+              </div>
+            </div>
+            <div class="other-events__point other-events__point--prev">
+              <img src="../assets/icons/circle_active.svg" alt="круг" />
+              <div class="other-events__timeline_wrapper">
+                <div class="other-events__timeline_info">
+                  <div class="other-events__desc">
+                    <p class="other-events__year">1911</p>
+                    <span>Предыдущее</span>
+                  </div>
+                  <div class="other-events__img">
+                    <div class="other-events__img-block">
+                      <img src="../assets/images/photo-gallery7.jpg" alt="Решение о строительстве завода" />
+                    </div>
+                  </div>
+                </div>
+                <p class="other-events__timeline_name">
+                  Решение<br />
+                  о строительстве завода
+                </p>
+              </div>
+            </div>
+            <div class="other-events__point other-events__point--current">
+              <img src="../assets/icons/circle.svg" alt="круг" />
+              <div class="other-events__timeline_wrapper">
+                <div class="other-events__timeline_info">
+                  <div class="other-events__desc other-events__desc--current">
+                    <p class="other-events__year">1920– 40</p>
+                    <span>Текущее</span>
+                  </div>
+                  <div class="other-events__img">
+                    <div class="other-events__img-block">
+                      <img src="../assets/images/event1.jpg" alt="Первая реконструкция завода" />
+                    </div>
+                  </div>
+                </div>
+                <p class="other-events__timeline_name other-events__timeline_name--current">
+                  Первая реконструкция<br />
+                  завода
+                </p>
+              </div>
+            </div>
+            <div class="other-events__point other-events__point--next">
+              <img src="../assets/icons/circle_active.svg" alt="круг" />
+              <div class="other-events__timeline_wrapper">
+                <div class="other-events__timeline_info">
+                  <div class="other-events__desc">
+                    <p class="other-events__year">1950-е</p>
+                    <span>Cледующее</span>
+                  </div>
+                  <div class="other-events__img">
+                    <div class="other-events__img-block">
+                      <img src="../assets/images/factory.jpg" alt="Завершено строительство бумажной фабрики" />
+                    </div>
+                  </div>
+                </div>
+                <p class="other-events__timeline_name">Завершено строительство бумажной фабрики</p>
+              </div>
+            </div>
+            <div class="other-events__point other-events__point--next">
+              <img src="../assets/icons/circle_active.svg" alt="круг" />
+              <div class="other-events__timeline_wrapper">
+                <div class="other-events__timeline_info">
+                  <div class="other-events__desc">
+                    <p class="other-events__year">1960-е</p>
+                    <span>Cледующее</span>
+                  </div>
+                  <div class="other-events__img">
+                    <div class="other-events__img-block">
+                      <img src="../assets/images/factory.jpg" alt="Завершено строительство бумажной фабрики" />
+                    </div>
+                  </div>
+                </div>
+                <p class="other-events__timeline_name">Завершено строительство бумажной фабрики</p>
+              </div>
             </div>
           </div>
         </section>
@@ -302,5 +440,8 @@
     <script src="../scripts/toggleMenu.js"></script>
     <script src="../scripts/eventAudio.js"></script>
     <script src="../scripts/videoControlsEvent.js"></script>
+    <script src="../scripts/eventVideoFilter.js"></script>
+    <script src="../scripts/otherEvents.js"></script>
+    <script src="../scripts/eventTimeline.js"></script>
   </body>
 </html>
