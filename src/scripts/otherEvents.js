@@ -15,7 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
         timeline.appendChild(track);
     }
 
-    const VISIBLE = 3;
+    let VISIBLE = getVisibleCount(); // начальное количество видимых
+    console.log("🚀 ~ VISIBLE:", VISIBLE)
 
     const currentIndex = points.findIndex(p =>
         p.classList.contains('other-events__point--current')
@@ -23,8 +24,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let start = currentIndex - 1;
 
-    if (start < 0) start = 0;
-    if (start > points.length - VISIBLE) start = points.length - VISIBLE;
+    function getVisibleCount() {
+        const w = window.innerWidth;
+        if (w < 425) return 1;
+        if (w < 1024) return 2;
+        return 3;
+    }
+
+    function clampStart() {
+        if (start < 0) start = 0;
+        if (start > points.length - VISIBLE) start = points.length - VISIBLE;
+    }
+
+    clampStart();
 
     track.style.display = 'flex';
     track.style.transition = 'transform 0.4s cubic-bezier(.4,0,.2,1)';
@@ -39,16 +51,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function updateTimeline() {
+        VISIBLE = getVisibleCount();
+        clampStart();
+
         const containerWidth = parent ? parent.offsetWidth : 0;
         const gap = 16;
 
         const cardWidth = containerWidth > 0
-            ? Math.floor((containerWidth - gap * 2) / 3)
+            ? Math.floor((containerWidth - gap * (VISIBLE - 1)) / VISIBLE)
             : points[0]?.offsetWidth || 0;
 
-        const cardWidthWithGap = cardWidth + gap;
-
-        const offset = -(start * cardWidthWithGap);
+        const offset = -(start * (cardWidth + gap));
         track.style.transform = `translateX(${offset}px)`;
 
         points.forEach((p) => {

@@ -1,159 +1,49 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const sliderSection = document.querySelector('.photo-gallery');
-    if (!sliderSection) return;
+    const gallerySection = document.querySelector('.event__photo-gallery--mobile');
+    if (!gallerySection) return;
 
-    const slides = Array.from(sliderSection.querySelectorAll('.photo-gallery__images'));
-    if (slides.length === 0) return;
+    const content = gallerySection.querySelector('.event__photo-gallery_content--mobile');
+    const track = content.querySelector('.event__photo-gallery_track');
+    const cards = Array.from(track.querySelectorAll('.event__photo-gallery_wrapper--mobile'));
 
-    let current = 0;
+    const btnLeft = gallerySection.querySelector('#event__photo-gallery_button--left button');
+    const btnRight = gallerySection.querySelector('#event__photo-gallery_button--right button');
 
-    const leftBtn = document.querySelector('#photo-gallery__button--left .button__arrow');
-    const rightBtn = document.querySelector('#photo-gallery__button--right .button__arrow');
+    let currentIndex = 0;
+    let cardWidth = 0;
+    let gap = 16;
+
+    function measureWidth() {
+        gap = 16;
+        cardWidth = cards[0].offsetWidth + gap;
+    }
 
     function updateSlider() {
-        slides.forEach((slide, idx) => {
-            slide.style.display = idx === current ? '' : 'none';
-        });
+        measureWidth();
+        track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
 
-        if (slides.length <= 1) {
-            if (leftBtn) {
-                leftBtn.disabled = true;
-                leftBtn.style.opacity = '0.5';
-            }
-            if (rightBtn) {
-                rightBtn.disabled = true;
-                rightBtn.style.opacity = '0.5';
-            }
-        } else {
-            if (leftBtn) {
-                leftBtn.disabled = current === 0;
-                leftBtn.style.opacity = leftBtn.disabled ? '0.5' : '1';
-            }
-            if (rightBtn) {
-                rightBtn.disabled = current === slides.length - 1;
-                rightBtn.style.opacity = rightBtn.disabled ? '0.5' : '1';
-            }
-        }
+        btnLeft.disabled = currentIndex === 0;
+        btnRight.disabled = currentIndex === cards.length - 1;
+
+        btnLeft.style.opacity = btnLeft.disabled ? '0.5' : '1';
+        btnRight.style.opacity = btnRight.disabled ? '0.5' : '1';
     }
+
+    btnLeft.addEventListener('click', () => {
+        if (currentIndex > 0) currentIndex--;
+        updateSlider();
+    });
+
+    btnRight.addEventListener('click', () => {
+        if (currentIndex < cards.length - 1) currentIndex++;
+        updateSlider();
+    });
+
+    track.style.display = 'flex';
+    track.style.gap = '16px';
+    track.style.transition = 'transform 0.4s ease';
+
+    content.style.overflow = 'hidden';
 
     updateSlider();
-
-    if (leftBtn) {
-        leftBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-            if (slides.length > 1 && current > 0) {
-                current--;
-                updateSlider();
-            }
-        });
-    }
-    if (rightBtn) {
-        rightBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-            if (slides.length > 1 && current < slides.length - 1) {
-                current++;
-                updateSlider();
-            }
-        });
-    }
-
-    const mobileSlider = sliderSection.querySelector('.photo-gallery__images--mobile');
-    if (mobileSlider) {
-        let track = mobileSlider.querySelector('.photo-gallery__track');
-        if (!track) {
-            track = document.createElement('div');
-            track.className = 'photo-gallery__track';
-            while (mobileSlider.firstChild) {
-                track.appendChild(mobileSlider.firstChild);
-            }
-            mobileSlider.appendChild(track);
-        }
-        const cards = Array.from(track.querySelectorAll('.photo-gallery__images_wrapper'));
-        let current = 0;
-
-        mobileSlider.style.overflow = 'hidden';
-        mobileSlider.style.position = 'relative';
-        track.style.display = 'flex';
-        track.style.transition = 'transform 0.4s cubic-bezier(.4,0,.2,1)';
-        track.style.gap = '16px';
-
-
-        function getCardWidthWithGap() {
-            const card = cards[0];
-            if (!card) return 0;
-            const cardWidth = card.offsetWidth;
-            const trackStyle = window.getComputedStyle(track);
-            let gap = 0;
-            if (trackStyle.gap && trackStyle.gap !== 'normal') {
-                gap = parseInt(trackStyle.gap) || 0;
-            }
-            return cardWidth + gap;
-        }
-
-        function getVisibleCount() {
-            const containerWidth = mobileSlider.offsetWidth;
-            const cardWidthWithGap = getCardWidthWithGap();
-            return Math.max(1, Math.floor(containerWidth / cardWidthWithGap));
-        }
-
-        function updateMobileSlider() {
-            const cardWidthWithGap = getCardWidthWithGap();
-            const visibleCount = getVisibleCount();
-            if (current > cards.length - visibleCount) {
-                current = Math.max(0, cards.length - visibleCount);
-            }
-            const offset = -(current * cardWidthWithGap);
-            track.style.transform = `translateX(${offset}px)`;
-
-            if (leftBtn) {
-                leftBtn.disabled = current === 0;
-                leftBtn.style.opacity = leftBtn.disabled ? '0.5' : '1';
-            }
-            if (rightBtn) {
-                rightBtn.disabled = current >= cards.length - visibleCount;
-                rightBtn.style.opacity = rightBtn.disabled ? '0.5' : '1';
-            }
-        }
-
-        function handleMobileSlider() {
-            if (window.innerWidth <= 1024) {
-                mobileSlider.style.display = '';
-                slides.forEach(slide => slide.style.display = 'none');
-                updateMobileSlider();
-            } else {
-                mobileSlider.style.display = 'none';
-                updateSlider();
-            }
-        }
-
-        handleMobileSlider();
-        window.addEventListener('resize', function () {
-            if (window.innerWidth <= 1024) {
-                updateMobileSlider();
-            }
-            handleMobileSlider();
-        });
-
-        if (leftBtn) {
-            leftBtn.addEventListener('click', function (e) {
-                if (window.innerWidth > 1024) return;
-                e.preventDefault();
-                if (current > 0) {
-                    current--;
-                    updateMobileSlider();
-                }
-            });
-        }
-        if (rightBtn) {
-            rightBtn.addEventListener('click', function (e) {
-                if (window.innerWidth > 1024) return;
-                e.preventDefault();
-                const visibleCount = getVisibleCount();
-                if (current < cards.length - visibleCount) {
-                    current++;
-                    updateMobileSlider();
-                }
-            });
-        }
-    }
 });
