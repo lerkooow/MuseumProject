@@ -1,6 +1,6 @@
 .menu {
   background-color: var(--color-brown-300);
-  border-radius: 8px;
+  border-radius: clamp(4px, 0.5vw, 8px);
   max-width: fit-content;
   height: calc(100vh - 32px);
   display: flex;
@@ -12,6 +12,7 @@
   font-size: clamp(12px, 1vw, 16px);
   text-transform: uppercase;
   height: auto;
+  max-width: 178px;
 
   &__logo {
     max-width: 100%;

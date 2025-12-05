@@ -2,9 +2,11 @@
   display: flex;
   gap: 16px;
   padding: 16px 0 16px 16px;
-  min-height: 100vh;
   max-width: 1920px;
   margin: 0 auto;
+  min-height: 40vh;
+  height: 1012px;
+  max-height: 100vh;
 
   &__welcome {
     background-color: var(--color-brown-300);
@@ -96,12 +98,14 @@
 @media (max-width: 768px) {
   .main {
     flex-direction: column;
-    padding: 64px 0 0 0;
+    padding: 80px 0 0 0;
+    height: auto;
+    max-height: 100%;
 
     &__welcome {
       min-height: 551px;
       max-width: calc(100% - 32px);
-      margin: 16px 16px 0 16px;
+      margin: 0 16px 0 16px;
     }
   }
 }
