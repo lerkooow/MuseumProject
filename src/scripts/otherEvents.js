@@ -1,11 +1,9 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const points = Array.from(document.querySelectorAll('.other-events__point'));
-
-    const leftButton = document.querySelector('#other-events__button--left');
-    const rightButton = document.querySelector('#other-events__button--right');
-
+document.addEventListener('DOMContentLoaded', function () {
     const timeline = document.querySelector('.other-events__timeline');
+    if (!timeline) return;
+
     let track = timeline.querySelector('.other-events__track');
+
     if (!track) {
         track = document.createElement('div');
         track.className = 'other-events__track';
@@ -15,87 +13,92 @@ document.addEventListener("DOMContentLoaded", function () {
         timeline.appendChild(track);
     }
 
-    let VISIBLE = getVisibleCount(); // начальное количество видимых
-    console.log("🚀 ~ VISIBLE:", VISIBLE)
+    const points = Array.from(track.querySelectorAll('.other-events__point'));
+    const btnLeft = document.querySelector('#other-events__button--left .button__arrow');
+    const btnRight = document.querySelector('#other-events__button--right .button__arrow');
+    let current = 0;
 
-    const currentIndex = points.findIndex(p =>
-        p.classList.contains('other-events__point--current')
-    );
-
-    let start = currentIndex - 1;
-
-    function getVisibleCount() {
-        const w = window.innerWidth;
-        if (w < 425) return 1;
-        if (w < 1024) return 2;
-        return 3;
-    }
-
-    function clampStart() {
-        if (start < 0) start = 0;
-        if (start > points.length - VISIBLE) start = points.length - VISIBLE;
-    }
-
-    clampStart();
+    timeline.style.overflow = 'hidden';
+    timeline.style.position = 'relative';
 
     track.style.display = 'flex';
     track.style.transition = 'transform 0.4s cubic-bezier(.4,0,.2,1)';
-    track.style.gap = '16px';
+    track.style.gap = '64px';
     track.style.width = '100%';
+    track.style.justifyContent = 'space-between';
 
-    const parent = track.parentElement;
-    if (parent) {
-        parent.style.overflow = 'hidden';
-        parent.style.width = '100%';
-        parent.style.position = 'relative';
+    function getPointWidthWithGap() {
+        const el = points[0];
+        if (!el) return 0;
+        const width = el.offsetWidth;
+        const trackStyle = window.getComputedStyle(track);
+        let gap = 0;
+        if (trackStyle.gap && trackStyle.gap !== 'normal') {
+            gap = parseInt(trackStyle.gap) || 0;
+        }
+        return width + gap;
     }
 
-    function updateTimeline() {
-        VISIBLE = getVisibleCount();
-        clampStart();
+    function getVisibleCount() {
+        const containerWidth = timeline.offsetWidth;
+        const w = getPointWidthWithGap();
+        return Math.max(1, Math.floor(containerWidth / w));
+    }
 
-        const containerWidth = parent ? parent.offsetWidth : 0;
-        const gap = 16;
+    function updateSlider() {
+        const w = getPointWidthWithGap();
+        const visible = getVisibleCount();
 
-        const cardWidth = containerWidth > 0
-            ? Math.floor((containerWidth - gap * (VISIBLE - 1)) / VISIBLE)
-            : points[0]?.offsetWidth || 0;
+        if (current > points.length - visible) {
+            current = Math.max(0, points.length - visible);
+        }
 
-        const offset = -(start * (cardWidth + gap));
+        const offset = -(current * w);
         track.style.transform = `translateX(${offset}px)`;
 
-        points.forEach((p) => {
-            p.style.minWidth = cardWidth + 'px';
-            p.style.maxWidth = cardWidth + 'px';
-            p.style.flex = '0 0 ' + cardWidth + 'px';
-        });
+        btnLeft.disabled = current === 0;
+        btnRight.disabled = current >= points.length - visible;
 
-        updateButtonStates();
+        btnLeft.style.opacity = btnLeft.disabled ? '0.5' : '1';
+        btnRight.style.opacity = btnRight.disabled ? '0.5' : '1';
     }
 
-    function updateButtonStates() {
-        leftButton.style.opacity = start === 0 ? "0.5" : "1";
-        leftButton.style.cursor = start === 0 ? "not-allowed" : "pointer";
-
-        rightButton.style.opacity = start >= points.length - VISIBLE ? "0.5" : "1";
-        rightButton.style.cursor = start >= points.length - VISIBLE ? "not-allowed" : "pointer";
-    }
-
-    leftButton.addEventListener('click', () => {
-        if (start > 0) {
-            start--;
-            updateTimeline();
+    btnLeft.addEventListener('click', function () {
+        if (current > 0) {
+            current--;
+            updateSlider();
         }
     });
 
-    rightButton.addEventListener('click', () => {
-        if (start < points.length - VISIBLE) {
-            start++;
-            updateTimeline();
+    btnRight.addEventListener('click', function () {
+        const visible = getVisibleCount();
+        if (current < points.length - visible) {
+            current++;
+            updateSlider();
         }
     });
 
-    window.addEventListener('resize', updateTimeline);
+    window.addEventListener('resize', function () {
+        if (current > points.length - getVisibleCount()) {
+            current = Math.max(0, points.length - getVisibleCount());
+        }
+        updateSlider();
+    });
 
-    updateTimeline();
+    const currentPoint = track.querySelector('.other-events__point--current');
+    if (currentPoint) {
+        const currentIndex = points.indexOf(currentPoint);
+
+        if (currentIndex !== -1) {
+            current = currentIndex - 1;
+
+            if (current < 0) current = 0;
+            if (current > points.length - getVisibleCount()) {
+                current = Math.max(0, points.length - getVisibleCount());
+            }
+        }
+    }
+
+
+    updateSlider();
 });

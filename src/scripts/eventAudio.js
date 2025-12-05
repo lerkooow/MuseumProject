@@ -9,13 +9,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const wavesurfer = WaveSurfer.create({
         container: waveContainer,
-        waveColor: '#b7a98e',
-        progressColor: '#6d5c43',
-        height: 60,
-        barWidth: 2,
+        waveColor: '#5E524E',
+        progressColor: '#5E524E',
+        height: 72,
+        barWidth: 0.5,
         responsive: true,
         interact: true,
-        cursorColor: '#6d5c43',
+        cursorColor: '#5E524E',
         backend: 'MediaElement',
         mediaControls: false,
         mediaType: 'audio',
@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     wavesurfer.load(audio.src);
 
-    // Play/Pause: меняем иконку
     playPauseBtn.addEventListener('click', function () {
         wavesurfer.playPause();
     });
@@ -49,7 +48,6 @@ document.addEventListener('DOMContentLoaded', function () {
         setPlayPauseIcon(false);
     });
 
-    // Функция обновления иконки громкости в зависимости от процента
     function setVolumeIcon(volumePercent) {
         const img = muteBtn.querySelector('img');
         if (!img) return;
@@ -66,7 +64,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Клик по кнопке звука - показать/скрыть ползунок
     muteBtn.addEventListener('click', function () {
         if (volumeSlider.style.display === 'none' || volumeSlider.style.display === '') {
             volumeSlider.style.display = 'inline-block';
@@ -76,6 +73,20 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
+    function updateVolumeGradient() {
+        const value = volumeSlider.value;
+        const percent = value;
+
+        volumeSlider.style.background = `
+            linear-gradient(
+                to right,
+                var(--color-brown-100) 0%,
+                var(--color-brown-100) ${percent}%,
+                var(--color-beige-300) ${percent}%,
+                var(--color-beige-300) 100%
+            )
+        `;
+    }
 
     volumeSlider.addEventListener('input', function () {
         const volumeValue = parseInt(this.value);
@@ -84,10 +95,12 @@ document.addEventListener('DOMContentLoaded', function () {
         wavesurfer.setVolume(volume);
 
         setVolumeIcon(volumeValue);
+        updateVolumeGradient();
     });
 
     setPlayPauseIcon(false);
     setVolumeIcon(100);
+    updateVolumeGradient();
 
     function formatTime(sec) {
         sec = Math.floor(sec);
