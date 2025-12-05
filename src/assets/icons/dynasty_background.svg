@@ -1,18 +1,13 @@
 <svg width="538" height="732" viewBox="0 0 538 732" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<rect width="538" height="732" rx="4" fill="#E2DAD2" style="mix-blend-mode:screen"/>
-<rect width="538" height="732" rx="4" fill="url(#pattern0_2281_2834)" fill-opacity="0.1"/>
 <g filter="url(#filter0_g_2281_2834)">
-<rect width="504" height="690" transform="matrix(0.999152 0.0411649 -0.0295857 0.999562 26.957 7.7345)" fill="#FEFAF6"/>
-<rect width="504" height="690" transform="matrix(0.999152 0.0411649 -0.0295857 0.999562 26.957 7.7345)" fill="url(#pattern1_2281_2834)" fill-opacity="0.1"/>
+<rect width="504" height="690" transform="matrix(0.999152 0.0411649 -0.0295857 0.999562 26.957 7.73438)" fill="#FEFAF6"/>
+<rect width="504" height="690" transform="matrix(0.999152 0.0411649 -0.0295857 0.999562 26.957 7.73438)" fill="url(#pattern0_2281_2834)" fill-opacity="0.1"/>
 </g>
 <g filter="url(#filter1_g_2281_2834)">
-<rect width="504" height="698" transform="matrix(0.99979 -0.0205013 0.0148567 0.99989 11.957 23.0787)" fill="#FEFAF6"/>
+<rect width="504" height="698" transform="matrix(0.99979 -0.0205013 0.0148567 0.99989 11.957 23.0781)" fill="#FEFAF6"/>
 </g>
 <defs>
-<pattern id="pattern0_2281_2834" patternContentUnits="objectBoundingBox" width="1" height="1">
-<use xlink:href="#image0_2281_2834" transform="matrix(0.000631953 0 0 0.000464468 -0.447929 0)"/>
-</pattern>
-<filter id="filter0_g_2281_2834" x="5.54297" y="6.7345" width="525.986" height="712.445" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter0_g_2281_2834" x="5.54297" y="6.73438" width="525.987" height="712.445" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
 <feTurbulence type="fractalNoise" baseFrequency="0.5 0.5" numOctaves="3" seed="1693" />
@@ -21,7 +16,7 @@
 <feMergeNode in="displacedImage"/>
 </feMerge>
 </filter>
-<pattern id="pattern1_2281_2834" patternContentUnits="objectBoundingBox" width="1" height="1">
+<pattern id="pattern0_2281_2834" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#image0_2281_2834" transform="matrix(0.000635879 0 0 0.000464468 -0.453819 0)"/>
 </pattern>
 <filter id="filter1_g_2281_2834" x="10.957" y="11.7461" width="516.264" height="710.256" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">

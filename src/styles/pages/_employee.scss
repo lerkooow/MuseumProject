@@ -1,10 +1,25 @@
 .employee {
   --offset: clamp(25px, 5vw, 80px);
-  padding: 16px;
   display: flex;
-  min-height: 40vh;
-  height: 1012px;
-  max-height: 100vh;
+  flex-direction: column;
+  max-width: 1920px;
+  margin: 0 auto;
+
+  &__height {
+    min-height: clamp(500px, 108vw, 1360px);
+  }
+
+  &__container {
+    display: flex;
+    min-height: 40vh;
+    height: 1012px;
+    max-height: 100vh;
+    padding: 16px;
+  }
+
+  &__sections {
+    padding-left: clamp(85px, 11vw, 210px);
+  }
 
   &__content {
     flex: 1;
@@ -177,12 +192,14 @@
 }
 
 .related {
+  margin: 12% 0 5% 0;
+  padding: 0 16px;
+
   &__header {
     display: flex;
     align-items: center;
     margin-bottom: 40px;
     justify-content: center;
-    padding-left: 11.35vw;
   }
 
   &__title {
@@ -194,15 +211,21 @@
   }
 }
 
-// .interactive-cards {
-//   margin: 0 !important;
-// }
+@media (max-width: 1024px) {
+  .employee {
+    &__container {
+      max-height: none;
+      height: auto;
+    }
+
+    &__sections {
+      margin: 0;
+    }
+  }
+}
 
 @media (max-width: 768px) {
   .employee {
-    max-height: none;
-    height: auto;
-
     &__content {
       padding: 0;
       margin-top: 80px;
@@ -210,6 +233,10 @@
 
     &__photo {
       display: none;
+    }
+
+    &__sections {
+      padding: 0;
     }
 
     &__wrapper {
@@ -272,6 +299,7 @@
   .related {
     &__header {
       padding-left: 0;
+      justify-content: start;
     }
   }
 }

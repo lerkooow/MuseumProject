@@ -1,6 +1,5 @@
 .dynasty {
-  padding: clamp(80px, 15vw, 220px) 0;
-  margin-top: clamp(80px, 15vw, 220px);
+  margin: 12% 0 5% 0;
 
   &__container {
     width: 100%;
@@ -32,12 +31,11 @@
   &__slider {
     overflow: hidden;
     width: 100%;
-    padding-left: 11.35vw;
   }
 
   &__slider-container {
     display: flex;
-    gap: clamp(8px, 2vw, 32px);
+    gap: clamp(12px, 2vw, 40px);
     transition: transform 0.3s ease;
     justify-content: flex-start;
     scroll-behavior: smooth;
@@ -45,6 +43,7 @@
     padding-right: 16px;
     overflow-x: auto;
     overflow-y: hidden;
+    min-height: clamp(423px, 62vw, 732px);
   }
 
   .dynasty__slider-container::-webkit-scrollbar {
@@ -54,16 +53,31 @@
 
 .dynasty-card {
   position: relative;
+  max-width: clamp(288px, 41vw, 538px);
+  min-width: clamp(288px, 41vw, 538px);
   width: 100%;
-  min-width: 0;
-  flex: 0 0 calc((100% - 64px) / 3);
-  border-radius: 8px;
+  border-radius: clamp(2px, 0.5vw, 4px);
   padding: clamp(32px, 3vw, 48px) clamp(24px, 3vw, 48px);
   display: flex;
   flex-direction: column;
-  min-height: clamp(432px, 38vw, 900px);
   justify-content: space-between;
   cursor: pointer;
+  background-color: var(--color-beige-100);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("../assets/icons/dynasty_background.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    pointer-events: none;
+    z-index: 0;
+  }
 
   &:hover {
     .dynasty-card__arrow {
@@ -81,6 +95,7 @@
     pointer-events: none;
     z-index: 0;
   }
+
   &__clip {
     position: absolute;
     top: -8px;
@@ -113,7 +128,7 @@
   }
 
   &__name {
-    font-size: clamp(16px, 1.3vw, 20px);
+    font-size: clamp(16px, 2vw, 26px);
     line-height: 1.1;
     color: var(--color-brown-300);
     font-weight: 600;
@@ -133,32 +148,19 @@
     position: relative;
     width: 100%;
     min-width: 0;
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: clamp(147px, 17vw, 400px);
-      height: clamp(166px, 19vw, 445px);
-      background-image: url("../assets/images/dynasty_backgroundImage.jpg");
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      pointer-events: none;
-      z-index: 0;
-    }
   }
 
   &__photo {
     width: 100%;
-    max-width: clamp(131px, 15vw, 368px);
-    max-height: clamp(192px, 17vw, 435px);
+    max-width: clamp(168px, 27vw, 296px);
+    max-height: clamp(192px, 30vw, 336px);
     height: auto;
     object-fit: cover;
     position: relative;
     z-index: 1;
+    padding: clamp(8px, 1vw, 12px);
+    background-color: var(--color-warm-white);
+    box-shadow: -1.19px 1.19px 4.78px 0px #2c252280 inset;
   }
 
   &__position {
@@ -195,7 +197,6 @@
 
 @media (max-width: 768px) {
   .dynasty {
-    margin-top: 0;
     &__slider {
       padding-left: 0;
     }
@@ -210,8 +211,6 @@
   }
 
   .dynasty-card {
-    flex: 0 0 calc((100% - 32px) / 2.2);
-
     &__clip {
       right: 20%;
       width: 24px;
@@ -240,17 +239,5 @@
       max-width: 168px;
       max-height: 192px;
     }
-  }
-}
-
-@media (max-width: 660px) {
-  .dynasty-card {
-    flex: 0 0 60vw;
-  }
-}
-
-@media (max-width: 500px) {
-  .dynasty-card {
-    flex: 0 0 80vw;
   }
 }
