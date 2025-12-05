@@ -1,6 +1,6 @@
 .card {
   padding: 20px;
-  border-radius: 8px;
+  border-radius: clamp(4px, 0.5vw, 8px);
   display: flex;
   min-width: clamp(182px, 21vw, 400px);
   width: 100%;
@@ -26,7 +26,7 @@
   }
 
   &__title {
-    font-size: clamp(16px, 3vw, 36px);
+    font-size: clamp(16px, 2vw, 36px);
     letter-spacing: -0.04em;
     color: var(--color-brown-200);
     margin: 32px 0 8px 0;
@@ -46,11 +46,11 @@
       height: clamp(200px, 28vw, 400px);
       object-fit: cover;
       display: block;
-      mask-image: url("../assets/masks/old-paper-mask.png");
+      mask-image: url("../assets/masks/main_mask.png");
       mask-size: 100% 100%;
       mask-repeat: no-repeat;
       mask-position: center;
-      -webkit-mask-image: url("../assets/masks/old-paper-mask.png");
+      -webkit-mask-image: url("../assets/masks/main_mask.png");
       -webkit-mask-size: 100% 100%;
       -webkit-mask-repeat: no-repeat;
       -webkit-mask-position: center;
@@ -125,7 +125,6 @@
 
 @media (max-width: 768px) {
   .card {
-    border-radius: 4px;
     padding: 12px;
     max-height: 444px;
 

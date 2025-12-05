@@ -2,6 +2,23 @@ document.addEventListener('DOMContentLoaded', function () {
     const slider = document.querySelector('.cards__slider');
     if (!slider) return;
 
+    slider.addEventListener('wheel', (e) => {
+        if (e.deltaY === 0) return;
+        e.preventDefault();
+        slider.scrollLeft += e.deltaY;
+    }, { passive: false });
+
+    document.addEventListener('keydown', (e) => {
+        if (!isSliderHovered) return;
+        if (e.key === 'ArrowLeft') {
+            slider.scrollLeft -= 120;
+            e.preventDefault();
+        } else if (e.key === 'ArrowRight') {
+            slider.scrollLeft += 120;
+            e.preventDefault();
+        }
+    });
+
     let isDown = false;
     let startX = 0;
     let scrollLeft = 0;

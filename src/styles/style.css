@@ -417,12 +417,14 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   display: flex;
   gap: 16px;
   padding: 16px 0 16px 16px;
-  min-height: 60vh;
-  max-height: 100vh;
+  min-height: 100vh;
+  max-width: 1920px;
+  margin: 0 auto;
 }
 .main__welcome {
   background-color: var(--color-brown-300);
   border-radius: 8px;
+  max-width: 756px;
   width: 100%;
   padding: 16px;
   display: flex;
@@ -5367,11 +5369,11 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   height: clamp(200px, 28vw, 400px);
   object-fit: cover;
   display: block;
-  mask-image: url("../assets/masks/old-paper-mask.png");
+  mask-image: url("../assets/masks/main_mask.png");
   mask-size: 100% 100%;
   mask-repeat: no-repeat;
   mask-position: center;
-  -webkit-mask-image: url("../assets/masks/old-paper-mask.png");
+  -webkit-mask-image: url("../assets/masks/main_mask.png");
   -webkit-mask-size: 100% 100%;
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;
