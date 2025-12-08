@@ -2,11 +2,13 @@
   display: flex;
   gap: 16px;
   width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
   margin-top: 12%;
-  padding-left: 11.35vw;
+  padding-left: clamp(85px, 15vw, 210px);
 
   &__content {
-    border-radius: 8px;
+    border-radius: clamp(4px, 0.5vw, 8px);
     width: 100%;
     padding-right: 16px;
     display: flex;
@@ -55,7 +57,7 @@
     padding-left: 48px;
     border: none;
     outline: none;
-    border-radius: 8px;
+    border-radius: clamp(4px, 0.5vw, 8px);
     background-color: var(--color-beige-200);
     color: var(--color-brown-300);
     font-size: clamp(12px, 1vw, 16px);
@@ -85,7 +87,7 @@
   }
 
   &__alphabet-btn {
-    border-radius: 4px;
+    border-radius: clamp(2px, 0.5vw, 4px);
     padding: 26px 0;
     background-color: transparent;
     color: var(--color-brown-100);
@@ -170,7 +172,7 @@
       border: 2px solid var(--color-beige-200);
       pointer-events: none;
       z-index: 1;
-      border-radius: 4px;
+      border-radius: clamp(2px, 0.5vw, 4px);
     }
   }
 
@@ -213,7 +215,7 @@
   &__right {
     flex: 1;
     width: 50%;
-    padding: clamp(8px, 2vw, 16px);
+    padding: clamp(12px, 1vw, 16px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -226,11 +228,11 @@
       height: 100%;
       opacity: 0;
       transition: opacity 1.2s ease;
-      mask-image: url("../assets/masks/old-paper-mask.png");
+      mask-image: url("../assets/masks/mask.png");
       mask-size: 100% 100%;
       mask-repeat: no-repeat;
       mask-position: center;
-      -webkit-mask-image: url("../assets/masks/old-paper-mask.png");
+      -webkit-mask-image: url("../assets/masks/mask.png");
       -webkit-mask-size: 100% 100%;
       -webkit-mask-repeat: no-repeat;
       -webkit-mask-position: center;
@@ -244,7 +246,7 @@
       border: 2px solid var(--color-beige-200);
       pointer-events: none;
       z-index: 1;
-      border-radius: 4px;
+      border-radius: clamp(2px, 0.5vw, 4px);
     }
   }
 
@@ -332,17 +334,12 @@
 
     &__dropdowns {
       width: 100%;
-      // justify-content: space-between;
     }
 
     &__search {
       width: 100%;
       max-width: 100%;
       order: 2;
-    }
-
-    &__search-input {
-      border-radius: 4px;
     }
 
     &__empty {

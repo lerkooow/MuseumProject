@@ -4,12 +4,12 @@
 
   padding: 16px;
   display: flex;
-  // gap: 16px;
   gap: 24px;
   width: 100%;
-  min-height: 40vh;
-  height: 1012px;
+  min-height: clamp(700px, 60vw, 1012px);
   max-height: 100vh;
+  max-width: 1920px;
+  margin: 0 auto;
 
   &__content {
     background-color: var(--color-warm-beige);
@@ -17,7 +17,6 @@
     padding: clamp(24px, 3vw, 40px) clamp(16px, 3vw, 40px);
     display: flex;
     position: relative;
-    // max-height: calc(100vh - 32px);
     gap: 16px;
     width: 100%;
     justify-content: space-between;
@@ -138,8 +137,6 @@
   }
 
   &__photo--large {
-    // flex: 1;
-    // min-height: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -166,6 +163,7 @@
     padding: 0;
     height: auto;
     max-width: none;
+    min-height: auto;
 
     &__content {
       flex-direction: column;
@@ -208,14 +206,12 @@
 
     &__photo--mobile {
       display: block;
-      // max-width: clamp(311px, 60vw, 500px);
       height: clamp(211px, 40vw, 360px);
       position: relative;
       width: 100%;
 
       .people__photo-composition {
         position: relative;
-        // max-width: 311px;
         max-width: clamp(311px, 61vw, 462px);
         height: 100%;
         min-height: 180px;
@@ -225,7 +221,6 @@
       .people__photo-wrapper {
         position: absolute;
         width: 70%;
-        // max-width: 260px;
         z-index: 1;
         top: 0;
         height: auto;
@@ -235,7 +230,6 @@
         z-index: 2;
         left: 10px;
         top: 0;
-        // max-width: clamp(160px, 10vw, 200px);
         max-width: clamp(160px, 32vw, 232px);
       }
 
@@ -244,7 +238,6 @@
         right: 10px;
         top: auto;
         bottom: 0;
-        // max-width: clamp(178px, 10vw, 240px);
         max-width: clamp(178px, 48vw, 311px);
       }
 
