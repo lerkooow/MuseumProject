@@ -183,13 +183,12 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   gap: 24px;
   width: 100%;
   min-height: clamp(700px, 60vw, 1012px);
-  max-height: 100vh;
   max-width: 1920px;
   margin: 0 auto;
 }
 .people__content {
   background-color: var(--color-warm-beige);
-  border-radius: 8px;
+  border-radius: clamp(4px, 0.5vw, 8px);
   padding: clamp(24px, 3vw, 40px) clamp(16px, 3vw, 40px);
   display: flex;
   position: relative;
@@ -328,7 +327,6 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     flex-direction: column;
     min-height: 503px;
     margin: 80px 16px 0 16px;
-    border-radius: 4px;
     justify-content: space-between;
     align-items: flex-start;
   }
@@ -423,7 +421,6 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   margin: 0 auto;
   min-height: 1012px;
   height: 1012px;
-  max-height: 100vh;
 }
 .main__welcome {
   background-color: var(--color-brown-300);
@@ -1633,13 +1630,18 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   display: flex;
   gap: 16px;
   width: 100%;
-  min-height: 40vh;
-  height: 1012px;
-  max-height: 100vh;
+  min-height: clamp(700px, 60vw, 1012px);
+  max-width: 1920px;
+  margin: 0 auto;
+}
+.leader__sections {
+  padding-left: clamp(85px, 15vw, 210px);
+  max-width: 1920px;
+  margin: 0 auto;
 }
 .leader__content {
   background-color: var(--color-warm-beige);
-  border-radius: 8px;
+  border-radius: clamp(4px, 0.5vw, 8px);
   padding: 40px;
   display: flex;
   width: 100%;
@@ -1766,13 +1768,16 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 @media (max-width: 768px) {
   .leader {
     padding: 0;
+    min-height: auto;
+  }
+  .leader__sections {
+    padding-left: 0;
   }
   .leader__content {
     flex-direction: column;
     padding: 24px 16px 48px 16px;
     margin: 80px 16px 0 16px;
     gap: 24px;
-    border-radius: 4px;
     min-height: 984px;
   }
   .leader__left {
@@ -1866,7 +1871,6 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   display: flex;
   gap: 16px;
   min-height: clamp(800px, 60vw, 1012px);
-  max-height: 100vh;
   padding: 16px;
 }
 .documents__content {
@@ -2773,7 +2777,6 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   display: flex;
   gap: 32px;
   min-height: clamp(700px, 60vw, 1012px);
-  max-height: 100vh;
   padding: 16px;
 }
 .factory__content {
@@ -6447,8 +6450,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   flex-direction: column;
   display: flex;
   align-items: flex-end;
-  margin-top: 12%;
-  padding-left: 11.35vw;
+  margin: clamp(40px, 11vw, 220px) 0;
 }
 .contribution__container {
   width: 100%;
@@ -6490,9 +6492,8 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 
 .contribution-card {
   position: relative;
-  flex: 0 0 100%;
-  max-width: 21.375vw;
-  height: clamp(334px, 27vw, 456px);
+  min-width: clamp(311px, 40vw, 412px);
+  height: clamp(334px, 40vw, 456px);
   background-color: var(--color-beige-100);
   border-radius: 4px;
   display: flex;
@@ -6550,12 +6551,6 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   height: auto;
 }
 
-@media (max-width: 1024px) {
-  .contribution-card {
-    flex: 0 0 100%;
-    max-width: 42.5vw;
-  }
-}
 @media (max-width: 768px) {
   .contribution {
     padding-left: 16px;
@@ -6570,20 +6565,12 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     margin: 0;
   }
 }
-@media (max-width: 430px) {
-  .contribution-card {
-    flex: 0 0 100%;
-    max-width: 80vw;
-  }
-}
 .wishes {
   width: 100%;
   flex-direction: column;
   display: flex;
   align-items: flex-end;
-  margin-top: clamp(80px, 10vw, 150px);
-  padding-left: 11.35vw;
-  margin-bottom: clamp(80px, 10vw, 150px);
+  margin: clamp(40px, 11vw, 220px) 0;
 }
 .wishes__container {
   width: 100%;
@@ -6630,8 +6617,8 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   width: 100%;
 }
 .wishes__quote img {
-  width: clamp(16px, 4vw, 48px);
-  height: clamp(16px, 4vw, 48px);
+  width: clamp(16px, 3vw, 48px);
+  height: clamp(16px, 3vw, 48px);
 }
 .wishes__quote p {
   font-size: clamp(12px, 1.7vw, 22px);
@@ -6800,7 +6787,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   width: 100%;
   flex-direction: column;
   display: flex;
-  margin: 12% 0 5% 0;
+  margin: clamp(40px, 11vw, 220px) 0;
   margin-bottom: 9%;
   gap: 32px;
 }

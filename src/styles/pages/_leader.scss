@@ -3,13 +3,19 @@
   display: flex;
   gap: 16px;
   width: 100%;
-  min-height: 40vh;
-  height: 1012px;
-  max-height: 100vh;
+  min-height: clamp(700px, 60vw, 1012px);
+  max-width: 1920px;
+  margin: 0 auto;
+
+  &__sections {
+    padding-left: clamp(85px, 15vw, 210px);
+    max-width: 1920px;
+    margin: 0 auto;
+  }
 
   &__content {
     background-color: var(--color-warm-beige);
-    border-radius: 8px;
+    border-radius: clamp(4px, 0.5vw, 8px);
     padding: 40px;
     display: flex;
     width: 100%;
@@ -157,13 +163,17 @@
 
   @media (max-width: 768px) {
     padding: 0;
+    min-height: auto;
+
+    &__sections {
+      padding-left: 0;
+    }
 
     &__content {
       flex-direction: column;
       padding: 24px 16px 48px 16px;
       margin: 80px 16px 0 16px;
       gap: 24px;
-      border-radius: 4px;
       min-height: 984px;
     }
 

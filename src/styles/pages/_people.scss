@@ -7,13 +7,12 @@
   gap: 24px;
   width: 100%;
   min-height: clamp(700px, 60vw, 1012px);
-  max-height: 100vh;
   max-width: 1920px;
   margin: 0 auto;
 
   &__content {
     background-color: var(--color-warm-beige);
-    border-radius: 8px;
+    border-radius: clamp(4px, 0.5vw, 8px);
     padding: clamp(24px, 3vw, 40px) clamp(16px, 3vw, 40px);
     display: flex;
     position: relative;
@@ -169,7 +168,6 @@
       flex-direction: column;
       min-height: 503px;
       margin: 80px 16px 0 16px;
-      border-radius: 4px;
       justify-content: space-between;
       align-items: flex-start;
     }

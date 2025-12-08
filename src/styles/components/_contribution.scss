@@ -3,8 +3,7 @@
   flex-direction: column;
   display: flex;
   align-items: flex-end;
-  margin-top: 12%;
-  padding-left: 11.35vw;
+  margin: clamp(40px, 11vw, 220px) 0;
 
   &__container {
     width: 100%;
@@ -52,9 +51,8 @@
 
 .contribution-card {
   position: relative;
-  flex: 0 0 100%;
-  max-width: calc((85.5vw) / 4);
-  height: clamp(334px, 27vw, 456px);
+  min-width: clamp(311px, 40vw, 412px);
+  height: clamp(334px, 40vw, 456px);
   background-color: var(--color-beige-100);
   border-radius: 4px;
   display: flex;
@@ -120,13 +118,6 @@
   }
 }
 
-@media (max-width: 1024px) {
-  .contribution-card {
-    flex: 0 0 100%;
-    max-width: calc(85vw / 2);
-  }
-}
-
 @media (max-width: 768px) {
   .contribution {
     padding-left: 16px;
@@ -141,12 +132,5 @@
       gap: 16px;
       margin: 0;
     }
-  }
-}
-
-@media (max-width: 430px) {
-  .contribution-card {
-    flex: 0 0 100%;
-    max-width: 80vw;
   }
 }

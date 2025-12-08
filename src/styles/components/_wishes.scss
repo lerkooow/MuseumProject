@@ -3,9 +3,7 @@
   flex-direction: column;
   display: flex;
   align-items: flex-end;
-  margin-top: clamp(80px, 10vw, 150px);
-  padding-left: 11.35vw;
-  margin-bottom: clamp(80px, 10vw, 150px);
+  margin: clamp(40px, 11vw, 220px) 0;
 
   &__container {
     width: 100%;
@@ -58,8 +56,8 @@
     width: 100%;
 
     img {
-      width: clamp(16px, 4vw, 48px);
-      height: clamp(16px, 4vw, 48px);
+      width: clamp(16px, 3vw, 48px);
+      height: clamp(16px, 3vw, 48px);
     }
 
     p {
