@@ -11,14 +11,13 @@
 
   &__container {
     display: flex;
-    min-height: 40vh;
-    height: 1012px;
+    min-height: clamp(700px, 60vw, 1012px);
     max-height: 100vh;
     padding: 16px;
   }
 
   &__sections {
-    padding-left: clamp(85px, 11vw, 210px);
+    padding-left: clamp(85px, 15vw, 210px);
   }
 
   &__content {

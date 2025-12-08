@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  padding-left: 11.35vw;
+  padding-left: clamp(85px, 15vw, 210px);
   margin: 12% 0 5% 0;
   padding-right: 16px;
 
@@ -42,14 +42,15 @@
   &__image {
     &--back,
     &--main {
-      mask-image: url("../assets/masks/old-paper-mask.png");
+      mask-image: url("../assets/masks/documents_mask.png");
       mask-size: 100% 100%;
       mask-repeat: no-repeat;
       mask-position: center;
-      -webkit-mask-image: url("../assets/masks/old-paper-mask.png");
+      -webkit-mask-image: url("../assets/masks/documents_mask.png");
       -webkit-mask-size: 100% 100%;
       -webkit-mask-repeat: no-repeat;
       -webkit-mask-position: center;
+      border: 6px solid var(--color-warm-beige);
     }
 
     &--back {
@@ -61,8 +62,8 @@
       left: 30px;
       z-index: 2;
       transform: rotate(-4deg);
-      max-width: clamp(300px, 29vw, 555px);
-      max-height: clamp(376px, 37vw, 696px);
+      max-width: clamp(300px, 37vw, 486px);
+      max-height: clamp(376px, 37vw, 591px);
     }
 
     &--main {
@@ -72,8 +73,8 @@
       height: 100%;
       cursor: pointer;
       z-index: 3;
-      max-width: clamp(301px, 31vw, 580px);
-      max-height: clamp(242px, 22vw, 420px);
+      max-width: clamp(301px, 31vw, 447px);
+      max-height: clamp(242px, 22vw, 379px);
       transform: rotate(-4deg);
       bottom: 0;
       right: 0;
@@ -85,9 +86,9 @@
     bottom: 0;
     left: 0;
     right: 0;
-    max-width: clamp(250px, 21vw, 500px);
+    max-width: clamp(250px, 24vw, 399px);
+    min-height: clamp(380px, 36vw, 516px);
     width: 100%;
-    min-height: clamp(380px, 27vw, 720px);
     padding: clamp(24px, 3vw, 48px);
     z-index: 3;
     transition: transform 0.8s ease, opacity 0.8s ease;
@@ -330,7 +331,7 @@
   }
 
   &__image {
-    max-width: 900px;
+    max-width: clamp(500px, 65vw, 900px);
     max-height: 70vh;
   }
 }
@@ -355,8 +356,12 @@
     &__close--mobile {
       display: flex;
       top: -56px;
-      right: 0;
+      right: 16px;
       border-radius: 4px;
+    }
+
+    &__image {
+      width: calc(100% - 32px);
     }
 
     &__nav {
@@ -365,11 +370,11 @@
       bottom: -72px;
 
       &--prev {
-        left: 0;
+        left: 16px;
       }
 
       &--next {
-        right: 0;
+        right: 16px;
       }
     }
   }

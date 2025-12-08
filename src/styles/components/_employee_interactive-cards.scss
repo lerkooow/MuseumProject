@@ -106,8 +106,8 @@ body {
     left: 0;
     right: 0;
     width: 100%;
-    max-width: clamp(250px, 35vw, 399px);
-    min-height: clamp(380px, 47vw, 516px);
+    max-width: clamp(250px, 24vw, 399px);
+    min-height: clamp(380px, 36vw, 516px);
     padding: clamp(24px, 3vw, 48px);
     z-index: 3;
     transition: transform 0.8s ease, opacity 0.8s ease;
@@ -160,7 +160,7 @@ body {
 
   &-name,
   &-equipment {
-    font-size: clamp(16px, 1.5vw, 26px);
+    font-size: clamp(16px, 2vw, 26px);
     font-weight: 600;
     line-height: 1.1;
     color: var(--color-beige-100);

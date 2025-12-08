@@ -1,43 +1,43 @@
 document.addEventListener('DOMContentLoaded', function () {
     const loadMoreBtn = document.querySelector('.documents__show-more');
-    const cards = document.querySelectorAll('.documents-card');
-    let cardsPerPage;
+    const cards = Array.from(document.querySelectorAll('.documents-card'));
+    if (!cards.length) {
+        if (loadMoreBtn) loadMoreBtn.style.display = 'none';
+        return;
+    }
+    let cardsPerPage = getCardsPerPage();
     let currentPage = 1;
 
     function getCardsPerPage() {
-        if (window.innerWidth <= 600) {
-            return 3;
-        } else if (window.innerWidth <= 768) {
-            return 4;
-        } else {
-            return 6;
-        }
+        const w = window.innerWidth;
+        if (w <= 600) return 3;
+        if (w <= 768) return 4;
+        return 6;
     }
 
     function showCards() {
         const endIndex = currentPage * cardsPerPage;
         cards.forEach((card, index) => {
-            if (index < endIndex) {
-                card.classList.remove('hidden');
-            } else {
-                card.classList.add('hidden');
-            }
+            card.classList.toggle('hidden', index >= endIndex);
         });
-        if (endIndex >= cards.length) {
-            loadMoreBtn.style.display = 'none';
-        } else {
-            loadMoreBtn.style.display = 'flex';
+        if (loadMoreBtn) {
+            loadMoreBtn.style.display = endIndex >= cards.length ? 'none' : 'flex';
         }
     }
 
     function recalcAndShow() {
-        const oldCardsPerPage = cardsPerPage;
-        cardsPerPage = getCardsPerPage();
-        currentPage = Math.ceil(Array.from(cards).filter(card => !card.classList.contains('hidden')).length / cardsPerPage) || 1;
+        const newCardsPerPage = getCardsPerPage();
+        if (newCardsPerPage !== cardsPerPage) {
+            const firstVisibleIndex = cards.findIndex(c => !c.classList.contains('hidden'));
+            const visibleIndex = firstVisibleIndex === -1 ? 0 : firstVisibleIndex;
+            cardsPerPage = newCardsPerPage;
+            currentPage = Math.floor(visibleIndex / cardsPerPage) + 1;
+            if (currentPage < 1) currentPage = 1;
+        }
         showCards();
     }
 
-    cardsPerPage = getCardsPerPage();
+    cards.forEach(card => card.classList.add('hidden'));
     showCards();
 
     if (loadMoreBtn) {
@@ -45,16 +45,20 @@ document.addEventListener('DOMContentLoaded', function () {
             currentPage++;
             showCards();
             const firstNewCardIndex = (currentPage - 1) * cardsPerPage;
-            if (cards[firstNewCardIndex]) {
+            const firstNewCard = cards[firstNewCardIndex];
+            if (firstNewCard) {
                 setTimeout(() => {
-                    cards[firstNewCardIndex].scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'center'
-                    });
+                    firstNewCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }, 100);
             }
         });
     }
 
     window.addEventListener('resize', recalcAndShow);
+    if (window.ResizeObserver) {
+        try {
+            const ro = new ResizeObserver(recalcAndShow);
+            ro.observe(document.documentElement);
+        } catch (e) { }
+    }
 });

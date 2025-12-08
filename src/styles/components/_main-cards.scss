@@ -43,7 +43,7 @@
   &__image {
     img {
       width: clamp(120px, 15vw, 266px);
-      height: clamp(200px, 26vw, 400px);
+      height: clamp(200px, 26vw, 440px);
       object-fit: cover;
       display: block;
       mask-image: url("../assets/masks/main_mask.png");
