@@ -72,24 +72,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
             fly.addEventListener('transitionend', (e) => {
                 if (e.propertyName === 'transform') {
-                    // Перед сменой src сделаем плавное исчезновение
                     imageBlock.style.transition = 'opacity 0.3s ease';
                     imageBlock.style.opacity = '0';
 
                     setTimeout(() => {
                         imageBlock.src = cardImg.src;
-                        // После смены src плавно делаем видимым
                         imageBlock.onload = () => {
                             imageBlock.style.transition = 'opacity 0.3s ease';
                             imageBlock.style.opacity = '1';
 
-                            // Убираем анимационный элемент
                             setTimeout(() => {
                                 fly.remove();
                                 isAnimating = false;
-                            }, 300);
+                            }, 100);
                         };
-                    }, 300);
+                    }, 100);
                 }
             }, { once: true });
         });
@@ -110,7 +107,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const imgPadding = parseFloat(fromStyle.paddingLeft || 0);
             fly.style.left = fromRect.left + imgPadding + 'px';
             fly.style.top = fromRect.top + imgPadding + 'px';
-            // Ограничение максимального размера fly
             const maxFlyWidth = 1052;
             const maxFlyHeight = 689;
             let flyWidth = fromRect.width - imgPadding * 2;
@@ -133,15 +129,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
             document.body.appendChild(fly);
 
-            // Перед сменой src делаем плавное исчезновение
             imageBlock.style.transition = 'opacity 0.3s ease';
             imageBlock.style.opacity = '0';
 
-            // После исчезновения меняем src
             setTimeout(() => {
                 imageBlock.src = originalSrc;
                 imageBlock.onload = () => {
-                    // После смены src делаем плавное появление
                     imageBlock.style.transition = 'opacity 0.3s ease';
                     imageBlock.style.opacity = '1';
 
@@ -158,11 +151,11 @@ document.addEventListener('DOMContentLoaded', function () {
                             setTimeout(() => {
                                 fly.remove();
                                 isAnimating = false;
-                            }, 300);
+                            }, 100);
                         }
                     });
                 };
-            }, 300);
+            }, 100);
         });
     });
 });
