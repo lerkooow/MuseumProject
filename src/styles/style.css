@@ -516,11 +516,14 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   display: flex;
   gap: 16px;
   width: 100%;
-  min-height: 100vh;
+  max-width: 1920px;
+  margin: 0 auto;
+  min-height: 1012px;
+  height: 1012px;
 }
 .leaders__content {
   background-color: var(--color-warm-beige);
-  border-radius: 8px;
+  border-radius: clamp(4px, 0.5vw, 8px);
   padding: 40px;
   display: flex;
   position: relative;
@@ -554,7 +557,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 .leaders__wrapper {
   display: flex;
   height: 100%;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .leaders__card {
   display: flex;
@@ -589,7 +592,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 .leaders__img {
   display: block;
   max-width: clamp(220px, 24vw, 446px);
-  max-height: clamp(267px, 29vw, 542px);
+  min-height: clamp(267px, 29vw, 542px);
   width: 100%;
   padding: clamp(8px, 1vw, 16px);
   height: 100%;
@@ -609,18 +612,11 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 }
 .leaders__envelope {
   position: absolute;
-  width: 100%;
-  max-width: clamp(185px, 20vw, 324px);
-  padding: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: fit-content;
-  min-height: clamp(188px, 20vw, 330px);
 }
 .leaders__card--left .leaders__envelope {
-  right: -65%;
-  top: -5%;
+  right: -69%;
+  top: 12%;
+  transform: rotate(4deg);
 }
 .leaders__card--left .leaders__stamp {
   right: -22%;
@@ -628,7 +624,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 }
 .leaders__tape {
   position: absolute;
-  z-index: 1;
+  z-index: 0;
   max-height: clamp(40px, 8vw, 64px);
 }
 .leaders__tape--right {
@@ -662,32 +658,6 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 .leaders__card--right .leaders__stamp {
   right: 9%;
   top: -19%;
-}
-.leaders__envelope-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-.leaders__quote {
-  position: absolute;
-  z-index: 1;
-  font-size: clamp(8px, 0.9vw, 16px);
-  line-height: 1.2;
-  color: var(--color-brown-300);
-  text-align: center;
-  font-style: italic;
-  width: 100%;
-}
-.leaders__card--left .leaders__quote {
-  top: 30%;
-  transform: rotate(2deg);
-}
-.leaders__card--right .leaders__quote {
-  top: 30%;
-  transform: rotate(2deg);
 }
 .leaders__info {
   display: flex;
@@ -723,11 +693,6 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   text-align: center;
   text-transform: uppercase;
 }
-@media (max-width: 2000px) {
-  .leaders__wrapper {
-    justify-content: space-between;
-  }
-}
 @media (max-width: 1024px) {
   .leaders__card--left .leaders__stamp {
     right: -15%;
@@ -735,24 +700,25 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   }
   .leaders__card--left .leaders__envelope {
     right: 30%;
-    top: 50%;
+    top: 80%;
     transform: rotate(-15deg);
   }
   .leaders__card--right .leaders__envelope {
     left: 30%;
-    top: 50%;
+    bottom: 0;
+    top: 80%;
     transform: rotate(10deg);
   }
 }
 @media (max-width: 768px) {
   .leaders {
     padding: 0;
+    height: auto;
   }
   .leaders__content {
     flex-direction: column;
     padding: 20px 16px 16px 16px;
     margin: 80px 16px 16px 16px;
-    border-radius: 4px;
     gap: 16px;
   }
   .leaders__wrapper {
@@ -794,28 +760,12 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     top: 10%;
   }
   .leaders__card--left .leaders__envelope {
-    right: -23%;
-    top: 60%;
+    right: -18%;
     transform: rotate(5deg);
   }
   .leaders__card--right .leaders__envelope {
-    left: -23%;
-    top: 60%;
+    left: -18%;
     transform: rotate(-10deg);
-  }
-  .leaders__envelope-bg {
-    width: 100%;
-    height: 100%;
-  }
-  .leaders__card--left .leaders__quote {
-    top: 33%;
-  }
-  .leaders__quote {
-    max-width: 100%;
-    line-height: 1.2;
-    padding: 4px;
-    text-align: center;
-    font-size: clamp(8px, 1.7vw, 16px);
   }
   .leaders__info {
     gap: 12px;
@@ -8190,6 +8140,101 @@ body {
   .equipment__card-image--main {
     max-width: clamp(301px, 84vw, 360px);
     bottom: clamp(60px, 20vw, 130px);
+  }
+}
+.envelope {
+  position: relative;
+  width: clamp(185px, 19vw, 320px);
+  height: clamp(120px, 12vw, 210px);
+  cursor: pointer;
+}
+.envelope__wrapper {
+  background-color: #fff;
+  width: 94%;
+  margin: auto;
+  height: 94%;
+  z-index: 1;
+}
+.envelope__bottom {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 3;
+}
+.envelope__top {
+  position: absolute;
+  top: -6px;
+  left: 0;
+  width: 100%;
+  transform-origin: top center;
+  transition: transform 1s cubic-bezier(0.4, 0.2, 0.2, 1);
+  z-index: 4;
+}
+.envelope__text {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: clamp(160px, 17vw, 280px);
+  height: 80%;
+  padding: clamp(8px, 1.1vw, 25px) clamp(13px, 2.2vw, 36px);
+  text-align: center;
+  background-color: var(--color-warm-white);
+  box-shadow: 1px -1px 5px rgba(44, 37, 34, 0.2509803922);
+  transition: top 0.6s ease;
+  z-index: 1;
+  mask-image: url("../assets/masks/mask_frame.png");
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-image: url("../assets/masks/mask_frame.png");
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
+.envelope__text p {
+  font-size: clamp(10px, 1vw, 16px);
+  font-style: italic;
+}
+
+.envelope.open .envelope__top {
+  transform: rotateX(180deg) translateY(-6%);
+  z-index: 1;
+  top: -1px;
+}
+
+.envelope.open .envelope__text {
+  transition-delay: 1s;
+}
+
+.envelope.close .envelope__text {
+  top: 40%;
+  transition-delay: 0s;
+  z-index: 2;
+}
+
+.envelope.close .envelope__top {
+  transform: rotateX(0deg);
+  transition-delay: 1s;
+  z-index: 1;
+  top: -1px;
+}
+
+@media (max-width: 768px) {
+  .envelope {
+    width: clamp(185px, 42vw, 320px);
+    height: clamp(120px, 28vw, 210px);
+  }
+  .envelope__text {
+    max-width: clamp(160px, 37vw, 280px);
+    padding: clamp(8px, 4vw, 25px) clamp(13px, 5vw, 36px);
+  }
+  .envelope__text p {
+    font-size: clamp(10px, 2.5vw, 16px);
   }
 }
 
