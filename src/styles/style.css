@@ -2390,18 +2390,18 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   }
 }
 .factory-equipment {
-  padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 16px;
   width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
 }
 .factory-equipment__wrapper {
   display: flex;
   gap: 16px;
-  min-height: 40vh;
-  height: 1012px;
-  max-height: 100vh;
+  min-height: clamp(700px, 60vw, 1012px);
+  padding: 16px;
 }
 .factory-equipment__content {
   background-color: var(--color-warm-beige);
@@ -7874,7 +7874,7 @@ body {
   align-items: center;
   justify-content: space-evenly;
   position: relative;
-  margin: 12% 0 48px 0;
+  margin: clamp(40px, 11vw, 220px) 0 48px 0;
   padding: 0 24px;
   height: 56px;
 }
@@ -7909,7 +7909,8 @@ body {
 }
 
 .equipment {
-  padding: 0 0 5% 11.35vw;
+  padding-left: clamp(85px, 15vw, 210px);
+  margin-bottom: clamp(40px, 11vw, 220px);
 }
 .equipment__cards {
   display: flex;
@@ -7932,7 +7933,6 @@ body {
 }
 .equipment__card {
   position: relative;
-  cursor: pointer;
   overflow: hidden;
   max-width: clamp(343px, 29vw, 538px);
   max-height: clamp(490px, 41vw, 769px);
@@ -7955,7 +7955,6 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  cursor: pointer;
 }
 .equipment__card-image--back {
   left: 19px;
@@ -7967,7 +7966,7 @@ body {
 }
 .equipment__card-image--main {
   right: 10px;
-  bottom: 0;
+  bottom: 20px;
   z-index: 2;
   transform: rotate(-4deg);
   max-width: clamp(301px, 31vw, 473px);
@@ -8043,20 +8042,16 @@ body {
   display: inline-block;
   width: 100%;
   max-height: clamp(240px, 49vw, 769px);
-}
-.equipment__image::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url("../assets/icons/equipment__backgroundBig.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  pointer-events: none;
-  z-index: 0;
+  background-color: var(--color-warm-beige);
+  object-fit: cover;
+  mask-image: url("../assets/masks/equipment_mask.png");
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-image: url("../assets/masks/equipment_mask.png");
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
 }
 .equipment__image img {
   padding: clamp(12px, 2vw, 40px);

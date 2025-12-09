@@ -37,18 +37,27 @@ document.addEventListener('DOMContentLoaded', function () {
             const toRect = imageBlock.getBoundingClientRect();
 
             const fromStyle = window.getComputedStyle(cardImg);
+            const fromStyleImg = window.getComputedStyle(imageBlock);
+
+            const imgPadding = parseFloat(fromStyleImg.paddingLeft || 0);
 
             fly.style.position = 'fixed';
-            fly.style.left = fromRect.left + 'px';
-            fly.style.top = fromRect.top + 'px';
-            fly.style.width = fromRect.width + 'px';
-            fly.style.height = fromRect.height + 'px';
+            fly.style.left = fromRect.left + (imgPadding / 4) + 'px';
+            fly.style.top = fromRect.top + (imgPadding / 2) + 'px';
+            const maxFlyWidth = 1052;
+            const maxFlyHeight = 689;
+            let flyWidth = fromRect.width;
+            let flyHeight = fromRect.height;
+            if (flyWidth > maxFlyWidth) flyWidth = maxFlyWidth;
+            if (flyHeight > maxFlyHeight) flyHeight = maxFlyHeight;
+            fly.style.width = flyWidth + 'px';
+            fly.style.height = flyHeight + 'px';
             fly.style.margin = '0';
             fly.style.padding = '0';
             fly.style.objectFit = fromStyle.objectFit;
             fly.style.pointerEvents = 'none';
             fly.style.zIndex = getZIndexBelowInfo();
-            fly.style.transition = 'transform 1.8s ease-in-out';
+            fly.style.transition = 'transform 3s ease-in-out, opacity 0.3s ease';
             fly.style.transformOrigin = 'center center';
             fly.style.transform = 'rotate(-4deg)';
             fly.style.opacity = '1';
@@ -63,12 +72,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
             fly.addEventListener('transitionend', (e) => {
                 if (e.propertyName === 'transform') {
-                    imageBlock.src = cardImg.src;
+                    // Перед сменой src сделаем плавное исчезновение
+                    imageBlock.style.transition = 'opacity 0.3s ease';
+                    imageBlock.style.opacity = '0';
 
                     setTimeout(() => {
-                        fly.remove();
-                        isAnimating = false;
-                    }, 50);
+                        imageBlock.src = cardImg.src;
+                        // После смены src плавно делаем видимым
+                        imageBlock.onload = () => {
+                            imageBlock.style.transition = 'opacity 0.3s ease';
+                            imageBlock.style.opacity = '1';
+
+                            // Убираем анимационный элемент
+                            setTimeout(() => {
+                                fly.remove();
+                                isAnimating = false;
+                            }, 300);
+                        };
+                    }, 300);
                 }
             }, { once: true });
         });
@@ -86,41 +107,62 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const fromStyle = window.getComputedStyle(imageBlock);
 
+            const imgPadding = parseFloat(fromStyle.paddingLeft || 0);
+            fly.style.left = fromRect.left + imgPadding + 'px';
+            fly.style.top = fromRect.top + imgPadding + 'px';
+            // Ограничение максимального размера fly
+            const maxFlyWidth = 1052;
+            const maxFlyHeight = 689;
+            let flyWidth = fromRect.width - imgPadding * 2;
+            let flyHeight = fromRect.height - imgPadding * 2;
+            if (flyWidth > maxFlyWidth) flyWidth = maxFlyWidth;
+            if (flyHeight > maxFlyHeight) flyHeight = maxFlyHeight;
+            fly.style.width = flyWidth + 'px';
+            fly.style.height = flyHeight + 'px';
+            fly.style.objectFit = "cover"
             fly.style.position = 'fixed';
-            fly.style.left = fromRect.left + 'px';
-            fly.style.top = fromRect.top + 'px';
-            fly.style.width = fromRect.width + 'px';
-            fly.style.height = fromRect.height + 'px';
             fly.style.margin = '0';
             fly.style.padding = '0';
             fly.style.objectFit = fromStyle.objectFit;
             fly.style.pointerEvents = 'none';
             fly.style.zIndex = getZIndexBelowInfo();
-            fly.style.transition = 'transform 1.8s ease-in-out';
+            fly.style.transition = 'transform 3s ease-in-out, opacity 0.3s ease';
             fly.style.transformOrigin = 'center center';
             fly.style.transform = 'none';
             fly.style.opacity = '1';
 
             document.body.appendChild(fly);
 
-            imageBlock.src = originalSrc;
+            // Перед сменой src делаем плавное исчезновение
+            imageBlock.style.transition = 'opacity 0.3s ease';
+            imageBlock.style.opacity = '0';
 
-            const toRect = cardImg.getBoundingClientRect();
+            // После исчезновения меняем src
+            setTimeout(() => {
+                imageBlock.src = originalSrc;
+                imageBlock.onload = () => {
+                    // После смены src делаем плавное появление
+                    imageBlock.style.transition = 'opacity 0.3s ease';
+                    imageBlock.style.opacity = '1';
 
-            requestAnimationFrame(() => {
-                requestAnimationFrame(() => {
-                    fly.style.transform = getTransform(fromRect, toRect) + ' rotate(-4deg)';
-                });
-            });
+                    const toRect = cardImg.getBoundingClientRect();
 
-            fly.addEventListener('transitionend', (e) => {
-                if (e.propertyName === 'transform') {
-                    setTimeout(() => {
-                        fly.remove();
-                        isAnimating = false;
-                    }, 50);
-                }
-            }, { once: true });
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            fly.style.transform = getTransform(fromRect, toRect) + ' rotate(-4deg)';
+                        });
+                    });
+
+                    fly.addEventListener('transitionend', (e) => {
+                        if (e.propertyName === 'transform') {
+                            setTimeout(() => {
+                                fly.remove();
+                                isAnimating = false;
+                            }, 300);
+                        }
+                    });
+                };
+            }, 300);
         });
     });
 });

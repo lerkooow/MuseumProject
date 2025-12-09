@@ -1,16 +1,16 @@
 .factory-equipment {
-  padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 16px;
   width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
 
   &__wrapper {
     display: flex;
     gap: 16px;
-    min-height: 40vh;
-    height: 1012px;
-    max-height: 100vh;
+    min-height: clamp(700px, 60vw, 1012px);
+    padding: 16px;
   }
 
   &__content {
@@ -21,7 +21,6 @@
     flex-direction: column;
     justify-content: space-between;
     position: relative;
-    // max-height: calc(100vh - 32px);
     gap: clamp(32px, 3vw, 107px);
     width: 100%;
 
