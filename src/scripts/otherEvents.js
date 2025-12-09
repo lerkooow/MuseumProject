@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     track.style.display = 'flex';
     track.style.transition = 'transform 0.4s cubic-bezier(.4,0,.2,1)';
-    track.style.gap = '64px';
+    track.style.gap = '90px';
     track.style.width = '100%';
     track.style.justifyContent = 'space-between';
 
@@ -88,17 +88,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const currentPoint = track.querySelector('.other-events__point--current');
     if (currentPoint) {
         const currentIndex = points.indexOf(currentPoint);
-
+        const visible = getVisibleCount();
         if (currentIndex !== -1) {
-            current = currentIndex - 1;
-
-            if (current < 0) current = 0;
-            if (current > points.length - getVisibleCount()) {
-                current = Math.max(0, points.length - getVisibleCount());
+            if (currentIndex < 0) {
+                current = 0;
+            } else if (currentIndex > points.length - visible) {
+                current = Math.max(0, points.length - visible);
+            } else {
+                current = currentIndex - Math.floor(visible / 2);
+                if (current < 0) current = 0;
+                if (current > points.length - visible) current = Math.max(0, points.length - visible);
             }
         }
     }
-
-
     updateSlider();
 });
