@@ -43,8 +43,21 @@ function initFactorySlider({ containerSelector, leftBtnSelector, rightBtnSelecto
   function updateSlider() {
     const cardWidth = cards[0].offsetWidth;
     const currentGap = window.innerWidth <= 768 ? mobileGap : gap;
-    const offset = -(currentIndex * (cardWidth + currentGap));
-    sliderContainer.style.transform = `translateX(${offset}px)`;
+    const visibleCards = getVisibleCards();
+
+    if (currentIndex >= totalCards - visibleCards) {
+      const containerWidth = sliderContainer.parentElement.offsetWidth;
+      const totalWidth = (cardWidth + currentGap) * totalCards - currentGap;
+
+      const paddingLeft = window.innerWidth <= 768 ? gap : 0;
+      const maxOffset = totalWidth - containerWidth + paddingLeft;
+
+      sliderContainer.style.transform = `translateX(-${maxOffset}px)`;
+    } else {
+      const offset = -(currentIndex * (cardWidth + currentGap));
+      sliderContainer.style.transform = `translateX(${offset}px)`;
+    }
+
     updateButtonStates();
   }
 
