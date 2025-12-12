@@ -1,4 +1,4 @@
-function initFactorySlider({ containerSelector, leftBtnSelector, rightBtnSelector, cardSelector, desktopVisible }) {
+function initFactorySlider({ containerSelector, leftBtnSelector, rightBtnSelector, cardSelector, desktopVisible, gap, mobileGap }) {
   const sliderContainer = document.querySelector(containerSelector);
   const leftButton = document.querySelector(leftBtnSelector);
   const rightButton = document.querySelector(rightBtnSelector);
@@ -15,8 +15,7 @@ function initFactorySlider({ containerSelector, leftBtnSelector, rightBtnSelecto
     if (window.innerWidth <= 768) {
       const containerWidth = sliderContainer.parentElement.offsetWidth;
       const cardWidth = 320;
-      const gap = 12;
-      return Math.floor((containerWidth + gap) / (cardWidth + gap));
+      return Math.floor((containerWidth + mobileGap) / (cardWidth + mobileGap));
     }
     return desktopVisible;
   }
@@ -43,8 +42,8 @@ function initFactorySlider({ containerSelector, leftBtnSelector, rightBtnSelecto
 
   function updateSlider() {
     const cardWidth = cards[0].offsetWidth;
-    const gap = window.innerWidth <= 768 ? 12 : 16;
-    const offset = -(currentIndex * (cardWidth + gap));
+    const currentGap = window.innerWidth <= 768 ? mobileGap : gap;
+    const offset = -(currentIndex * (cardWidth + currentGap));
     sliderContainer.style.transform = `translateX(${offset}px)`;
     updateButtonStates();
   }
@@ -81,7 +80,9 @@ document.addEventListener("DOMContentLoaded", function () {
     leftBtnSelector: "#anniversary-button-left .button__arrow",
     rightBtnSelector: "#anniversary-button-right .button__arrow",
     cardSelector: ".anniversary-card",
-    desktopVisible: 3
+    desktopVisible: 3,
+    gap: 16,
+    mobileGap: 12
   });
 
   initFactorySlider({
@@ -89,6 +90,21 @@ document.addEventListener("DOMContentLoaded", function () {
     leftBtnSelector: "#history-button-left .button__arrow",
     rightBtnSelector: "#history-button-right .button__arrow",
     cardSelector: ".history-card",
-    desktopVisible: 2
+    desktopVisible: 2,
+    gap: 40,
+    mobileGap: 12
   });
 });
+
+
+const filters = document.querySelector('.factories-map__filters');
+
+if (filters) {
+  filters.addEventListener('wheel', function (e) {
+    if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+      e.preventDefault();
+      filters.scrollLeft += e.deltaY;
+    }
+  });
+}
+

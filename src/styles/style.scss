@@ -17,18 +17,16 @@
 @use "components/menu";
 @use "components/button";
 @use "components/dropdown";
+@use "components/archive";
+@use "components/map";
+@use "components/envelope";
+
 @use "components/main-cards";
-@use "components/factories-search";
-@use "components/factories-map";
-@use "components/history";
-@use "components/anniversary";
 @use "components/people-list";
 @use "components/contribution";
 @use "components/wishes";
-@use "components/archive";
 @use "components/dynasty";
 @use "components/factories-related";
 @use "components/interactive-cards";
 @use "components/employee_interactive-cards";
 @use "components/equipment_cards";
-@use "components/envelope";
