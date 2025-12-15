@@ -115,7 +115,7 @@
 
   &__card--left &__envelope {
     right: -69%;
-    top: 12%;
+    top: clamp(40px, 11vw, 220px);
     transform: rotate(4deg);
   }
 

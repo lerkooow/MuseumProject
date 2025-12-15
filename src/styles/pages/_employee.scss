@@ -191,7 +191,7 @@
 }
 
 .related {
-  margin: 12% 0 5% 0;
+  margin: clamp(40px, 11vw, 220px) 0;
   padding: 0 16px;
 
   &__header {
@@ -300,5 +300,711 @@
       padding-left: 0;
       justify-content: start;
     }
+  }
+}
+
+.dynasty {
+  margin: clamp(40px, 11vw, 220px) 0;
+
+  &__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(20px, 3.5vw, 50px);
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    justify-content: center;
+  }
+
+  &__title {
+    font-size: clamp(22px, 4vw, 50px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--color-beige-100);
+    text-transform: uppercase;
+  }
+
+  &__controls {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__slider {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  &__slider-container {
+    display: flex;
+    gap: clamp(12px, 2vw, 40px);
+    transition: transform 0.3s ease;
+    justify-content: flex-start;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    padding-right: 16px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-height: clamp(423px, 62vw, 732px);
+  }
+
+  .dynasty__slider-container::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.dynasty-card {
+  position: relative;
+  max-width: clamp(288px, 41vw, 538px);
+  min-width: clamp(288px, 41vw, 538px);
+  width: 100%;
+  border-radius: clamp(2px, 0.5vw, 4px);
+  padding: clamp(32px, 3vw, 48px) clamp(24px, 3vw, 48px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  background-color: var(--color-beige-100);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("../assets/icons/dynasty_background.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &:hover {
+    .dynasty-card__arrow {
+      transform: translateX(4px);
+    }
+  }
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: clamp(432px, 38vw, 900px);
+    object-fit: cover;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &__clip {
+    position: absolute;
+    top: -8px;
+    right: 20%;
+    height: auto;
+    z-index: 3;
+  }
+
+  &__stamp {
+    position: absolute;
+    top: clamp(80px, 8vw, 100px);
+    right: clamp(15px, 2vw, 25px);
+    width: clamp(90px, 9vw, 158px);
+    height: clamp(90px, 9vw, 157px);
+    z-index: 2;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 1;
+  }
+
+  &__label {
+    font-size: clamp(14px, 1vw, 16px);
+    line-height: 1.2;
+    color: var(--color-brown-300);
+    font-style: italic;
+  }
+
+  &__name {
+    font-size: clamp(16px, 2vw, 26px);
+    line-height: 1.1;
+    color: var(--color-brown-300);
+    font-weight: 600;
+  }
+
+  &__position-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(12px, 3vw, 32px);
+  }
+
+  &__photo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    min-width: 0;
+  }
+
+  &__photo {
+    width: 100%;
+    max-width: clamp(168px, 27vw, 296px);
+    max-height: clamp(192px, 30vw, 336px);
+    height: auto;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+    padding: clamp(8px, 1vw, 12px);
+    background-color: var(--color-warm-white);
+    box-shadow: -1.19px 1.19px 4.78px 0px #2c252280 inset;
+  }
+
+  &__position {
+    font-size: clamp(11px, 0.8vw, 13px);
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    color: var(--color-beige-300);
+    z-index: 1;
+    text-align: center;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    z-index: 1;
+    gap: 8px;
+  }
+
+  &__factory {
+    font-size: clamp(11px, 0.85vw, 14px);
+    line-height: 1.2;
+    color: var(--color-beige-300);
+    flex: 1;
+  }
+
+  &__arrow {
+    width: clamp(14px, 1.2vw, 18px);
+    height: clamp(14px, 1.2vw, 18px);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .dynasty {
+    &__slider {
+      padding-left: 0;
+    }
+
+    &__container {
+      padding: 0 0 0 16px;
+    }
+
+    &__header {
+      justify-content: flex-start;
+    }
+  }
+
+  .dynasty-card {
+    &__clip {
+      right: 20%;
+      width: 24px;
+      height: 24px;
+      top: -4px;
+    }
+
+    &__header {
+      gap: 4px;
+      margin-top: 4px;
+    }
+
+    &__footer {
+      padding-top: 8px;
+      gap: 4px;
+    }
+
+    &__photo-wrapper {
+      &::before {
+        width: 184px;
+        height: 208px;
+      }
+    }
+
+    &__photo {
+      max-width: 168px;
+      max-height: 192px;
+    }
+  }
+}
+
+.factories-related {
+  width: 100%;
+  margin: clamp(40px, 11vw, 220px) 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 16px;
+
+  &__title {
+    color: var(--color-beige-100);
+    font-size: clamp(22px, 4vw, 50px);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    margin-bottom: clamp(24px, 3vw, 48px);
+    text-transform: uppercase;
+  }
+
+  &__cards {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  &__card {
+    border-radius: clamp(4px, 0.5vw, 8px);
+    max-width: clamp(343px, 60vw, 530px);
+    width: 100%;
+    min-height: 708px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 0;
+    cursor: pointer;
+
+    &.brown-dark {
+      background-color: var(--color-brown-300);
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 8px;
+        box-shadow: inset 1px 2px 3px #1a1412, inset -1px 1px 2px #ffffff29;
+        pointer-events: none;
+        z-index: 1;
+      }
+    }
+
+    &.brown-light {
+      background-color: var(--color-brown-100);
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 8px;
+        box-shadow: inset 1px 2px 3px #3a312e, inset -1px 1px 2px #ffffff36;
+        pointer-events: none;
+        z-index: 1;
+      }
+    }
+  }
+
+  &__card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 48px 0;
+    position: relative;
+    z-index: 2;
+    flex: 1 1 auto;
+    height: 100%;
+    justify-content: space-between;
+    gap: clamp(24px, 3vw, 38px);
+  }
+
+  &__card-title {
+    color: var(--color-beige-100);
+    font-size: clamp(16px, 2vw, 26px);
+    text-align: center;
+    line-height: 1.1;
+    max-width: 282px;
+    width: 100%;
+  }
+
+  &__card-image-wrapper {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &.brown-dark {
+      &::before,
+      &::after {
+        background: var(--color-brown-200);
+      }
+    }
+
+    &.brown-light {
+      &::before,
+      &::after {
+        background: var(--color-beige-300);
+      }
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+      margin: 0 0 24px 0;
+      max-width: clamp(152px, 19vw, 246px);
+    }
+
+    &::before {
+      margin-bottom: 24px;
+    }
+    &::after {
+      margin-top: 24px;
+    }
+  }
+
+  &__card-image {
+    max-width: clamp(152px, 19vw, 246px);
+    width: 100%;
+    max-height: clamp(184px, 23vw, 296px);
+    mask-image: url("../assets/masks/employee_mask.png");
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-image: url("../assets/masks/employee_mask.png");
+    -webkit-mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+  }
+
+  &__card-caption {
+    color: var(--color-beige-300);
+    font-size: clamp(12px, 1vw, 16px);
+    text-align: center;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    max-width: 184px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .factories-related {
+    padding: 0 16px;
+
+    &__cards {
+      gap: 16px;
+      align-items: center;
+    }
+
+    &__card {
+      max-height: 438px;
+      min-height: auto;
+    }
+
+    &__card-title {
+      max-width: 178px;
+    }
+
+    &__card-content {
+      padding: 24px 0;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .factories-related {
+    &__cards {
+      flex-direction: column;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .factories-related {
+    &__title {
+      text-align: start;
+      width: 100%;
+    }
+  }
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.employee {
+  &__interactive-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    &:last-child {
+      padding-bottom: 16px;
+    }
+  }
+}
+
+.employee__interactive-card {
+  width: calc(33.333% - 11px);
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  background-color: var(--color-beige-100);
+  aspect-ratio: 541 / 769;
+
+  &.hidden {
+    display: none;
+  }
+
+  &:hover {
+    overflow: visible;
+    .employee__interactive-card-image--back {
+      transform: translateY(-40px) rotate(-2deg);
+      transition: transform 1s ease-in-out;
+    }
+
+    .employee__interactive-card-image--main {
+      transform: translateX(40px) translateY(-20px) rotate(5deg);
+      transition: transform 1s ease-in-out;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 50%;
+    bottom: 0;
+    background-image: url("../assets/textures/texture_people.png");
+    background-repeat: repeat;
+    background-size: auto;
+    z-index: 0;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    opacity: 0.3;
+    width: 100%;
+  }
+
+  &-image {
+    &--back,
+    &--main {
+      mask-image: url("../assets/masks/documents_mask.png");
+      mask-size: 100% 100%;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      -webkit-mask-image: url("../assets/masks/documents_mask.png");
+      -webkit-mask-size: 100% 100%;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+      border: 6px solid var(--color-warm-beige);
+      transition: transform 1s ease-in-out;
+    }
+
+    &--back {
+      position: absolute;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      left: 30px;
+      z-index: 2;
+      transform: rotate(-2deg);
+      cursor: pointer;
+      max-width: clamp(300px, 37vw, 486px);
+      max-height: clamp(376px, 37vw, 591px);
+      top: 25px;
+    }
+
+    &--main {
+      position: absolute;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      bottom: 20px;
+      right: -15px;
+      z-index: 3;
+      transform: rotate(-4deg);
+      cursor: pointer;
+      max-width: clamp(301px, 31vw, 447px);
+      max-height: clamp(242px, 22vw, 379px);
+    }
+  }
+
+  &-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: clamp(250px, 24vw, 399px);
+    min-height: clamp(380px, 36vw, 516px);
+    padding: clamp(24px, 3vw, 48px);
+    z-index: 3;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: clamp(8px, 1vw, 16px);
+      pointer-events: none;
+      z-index: 1;
+      border-radius: 2px;
+    }
+
+    &--brown-dark {
+      background-color: var(--color-brown-300);
+
+      &::before {
+        border: 3px solid var(--color-brown-300);
+        box-shadow: inset 1px 2px 3px #1a1412, inset -1px 1px 2px #ffffff29;
+      }
+    }
+
+    &--brown-light {
+      background-color: var(--color-brown-100);
+
+      &::before {
+        border: 3px solid var(--color-brown-100);
+        box-shadow: inset 1px 2px 3px #3a312e, inset -1px 1px 2px #ffffff36;
+      }
+    }
+
+    &--warm-brown {
+      background-color: var(--color-warm-brown);
+
+      &::before {
+        border: 3px solid var(--color-brown-100);
+        box-shadow: inset 1px 2px 3px #2c201c, inset -1px 1px 2px #ffffff36;
+      }
+    }
+  }
+
+  &-header {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &-name,
+  &-equipment {
+    font-size: clamp(16px, 2vw, 26px);
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--color-beige-100);
+  }
+
+  &-name {
+    min-height: 53px;
+  }
+
+  &-equipment {
+    margin-bottom: 24px;
+
+    &--other {
+      font-size: clamp(14px, 1.5vw, 22px);
+      color: var(--color-beige-300);
+      font-style: italic;
+    }
+  }
+
+  &-date {
+    font-size: clamp(14px, 1vw, 16px);
+    line-height: 1.1;
+    color: var(--color-beige-300);
+  }
+
+  &-more {
+    p {
+      font-size: clamp(14px, 1vw, 18px);
+      line-height: 1.1;
+      color: var(--color-beige-300);
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &-description {
+    p {
+      font-size: clamp(14px, 1vw, 18px);
+      line-height: 1.1;
+      color: var(--color-beige-100);
+      letter-spacing: -0.03em;
+    }
+  }
+
+  &-factory {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 10px;
+
+    p {
+      font-size: clamp(14px, 1vw, 18px);
+      line-height: 1.1;
+      color: var(--color-beige-300);
+    }
+  }
+
+  &-arrow {
+    width: 18px;
+    height: 18px;
+  }
+
+  &-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    p {
+      font-size: clamp(14px, 1vw, 16px);
+      color: var(--color-beige-100);
+      font-weight: 600;
+    }
+
+    span {
+      color: var(--color-beige-300);
+      font-size: clamp(12px, 1vw, 14px);
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .employee__interactive-card {
+    width: calc(50% - 8px);
+  }
+}
+
+@media (max-width: 768px) {
+  .employee__interactive-card {
+    &-image {
+      &--back {
+        left: 10px;
+        top: 10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .employee__interactive-card {
+    width: 100%;
   }
 }

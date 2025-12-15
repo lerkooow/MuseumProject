@@ -114,9 +114,23 @@
     transform: scale(0.98) rotate(1deg);
   }
 
-  img {
-    width: 100%;
-    object-fit: cover;
+  &__img-wrapper {
+    min-height: clamp(276px, 77vw, 388px);
+
+    img {
+      width: 100%;
+      object-fit: cover;
+      height: 100%;
+      mask-image: url("../assets/masks/mask_photo-small.png");
+      mask-size: 100% 100%;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      -webkit-mask-image: url("../assets/masks/mask_photo-small.png");
+      -webkit-mask-size: 100% 100%;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+      object-fit: cover;
+    }
   }
 
   &__info {
