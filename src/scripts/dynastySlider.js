@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function () {
     let startX;
     let scrollLeft;
 
-    // ===== Drag мышью =====
     slider.addEventListener('mousedown', (e) => {
         isDown = true;
         slider.classList.add('dragging');
@@ -32,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function () {
         slider.scrollLeft = scrollLeft - walk;
     });
 
-    // ===== Touch =====
     slider.addEventListener('touchstart', (e) => {
         isDown = true;
         startX = e.touches[0].pageX - slider.offsetLeft;
@@ -50,9 +48,8 @@ document.addEventListener('DOMContentLoaded', function () {
         slider.scrollLeft = scrollLeft - walk;
     });
 
-    // ===== Колёсико мыши =====
     slider.addEventListener('wheel', (e) => {
-        e.preventDefault(); // отключаем вертикальный скролл страницы
+        e.preventDefault();
         slider.scrollLeft += e.deltaY;
     }, { passive: false });
 });
