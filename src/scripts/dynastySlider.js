@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let startX;
     let scrollLeft;
 
+    // ===== Drag мышью =====
     slider.addEventListener('mousedown', (e) => {
         isDown = true;
         slider.classList.add('dragging');
@@ -31,18 +32,27 @@ document.addEventListener('DOMContentLoaded', function () {
         slider.scrollLeft = scrollLeft - walk;
     });
 
+    // ===== Touch =====
     slider.addEventListener('touchstart', (e) => {
         isDown = true;
         startX = e.touches[0].pageX - slider.offsetLeft;
         scrollLeft = slider.scrollLeft;
     });
+
     slider.addEventListener('touchend', () => {
         isDown = false;
     });
+
     slider.addEventListener('touchmove', (e) => {
         if (!isDown) return;
         const x = e.touches[0].pageX - slider.offsetLeft;
         const walk = (x - startX) * 1.2;
         slider.scrollLeft = scrollLeft - walk;
     });
+
+    // ===== Колёсико мыши =====
+    slider.addEventListener('wheel', (e) => {
+        e.preventDefault(); // отключаем вертикальный скролл страницы
+        slider.scrollLeft += e.deltaY;
+    }, { passive: false });
 });
