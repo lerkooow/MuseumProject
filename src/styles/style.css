@@ -605,7 +605,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   align-items: center;
   gap: clamp(12px, 1.5vw, 22px);
   position: relative;
-  top: clamp(-60px, -2vw, -40px);
+  top: clamp(-60px, -3vw, -30px);
 }
 .anniversary-card__header img {
   width: clamp(32px, 4vw, 56px);
