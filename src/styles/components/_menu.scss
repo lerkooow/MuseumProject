@@ -98,6 +98,9 @@
     p {
       cursor: pointer;
       transition: color 0.3s ease;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
 
       &:hover {
         color: var(--color-beige-300);
@@ -116,6 +119,28 @@
   &:hover {
     color: var(--color-beige-300);
   }
+}
+
+.nav__link--active {
+  color: var(--color-beige-100);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 3px;
+    background-image: url("../assets/icons/line_active.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+.nav__link--active p {
+  color: var(--color-beige-100);
 }
 
 .hidden {

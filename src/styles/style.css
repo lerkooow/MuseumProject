@@ -723,9 +723,6 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   .history-card__image img {
     max-width: 134px;
   }
-  .history-card__arrow {
-    margin: 0 0 0 8px;
-  }
   .history-card__year-block {
     min-width: 70px;
     padding: 8px;
@@ -7758,6 +7755,9 @@ body {
 .menu__search p {
   cursor: pointer;
   transition: color 0.3s ease;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
 }
 .menu__search p:hover {
   color: var(--color-beige-300);
@@ -7772,6 +7772,27 @@ body {
 }
 .nav__link:hover {
   color: var(--color-beige-300);
+}
+
+.nav__link--active {
+  color: var(--color-beige-100);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.nav__link--active::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 3px;
+  background-image: url("../assets/icons/line_active.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.nav__link--active p {
+  color: var(--color-beige-100);
 }
 
 .hidden {
