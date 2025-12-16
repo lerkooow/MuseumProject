@@ -1138,7 +1138,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 }
 .people-list__card {
   width: 100%;
-  max-height: 474px;
+  max-height: clamp(343px, 25vw, 474px);
   background-size: cover;
   background-position: center;
   background-image: url("../assets/images/people_background.jpg");
@@ -1161,7 +1161,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   border-radius: 2px;
   position: relative;
   padding: clamp(12px, 3vw, 24px);
-  gap: 12px;
+  gap: 24px;
 }
 .people-list__left::before {
   content: "";
@@ -1179,15 +1179,14 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   transition: transform 0.3s ease;
 }
 .people-list__name {
-  font-size: clamp(16px, 2vw, 26px);
+  font-size: clamp(14px, 1vw, 26px);
   line-height: 1.1;
   color: var(--color-brown-300);
   font-weight: 600;
-  margin-bottom: 24px;
   min-height: 115px;
 }
 .people-list__post {
-  font-size: clamp(12px, 1vw, 16px);
+  font-size: clamp(11px, 1vw, 16px);
   line-height: 1.1;
   color: var(--color-beige-300);
 }
@@ -1198,12 +1197,12 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 }
 .people-list__factory p {
   color: var(--color-beige-300);
-  font-size: clamp(12px, 1vw, 18px);
+  font-size: clamp(10px, 1vw, 18px);
   line-height: 1.1;
 }
 .people-list__factory img {
-  width: 18px;
-  height: 18px;
+  width: clamp(16px, 1vw, 18px);
+  height: clamp(16px, 1vw, 18px);
 }
 .people-list__right {
   flex: 1;
@@ -1215,7 +1214,6 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   border-radius: 2px;
   transition: opacity 0.6s ease;
   position: relative;
-  min-height: clamp(167px, 50vw, 410px);
   max-height: clamp(167px, 50vw, 410px);
 }
 .people-list__right img {
@@ -1276,8 +1274,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     gap: 0;
   }
   .people-list__right {
-    min-height: clamp(167px, 65vw, 410px);
-    max-height: clamp(167px, 65vw, 410px);
+    max-height: 100%;
   }
   .people-list__right img {
     mask-image: url("../assets/masks/mask.png");
@@ -1304,6 +1301,10 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   }
   .people-list__name {
     margin-bottom: 12px;
+    font-size: clamp(16px, 4vw, 26px);
+  }
+  .people-list__post {
+    font-size: clamp(12px, 3vw, 16px);
   }
   .people-list__factory {
     display: flex;
@@ -1315,6 +1316,9 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   .people-list__factory img {
     width: 16px;
     height: 16px;
+  }
+  .people-list__factory p {
+    font-size: clamp(12px, 3vw, 18px);
   }
   .people-list__dropdowns {
     width: 100%;
@@ -1337,8 +1341,8 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   }
   .people-list__stamp {
     bottom: clamp(32px, 7vw, 50px);
-    width: clamp(64px, 14vw, 158px);
-    height: clamp(64px, 14vw, 158px);
+    width: clamp(64px, 16vw, 158px);
+    height: clamp(64px, 16vw, 158px);
   }
 }
 

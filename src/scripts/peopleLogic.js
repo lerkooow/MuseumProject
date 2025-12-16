@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const cards = document.querySelectorAll(".people-list__card");
+    const allCards = Array.from(cards);
 
     const alphabetButtons = document.querySelectorAll(".people-list__alphabet-btn");
     const searchInput = document.getElementById("peopleSearch");
@@ -22,46 +23,62 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let cardsPerPage = getCardsPerPage();
 
+    function getFilteredCards() {
+        return allCards.filter((card) => {
+            const name = card
+                .querySelector(".people-list__name")
+                .innerText.replace(/\s+/g, " ")
+                .trim();
+
+            const years = card
+                .querySelector(".people-list__stamp")
+                .alt.toLowerCase();
+
+            const factory = card
+                .querySelector(".people-list__factory p")
+                .innerText.toLowerCase();
+
+            const nameBeforeBrackets = name.split("(")[0].trim();
+            const nameParts = nameBeforeBrackets.split(/\s+/);
+            const surname = nameParts[nameParts.length - 1];
+            const surnameLower = surname.toLowerCase();
+            const firstLetterOfSurname = surname.charAt(0).toUpperCase();
+
+            const matchesLetter =
+                !activeLetter || firstLetterOfSurname === activeLetter;
+
+            const matchesYear =
+                selectedYear === "all" || years.includes(selectedYear);
+
+            const matchesFactory =
+                selectedFactory === "all" || factory.includes(selectedFactory);
+
+            const matchesSearch =
+                !searchQuery || surnameLower.startsWith(searchQuery);
+
+            return (
+                matchesLetter &&
+                matchesYear &&
+                matchesFactory &&
+                matchesSearch
+            );
+        });
+    }
+
     function updateButtonStates() {
         const filteredCards = getFilteredCards();
         const totalCards = filteredCards.length;
         const maxPage = Math.ceil(totalCards / cardsPerPage) - 1;
 
-        if (currentPage === 0) {
-            leftButton.style.opacity = "0.5";
-            leftButton.style.cursor = "not-allowed";
-        } else {
-            leftButton.style.opacity = "1";
-            leftButton.style.cursor = "pointer";
-        }
+        leftButton.style.opacity = currentPage === 0 ? "0.5" : "1";
+        leftButton.style.cursor = currentPage === 0 ? "not-allowed" : "pointer";
 
-        if (currentPage >= maxPage || totalCards <= cardsPerPage) {
-            rightButton.style.opacity = "0.5";
-            rightButton.style.cursor = "not-allowed";
-        } else {
-            rightButton.style.opacity = "1";
-            rightButton.style.cursor = "pointer";
-        }
-    }
-
-    function getFilteredCards() {
-        return Array.from(cards).filter((card) => {
-            const name = card.querySelector(".people-list__name").innerText.replace(/\s+/g, " ").trim();
-            const years = card.querySelector(".people-list__stamp").alt.toLowerCase();
-            const factory = card.querySelector(".people-list__factory p").innerText.toLowerCase();
-
-            const nameBeforeBrackets = name.split("(")[0].trim();
-            const nameParts = nameBeforeBrackets.split(/\s+/);
-            const surname = nameParts[nameParts.length - 1];
-            const firstLetterOfSurname = surname.charAt(0).toUpperCase();
-
-            const matchesLetter = !activeLetter || firstLetterOfSurname === activeLetter;
-            const matchesYear = selectedYear === "all" || years.includes(selectedYear.toLowerCase());
-            const matchesFactory = selectedFactory === "all" || factory.includes(selectedFactory.toLowerCase());
-            const matchesSearch = name.toLowerCase().includes(searchQuery);
-
-            return matchesLetter && matchesYear && matchesFactory && matchesSearch;
-        });
+        rightButton.style.opacity =
+            currentPage >= maxPage || totalCards <= cardsPerPage ? "0.5" : "1";
+        rightButton.style.cursor =
+            currentPage >= maxPage || totalCards <= cardsPerPage
+                ? "not-allowed"
+                : "pointer";
     }
 
     function updateDisplay() {
@@ -70,11 +87,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const totalFiltered = filteredCards.length;
         const maxPage = Math.ceil(totalFiltered / cardsPerPage) - 1;
 
-        if (currentPage < 0) currentPage = 0;
-        if (currentPage > maxPage) currentPage = maxPage;
+        currentPage = Math.max(0, Math.min(currentPage, maxPage));
 
-        cards.forEach(card => card.style.display = "none");
-        // gridContainer.style.gap = "0px";
+        gridContainer.innerHTML = "";
 
         const startIndex = currentPage * cardsPerPage;
         const endIndex = startIndex + cardsPerPage;
@@ -82,18 +97,14 @@ document.addEventListener("DOMContentLoaded", () => {
         filteredCards.forEach((card, index) => {
             if (index >= startIndex && index < endIndex) {
                 card.style.display = "flex";
+                gridContainer.appendChild(card);
             }
         });
 
         peopleCount.textContent = totalFiltered;
 
-        if (totalFiltered === 0) {
-            emptyMessage.style.display = "flex";
-            gridContainer.style.display = "none";
-        } else {
-            emptyMessage.style.display = "none";
-            gridContainer.style.display = "grid";
-        }
+        emptyMessage.style.display = totalFiltered === 0 ? "flex" : "none";
+        gridContainer.style.display = totalFiltered === 0 ? "none" : "grid";
 
         updateButtonStates();
     }
@@ -102,7 +113,6 @@ document.addEventListener("DOMContentLoaded", () => {
         currentPage = 0;
         updateDisplay();
     }
-
 
     alphabetButtons.forEach((btn) => {
         btn.addEventListener("click", () => {
@@ -124,43 +134,37 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     dropdowns.forEach((dropdown, index) => {
-        const items = dropdown.querySelectorAll(".dropdown__item");
-
-        items.forEach((item) => {
+        dropdown.querySelectorAll(".dropdown__item").forEach((item) => {
             item.addEventListener("click", () => {
                 const value = item.dataset.value.toLowerCase();
-
                 if (index === 0) selectedYear = value;
                 if (index === 1) selectedFactory = value;
-
                 filterCards();
             });
         });
     });
 
-    if (leftButton && rightButton) {
-        leftButton.addEventListener("click", () => {
-            currentPage--;
-            updateDisplay();
-        });
+    leftButton.addEventListener("click", () => {
+        currentPage--;
+        updateDisplay();
+    });
 
-        rightButton.addEventListener("click", () => {
-            currentPage++;
-            updateDisplay();
-        });
-    }
-
-    updateDisplay();
+    rightButton.addEventListener("click", () => {
+        currentPage++;
+        updateDisplay();
+    });
 
     window.addEventListener("resize", () => {
         currentPage = 0;
         updateDisplay();
     });
 
-    cards.forEach((card) => {
+    allCards.forEach((card) => {
         card.addEventListener("mouseenter", () => {
             card.classList.add("hovered");
         });
     });
 
+
+    updateDisplay();
 });
