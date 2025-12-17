@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return `translate(${translateX}px, ${translateY}px) scale(${scaleX}, ${scaleY})`;
         }
 
-        imageBlock.style.transition = 'opacity 0.5s ease';
+        imageBlock.style.transition = 'opacity 0.8s ease';
 
         rightBtn.addEventListener('click', () => {
             if (isShown || isAnimating) return;
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
             fly.style.objectFit = fromStyle.objectFit;
             fly.style.pointerEvents = 'none';
             fly.style.zIndex = getZIndexBelowInfo();
-            fly.style.transition = 'transform 3s ease-in-out, opacity 0.5s ease';
+            fly.style.transition = 'transform 2s ease-in-out, opacity 0.8s ease';
             fly.style.transformOrigin = 'center center';
             fly.style.transform = 'rotate(-4deg)';
             fly.style.opacity = '1';
@@ -75,21 +75,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
             fly.addEventListener('transitionend', (e) => {
                 if (e.propertyName === 'transform') {
-                    imageBlock.style.transition = 'opacity 0.5s ease';
+                    imageBlock.style.transition = 'opacity 0.8s ease';
                     imageBlock.style.opacity = '0';
 
                     setTimeout(() => {
                         imageBlock.src = cardImg.src;
                         imageBlock.onload = () => {
-                            imageBlock.style.transition = 'opacity 0.5s ease';
+                            imageBlock.style.transition = 'opacity 0.8s ease';
                             imageBlock.style.opacity = '1';
 
                             setTimeout(() => {
-                                fly.remove();
-                                isAnimating = false;
-                            }, 300);
+                                fly.style.opacity = '0';
+                                setTimeout(() => {
+                                    fly.remove();
+                                    isAnimating = false;
+                                }, 800);
+                            }, 100);
                         };
-                    }, 300);
+                    }, 200);
                 }
             }, { once: true });
         });
@@ -117,8 +120,10 @@ document.addEventListener('DOMContentLoaded', function () {
             let flyHeight = fromRect.height - imgPadding * 2;
             if (flyWidth > maxFlyWidth) flyWidth = maxFlyWidth;
             if (flyHeight > maxFlyHeight) flyHeight = maxFlyHeight;
-            fly.style.width = flyWidth + 'px';
-            fly.style.height = flyHeight + 'px';
+            fly.style.maxWidth = flyWidth + 'px';
+            fly.style.maxHeight = flyHeight + 'px';
+            fly.style.width = "100%";
+            fly.style.height = "100%"
             fly.style.objectFit = "cover"
             fly.style.position = 'fixed';
             fly.style.margin = '0';
@@ -126,20 +131,20 @@ document.addEventListener('DOMContentLoaded', function () {
             fly.style.objectFit = fromStyle.objectFit;
             fly.style.pointerEvents = 'none';
             fly.style.zIndex = getZIndexBelowInfo();
-            fly.style.transition = 'transform 3s ease-in-out, opacity 0.5s ease';
+            fly.style.transition = 'transform 2s ease-in-out, opacity 0.8s ease';
             fly.style.transformOrigin = 'center center';
             fly.style.transform = 'none';
             fly.style.opacity = '1';
 
             document.body.appendChild(fly);
 
-            imageBlock.style.transition = 'opacity 0.5s ease';
+            imageBlock.style.transition = 'opacity 0.8s ease';
             imageBlock.style.opacity = '0';
 
             setTimeout(() => {
                 imageBlock.src = originalSrc;
                 imageBlock.onload = () => {
-                    imageBlock.style.transition = 'opacity 0.5s ease';
+                    imageBlock.style.transition = 'opacity 0.8s ease';
                     imageBlock.style.opacity = '1';
 
                     const toRect = cardImg.getBoundingClientRect();
@@ -152,14 +157,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     fly.addEventListener('transitionend', (e) => {
                         if (e.propertyName === 'transform') {
+                            fly.style.opacity = '0';
                             setTimeout(() => {
                                 fly.remove();
                                 isAnimating = false;
-                            }, 100);
+                            }, 800);
                         }
                     });
                 };
-            }, 100);
+            }, 200);
         });
     });
 });
