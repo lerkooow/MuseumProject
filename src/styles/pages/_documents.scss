@@ -132,7 +132,7 @@
       width: fit-content;
       position: absolute;
       background-color: var(--color-beige-100);
-      box-shadow: 0px 1px 12px 1px rgba(44, 37, 34, 0.5) inset;
+      box-shadow: -2px 2px 8px 0px #2c252280 inset;
       mask-image: url("../assets/masks/mask_frame.png");
       mask-size: 100% 100%;
       mask-repeat: no-repeat;
@@ -399,11 +399,12 @@
       width: 100%;
       height: 100%;
       cursor: pointer;
-      left: 30px;
+      left: clamp(10px, 2vw, 30px);
       z-index: 2;
       transform: rotate(-4deg);
       max-width: clamp(300px, 37vw, 486px);
       max-height: clamp(376px, 37vw, 591px);
+      top: clamp(10px, 2vw, 40px);
     }
 
     &--main {
@@ -568,7 +569,6 @@
     .interactive-card {
       &__info {
         transform: translateX(-100%);
-        opacity: 0.8;
       }
     }
   }

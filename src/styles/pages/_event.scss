@@ -538,7 +538,8 @@
         inset: 0;
         background-image: url("../assets/icons/video_frame.svg");
         background-repeat: no-repeat;
-        background-size: cover;
+        // background-size: cover;
+        background-size: contain;
         background-position: center;
         pointer-events: none;
         z-index: 1;
@@ -550,8 +551,8 @@
   &__filters {
     display: flex;
     gap: 24px;
-    margin-top: clamp(32px, 5vw, 60px);
-    min-height: clamp(40px, 7vw, 86px);
+    margin-top: 32px;
+    // min-height: clamp(40px, 7vw, 86px);
   }
 
   &__filter {
