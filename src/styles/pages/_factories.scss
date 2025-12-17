@@ -545,6 +545,7 @@
       flex-direction: column;
       background-color: var(--color-brown-300);
       border-radius: 4px;
+      margin: 0 clamp(16px, 4vw, 32px) clamp(24px, 5vw, 48px) clamp(16px, 4vw, 32px);
     }
 
     &__header {
@@ -561,9 +562,14 @@
   .factories-map {
     height: auto;
     width: 100%;
+    padding: 0;
 
     &__map {
       padding-right: 16px;
+    }
+
+    &__title {
+      padding: clamp(16px, 4vw, 32px) 0 0 clamp(16px, 4vw, 32px);
     }
 
     &__header {
@@ -578,13 +584,19 @@
       overflow-x: auto;
       scrollbar-width: none;
       -ms-overflow-style: none;
-      padding-right: 16px;
+      padding-left: clamp(16px, 4vw, 32px);
       padding-bottom: 160px;
+      margin-top: clamp(24px, 4vw, 40px);
       margin-bottom: -271px;
+    }
+
+    &__filters > *:last-child {
+      padding-right: 16px;
     }
 
     &__content {
       margin-top: 150px;
+      padding: 0 clamp(16px, 4vw, 32px);
     }
   }
 }

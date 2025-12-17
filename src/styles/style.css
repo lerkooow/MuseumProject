@@ -646,6 +646,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     flex-direction: column;
     background-color: var(--color-brown-300);
     border-radius: 4px;
+    margin: 0 clamp(16px, 4vw, 32px) clamp(24px, 5vw, 48px) clamp(16px, 4vw, 32px);
   }
   .factories-search__header {
     padding: 24px 16px;
@@ -658,9 +659,13 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   .factories-map {
     height: auto;
     width: 100%;
+    padding: 0;
   }
   .factories-map__map {
     padding-right: 16px;
+  }
+  .factories-map__title {
+    padding: clamp(16px, 4vw, 32px) 0 0 clamp(16px, 4vw, 32px);
   }
   .factories-map__header {
     flex-direction: column;
@@ -673,12 +678,17 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     overflow-x: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    padding-right: 16px;
+    padding-left: clamp(16px, 4vw, 32px);
     padding-bottom: 160px;
+    margin-top: clamp(24px, 4vw, 40px);
     margin-bottom: -271px;
+  }
+  .factories-map__filters > *:last-child {
+    padding-right: 16px;
   }
   .factories-map__content {
     margin-top: 150px;
+    padding: 0 clamp(16px, 4vw, 32px);
   }
 }
 @media (max-width: 768px) {
@@ -1135,7 +1145,8 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 }
 .people-list__card {
   width: 100%;
-  max-height: clamp(343px, 25vw, 474px);
+  max-height: clamp(194px, 51vw, 474px);
+  min-height: clamp(194px, 51vw, 474px);
   background-size: cover;
   background-position: center;
   background-image: url("../assets/images/people_background.jpg");
@@ -1211,7 +1222,6 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   border-radius: 2px;
   transition: opacity 0.6s ease;
   position: relative;
-  max-height: clamp(167px, 50vw, 410px);
 }
 .people-list__right img {
   width: 100%;
@@ -1241,8 +1251,8 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: clamp(64px, 7vw, 158px);
-  height: clamp(64px, 7vw, 158px);
+  width: clamp(64px, 9vw, 158px);
+  height: clamp(64px, 9vw, 158px);
   opacity: 0;
   transition: opacity 1.2s ease;
   transition-delay: 0s;
@@ -1277,6 +1287,9 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     mask-image: url("../assets/masks/mask.png");
     opacity: 1;
   }
+  .people-list__left {
+    gap: 12px;
+  }
   .people-list__stamp {
     opacity: 1;
   }
@@ -1298,7 +1311,8 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   }
   .people-list__name {
     margin-bottom: 12px;
-    font-size: clamp(16px, 4vw, 26px);
+    font-size: clamp(14px, 4vw, 26px);
+    min-height: auto;
   }
   .people-list__post {
     font-size: clamp(12px, 3vw, 16px);
@@ -1327,14 +1341,12 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   }
   .people-list__empty {
     min-height: 400px;
+    padding: 0 16px;
   }
   .people-list__grid {
     grid-template-columns: 1fr;
     min-height: auto;
     padding: 16px;
-  }
-  .people-list__card {
-    max-height: none;
   }
   .people-list__stamp {
     bottom: clamp(32px, 7vw, 50px);
@@ -1343,11 +1355,6 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   }
 }
 
-@media (max-width: 425px) {
-  .people-list__dropdowns {
-    justify-content: space-between;
-  }
-}
 @media (max-width: 374px) {
   .dropdown {
     width: 100%;
@@ -2074,7 +2081,6 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 .multimedia__img img {
   max-width: clamp(190px, 13vw, 300px);
   height: clamp(226px, 18vw, 292px);
-  width: 100%;
   position: relative;
   top: -5%;
   transform: rotate(2deg);
@@ -2490,7 +2496,6 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 .awards__img img {
   max-width: clamp(190px, 13vw, 300px);
   height: clamp(226px, 18vw, 292px);
-  width: 100%;
   position: relative;
   top: -5%;
   transform: rotate(2deg);
@@ -7758,6 +7763,7 @@ body {
   line-height: 1.2;
   letter-spacing: -0.03em;
   text-transform: uppercase;
+  padding-top: 4px;
 }
 .menu__search p:hover {
   color: var(--color-beige-300);
@@ -8289,13 +8295,13 @@ body {
   max-width: 187px;
 }
 .tooltip-text__factory {
-  font-size: 16px;
+  font-size: clamp(14px, 1vw, 16px);
   line-height: 1.1;
   font-weight: 600;
   color: var(--color-brown-300);
 }
 .tooltip-text__city {
-  font-size: clamp(12px, 1vw, 14px);
+  font-size: clamp(10px, 1vw, 14px);
   line-height: 1.2;
   letter-spacing: -0.03em;
   font-weight: 600;
@@ -8304,7 +8310,7 @@ body {
   margin-bottom: 4px;
 }
 .tooltip-text__name {
-  font-size: clamp(12px, 1vw, 14px);
+  font-size: clamp(10px, 1vw, 14px);
   line-height: 1.2;
   letter-spacing: -0.03em;
   text-transform: uppercase;

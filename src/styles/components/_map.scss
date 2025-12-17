@@ -84,14 +84,14 @@
   max-width: 187px;
 
   &__factory {
-    font-size: 16px;
+    font-size: clamp(14px, 1vw, 16px);
     line-height: 1.1;
     font-weight: 600;
     color: var(--color-brown-300);
   }
 
   &__city {
-    font-size: clamp(12px, 1vw, 14px);
+    font-size: clamp(10px, 1vw, 14px);
     line-height: 1.2;
     letter-spacing: -0.03em;
     font-weight: 600;
@@ -101,7 +101,7 @@
   }
 
   &__name {
-    font-size: clamp(12px, 1vw, 14px);
+    font-size: clamp(10px, 1vw, 14px);
     line-height: 1.2;
     letter-spacing: -0.03em;
     text-transform: uppercase;
