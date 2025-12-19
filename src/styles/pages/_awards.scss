@@ -255,7 +255,6 @@
     img {
       max-width: clamp(190px, 13vw, 300px);
       height: clamp(226px, 18vw, 292px);
-      // width: 100%;
       position: relative;
       top: -5%;
       transform: rotate(2deg);
@@ -405,6 +404,7 @@
       padding: clamp(16px, 4vw, 24px);
       transition: opacity 0.3s ease, transform 0.3s ease;
       max-width: 100%;
+      min-width: 343px;
 
       &--hidden {
         display: none;

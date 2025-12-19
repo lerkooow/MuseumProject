@@ -1,12 +1,17 @@
 .button__arrow {
-  width: 50px;
-  height: 50px;
+  width: clamp(32px, 5vw, 50px);
+  height: clamp(32px, 5vw, 50px);
   border: none;
-  border-radius: 8px;
+  border-radius: clamp(4px, 0.5vw, 8px);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  img {
+    width: clamp(12px, 1.5vw, 16px);
+    height: clamp(12px, 1.5vw, 16px);
+  }
 
   &.right {
     img {
@@ -48,10 +53,6 @@
 
 @media (max-width: 768px) {
   .button__arrow {
-    width: 32px;
-    height: 32px;
-    border-radius: 4px;
-
     &.right,
     &.left,
     &.down {

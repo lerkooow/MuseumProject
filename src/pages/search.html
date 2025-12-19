@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/style.css" />
+  </head>
+  <body>
+    <main class="search">
+      <!-- Menu  -->
+      <div class="menu">
+        <div class="menu__header">
+          <a href="main.html" class="menu__logo">
+            <img src="../assets/icons/logo_full.svg" alt="logo full" />
+          </a>
+          <a href="main.html" class="menu__logo--mobile">
+            <img src="../assets/icons/logo.svg" alt="logo" />
+          </a>
+          <button class="menu__toggle" aria-label="Toggle menu">
+            <img src="../assets/icons/menu.svg" alt="burger menu" class="menu__burger--mobile" />
+            <img src="../assets/icons/cross.svg" alt="cross" class="menu__cross--mobile hidden" />
+          </button>
+        </div>
+
+        <nav class="menu__nav">
+          <ul class="menu__list">
+            <li class="nav__item">
+              <a href="factories.html" class="nav__link">
+                <p>Фабрики</p>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="people.html" class="nav__link">
+                <p>Люди</p>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="leaders.html" class="nav__link">
+                <p>Руководители</p>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="multimedia.html" class="nav__link">
+                <p>Мультимедиа</p>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="menu__footer">
+          <div class="menu__search">
+            <img src="../assets/icons/prime_search.svg" alt="search" />
+            <a href="search.html">Поиск</a>
+          </div>
+          <img src="../assets/icons/lines.svg" alt="lines" />
+        </div>
+
+        <!-- Menu Mobile  -->
+        <nav class="menu__nav--mobile">
+          <img src="../assets/icons/line_menu.svg" alt="divider" class="menu__divider" />
+          <ul class="menu__list--mobile">
+            <li class="nav__item">
+              <a href="factories.html" class="nav__link"><p>Фабрики</p></a>
+            </li>
+            <li class="nav__item">
+              <a href="people.html" class="nav__link"><p>Люди</p></a>
+            </li>
+            <li class="nav__item">
+              <a href="leaders.html" class="nav__link"><p>Руководители</p></a>
+            </li>
+            <li class="nav__item">
+              <a href="multimedia.html" class="nav__link"><p>Мультимедиа</p></a>
+            </li>
+
+            <div class="menu__footer--mobile">
+              <div class="menu__search">
+                <img src="../assets/icons/prime_search.svg" alt="search" />
+                <a href="search.html">Поиск</a>
+              </div>
+            </div>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="search__wrapper">
+        <!-- Search section -->
+        <section class="search__section">
+          <div class="search__container">
+            <div class="search__input-wrapper">
+              <input type="text" class="search__input" placeholder="Введите фамилию, название фабрики или событие" />
+              <div class="search__results"></div>
+            </div>
+          </div>
+        </section>
+
+        <div class="search__sections">
+          <!-- People section -->
+          <section class="search-people">
+            <div class="search-people__header">
+              <div class="search-people__header_wrapper">
+                <p class="search-people__title">Люди</p>
+                <span id="peopleCount">0</span>
+              </div>
+              <div class="search-people__controls">
+                <div id="search-people-button-left">
+                  <button type="button" class="button__arrow left brown">
+                    <img src="../assets/icons/arrow_beige_100.svg" alt="arrow" />
+                  </button>
+                </div>
+                <div id="search-people-button-right">
+                  <button type="button" class="button__arrow right brown">
+                    <img src="../assets/icons/arrow_beige_100.svg" alt="arrow" />
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="search-people__grid"></div>
+          </section>
+
+          <!-- Factories section -->
+          <section class="search-factories">
+            <div class="search-factories__header">
+              <div class="search-factories__header_wrapper">
+                <p class="search-factories__title">Фабрики</p>
+                <span id="factoriesCount">0</span>
+              </div>
+              <div class="search-factories__controls">
+                <div id="search-factories-button-left">
+                  <button class="button__arrow left brown">
+                    <img src="../assets/icons/arrow_beige_100.svg" alt="arrow" />
+                  </button>
+                </div>
+                <div id="search-factories-button-right">
+                  <button class="button__arrow right brown">
+                    <img src="../assets/icons/arrow_beige_100.svg" alt="arrow" />
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="history__slider">
+              <div class="history__slider-container"></div>
+            </div>
+          </section>
+
+          <!-- Events section -->
+          <section class="search-events">
+            <div class="search-events__header">
+              <div class="search-events__header_wrapper">
+                <p class="search-events__title">События</p>
+                <span id="eventsCount">0</span>
+              </div>
+              <div class="search-events__controls">
+                <div id="search-events-button-left">
+                  <button type="button" class="button__arrow left brown">
+                    <img src="../assets/icons/arrow_beige_100.svg" alt="arrow" />
+                  </button>
+                </div>
+                <div id="search-events-button-right">
+                  <button type="button" class="button__arrow right brown">
+                    <img src="../assets/icons/arrow_beige_100.svg" alt="arrow" />
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="search-events__cards-wrapper">
+              <div class="search-events__cards"></div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <script src="../scripts/toggleMenu.js"></script>
+    <script src="../scripts/search.js"></script>
+  </body>
+</html>

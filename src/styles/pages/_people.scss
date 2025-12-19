@@ -409,8 +409,9 @@
 
   &__card {
     width: 100%;
-    max-height: clamp(194px, 51vw, 474px);
-    min-height: clamp(194px, 51vw, 474px);
+    display: flex;
+    max-height: clamp(194px, 32vw, 474px);
+    min-height: clamp(194px, 32vw, 474px);
     background-size: cover;
     background-position: center;
     background-image: url("../assets/images/people_background.jpg");
@@ -458,7 +459,7 @@
   }
 
   &__name {
-    font-size: clamp(14px, 1vw, 26px);
+    font-size: clamp(14px, 1.7vw, 26px);
     line-height: 1.1;
     color: var(--color-brown-300);
     font-weight: 600;
@@ -498,7 +499,6 @@
     border-radius: 2px;
     transition: opacity 0.6s ease;
     position: relative;
-    // max-height: clamp(167px, 50vw, 410px);
 
     img {
       width: 100%;
@@ -651,10 +651,6 @@
       min-height: auto;
       padding: 16px;
     }
-
-    // &__card {
-    //   max-height: none;
-    // }
 
     &__stamp {
       bottom: clamp(32px, 7vw, 50px);
