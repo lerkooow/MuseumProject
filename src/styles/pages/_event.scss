@@ -489,12 +489,6 @@
         flex: 1;
         max-width: calc(50% - 8px);
       }
-      // & > .event__video_frame:only-child {
-      //   flex: 0 0 50%;
-      //   max-width: 50%;
-      //   margin-left: auto;
-      //   margin-right: auto;
-      // }
     }
 
     &-play {
@@ -538,7 +532,6 @@
         inset: 0;
         background-image: url("../assets/icons/video_frame.svg");
         background-repeat: no-repeat;
-        // background-size: cover;
         background-size: contain;
         background-position: center;
         pointer-events: none;
@@ -552,7 +545,6 @@
     display: flex;
     gap: 24px;
     margin-top: 32px;
-    // min-height: clamp(40px, 7vw, 86px);
   }
 
   &__filter {

@@ -7,8 +7,7 @@
 }
 
 html {
-  font-family: "Gotham Pro", sans-serif; // шрифт по умолчанию по сайту
-  font-size: 0.520835vw; // на разрешении 1920 0.520835vw === 10px, 1rem = 10px
+  font-family: "Gotham Pro", sans-serif;
   font-style: normal;
   font-weight: normal;
   -webkit-animation: bugfix infinite 1s;
@@ -19,7 +18,7 @@ html {
 }
 
 body {
-  font-family: "Gotham Pro", sans-serif; /* шрифт по умолчанию по сайту */
+  font-family: "Gotham Pro", sans-serif;
   font-style: normal;
   font-weight: normal;
   -webkit-animation: bugfix infinite 1s;
@@ -142,7 +141,7 @@ input[type="number"] {
   }
 
   .container {
-    padding: 0 3rem; // в моб версии отступ от края задаем для всех контейнеров, а там где не нужно можем точечно убрать
+    padding: 0 3rem;
     width: 100%;
   }
 }

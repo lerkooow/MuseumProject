@@ -1,23 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const searchInput = document.querySelector('.search__input');
-    const searchSection = document.querySelector('.search');
-    const peopleSection = document.querySelector('.search-people');
-    const peopleGrid = document.querySelector('.search-people__grid');
-    const leftButton = document.querySelector('#search-people-button-left .button__arrow');
-    const rightButton = document.querySelector('#search-people-button-right .button__arrow');
-
-    const factoriesSection = document.querySelector('.search-factories');
-    const factoriesSlider = document.querySelector('.history__slider-container');
-    const factoriesLeftButton = document.querySelector('#search-factories-button-left .button__arrow');
-    const factoriesRightButton = document.querySelector('#search-factories-button-right .button__arrow');
-
-    const eventsSection = document.querySelector('.search-events');
-    const eventsGrid = document.querySelector('.search-events__cards');
-    const eventsLeftButton = document.querySelector('#search-events-button-left .button__arrow');
-    const eventsRightButton = document.querySelector('#search-events-button-right .button__arrow');
-
-    const resultsBlock = document.querySelector('.search__results');
-
     const allPeople = [
         {
             name: 'Василий Иванович Орлов',
@@ -182,6 +163,27 @@ document.addEventListener('DOMContentLoaded', function () {
             link: '#'
         }
     ];
+
+    const searchInput = document.querySelector('.search__input');
+    const searchSection = document.querySelector('.search');
+    const peopleSection = document.querySelector('.search-people');
+    const peopleGrid = document.querySelector('.search-people__grid');
+    const leftButton = document.querySelector('#search-people-button-left .button__arrow');
+    const rightButton = document.querySelector('#search-people-button-right .button__arrow');
+
+    const factoriesSection = document.querySelector('.search-factories');
+    const factoriesSlider = document.querySelector('.history__slider-container');
+    const factoriesLeftButton = document.querySelector('#search-factories-button-left .button__arrow');
+    const factoriesRightButton = document.querySelector('#search-factories-button-right .button__arrow');
+
+    const eventsSection = document.querySelector('.search-events');
+    const eventsGrid = document.querySelector('.search-events__cards');
+    const eventsLeftButton = document.querySelector('#search-events-button-left .button__arrow');
+    const eventsRightButton = document.querySelector('#search-events-button-right .button__arrow');
+
+    const resultsBlock = document.querySelector('.search__results');
+
+
 
     let filteredPeople = [];
     let filteredFactories = [];

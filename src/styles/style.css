@@ -33,7 +33,6 @@
 
 html {
   font-family: "Gotham Pro", sans-serif;
-  font-size: 0.520835vw;
   font-style: normal;
   font-weight: normal;
   -webkit-animation: bugfix infinite 1s;
@@ -44,7 +43,7 @@ html {
 }
 
 body {
-  font-family: "Gotham Pro", sans-serif; /* шрифт по умолчанию по сайту */
+  font-family: "Gotham Pro", sans-serif;
   font-style: normal;
   font-weight: normal;
   -webkit-animation: bugfix infinite 1s;
@@ -7906,7 +7905,6 @@ body {
   border-radius: 2px;
   position: relative;
   padding: clamp(12px, 3vw, 24px);
-  gap: 24px;
 }
 .search-people__left::before {
   content: "";
