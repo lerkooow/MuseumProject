@@ -5,8 +5,7 @@
   width: 100%;
   max-width: 1920px;
   margin: 0 auto;
-  min-height: 1012px;
-  height: 1012px;
+  min-height: clamp(700px, 60vw, 1012px);
 
   &__content {
     background-color: var(--color-warm-beige);

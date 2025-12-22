@@ -64,7 +64,7 @@ body::before {
   background-image: url("../assets/textures/texture.png");
   background-repeat: repeat;
   background-size: auto;
-  z-index: 9999;
+  z-index: 1;
   pointer-events: none;
   mix-blend-mode: multiply;
   opacity: 0.7;
@@ -1600,8 +1600,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   width: 100%;
   max-width: 1920px;
   margin: 0 auto;
-  min-height: 1012px;
-  height: 1012px;
+  min-height: clamp(700px, 60vw, 1012px);
 }
 .leaders__content {
   background-color: var(--color-warm-beige);
