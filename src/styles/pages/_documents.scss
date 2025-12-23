@@ -166,7 +166,7 @@
       left: 40px;
       width: 100%;
       max-width: clamp(156px, 15vw, 380px);
-      max-height: clamp(184px, 24vw, 446px);
+      max-height: clamp(184px, 24vw, 470px);
       z-index: 3;
     }
 
@@ -193,7 +193,27 @@
   }
 
   &__show-more {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 24px;
+    cursor: pointer;
+    margin-bottom: 5%;
+    width: 100%;
+    align-items: center;
+
+    &.hidden {
+      display: none;
+    }
+
+    p {
+      font-size: clamp(14px, 2vw, 18px);
+      color: var(--color-beige-100);
+      text-transform: uppercase;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+    }
   }
 }
 
@@ -304,28 +324,6 @@
       }
     }
   }
-
-  .documents {
-    &__show-more {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      margin-top: 24px;
-      cursor: pointer;
-      margin-bottom: 5%;
-      width: 100%;
-      align-items: center;
-
-      p {
-        font-size: 14px;
-        color: var(--color-beige-100);
-        text-transform: uppercase;
-        letter-spacing: -0.03em;
-        line-height: 1.2;
-      }
-    }
-  }
 }
 
 @media (max-width: 374px) {
@@ -343,7 +341,7 @@
   flex-wrap: wrap;
   gap: 16px;
   padding-left: clamp(85px, 15vw, 210px);
-  margin: clamp(40px, 11vw, 220px) 0;
+  margin-top: clamp(40px, 11vw, 220px);
   padding-right: 16px;
 
   &:last-child {
@@ -734,6 +732,26 @@
     &__info {
       max-width: clamp(232px, 67vw, 400px);
       min-height: clamp(350px, 92vw, 550px);
+      padding: clamp(24px, 6vw, 32px);
+    }
+
+    &__name,
+    &__equipment {
+      font-size: clamp(16px, 4vw, 26px);
+    }
+
+    &__date {
+      font-size: clamp(14px, 3vw, 16px);
+    }
+
+    &__details {
+      p {
+        font-size: clamp(14px, 3vw, 16px);
+      }
+
+      span {
+        font-size: clamp(12px, 3vw, 14px);
+      }
     }
 
     &__image {

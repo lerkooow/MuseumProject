@@ -3435,7 +3435,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   left: 40px;
   width: 100%;
   max-width: clamp(156px, 15vw, 380px);
-  max-height: clamp(184px, 24vw, 446px);
+  max-height: clamp(184px, 24vw, 470px);
   z-index: 3;
 }
 .documents__photo--middle {
@@ -3457,7 +3457,25 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   height: calc(100% - 80px);
 }
 .documents__show-more {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  cursor: pointer;
+  margin-bottom: 5%;
+  width: 100%;
+  align-items: center;
+}
+.documents__show-more.hidden {
   display: none;
+}
+.documents__show-more p {
+  font-size: clamp(14px, 2vw, 18px);
+  color: var(--color-beige-100);
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
 }
 
 @media (max-width: 1024px) {
@@ -3541,24 +3559,6 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   .documents__photo--back {
     top: 0;
   }
-  .documents__show-more {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    margin-top: 24px;
-    cursor: pointer;
-    margin-bottom: 5%;
-    width: 100%;
-    align-items: center;
-  }
-  .documents__show-more p {
-    font-size: 14px;
-    color: var(--color-beige-100);
-    text-transform: uppercase;
-    letter-spacing: -0.03em;
-    line-height: 1.2;
-  }
 }
 @media (max-width: 374px) {
   .documents__photo--back {
@@ -3570,7 +3570,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   flex-wrap: wrap;
   gap: 16px;
   padding-left: clamp(85px, 15vw, 210px);
-  margin: clamp(40px, 11vw, 220px) 0;
+  margin-top: clamp(40px, 11vw, 220px);
   padding-right: 16px;
 }
 .interactive-cards:last-child {
@@ -3894,6 +3894,19 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   .interactive-card__info {
     max-width: clamp(232px, 67vw, 400px);
     min-height: clamp(350px, 92vw, 550px);
+    padding: clamp(24px, 6vw, 32px);
+  }
+  .interactive-card__name, .interactive-card__equipment {
+    font-size: clamp(16px, 4vw, 26px);
+  }
+  .interactive-card__date {
+    font-size: clamp(14px, 3vw, 16px);
+  }
+  .interactive-card__details p {
+    font-size: clamp(14px, 3vw, 16px);
+  }
+  .interactive-card__details span {
+    font-size: clamp(12px, 3vw, 14px);
   }
   .interactive-card__image--main {
     max-width: clamp(301px, 97vw, 580px);
