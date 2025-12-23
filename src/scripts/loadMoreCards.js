@@ -30,19 +30,39 @@ document.addEventListener('DOMContentLoaded', function () {
             if (currentVisibleCount < cards.length) {
                 loadMoreBtn.parentElement.style.display = 'flex';
                 loadMoreText.textContent = 'Показать еще';
+                cardsContainer.classList.remove(`${pagePrefix}__cards--no-button`);
             } else {
                 loadMoreBtn.parentElement.style.display = 'none';
+                cardsContainer.classList.add(`${pagePrefix}__cards--no-button`);
             }
         } else {
-            cards.forEach(card => {
-                card.classList.remove(`${pagePrefix}__card--hidden`);
+            const itemsPerLoad = 6;
+
+            if (currentVisibleCount === 0) {
+                currentVisibleCount = itemsPerLoad;
+            }
+
+            cards.forEach((card, index) => {
+                if (index < currentVisibleCount) {
+                    card.classList.remove(`${pagePrefix}__card--hidden`);
+                } else {
+                    card.classList.add(`${pagePrefix}__card--hidden`);
+                }
             });
-            loadMoreBtn.parentElement.style.display = 'none';
+
+            if (currentVisibleCount < cards.length) {
+                loadMoreBtn.parentElement.style.display = 'flex';
+                loadMoreText.textContent = 'Показать еще';
+                cardsContainer.classList.remove(`${pagePrefix}__cards--no-button`);
+            } else {
+                loadMoreBtn.parentElement.style.display = 'none';
+                cardsContainer.classList.add(`${pagePrefix}__cards--no-button`);
+            }
         }
     }
 
     loadMoreBtn.addEventListener('click', function () {
-        const itemsPerLoad = 3;
+        const itemsPerLoad = window.innerWidth <= 768 ? 3 : 6;
         currentVisibleCount += itemsPerLoad;
         updateCardsVisibility();
     });

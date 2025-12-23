@@ -197,10 +197,11 @@
     flex-direction: column;
     align-items: center;
     gap: 8px;
-    margin-top: 24px;
+    margin: 32px auto clamp(40px, 11vw, 220px) auto;
     cursor: pointer;
-    margin-bottom: 5%;
+    padding-left: clamp(85px, 15vw, 210px);
     width: 100%;
+    max-width: 1920px;
     align-items: center;
 
     &.hidden {
@@ -308,6 +309,10 @@
     &__photo-composition {
       height: clamp(345px, 45vw, 852px);
       max-width: clamp(381px, 37vw, 710px);
+    }
+
+    &__show-more {
+      padding-left: 0;
     }
 
     &__photo {
