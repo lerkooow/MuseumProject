@@ -1155,20 +1155,16 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 .people-list__empty {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 474px;
-  gap: 16px;
-  text-align: center;
 }
 .people-list__empty-text {
-  font-size: 2.4rem;
+  font-size: clamp(14px, 2vw, 18px);
   color: var(--color-beige-100);
-  font-weight: 600;
+  line-height: 1.1;
 }
 .people-list__empty-hint {
-  font-size: 1.6rem;
+  font-size: clamp(14px, 2vw, 18px);
   color: var(--color-beige-300);
+  line-height: 1.1;
 }
 .people-list__card {
   width: 100%;
@@ -1368,8 +1364,11 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     order: 2;
   }
   .people-list__empty {
-    min-height: 400px;
     padding: 0 16px;
+    margin-top: 32px;
+  }
+  .people-list__empty-text {
+    margin-bottom: 32px;
   }
   .people-list__grid {
     grid-template-columns: 1fr;
@@ -1380,6 +1379,10 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     bottom: clamp(32px, 7vw, 50px);
     width: clamp(64px, 16vw, 158px);
     height: clamp(64px, 16vw, 158px);
+  }
+  .people-list__card {
+    max-height: clamp(194px, 50vw, 474px);
+    min-height: clamp(194px, 50vw, 474px);
   }
 }
 

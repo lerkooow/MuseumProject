@@ -70,6 +70,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const totalCards = filteredCards.length;
         const maxPage = Math.ceil(totalCards / cardsPerPage) - 1;
 
+        if (totalCards === 0) {
+            leftButton.parentElement.style.display = "none";
+            rightButton.parentElement.style.display = "none";
+            return;
+        } else {
+            leftButton.parentElement.style.display = "flex";
+            rightButton.parentElement.style.display = "flex";
+        }
+
         leftButton.style.opacity = currentPage === 0 ? "0.5" : "1";
         leftButton.style.cursor = currentPage === 0 ? "not-allowed" : "pointer";
 
