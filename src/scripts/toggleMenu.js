@@ -17,14 +17,24 @@ function toggleMenu() {
     }
 }
 
+function closeMenu() {
+    nav.classList.remove("active");
+    burgerIcon.classList.remove("hidden");
+    crossIcon.classList.add("hidden");
+}
+
 if (toggle) {
     toggle.addEventListener("click", toggleMenu);
 }
 
 document.addEventListener("click", function (event) {
     if (nav.classList.contains("active") && !nav.contains(event.target) && !toggle.contains(event.target)) {
-        nav.classList.remove("active");
-        burgerIcon.classList.remove("hidden");
-        crossIcon.classList.add("hidden");
+        closeMenu();
+    }
+});
+
+window.addEventListener("resize", function () {
+    if (nav.classList.contains("active")) {
+        closeMenu();
     }
 });
