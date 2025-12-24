@@ -36,9 +36,6 @@ document.addEventListener('DOMContentLoaded', function () {
             modalVideo.load();
             modalVideo.style.display = 'block';
             modalImage.style.display = 'none';
-            modalVideo.play().catch(error => {
-                console.log('Автовоспроизведение заблокировано браузером:', error);
-            });
         }
 
         document.body.style.paddingRight = `${scrollbarWidth}px`;
