@@ -25,7 +25,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function openModal() {
+        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+
         updateModalImage();
+
+        document.body.style.paddingRight = `${scrollbarWidth}px`;
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
@@ -33,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function closeModalWindow() {
         modal.classList.remove('active');
         document.body.style.overflow = '';
+        document.body.style.paddingRight = '';
     }
 
     function updateModalImage() {

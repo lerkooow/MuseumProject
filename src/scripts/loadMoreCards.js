@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 cardsContainer.classList.add(`${pagePrefix}__cards--no-button`);
             }
         } else {
-            const itemsPerLoad = 6;
+            const itemsPerLoad = 12;
 
             if (currentVisibleCount === 0) {
                 currentVisibleCount = itemsPerLoad;
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     loadMoreBtn.addEventListener('click', function () {
-        const itemsPerLoad = window.innerWidth <= 768 ? 3 : 6;
+        const itemsPerLoad = window.innerWidth <= 768 ? 3 : 12;
         currentVisibleCount += itemsPerLoad;
         updateCardsVisibility();
     });

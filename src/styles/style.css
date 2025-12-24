@@ -1918,7 +1918,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   min-height: clamp(700px, 60vw, 1012px);
   max-width: 1920px;
   margin: 0 auto;
-  padding: 16px;
+  padding: 16px 0 16px 16px;
 }
 .multimedia__content {
   background-color: var(--color-warm-beige);
@@ -2027,10 +2027,12 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   grid-template-columns: repeat(3, 1fr);
   gap: clamp(16px, 2vw, 40px);
   width: 100%;
-  margin: clamp(40px, 11vw, 220px) auto;
+  margin: clamp(40px, 11vw, 220px) auto 0 auto;
   padding-left: clamp(85px, 15vw, 210px);
-  padding-right: 16px;
   max-width: 1920px;
+}
+.multimedia__cards--no-button {
+  margin-bottom: clamp(40px, 11vw, 220px);
 }
 .multimedia__card {
   background-color: var(--color-beige-100);
@@ -2082,6 +2084,9 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   color: var(--color-brown-300);
   font-weight: 600;
 }
+.multimedia__card--hidden {
+  display: none;
+}
 .multimedia__card:hover .multimedia__clip {
   top: -19px;
   transform: rotate(56deg);
@@ -2124,6 +2129,22 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   -webkit-mask-position: center;
   object-fit: cover;
 }
+.multimedia__img video {
+  max-width: clamp(190px, 13vw, 300px);
+  height: clamp(226px, 18vw, 292px);
+  position: relative;
+  top: -5%;
+  transform: rotate(2deg);
+  mask-image: url("../assets/masks/mask_photo.png");
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-image: url("../assets/masks/mask_photo.png");
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  object-fit: cover;
+}
 .multimedia__info {
   z-index: 2;
   display: flex;
@@ -2135,7 +2156,26 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   overflow: hidden;
 }
 .multimedia__show-more {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin: 32px auto clamp(40px, 11vw, 220px) auto;
+  cursor: pointer;
+  padding-left: clamp(85px, 15vw, 210px);
+  width: 100%;
+  max-width: 1920px;
+  align-items: center;
+}
+.multimedia__show-more.hidden {
   display: none;
+}
+.multimedia__show-more p {
+  font-size: clamp(14px, 2vw, 18px);
+  color: var(--color-beige-100);
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
 }
 @media (max-width: 1024px) {
   .multimedia__content {
@@ -2177,6 +2217,10 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   .multimedia__wrapper {
     height: auto;
     max-height: 100%;
+    padding: 16px;
+  }
+  .multimedia__show-more {
+    padding-left: 0;
   }
   .multimedia__content {
     flex-direction: column;
@@ -2223,7 +2267,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   }
   .multimedia__cards {
     grid-template-columns: 1fr;
-    padding: 0 16px 16px 16px;
+    padding: 0 16px 0 16px;
     margin: clamp(40px, 11vw, 220px) auto 0 auto;
     gap: 16px;
   }
@@ -2260,22 +2304,6 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   .multimedia__img img {
     max-width: clamp(266px, 40vw, 300px);
     height: clamp(258px, 39vw, 292px);
-  }
-  .multimedia__show-more {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    margin-top: 24px;
-    cursor: pointer;
-    margin-bottom: 5%;
-  }
-  .multimedia__show-more p {
-    font-size: 14px;
-    color: var(--color-beige-100);
-    text-transform: uppercase;
-    letter-spacing: -0.03em;
-    line-height: 1.2;
   }
   .multimedia__photo--back {
     max-width: clamp(160px, 50vw, 530px);
@@ -2360,6 +2388,11 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   max-height: 70vh;
   object-fit: contain;
 }
+.multimedia-modal__video {
+  max-width: clamp(500px, 65vw, 900px);
+  max-height: 70vh;
+  object-fit: contain;
+}
 @media (max-width: 768px) {
   .multimedia-modal__close {
     display: none;
@@ -2371,6 +2404,10 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     border-radius: 4px;
   }
   .multimedia-modal__image {
+    width: calc(100% - 32px);
+    max-width: 100%;
+  }
+  .multimedia-modal__video {
     width: calc(100% - 32px);
     max-width: 100%;
   }
