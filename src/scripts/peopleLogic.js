@@ -34,9 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 .querySelector(".people-list__stamp")
                 .alt.toLowerCase();
 
-            const factory = card
-                .querySelector(".people-list__factory p")
-                .innerText.toLowerCase();
+            const factoryValue = card.dataset.factory || "all";
 
             const nameBeforeBrackets = name.split("(")[0].trim();
             const nameParts = nameBeforeBrackets.split(/\s+/);
@@ -51,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 selectedYear === "all" || years.includes(selectedYear);
 
             const matchesFactory =
-                selectedFactory === "all" || factory.includes(selectedFactory);
+                selectedFactory === "all" || factoryValue === selectedFactory;
 
             const matchesSearch =
                 !searchQuery || surnameLower.startsWith(searchQuery);
@@ -145,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
     dropdowns.forEach((dropdown, index) => {
         dropdown.querySelectorAll(".dropdown__item").forEach((item) => {
             item.addEventListener("click", () => {
-                const value = item.dataset.value.toLowerCase();
+                const value = item.dataset.value;
                 if (index === 0) selectedYear = value;
                 if (index === 1) selectedFactory = value;
                 filterCards();
