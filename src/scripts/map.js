@@ -130,42 +130,30 @@ document.addEventListener('DOMContentLoaded', function () {
         let centerX = bbox.x + bbox.width / 2;
         let centerY = bbox.y + bbox.height / 2;
 
-
         const customOffset = markerPositions[region.id];
-        const hasCustomOffset = customOffset && (customOffset.offsetX !== 0 || customOffset.offsetY !== 0);
-
-
-        if (hasCustomOffset) {
+        if (customOffset) {
             centerX += customOffset.offsetX;
             centerY += customOffset.offsetY;
-        } else {
-            const pathData = region.getAttribute('d');
-            if (pathData) {
-                const centroid = calculateCentroid(pathData);
-                if (centroid) {
-                    centerX;
-                    centerY;
-                }
-            }
         }
 
-
         const markerGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-        markerGroup.setAttribute('transform', `translate(${centerX - 12}, ${centerY - 10})`);
+        markerGroup.setAttribute(
+            'transform',
+            `translate(${centerX - 12}, ${centerY - 10})`
+        );
         markerGroup.setAttribute('class', 'region-marker');
         markerGroup.setAttribute('data-region', region.id);
 
+        markerGroup.style.pointerEvents = 'none';
 
         const filterGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
         filterGroup.setAttribute('filter', 'url(#filter0_d_2238_3759)');
-
 
         const innerCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
         innerCircle.setAttribute('cx', '12');
         innerCircle.setAttribute('cy', '10');
         innerCircle.setAttribute('r', '4');
         innerCircle.setAttribute('fill', '#2D2421');
-
 
         const outerCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
         outerCircle.setAttribute('cx', '12');
@@ -176,11 +164,9 @@ document.addEventListener('DOMContentLoaded', function () {
         outerCircle.setAttribute('stroke-width', '2');
         outerCircle.setAttribute('fill', 'none');
 
-
         filterGroup.appendChild(innerCircle);
         filterGroup.appendChild(outerCircle);
         markerGroup.appendChild(filterGroup);
-
 
         return markerGroup;
     }

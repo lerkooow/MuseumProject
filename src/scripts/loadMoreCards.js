@@ -12,57 +12,38 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentVisibleCount = 0;
 
     function updateCardsVisibility() {
+        let itemsPerLoad;
+
         if (window.innerWidth <= 768) {
-            const itemsPerLoad = 3;
-
-            if (currentVisibleCount === 0) {
-                currentVisibleCount = itemsPerLoad;
-            }
-
-            cards.forEach((card, index) => {
-                if (index < currentVisibleCount) {
-                    card.classList.remove(`${pagePrefix}__card--hidden`);
-                } else {
-                    card.classList.add(`${pagePrefix}__card--hidden`);
-                }
-            });
-
-            if (currentVisibleCount < cards.length) {
-                loadMoreBtn.parentElement.style.display = 'flex';
-                loadMoreText.textContent = 'Показать еще';
-                cardsContainer.classList.remove(`${pagePrefix}__cards--no-button`);
-            } else {
-                loadMoreBtn.parentElement.style.display = 'none';
-                cardsContainer.classList.add(`${pagePrefix}__cards--no-button`);
-            }
+            itemsPerLoad = 3;
         } else {
-            const itemsPerLoad = 12;
+            itemsPerLoad = isMultimediaPage ? 12 : 6;
+        }
 
-            if (currentVisibleCount === 0) {
-                currentVisibleCount = itemsPerLoad;
-            }
+        if (currentVisibleCount === 0) {
+            currentVisibleCount = itemsPerLoad;
+        }
 
-            cards.forEach((card, index) => {
-                if (index < currentVisibleCount) {
-                    card.classList.remove(`${pagePrefix}__card--hidden`);
-                } else {
-                    card.classList.add(`${pagePrefix}__card--hidden`);
-                }
-            });
-
-            if (currentVisibleCount < cards.length) {
-                loadMoreBtn.parentElement.style.display = 'flex';
-                loadMoreText.textContent = 'Показать еще';
-                cardsContainer.classList.remove(`${pagePrefix}__cards--no-button`);
+        cards.forEach((card, index) => {
+            if (index < currentVisibleCount) {
+                card.classList.remove(`${pagePrefix}__card--hidden`);
             } else {
-                loadMoreBtn.parentElement.style.display = 'none';
-                cardsContainer.classList.add(`${pagePrefix}__cards--no-button`);
+                card.classList.add(`${pagePrefix}__card--hidden`);
             }
+        });
+
+        if (currentVisibleCount < cards.length) {
+            loadMoreBtn.parentElement.style.display = 'flex';
+            loadMoreText.textContent = 'Показать еще';
+            cardsContainer.classList.remove(`${pagePrefix}__cards--no-button`);
+        } else {
+            loadMoreBtn.parentElement.style.display = 'none';
+            cardsContainer.classList.add(`${pagePrefix}__cards--no-button`);
         }
     }
 
     loadMoreBtn.addEventListener('click', function () {
-        const itemsPerLoad = window.innerWidth <= 768 ? 3 : 12;
+        const itemsPerLoad = window.innerWidth <= 768 ? 3 : (isMultimediaPage ? 12 : 6);
         currentVisibleCount += itemsPerLoad;
         updateCardsVisibility();
     });
