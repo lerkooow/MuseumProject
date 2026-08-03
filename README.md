@@ -35,6 +35,8 @@
 
 ## Live Demo
 
+https://museum-project-web.vercel.app/
+
 ## Технологии
 
 - HTML
