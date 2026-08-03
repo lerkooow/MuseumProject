@@ -1,26 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Список страниц</title>
+    <title>Museum Project — презентационная страница</title>
+    <link rel="stylesheet" href="src/styles/index.css" />
   </head>
   <body>
-    <h1>Список страниц проекта</h1>
-    <ul>
-      <li><a href="/MuseumProject/src/pages/main.html">Главная</a></li>
-      <li><a href="/MuseumProject/src/pages/factories.html">Фабрики</a></li>
-      <li><a href="/MuseumProject/src/pages/factory.html">Сухонский картонно-бумажный комбинат</a></li>
-      <li><a href="/MuseumProject/src/pages/event.html">Событие 1924 год</a></li>
-      <li><a href="/MuseumProject/src/pages/factory-equipment.html">Оборудование фабрики</a></li>
-      <li><a href="/MuseumProject/src/pages/documents.html">Документы</a></li>
-      <li><a href="/MuseumProject/src/pages/awards.html">Награды</a></li>
-      <li><a href="/MuseumProject/src/pages/people.html">Люди</a></li>
-      <li><a href="/MuseumProject/src/pages/employee.html">Сотрудник</a></li>
-      <li><a href="/MuseumProject/src/pages/multimedia.html">Мультимедиа</a></li>
-      <li><a href="/MuseumProject/src/pages/leaders.html">Руководители</a></li>
-      <li><a href="/MuseumProject/src/pages/leader.html">Юрий Александрович Блинушов</a></li>
-      <li><a href="/MuseumProject/src/pages/search.html">Поиск</a></li>
-    </ul>
+    <main class="index-page">
+      <section class="index-page__hero">
+        <div>
+          <p class="index-page__eyebrow">Коммерческий музейный проект</p>
+          <h1 class="index-page__title">Презентационная страница проекта</h1>
+          <p class="index-page__lead">
+            Это многостраничный сайт для музея, разработанный как набор отдельных экранов и контентных страниц. Каждая страница была создана отдельно, а итоговая композиция и сборка проекта
+            выполнялись уже на этапе подготовки к публикации.
+          </p>
+          <div class="index-page__badges">
+            <span class="index-page__badge">HTML</span>
+            <span class="index-page__badge">CSS / SCSS</span>
+            <span class="index-page__badge">JavaScript</span>
+            <span class="index-page__badge">Мультимедиа</span>
+          </div>
+        </div>
+        <div class="index-page__panel">
+          <h2>Что входит в проект</h2>
+          <p>Сайт включает главную страницу, разделы о фабриках, событиях, документах, наградах, людях, руководителях, мультимедиа и поиск по материалам</p>
+          <h3>Цель проекта</h3>
+          <p>Показать музейную историю через современный веб-интерфейс с акцентом на визуальное восприятие и структуру контента</p>
+          <h3>Подход к разработке</h3>
+          <p>Каждая страница была сделана как самостоятельный блок, а затем объединена в единый проект с общей навигацией</p>
+        </div>
+      </section>
+
+      <section class="index-page__section">
+        <h2 class="index-page__section-title">Навигация по страницам</h2>
+        <div class="index-page__links">
+          <a class="index-page__link" href="src/pages/main.html"><strong>Главная</strong><span>Основная страница проекта</span></a>
+          <a class="index-page__link" href="src/pages/factories.html"><strong>Фабрики</strong><span>Раздел о производственных объектах</span></a>
+          <a class="index-page__link" href="src/pages/factory.html"><strong>Сухонский картонно-бумажный комбинат</strong><span>Страница отдельного предприятия</span></a>
+          <a class="index-page__link" href="src/pages/event.html"><strong>Событие 1924 год</strong><span>Историческое событие и контекст</span></a>
+          <a class="index-page__link" href="src/pages/factory-equipment.html"><strong>Оборудование фабрики</strong><span>Инфраструктура и техника</span></a>
+          <a class="index-page__link" href="src/pages/documents.html"><strong>Документы</strong><span>Архивные материалы</span></a>
+          <a class="index-page__link" href="src/pages/awards.html"><strong>Награды</strong><span>История признания и премий</span></a>
+          <a class="index-page__link" href="src/pages/people.html"><strong>Люди</strong><span>Персоны и биографии</span></a>
+          <a class="index-page__link" href="src/pages/employee.html"><strong>Сотрудник</strong><span>Страница сотрудника</span></a>
+          <a class="index-page__link" href="src/pages/multimedia.html"><strong>Мультимедиа</strong><span>Фото, видео и аудио</span></a>
+          <a class="index-page__link" href="src/pages/leaders.html"><strong>Руководители</strong><span>Ключевые лица и управленцы</span></a>
+          <a class="index-page__link" href="src/pages/leader.html"><strong>Юрий Александрович Блинушов</strong><span>Страница руководителя</span></a>
+          <a class="index-page__link" href="src/pages/search.html"><strong>Поиск</strong><span>Поиск по проекту</span></a>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
